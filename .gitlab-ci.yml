@@ -1,0 +1,20 @@
+stages:
+  - quality
+  - test
+
+quality:
+  stage: quality
+  image: astral/uv:python3.11-alpine
+  script:
+    - uv sync
+    - apk add make
+    - make quality
+
+test:
+  stage: test
+  image: astral/uv:python3.11-alpine
+  script:
+    - uv sync
+    - apk add make git
+    - make init_sdk
+    - make test.python

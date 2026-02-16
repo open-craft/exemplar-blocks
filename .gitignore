@@ -1,0 +1,4 @@
+xblock-sdk/
+*.pyc
+var/*
+.venv/*
