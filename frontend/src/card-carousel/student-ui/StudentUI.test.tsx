@@ -6,7 +6,7 @@ import type { XBlockRuntime } from '../../types';
 import { IntlProvider } from 'react-intl';
 import type { ReactElement, ReactNode } from 'react';
 
-const mockRuntime: XBlockRuntime = { handlerUrl: vi.fn() };
+const mockRuntime: XBlockRuntime = { handlerUrl: vi.fn(), notify: vi.fn() };
 
 const mockCards: Array<CardData> = [
   { title: 'Card 1', cardType: CardType.IMAGE, secondaryContent: { location: '', altText: '' }},
