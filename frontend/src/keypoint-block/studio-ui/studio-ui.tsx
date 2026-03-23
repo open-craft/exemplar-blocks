@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { ActionRow, Button, Container, Form, Stack } from '@openedx/paragon';
 import { Add, DeleteOutline } from '@openedx/paragon/icons';
-import { type XBlockRuntime } from '../../types';
 import { type KeyPoint } from '../type';
+import { useContext } from 'react';
+import { RuntimeContext } from '../../lib/context.ts';
+import { useHandlerUrl } from '../../lib/hooks.ts';
 
 interface StudioUiProps {
   initialHeader: string;
   initialKeypoints: KeyPoint[];
   initialButtonText: string;
   initialButtonLink: string;
-  studioSaveUrl: string;
-  runtime: XBlockRuntime;
 }
 
 export default function StudioUi({
@@ -18,9 +18,9 @@ export default function StudioUi({
   initialKeypoints,
   initialButtonText,
   initialButtonLink,
-  studioSaveUrl,
-  runtime,
 }: StudioUiProps) {
+  const { runtime } = useContext(RuntimeContext);
+  const studioSaveUrl = useHandlerUrl('studio_save');
   const [header, setHeader] = React.useState(initialHeader);
   const [keypoints, setKeypoints] =
     React.useState<KeyPoint[]>(initialKeypoints);
@@ -64,7 +64,7 @@ export default function StudioUi({
   };
 
   return (
-    <>
+    <div className="react-studio-block">
       <Container className="xblock-keypoints editor-with-buttons">
         <div className="studio-editor-scroll">
           <Stack direction="vertical" gap={3} className="p-2">
@@ -181,6 +181,6 @@ export default function StudioUi({
           </Button>
         </ActionRow>
       </div>
-    </>
+    </div>
   );
 }

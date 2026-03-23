@@ -1,0 +1,146 @@
+@import '../../base';
+
+.section-block-image {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  height: 208px;
+  max-height: 80lvh;
+}
+
+.separator-cover,
+.course-cover {
+  position: relative;
+}
+/* Separator variant CSS */
+.separator-cover-image-container,
+.course-cover-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  min-width: 100%;
+  height: 100%;
+  overflow: clip;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.separator-cover .text-container,
+.course-cover .text-content {
+  height: 100%;
+}
+
+.separator-cover .text-container .text-content {
+  width: 100%;
+}
+
+/* Can't use CSS variables in media queries, for some reason. We use the standard numbers for bootstrap. */
+@media (max-width: 575px) {
+  .separator-cover-image,
+  .course-cover-image,
+  .course-cover {
+    min-width: 100%;
+    object-fit: cover;
+  }
+}
+@media (min-width: 576px) {
+  .section-block-image,
+  .separator-cover,
+  .course-cover {
+    height: 320px;
+  }
+}
+@media (min-width: 768px) {
+  .section-block-image,
+  .separator-cover,
+  .course-cover {
+    height: 400px;
+  }
+  .section-cover .text-content {
+    max-width: 80%;
+  }
+}
+@media (min-width: 992px) {
+  .section-block-image,
+  .separator-cover,
+  .course-cover {
+    height: 760px;
+  }
+}
+@media (min-width: 1200px) {
+  .section-block-image,
+  .separator-cover,
+  .course-cover {
+    height: 760px;
+  }
+  .section-cover .text-content {
+    max-width: 56%;
+  }
+}
+@media (min-width: 1400px) {
+  .section-block-image,
+  .separator-cover,
+  .course-cover {
+    height: 760px;
+  }
+  .section-cover .text-content {
+    max-width: 60%;
+  }
+}
+
+/*
+The following styles might be better placed in the theme, but are placed here until we can
+determine how to best handle that. Some of them may need to stay in this block anyway.
+*/
+.section-cover .display-1,
+.separator-cover .display-1,
+.course-cover .display-1 {
+  font-family: 'Noto Serif', serif;
+  font-optical-sizing: auto;
+  font-weight: bolder;
+  font-style: normal;
+  letter-spacing: 0;
+  font-variation-settings: 'wdth' 100;
+}
+@media (min-width: 576px) {
+  .section-cover .display-1,
+  .separator-cover .display-1,
+  .course-cover .display-1 {
+    line-height: 5.3125rem;
+  }
+}
+.section-cover strong,
+.separator-cover,
+.course-cover strong {
+  font-weight: bold;
+}
+.section-cover,
+.separator-cover,
+.course-cover {
+  font-family: 'Lato', sans-serif;
+}
+.section-cover .lead,
+.separator-cover .lead,
+.course-cover .lead {
+  font-weight: lighter;
+  font-size: 1.875rem;
+}
+.section-cover .subtitle,
+.separator-cover .lead,
+.course-cover .lead {
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.5625rem;
+  letter-spacing: 0;
+}
+.section-cover .body,
+.separator-cover .body,
+.course-cover .body {
+  font-size: 1rem;
+  line-height: 1.5625rem;
+  letter-spacing: 0;
+  font-weight: 400;
+}

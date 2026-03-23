@@ -47,6 +47,16 @@ export default defineConfig(({ mode }) => {
       globals: true,
       environment: 'jsdom',
       setupFiles: ['./test/setup.ts'],
+      onConsoleLog(log) {
+        // Paragon needs to update their components. We don't do this.
+        if (log.includes('Support for defaultProps will be removed')) {
+          return false;
+        }
+        // Expected by several tests, but can't swallow the output otherwise.
+        if (log.includes('Bogus color found for')) {
+          return false;
+        }
+      },
     },
   };
 });
