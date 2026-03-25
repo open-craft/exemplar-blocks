@@ -1,6 +1,11 @@
-# Cover Block
+# Exemplar XBlocks
 
-The Cover XBlock is a custom block meant to be used as an aesthetically pleasing block intended for use as a section introduction. **It is a quick and dirty block intended to be replaced by a planned upcoming template block.**
+A collection of related XBlocks.
+
+**These are quick and dirty blocks intended to be replaced by a planned upcoming template block.**
+
+- **Cover XBlock**: an aesthetically pleasing block intended for use as a section introduction.
+- [not implemented yet] **Two Column XBlock** an aesthetically pleasing block intended to display engaging static HTML content in two columns.
 
 ## Installation
 
@@ -9,7 +14,7 @@ You can add this block to your requirements in your [Tutor](https://docs.tutor.e
 ```yaml
 OPENEDX_EXTRA_PIP_REQUIREMENTS:
   # ...
-  - git+https://gitlab.com/opencraft/dev/cover-block.git@main#egg=cover-block
+  - git+https://gitlab.com/opencraft/dev/exemplar-blocks.git@main
 ```
 
 Then rebuild your openedx image with:
@@ -33,38 +38,50 @@ tutor dev stop && tutor dev start
 
 ### Enabling in your course
 
-Once installed, visit your course in studio and go to 'Settings->Advanced Settings'. In the Advanced module list, add `"cover"`. See the [Open edX documentation](https://docs.openedx.org/en/latest/educators/how-tos/course_development/exercise_tools/enable_exercises_tools.html#enable-additional-exercises-and-tools) for more information.
+Once installed, visit your course in studio and go to 'Settings' -> 'Advanced Settings'.
+In the Advanced module list, add the following entries, depending on which blocks you wish to enable:
+
+| XBlock            | Advanced settings entry |
+|-------------------|-------------------------|
+| Cover XBlock      | "cover"                 |
+| Two Column XBlock | "two_column"            |
+
+See the [Open edX documentation](https://docs.openedx.org/en/latest/educators/how-tos/course_development/exercise_tools/enable_exercises_tools.html#enable-additional-exercises-and-tools) for more information.
 
 ## Development Workflow
 
-To begin development on this block, install [mise](https://mise.jdx.dev/getting-started.html), clone this repository, enter the directory, and run:
+To begin development on this block:
 
-```bash
-mise trust
-```
+1. Install [Mise](https://mise.jdx.dev/getting-started.html)
+2. Clone this repository: `git clone git@gitlab.com:opencraft/dev/exemplar-blocks.git`
+3. Enter the directory: `cd exemplar-blocks`
+4. Checkout submodules: `git submodule update --init --recursive`
+5. Trust the Mise config (`mise.toml`): `mise trust`
+6. Install project dependencies: `mise run install`
 
-This will trust the project for mise, and prepare the environment for you, installing prereqs. You may additionally need to install [uv](docs.astral.sh/uv/), though Mise might install it for you.
+This will trust the project for mise, and prepare the Python virtual environment for you.
+You may additionally need to install [uv](docs.astral.sh/uv/), though Mise might install it for you.
 
 Next, set up the XBlock sdk:
 
 ```bash
-make init_sdk
+mise run init_sdk
 ```
 
-...and then to start a development server, run:
+... and then to start a development server, run:
 
 ```bash
-make dev
+mise run dev
 ```
 
 You can run formatting with:
 
 ```bash
-make format
+mise run format
 ```
 
 And run the tests with:
 
 ```bash
-make test
+mise run test
 ```

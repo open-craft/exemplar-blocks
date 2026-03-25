@@ -1,20 +1,23 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 stages:
-  - quality
   - test
 
 quality:
-  stage: quality
+  stage: test
   image: astral/uv:python3.11-alpine
   script:
-    - uv sync
-    - apk add make
-    - make quality
+    - apk add mise
+    - mise run install
+    - mise run init_sdk
+    - mise run quality
 
 test:
   stage: test
   image: astral/uv:python3.11-alpine
   script:
-    - uv sync
-    - apk add make git
-    - make init_sdk
-    - make test.python
+    - apk add mise
+    - mise run install
+    - mise run init_sdk
+    - mise run test-python

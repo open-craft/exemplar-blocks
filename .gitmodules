@@ -1,0 +1,4 @@
+[submodule "xblock-sdk"]
+	path = xblock-sdk
+	url = https://github.com/openedx/xblock-sdk.git
+	branch = master
