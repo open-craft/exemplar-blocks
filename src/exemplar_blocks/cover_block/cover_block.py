@@ -10,7 +10,7 @@ from xblock.fields import String, Scope
 from xblock.utils.resources import ResourceLoader
 from xblock.utils.studio_editable import StudioEditableXBlockMixin
 
-from cover_block.types import WorkbenchScenario
+from .types import WorkbenchScenario
 
 resource_loader = ResourceLoader(__name__)
 

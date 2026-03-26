@@ -1,3 +1,53 @@
 [settings]
-python.uv_venv_auto = "create|source"
+python.uv_venv_auto = true
+experimental = true
 
+[env]
+_.python.venv = { path = ".venv" }
+
+# NOTE: Running this will uninstall the xblock-sdk dependencies, since they aren't part of the project dependencies.
+#       After running this, run `mise run init_sdk` if you wish to use the xblock-sdk.
+[tasks.install]
+description = "Install project dependencies"
+run = "uv sync"
+
+[tasks.init_sdk]
+description = "Init the xblock-sdk in the python environment"
+run = [
+    "uv pip install -e ./xblock-sdk",
+    # This may need to be updated if upstream changes how they organize their
+    # requirements. We can't use 'pip' here because it doesn't exist in a uv
+    # environment. It is, however, handled by the uv pip subcommand.
+    "uv pip install -r xblock-sdk/requirements/dev.txt",
+    "uv pip install -r xblock-sdk/requirements/local.txt",
+    "cd xblock-sdk && uv run ./manage.py migrate",
+]
+
+[tasks.format]
+description = "Apply standard formatting to code files"
+run = [
+    "uv run ruff check --fix src",
+    "uv run ruff format src",
+]
+
+[tasks.quality]
+description = "Run quality checks on the code"
+run = [
+    "uv run ruff check src",
+    "uv run ruff format --check src",
+    "uv run mypy src",
+]
+
+[tasks.dev]
+description = "Run a dev server"
+run = "uv run ./manage.py runserver"
+dir = "./xblock-sdk"
+
+[tasks.test-python]
+description = "Run Python unit tests"
+env = { DJANGO_SETTINGS_MODULE = "workbench.settings" }
+run = "uv run pytest src"
+
+[tasks.test]
+description = "Run all tests"
+depends = ["quality", "test-python"]
