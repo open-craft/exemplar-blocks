@@ -12,6 +12,7 @@ dependencies = [
 [project.entry-points."xblock.v1"]
 cover = "exemplar_blocks.cover_block:CoverBlock"
 two_column = "exemplar_blocks.two_column_block:TwoColumnBlock"
+card_carousel = "exemplar_blocks.card_carousel:CardCarouselXBlock"
 
 [build-system]
 requires = ["uv_build>=0.10.3,<0.11.0"]

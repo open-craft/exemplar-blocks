@@ -1,3 +1,8 @@
 *.pyc
 var/*
 .venv/*
+
+frontend/node_modules
+frontend/dist
+# vitest generates a node_modules directory inside src for caching
+frontend/src/node_modules

@@ -6,6 +6,7 @@ A collection of related XBlocks.
 
 - **Cover XBlock**: an aesthetically pleasing block intended for use as a section introduction.
 - [not implemented yet] **Two Column XBlock** an aesthetically pleasing block intended to display engaging static HTML content in two columns.
+- **Card Carousel XBlock**: an XBlock that can present a list of cards in a Carousel. The cards support multiple layouts for presenting the content. This is **NOT usable in courses** yet, only supports demo in the XBlock Workbench.
 
 ## Installation
 
@@ -45,6 +46,7 @@ In the Advanced module list, add the following entries, depending on which block
 |-------------------|-------------------------|
 | Cover XBlock      | "cover"                 |
 | Two Column XBlock | "two_column"            |
+| Card Carousel XBlock | "card_carousel"            |
 
 See the [Open edX documentation](https://docs.openedx.org/en/latest/educators/how-tos/course_development/exercise_tools/enable_exercises_tools.html#enable-additional-exercises-and-tools) for more information.
 
