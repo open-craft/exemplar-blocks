@@ -1,0 +1,10 @@
+@import "@openedx/paragon/dist/core.min.css";
+@import "@openedx/paragon/dist/light.min.css";
+
+:root {
+    --pgn-size-card-image-horizontal-width-max: 50%;
+    --pgn-size-card-image-vertical-max-height: 100%; /* full height offered by the div. i.e., anything not used by the body content. */
+}
+.pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap {
+    max-width: unset;
+}
