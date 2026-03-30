@@ -1,3 +1,5 @@
-export type XBlockRuntime = {
-  handlerUrl: (element: Element, name: string) => string;
-};
+export interface XBlockRuntime {
+  handlerUrl: (element: Element | null, action: string) => string
+  notify: (action: string, data: object) => void
+}
+

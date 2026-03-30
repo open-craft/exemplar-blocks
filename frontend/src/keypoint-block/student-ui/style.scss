@@ -1,0 +1,21 @@
+@import "../index";
+
+.xblock-keypoints {
+  // Bootstrap grid requires border-box sizing. Since we don't import
+  // the full reboot (to avoid affecting LMS global styles), scope it here.
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  .keypoint-label {
+    color: $primary;
+    font-size: 1.1rem;
+  }
+
+  .text-gray-700 {
+    color: $gray-700;
+    line-height: 1.6;
+  }
+}

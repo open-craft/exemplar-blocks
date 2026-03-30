@@ -6,7 +6,8 @@ import type { XBlockRuntime } from '../../types.ts'
 import type { InitData } from '../types.ts'
 
 export const renderBlock = (element: Element, runtime: XBlockRuntime, initData: InitData) => {
-  createRoot(element!).render(
+  const container = element && 'jquery' in element ? (element as unknown as HTMLElement[])[0] : element;
+  createRoot(container!).render(
     <StrictMode>
       {/* The IntlProvider is required as the CardCarousel Paragon Component expects it. */}
       <IntlProvider locale="en">
