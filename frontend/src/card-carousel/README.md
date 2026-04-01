@@ -28,4 +28,4 @@ This is used in place of something like the `@mui/icons-material` React library 
 ## Dev Notes
 
 1. Only the `student-ui` is implemented. The `studio-ui` just has placeholder files.
-2. The `index.html` files in the `student-ui` and `studio-ui` are useful for developing the libraries without involving the XBlock workbench. They act as entry points for Vite to serve the components when `npm run dev` is used. They are currently **not used**.
+2. The `index.html` files in the `student-ui` and `studio-ui` are useful for developing the libraries without involving the XBlock workbench. They act as entry points for Vite to serve the components when `pnpm run dev` is used. They are currently **not used**.

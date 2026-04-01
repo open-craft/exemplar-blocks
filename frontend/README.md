@@ -28,7 +28,7 @@ This project uses `pnpm`, not `npm`.
 2. Add an new entry in `const libs`, mapping the entry points and the output directory in `vite.config.ts`.
 3. Prefix your build commands with the name of the XBlock using the `XBLOCK` envvar.
 
-For example, with the following config run `XBLOCK=my-new-block npm run build:watch`
+For example, with the following config run `XBLOCK=my-new-block pnpm run build:watch`
 
 ```js
 const libs = {
