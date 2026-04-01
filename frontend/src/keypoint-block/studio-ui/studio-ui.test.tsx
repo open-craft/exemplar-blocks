@@ -19,10 +19,20 @@ function createMockDeferred(): MockDeferred {
   let doneCb: (() => void) | null = null;
   let failCb: (() => void) | null = null;
   const deferred: MockDeferred = {
-    done(cb) { doneCb = cb; return deferred; },
-    fail(cb) { failCb = cb; return deferred; },
-    _resolveDone() { doneCb?.(); },
-    _resolveFail() { failCb?.(); },
+    done(cb) {
+      doneCb = cb;
+      return deferred;
+    },
+    fail(cb) {
+      failCb = cb;
+      return deferred;
+    },
+    _resolveDone() {
+      doneCb?.();
+    },
+    _resolveFail() {
+      failCb?.();
+    },
   };
   return deferred;
 }
@@ -34,6 +44,7 @@ const mockPost = vi.fn(() => {
 });
 
 // Assign to globalThis so the component's `$.post(...)` calls hit our mock.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 (globalThis as any).$ = { post: mockPost };
 
 // ── helpers ──────────────────────────────────────────────────────────────────
@@ -50,7 +61,9 @@ function mockRuntime(): XBlockRuntime {
   };
 }
 
-function renderStudio(overrides: Partial<React.ComponentProps<typeof StudioUi>> = {}) {
+function renderStudio(
+  overrides: Partial<React.ComponentProps<typeof StudioUi>> = {},
+) {
   const props: React.ComponentProps<typeof StudioUi> = {
     initialHeader: 'Key Concepts',
     initialKeypoints: sampleKeypoints,
@@ -88,16 +101,22 @@ describe('StudioUi', () => {
 
     it('renders Button Link input with initial value', () => {
       renderStudio();
-      const input = screen.getByPlaceholderText('e.g. https://example.com/glossary');
+      const input = screen.getByPlaceholderText(
+        'e.g. https://example.com/glossary',
+      );
       expect(input).toHaveValue('https://example.com/glossary');
     });
 
     it('renders pre-populated keypoints with labels and descriptions', () => {
       renderStudio();
       expect(screen.getByDisplayValue('Fluid balance')).toBeInTheDocument();
-      expect(screen.getByDisplayValue('Regulation of fluids.')).toBeInTheDocument();
+      expect(
+        screen.getByDisplayValue('Regulation of fluids.'),
+      ).toBeInTheDocument();
       expect(screen.getByDisplayValue('Neural signaling')).toBeInTheDocument();
-      expect(screen.getByDisplayValue('How neurons communicate.')).toBeInTheDocument();
+      expect(
+        screen.getByDisplayValue('How neurons communicate.'),
+      ).toBeInTheDocument();
     });
 
     it('renders term numbering', () => {
@@ -113,7 +132,9 @@ describe('StudioUi', () => {
 
     it('does not show empty state message when keypoints exist', () => {
       renderStudio();
-      expect(screen.queryByText(/No key terms added yet/)).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(/No key terms added yet/),
+      ).not.toBeInTheDocument();
     });
 
     it('renders Save and Cancel buttons', () => {
@@ -134,7 +155,11 @@ describe('StudioUi', () => {
 
       expect(screen.getByText('Term 1')).toBeInTheDocument();
       expect(screen.getByPlaceholderText('e.g. Fluid balance')).toHaveValue('');
-      expect(screen.getByPlaceholderText('e.g. The regulation of fluids within the body...')).toHaveValue('');
+      expect(
+        screen.getByPlaceholderText(
+          'e.g. The regulation of fluids within the body...',
+        ),
+      ).toHaveValue('');
     });
 
     it('empty state message disappears after adding a term', async () => {
@@ -143,7 +168,9 @@ describe('StudioUi', () => {
 
       expect(screen.getByText(/No key terms added yet/)).toBeInTheDocument();
       await user.click(screen.getByText('Add Key Term'));
-      expect(screen.queryByText(/No key terms added yet/)).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(/No key terms added yet/),
+      ).not.toBeInTheDocument();
     });
 
     it('appends to existing keypoints with correct numbering', async () => {
@@ -188,7 +215,9 @@ describe('StudioUi', () => {
       await user.type(firstLabel, 'Changed');
 
       expect(screen.getByDisplayValue('Neural signaling')).toBeInTheDocument();
-      expect(screen.getByDisplayValue('How neurons communicate.')).toBeInTheDocument();
+      expect(
+        screen.getByDisplayValue('How neurons communicate.'),
+      ).toBeInTheDocument();
     });
   });
 
@@ -202,7 +231,9 @@ describe('StudioUi', () => {
       const removeButtons = screen.getAllByText('Remove');
       await user.click(removeButtons[0]); // remove first keypoint
 
-      expect(screen.queryByDisplayValue('Fluid balance')).not.toBeInTheDocument();
+      expect(
+        screen.queryByDisplayValue('Fluid balance'),
+      ).not.toBeInTheDocument();
       expect(screen.getByDisplayValue('Neural signaling')).toBeInTheDocument();
     });
 
@@ -255,7 +286,9 @@ describe('StudioUi', () => {
       const user = userEvent.setup();
       renderStudio();
 
-      const input = screen.getByPlaceholderText('e.g. https://example.com/glossary');
+      const input = screen.getByPlaceholderText(
+        'e.g. https://example.com/glossary',
+      );
       await user.clear(input);
       await user.type(input, 'https://new-link.com');
       expect(input).toHaveValue('https://new-link.com');
@@ -337,9 +370,14 @@ describe('StudioUi', () => {
 
       // Add a keypoint and fill it in
       await user.click(screen.getByText('Add Key Term'));
-      await user.type(screen.getByPlaceholderText('e.g. Fluid balance'), 'New term');
       await user.type(
-        screen.getByPlaceholderText('e.g. The regulation of fluids within the body...'),
+        screen.getByPlaceholderText('e.g. Fluid balance'),
+        'New term',
+      );
+      await user.type(
+        screen.getByPlaceholderText(
+          'e.g. The regulation of fluids within the body...',
+        ),
         'New description',
       );
 
@@ -381,7 +419,9 @@ describe('StudioUi', () => {
       const user = userEvent.setup();
       renderStudio({ initialKeypoints: [] });
 
-      const headerInput = screen.getByPlaceholderText('e.g. Key Concepts to Explore');
+      const headerInput = screen.getByPlaceholderText(
+        'e.g. Key Concepts to Explore',
+      );
       await user.clear(headerInput);
       await user.type(headerInput, 'Updated Header');
 
@@ -389,7 +429,9 @@ describe('StudioUi', () => {
       await user.clear(btnTextInput);
       await user.type(btnTextInput, 'Resources');
 
-      const btnLinkInput = screen.getByPlaceholderText('e.g. https://example.com/glossary');
+      const btnLinkInput = screen.getByPlaceholderText(
+        'e.g. https://example.com/glossary',
+      );
       await user.clear(btnLinkInput);
       await user.type(btnLinkInput, 'https://new.com');
 

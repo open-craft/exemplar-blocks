@@ -24,9 +24,9 @@ The Save / Cancel action bar is rendered **outside** the `.editor-with-buttons` 
 
 Defined in `type.ts`:
 
-| Type | Fields |
-|------|--------|
-| `KeyPoint` | `keypoint` (label string), `description` (description string) |
+| Type         | Fields                                                                    |
+| ------------ | ------------------------------------------------------------------------- |
+| `KeyPoint`   | `keypoint` (label string), `description` (description string)             |
 | `XBlockData` | `header`, `keypoints` (array of `KeyPoint`), `button_text`, `button_link` |
 
 ## Dev Notes

@@ -1,8 +1,8 @@
 .card-badge {
-    margin: var(--pgn-spacing-card-spacer-x);
-    margin-bottom: 0;
-    font-size: x-large !important;
+  margin: var(--pgn-spacing-card-spacer-x);
+  margin-bottom: 0;
+  font-size: x-large !important;
 }
 .card-badge .badge {
-    padding: var(--pgn-spacing-card-spacer-y) var(--pgn-spacing-card-spacer-x);
+  padding: var(--pgn-spacing-card-spacer-y) var(--pgn-spacing-card-spacer-x);
 }

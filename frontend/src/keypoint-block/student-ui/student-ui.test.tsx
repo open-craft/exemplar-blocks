@@ -4,9 +4,18 @@ import StudentUi from './student-ui';
 import { type KeyPoint } from '../type';
 
 const sampleKeypoints: KeyPoint[] = [
-  { keypoint: 'Fluid balance', description: 'The regulation of fluids within the body.' },
-  { keypoint: 'Neural signaling', description: 'How neurons transmit signals across synapses.' },
-  { keypoint: 'Membrane potential', description: 'The electrical charge difference across a cell membrane.' },
+  {
+    keypoint: 'Fluid balance',
+    description: 'The regulation of fluids within the body.',
+  },
+  {
+    keypoint: 'Neural signaling',
+    description: 'How neurons transmit signals across synapses.',
+  },
+  {
+    keypoint: 'Membrane potential',
+    description: 'The electrical charge difference across a cell membrane.',
+  },
 ];
 
 describe('StudentUi', () => {
@@ -76,7 +85,9 @@ describe('StudentUi', () => {
           buttonLink="https://example.com/glossary"
         />,
       );
-      expect(screen.queryByRole('heading', { level: 2 })).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('heading', { level: 2 }),
+      ).not.toBeInTheDocument();
     });
 
     it('does not render the action button when buttonText is empty', () => {

@@ -3554,7 +3554,7 @@ function Xi({ initData: { cards: e, displayName: t, orientation: n, disableNumbe
 //#endregion
 //#region src/card-carousel/student-ui/main.tsx
 var Zi = (e, t, n) => {
-	(0, u.createRoot)(e).render(/* @__PURE__ */ (0, $.jsx)(d.StrictMode, { children: /* @__PURE__ */ (0, $.jsx)(o, {
+	(0, u.createRoot)(e && "jquery" in e ? e[0] : e).render(/* @__PURE__ */ (0, $.jsx)(d.StrictMode, { children: /* @__PURE__ */ (0, $.jsx)(o, {
 		locale: "en",
 		children: /* @__PURE__ */ (0, $.jsx)(Xi, {
 			runtime: t,

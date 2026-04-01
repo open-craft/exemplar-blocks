@@ -1,26 +1,29 @@
 import * as React from 'react';
-import {
-  ActionRow, Button, Container, Form, Stack,
-} from '@openedx/paragon';
+import { ActionRow, Button, Container, Form, Stack } from '@openedx/paragon';
 import { Add, DeleteOutline } from '@openedx/paragon/icons';
 import { type XBlockRuntime } from '../../types';
 import { type KeyPoint } from '../type';
 
 interface StudioUiProps {
-  initialHeader: string
-  initialKeypoints: KeyPoint[]
-  initialButtonText: string
-  initialButtonLink: string
-  studioSaveUrl: string
-  runtime: XBlockRuntime
+  initialHeader: string;
+  initialKeypoints: KeyPoint[];
+  initialButtonText: string;
+  initialButtonLink: string;
+  studioSaveUrl: string;
+  runtime: XBlockRuntime;
 }
 
 export default function StudioUi({
-  initialHeader, initialKeypoints, initialButtonText, initialButtonLink,
-  studioSaveUrl, runtime,
+  initialHeader,
+  initialKeypoints,
+  initialButtonText,
+  initialButtonLink,
+  studioSaveUrl,
+  runtime,
 }: StudioUiProps) {
   const [header, setHeader] = React.useState(initialHeader);
-  const [keypoints, setKeypoints] = React.useState<KeyPoint[]>(initialKeypoints);
+  const [keypoints, setKeypoints] =
+    React.useState<KeyPoint[]>(initialKeypoints);
   const [buttonText, setButtonText] = React.useState(initialButtonText);
   const [buttonLink, setButtonLink] = React.useState(initialButtonLink);
 
@@ -40,17 +43,23 @@ export default function StudioUi({
 
   const handleSave = () => {
     runtime.notify('save', { state: 'start' });
-    $.post(studioSaveUrl, JSON.stringify({
-      header,
-      keypoints,
-      button_text: buttonText,
-      button_link: buttonLink,
-    }))
+    $.post(
+      studioSaveUrl,
+      JSON.stringify({
+        header,
+        keypoints,
+        button_text: buttonText,
+        button_link: buttonLink,
+      }),
+    )
       .done(() => {
         runtime.notify('save', { state: 'end' });
       })
       .fail(() => {
-        runtime.notify('error', { title: 'Save Error', message: 'Failed to save keypoint configuration' });
+        runtime.notify('error', {
+          title: 'Save Error',
+          message: 'Failed to save keypoint configuration',
+        });
       });
   };
 
@@ -59,13 +68,14 @@ export default function StudioUi({
       <Container className="xblock-keypoints editor-with-buttons">
         <div className="studio-editor-scroll">
           <Stack direction="vertical" gap={3} className="p-2">
-
             {/* Block Header */}
             <Form.Group>
               <Form.Label>Block Header</Form.Label>
               <Form.Control
                 value={header}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHeader(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setHeader(e.target.value)
+                }
                 placeholder="e.g. Key Concepts to Explore"
               />
             </Form.Group>
@@ -81,14 +91,14 @@ export default function StudioUi({
               </ActionRow>
 
               {keypoints.length === 0 && (
-                <p className="text-muted">No key terms added yet. Click &quot;Add Key Term&quot; to get started.</p>
+                <p className="text-muted">
+                  No key terms added yet. Click &quot;Add Key Term&quot; to get
+                  started.
+                </p>
               )}
 
               {keypoints.map((kp, idx) => (
-                <div
-                  className="keypoint-entry"
-                  key={`keypoint-${idx}`} // eslint-disable-line react/no-array-index-key
-                >
+                <div className="keypoint-entry" key={`keypoint-${idx}`}>
                   <ActionRow className="mb-2">
                     <span className="font-weight-bold">Term {idx + 1}</span>
                     <ActionRow.Spacer />
@@ -105,7 +115,9 @@ export default function StudioUi({
                     <Form.Label>Label</Form.Label>
                     <Form.Control
                       value={kp.keypoint}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateKeypoint(idx, { keypoint: e.target.value })}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        updateKeypoint(idx, { keypoint: e.target.value })
+                      }
                       placeholder="e.g. Fluid balance"
                     />
                   </Form.Group>
@@ -115,7 +127,9 @@ export default function StudioUi({
                       as="textarea"
                       rows={3}
                       value={kp.description}
-                      onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateKeypoint(idx, { description: e.target.value })}
+                      onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                        updateKeypoint(idx, { description: e.target.value })
+                      }
                       placeholder="e.g. The regulation of fluids within the body..."
                     />
                   </Form.Group>
@@ -130,7 +144,9 @@ export default function StudioUi({
                 <Form.Label>Button Text</Form.Label>
                 <Form.Control
                   value={buttonText}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setButtonText(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setButtonText(e.target.value)
+                  }
                   placeholder="e.g. Glossary"
                 />
               </Form.Group>
@@ -138,12 +154,13 @@ export default function StudioUi({
                 <Form.Label>Button Link</Form.Label>
                 <Form.Control
                   value={buttonLink}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setButtonLink(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setButtonLink(e.target.value)
+                  }
                   placeholder="e.g. https://example.com/glossary"
                 />
               </Form.Group>
             </div>
-
           </Stack>
         </div>
       </Container>
@@ -159,11 +176,7 @@ export default function StudioUi({
           >
             Cancel
           </Button>
-          <Button
-            variant="primary"
-            onClick={handleSave}
-            size="lg"
-          >
+          <Button variant="primary" onClick={handleSave} size="lg">
             Save
           </Button>
         </ActionRow>

@@ -21,3 +21,20 @@ test:
     - mise run install
     - mise run init_sdk
     - mise run test-python
+
+test frontend:
+  stage: test
+  image: node:24-alpine
+  script:
+    - apk add git
+    - cd frontend
+    - npm ci
+    # Run all the npm jobs in a single CI job step to avoid wasting resources installing dependencies multiple times
+    - npm run lint
+    - npm run test
+    - XBLOCK=card_carousel npm run build
+    - XBLOCK=keypoint_block npm run build
+    # The frontend build artefacts are committed to the repo.
+    # Check they are up to date; if there are changes in the repo after the build commands above,
+    # then the build artefacts weren't up to date.
+    - git diff --exit-code

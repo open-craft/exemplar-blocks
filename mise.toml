@@ -49,5 +49,5 @@ env = { DJANGO_SETTINGS_MODULE = "workbench.settings" }
 run = "uv run pytest src"
 
 [tasks.test]
-description = "Run all tests"
+description = "Run all backend Python tests"
 depends = ["quality", "test-python"]

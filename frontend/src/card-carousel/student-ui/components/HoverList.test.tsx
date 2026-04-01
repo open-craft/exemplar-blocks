@@ -26,19 +26,25 @@ describe('HoverList', () => {
 
   it('does not render hover-content div when hoverContent is empty', () => {
     const { container } = render(
-      <HoverList items={[{ description: 'Only item', hoverContent: '' }]} />
+      <HoverList items={[{ description: 'Only item', hoverContent: '' }]} />,
     );
     expect(container.querySelector('.hover-content')).not.toBeInTheDocument();
   });
 
   it('renders MaterialIcon when item has both icon and hoverContent', () => {
-    render(<HoverList items={[{ description: 'Item', hoverContent: 'Hover', icon: 'star' }]} />);
+    render(
+      <HoverList
+        items={[{ description: 'Item', hoverContent: 'Hover', icon: 'star' }]}
+      />,
+    );
     // MaterialIcon renders the name inside a .material-icons span
     expect(screen.getByText('star')).toBeInTheDocument();
   });
 
   it('does not render MaterialIcon when item has no icon', () => {
-    render(<HoverList items={[{ description: 'Item', hoverContent: 'Hover' }]} />);
+    render(
+      <HoverList items={[{ description: 'Item', hoverContent: 'Hover' }]} />,
+    );
     expect(document.querySelector('.material-icons')).not.toBeInTheDocument();
   });
 
@@ -49,12 +55,14 @@ describe('HoverList', () => {
   });
 
   it('shows HoverContent on click', async () => {
-    const screen = render(<HoverList items={[{ description: 'Item', hoverContent: 'Hover' }]} />);
+    const screen = render(
+      <HoverList items={[{ description: 'Item', hoverContent: 'Hover' }]} />,
+    );
     const user = userEvent.setup();
 
     await user.click(screen.getByText('Item'));
     expect(screen.getByText('Item')).toHaveAttribute('aria-hidden', 'true');
     expect(screen.getByText('Item')).not.toBeVisible();
     expect(screen.getByText('Hover')).toBeVisible();
-  })
+  });
 });

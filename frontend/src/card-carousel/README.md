@@ -4,12 +4,12 @@ An Open edX Paragon based UI that renders a horizontally scrollable carousel of 
 
 ## Card Types
 
-| Type | Secondary Content |
-|------|-------------------|
-| `IMAGE` | Image cap at the top of the card |
+| Type                | Secondary Content                                       |
+| ------------------- | ------------------------------------------------------- |
+| `IMAGE`             | Image cap at the top of the card                        |
 | `CONTENT_HIGHLIGHT` | Highlighted panel with title, subtitle, and description |
-| `RICH_LIST` | List of icon + title + description items |
-| `HOVER_LIST` | Interactive list that reveals extra content on hover |
+| `RICH_LIST`         | List of icon + title + description items                |
+| `HOVER_LIST`        | Interactive list that reveals extra content on hover    |
 
 ## Layouts
 

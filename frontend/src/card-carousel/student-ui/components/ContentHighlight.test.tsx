@@ -20,7 +20,10 @@ describe('ContentHighlight', () => {
 
   it('sets right-side border radius for horizontal orientation', () => {
     const { container } = render(
-      <ContentHighlight {...defaultProps} orientation={Orientation.HORIZONTAL} />
+      <ContentHighlight
+        {...defaultProps}
+        orientation={Orientation.HORIZONTAL}
+      />,
     );
     const div = container.firstChild as HTMLElement;
     // Both right corners should be set; left corners should not
@@ -33,7 +36,7 @@ describe('ContentHighlight', () => {
 
   it('sets bottom border radius for vertical orientation', () => {
     const { container } = render(
-      <ContentHighlight {...defaultProps} orientation={Orientation.VERTICAL} />
+      <ContentHighlight {...defaultProps} orientation={Orientation.VERTICAL} />,
     );
     const div = container.firstChild as HTMLElement;
     // Both bottom corners should be set; top corners should not
@@ -43,5 +46,4 @@ describe('ContentHighlight', () => {
     expect(style).not.toContain('border-top-right-radius');
     expect(style).not.toContain('border-top-left-radius');
   });
-
 });
