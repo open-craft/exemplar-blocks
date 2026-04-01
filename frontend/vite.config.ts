@@ -61,7 +61,9 @@ export default defineConfig(({ mode }) => {
   const xblock = process.env.XBLOCK;
   if (!xblock || !(xblock in libs)) {
     console.error(`Invalid XBLOCK environment variable: ${xblock}`);
-    console.error('Set it to the XBlock you wish to build. Available options:\n');
+    console.error(
+      'Set it to the XBlock you wish to build. Available options:\n',
+    );
     for (const key in libs) {
       console.error(`  ${key}`);
     }
