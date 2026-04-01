@@ -1,0 +1,5 @@
+# Supply chain security configuration. See https://pnpm.io/supply-chain-security for more information.
+minimumReleaseAge: 10080 # 7 days
+blockExoticSubdeps: true
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 43200 # 30 days

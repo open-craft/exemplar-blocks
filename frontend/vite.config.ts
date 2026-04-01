@@ -60,12 +60,12 @@ export default defineConfig(({ mode }) => {
 
   const xblock = process.env.XBLOCK;
   if (!xblock || !(xblock in libs)) {
-    console.log(`Invalid XBLOCK environment variable: ${xblock}`);
-    console.log('Set it to the XBlock you wish to build. Available options:\n');
+    console.error(`Invalid XBLOCK environment variable: ${xblock}`);
+    console.error('Set it to the XBlock you wish to build. Available options:\n');
     for (const key in libs) {
-      console.log(`  ${key}`);
+      console.error(`  ${key}`);
     }
-    console.log('\nFor example: export XBLOCK=card_carousel');
+    console.error('\nFor example: export XBLOCK=card_carousel');
     process.exit(1);
   }
 

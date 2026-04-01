@@ -15,8 +15,10 @@ The frontend tooling is based on Vite 8 running in the `lib` mode. The component
 
 Developing the UI is done using the XBlock Workbench.
 
-- Run `make dev` from the parent directory to start the workbench server.
-- Run `npm run build:watch` - This will compile the code on change and update the files in the `public` directory of the XBlock
+This project uses `pnpm`, not `npm`.
+
+- Run `mise run dev` from the parent directory to start the workbench server.
+- Run `pnpm run build:watch` - This will compile the code on change and update the files in the `public` directory of the XBlock
 
 **NOTE:** Reload the workbench page on the browser for the changes to take effect. Live-reloading is not supported for static files.
 
