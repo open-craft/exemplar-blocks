@@ -1,5 +1,5 @@
-import { a as e, c as t, i as n, l as r, n as i, o as a, r as o, s, t as c } from "./jsx-runtime-Dg9-c3HT.js";
-//#region node_modules/classnames/index.js
+import { a as e, c as t, i as n, l as r, n as i, o as a, r as o, s, t as c } from "./jsx-runtime-yUlpojg6.js";
+//#region node_modules/.pnpm/classnames@2.5.1/node_modules/classnames/index.js
 var l = /* @__PURE__ */ t(((e, t) => {
 	(function() {
 		var e = {}.hasOwnProperty;
@@ -37,7 +37,7 @@ function f() {
 	}, f.apply(null, arguments);
 }
 //#endregion
-//#region node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+//#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
 function p(e, t) {
 	if (e == null) return {};
 	var n = {};
@@ -48,7 +48,7 @@ function p(e, t) {
 	return n;
 }
 //#endregion
-//#region node_modules/invariant/browser.js
+//#region node_modules/.pnpm/invariant@2.2.4/node_modules/invariant/browser.js
 var m = /* @__PURE__ */ t(((e, t) => {
 	t.exports = function(e, t, n, r, i, a, o, s) {
 		if (!e) {
@@ -73,7 +73,7 @@ var m = /* @__PURE__ */ t(((e, t) => {
 })), h = /* @__PURE__ */ r(l()), g = /* @__PURE__ */ r(a());
 m();
 //#endregion
-//#region node_modules/uncontrollable/lib/esm/hook.js
+//#region node_modules/.pnpm/uncontrollable@7.2.1_react@18.3.1/node_modules/uncontrollable/lib/esm/hook.js
 function _(e, t, n) {
 	var r = (0, d.useRef)(e !== void 0), i = (0, d.useState)(t), a = i[0], o = i[1], s = e !== void 0, c = r.current;
 	return r.current = s, !s && c && a !== t && o(t), [s ? e : a, (0, d.useCallback)(function(e) {
@@ -82,19 +82,19 @@ function _(e, t, n) {
 	}, [n])];
 }
 //#endregion
-//#region node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
+//#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
 function v(e, t) {
 	return v = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(e, t) {
 		return e.__proto__ = t, e;
 	}, v(e, t);
 }
 //#endregion
-//#region node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
+//#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
 function y(e, t) {
 	e.prototype = Object.create(t.prototype), e.prototype.constructor = e, v(e, t);
 }
 //#endregion
-//#region node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js
+//#region node_modules/.pnpm/react-lifecycles-compat@3.0.4/node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js
 function b() {
 	var e = this.constructor.getDerivedStateFromProps(this.props, this.state);
 	e != null && this.setState(e);
@@ -115,7 +115,7 @@ function S(e, t) {
 }
 b.__suppressDeprecationWarning = !0, x.__suppressDeprecationWarning = !0, S.__suppressDeprecationWarning = !0;
 //#endregion
-//#region node_modules/react-bootstrap/esm/ThemeProvider.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/ThemeProvider.js
 var C = /* @__PURE__ */ d.createContext({});
 C.Consumer, C.Provider;
 function w(e, t) {
@@ -123,41 +123,41 @@ function w(e, t) {
 	return e || n[t] || t;
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/ownerDocument.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/ownerDocument.js
 function T(e) {
 	return e && e.ownerDocument || document;
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/ownerWindow.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/ownerWindow.js
 function E(e) {
 	var t = T(e);
 	return t && t.defaultView || window;
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/getComputedStyle.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/getComputedStyle.js
 function D(e, t) {
 	return E(e).getComputedStyle(e, t);
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/hyphenate.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/hyphenate.js
 var O = /([A-Z])/g;
 function k(e) {
 	return e.replace(O, "-$1").toLowerCase();
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/hyphenateStyle.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/hyphenateStyle.js
 var ee = /^ms-/;
 function A(e) {
 	return k(e).replace(ee, "-ms-");
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/isTransform.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/isTransform.js
 var j = /^((translate|rotate|scale)(X|Y|Z|3d)?|matrix(3d)?|perspective|skew(X|Y)?)$/i;
 function te(e) {
 	return !!(e && j.test(e));
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/css.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/css.js
 function M(e, t) {
 	var n = "", r = "";
 	if (typeof t == "string") return e.style.getPropertyValue(A(t)) || D(e).getPropertyValue(A(t));
@@ -167,7 +167,7 @@ function M(e, t) {
 	}), r && (n += "transform: " + r + ";"), e.style.cssText += ";" + n;
 }
 //#endregion
-//#region node_modules/prop-types/lib/ReactPropTypesSecret.js
+//#region node_modules/.pnpm/prop-types@15.8.1/node_modules/prop-types/lib/ReactPropTypesSecret.js
 var ne = /* @__PURE__ */ t(((e, t) => {
 	t.exports = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
 })), re = /* @__PURE__ */ t(((e, t) => {
@@ -347,7 +347,7 @@ R.defaultProps = {
 	onExited: ce
 }, R.UNMOUNTED = ae, R.EXITED = I, R.ENTERING = L, R.ENTERED = oe, R.EXITING = se;
 //#endregion
-//#region node_modules/dom-helpers/esm/canUseDOM.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/canUseDOM.js
 var le = !!(typeof window < "u" && window.document && window.document.createElement), ue = !1, de = !1;
 try {
 	var fe = {
@@ -370,20 +370,20 @@ function pe(e, t, n, r) {
 	e.addEventListener(t, n, r);
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/removeEventListener.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/removeEventListener.js
 function me(e, t, n, r) {
 	var i = r && typeof r != "boolean" ? r.capture : r;
 	e.removeEventListener(t, n, i), n.__once && e.removeEventListener(t, n.__once, i);
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/listen.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/listen.js
 function z(e, t, n, r) {
 	return pe(e, t, n, r), function() {
 		me(e, t, n, r);
 	};
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/triggerEvent.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/triggerEvent.js
 function he(e, t, n, r) {
 	if (n === void 0 && (n = !1), r === void 0 && (r = !0), e) {
 		var i = document.createEvent("HTMLEvents");
@@ -391,7 +391,7 @@ function he(e, t, n, r) {
 	}
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/transitionEnd.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/transitionEnd.js
 function ge(e) {
 	var t = M(e, "transitionDuration") || "", n = t.indexOf("ms") === -1 ? 1e3 : 1;
 	return parseFloat(t) * n;
@@ -415,7 +415,7 @@ function ve(e, t, n, r) {
 	};
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/transitionEndListener.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/transitionEndListener.js
 function ye(e, t) {
 	var n = M(e, t) || "", r = n.indexOf("ms") === -1 ? 1e3 : 1;
 	return parseFloat(n) * r;
@@ -426,7 +426,7 @@ function be(e, t) {
 	}, ye(e, "transitionDuration") + ye(e, "transitionDelay"));
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/createChainedFunction.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/createChainedFunction.js
 function xe() {
 	return [...arguments].filter(function(e) {
 		return e != null;
@@ -439,12 +439,12 @@ function xe() {
 	}, null);
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/triggerBrowserReflow.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/triggerBrowserReflow.js
 function Se(e) {
 	e.offsetHeight;
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useCommittedRef.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useCommittedRef.js
 function Ce(e) {
 	let t = (0, d.useRef)(e);
 	return (0, d.useEffect)(() => {
@@ -452,7 +452,7 @@ function Ce(e) {
 	}, [e]), t;
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useEventCallback.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useEventCallback.js
 function we(e) {
 	let t = Ce(e);
 	return (0, d.useCallback)(function(...e) {
@@ -460,7 +460,7 @@ function we(e) {
 	}, [t]);
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/Fade.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Fade.js
 var Te = ["className", "children"], Ee, De = {
 	in: !1,
 	timeout: 300,
@@ -480,7 +480,7 @@ var Te = ["className", "children"], Ee, De = {
 });
 ke.defaultProps = De, ke.displayName = "Fade";
 //#endregion
-//#region node_modules/react-bootstrap/esm/SafeAnchor.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/SafeAnchor.js
 var Ae = [
 	"as",
 	"disabled",
@@ -507,7 +507,7 @@ var Me = /* @__PURE__ */ d.forwardRef(function(e, t) {
 });
 Me.displayName = "SafeAnchor";
 //#endregion
-//#region node_modules/react-bootstrap/esm/Badge.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Badge.js
 var Ne = [
 	"bsPrefix",
 	"variant",
@@ -520,7 +520,7 @@ var Ne = [
 });
 Fe.displayName = "Badge", Fe.defaultProps = Pe;
 //#endregion
-//#region node_modules/react-bootstrap/esm/Button.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Button.js
 var Ie = [
 	"bsPrefix",
 	"variant",
@@ -547,7 +547,7 @@ var Ie = [
 });
 Re.displayName = "Button", Re.defaultProps = Le;
 //#endregion
-//#region node_modules/@restart/hooks/esm/useMounted.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useMounted.js
 function ze() {
 	let e = (0, d.useRef)(!0), t = (0, d.useRef)(() => e.current);
 	return (0, d.useEffect)(() => (e.current = !0, () => {
@@ -555,19 +555,19 @@ function ze() {
 	}), []), t.current;
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useUpdatedRef.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useUpdatedRef.js
 function Be(e) {
 	let t = (0, d.useRef)(e);
 	return t.current = e, t;
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useWillUnmount.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useWillUnmount.js
 function Ve(e) {
 	let t = Be(e);
 	(0, d.useEffect)(() => () => t.current(), []);
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useTimeout.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useTimeout.js
 var He = 2 ** 31 - 1;
 function Ue(e, t, n) {
 	let r = n - Date.now();
@@ -588,7 +588,7 @@ function We() {
 	}, []);
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/Col.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Col.js
 var Ge = [
 	"bsPrefix",
 	"className",
@@ -618,12 +618,12 @@ var Ge = [
 });
 qe.displayName = "Col";
 //#endregion
-//#region node_modules/@restart/hooks/esm/useCallbackRef.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useCallbackRef.js
 function Je() {
 	return (0, d.useState)(null);
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useSafeState.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useSafeState.js
 function Ye(e) {
 	let t = ze();
 	return [e[0], (0, d.useCallback)((n) => {
@@ -655,12 +655,12 @@ var B = "bottom", V = "right", H = "left", Xe = "auto", Ze = [
 	"afterWrite"
 ];
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getBasePlacement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getBasePlacement.js
 function U(e) {
 	return e.split("-")[0];
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getWindow.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getWindow.js
 function W(e) {
 	if (e == null) return window;
 	if (e.toString() !== "[object Window]") {
@@ -670,7 +670,7 @@ function W(e) {
 	return e;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/instanceOf.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/instanceOf.js
 function ot(e) {
 	return e instanceof W(e).Element || e instanceof Element;
 }
@@ -681,10 +681,10 @@ function st(e) {
 	return typeof ShadowRoot > "u" ? !1 : e instanceof W(e).ShadowRoot || e instanceof ShadowRoot;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/math.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/math.js
 var K = Math.max, ct = Math.min, lt = Math.round;
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/userAgent.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/userAgent.js
 function ut() {
 	var e = navigator.userAgentData;
 	return e != null && e.brands && Array.isArray(e.brands) ? e.brands.map(function(e) {
@@ -692,12 +692,12 @@ function ut() {
 	}).join(" ") : navigator.userAgent;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js
 function dt() {
 	return !/^((?!chrome|android).)*safari/i.test(ut());
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js
 function ft(e, t, n) {
 	t === void 0 && (t = !1), n === void 0 && (n = !1);
 	var r = e.getBoundingClientRect(), i = 1, a = 1;
@@ -715,7 +715,7 @@ function ft(e, t, n) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js
 function pt(e) {
 	var t = ft(e), n = e.offsetWidth, r = e.offsetHeight;
 	return Math.abs(t.width - n) <= 1 && (n = t.width), Math.abs(t.height - r) <= 1 && (r = t.height), {
@@ -726,7 +726,7 @@ function pt(e) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/contains.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/contains.js
 function mt(e, t) {
 	var n = t.getRootNode && t.getRootNode();
 	if (e.contains(t)) return !0;
@@ -740,17 +740,17 @@ function mt(e, t) {
 	return !1;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getNodeName.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getNodeName.js
 function q(e) {
 	return e ? (e.nodeName || "").toLowerCase() : null;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js
 function J(e) {
 	return W(e).getComputedStyle(e);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/isTableElement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/isTableElement.js
 function ht(e) {
 	return [
 		"table",
@@ -759,17 +759,17 @@ function ht(e) {
 	].indexOf(q(e)) >= 0;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js
 function Y(e) {
 	return ((ot(e) ? e.ownerDocument : e.document) || window.document).documentElement;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getParentNode.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getParentNode.js
 function gt(e) {
 	return q(e) === "html" ? e : e.assignedSlot || e.parentNode || (st(e) ? e.host : null) || Y(e);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js
 function _t(e) {
 	return !G(e) || J(e).position === "fixed" ? null : e.offsetParent;
 }
@@ -789,12 +789,12 @@ function yt(e) {
 	return n && (q(n) === "html" || q(n) === "body" && J(n).position === "static") ? t : n || vt(e) || t;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js
 function bt(e) {
 	return ["top", "bottom"].indexOf(e) >= 0 ? "x" : "y";
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/within.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/within.js
 function xt(e, t, n) {
 	return K(e, ct(t, n));
 }
@@ -803,7 +803,7 @@ function St(e, t, n) {
 	return r > n ? n : r;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getFreshSideObject.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getFreshSideObject.js
 function Ct() {
 	return {
 		top: 0,
@@ -813,19 +813,19 @@ function Ct() {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/mergePaddingObject.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/mergePaddingObject.js
 function wt(e) {
 	return Object.assign({}, Ct(), e);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/expandToHashMap.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/expandToHashMap.js
 function Tt(e, t) {
 	return t.reduce(function(t, n) {
 		return t[n] = e, t;
 	}, {});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/arrow.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/arrow.js
 var Et = function(e, t) {
 	return e = typeof e == "function" ? e(Object.assign({}, t.rects, { placement: t.placement })) : e, wt(typeof e == "number" ? Tt(e, Ze) : e);
 };
@@ -850,12 +850,12 @@ var kt = {
 	requiresIfExists: ["preventOverflow"]
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getVariation.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getVariation.js
 function At(e) {
 	return e.split("-")[1];
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/computeStyles.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/computeStyles.js
 var jt = {
 	top: "auto",
 	right: "auto",
@@ -962,7 +962,7 @@ function Bt(e) {
 	});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js
 var Vt = {
 	start: "end",
 	end: "start"
@@ -973,7 +973,7 @@ function Ht(e) {
 	});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js
 function Ut(e) {
 	var t = W(e);
 	return {
@@ -982,12 +982,12 @@ function Ut(e) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js
 function Wt(e) {
 	return ft(Y(e)).left + Ut(e).scrollLeft;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js
 function Gt(e, t) {
 	var n = W(e), r = Y(e), i = n.visualViewport, a = r.clientWidth, o = r.clientHeight, s = 0, c = 0;
 	if (i) {
@@ -1003,7 +1003,7 @@ function Gt(e, t) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js
 function Kt(e) {
 	var t = Y(e), n = Ut(e), r = e.ownerDocument?.body, i = K(t.scrollWidth, t.clientWidth, r ? r.scrollWidth : 0, r ? r.clientWidth : 0), a = K(t.scrollHeight, t.clientHeight, r ? r.scrollHeight : 0, r ? r.clientHeight : 0), o = -n.scrollLeft + Wt(e), s = -n.scrollTop;
 	return J(r || t).direction === "rtl" && (o += K(t.clientWidth, r ? r.clientWidth : 0) - i), {
@@ -1014,13 +1014,13 @@ function Kt(e) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js
 function qt(e) {
 	var t = J(e), n = t.overflow, r = t.overflowX, i = t.overflowY;
 	return /auto|scroll|overlay|hidden/.test(n + i + r);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js
 function Jt(e) {
 	return [
 		"html",
@@ -1029,14 +1029,14 @@ function Jt(e) {
 	].indexOf(q(e)) >= 0 ? e.ownerDocument.body : G(e) && qt(e) ? e : Jt(gt(e));
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js
 function Yt(e, t) {
 	t === void 0 && (t = []);
 	var n = Jt(e), r = n === e.ownerDocument?.body, i = W(n), a = r ? [i].concat(i.visualViewport || [], qt(n) ? n : []) : n, o = t.concat(a);
 	return r ? o : o.concat(Yt(gt(a)));
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/rectToClientRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/rectToClientRect.js
 function Xt(e) {
 	return Object.assign({}, e, {
 		left: e.x,
@@ -1046,7 +1046,7 @@ function Xt(e) {
 	});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js
 function Zt(e, t) {
 	var n = ft(e, !1, t === "fixed");
 	return n.top += e.clientTop, n.left += e.clientLeft, n.bottom = n.top + e.clientHeight, n.right = n.left + e.clientWidth, n.width = e.clientWidth, n.height = e.clientHeight, n.x = n.left, n.y = n.top, n;
@@ -1068,7 +1068,7 @@ function en(e, t, n, r) {
 	return s.width = s.right - s.left, s.height = s.bottom - s.top, s.x = s.left, s.y = s.top, s;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/computeOffsets.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/computeOffsets.js
 function tn(e) {
 	var t = e.reference, n = e.element, r = e.placement, i = r ? U(r) : null, a = r ? At(r) : null, o = t.x + t.width / 2 - n.width / 2, s = t.y + t.height / 2 - n.height / 2, c;
 	switch (i) {
@@ -1117,7 +1117,7 @@ function tn(e) {
 	return c;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/detectOverflow.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/detectOverflow.js
 function nn(e, t) {
 	t === void 0 && (t = {});
 	var n = t, r = n.placement, i = r === void 0 ? e.placement : r, a = n.strategy, o = a === void 0 ? e.strategy : a, s = n.boundary, c = s === void 0 ? $e : s, l = n.rootBoundary, u = l === void 0 ? et : l, d = n.elementContext, f = d === void 0 ? tt : d, p = n.altBoundary, m = p === void 0 ? !1 : p, h = n.padding, g = h === void 0 ? 0 : h, _ = wt(typeof g == "number" ? Tt(g, Ze) : g), v = f === "popper" ? nt : tt, y = e.rects.popper, b = e.elements[m ? v : f], x = en(ot(b) ? b : b.contextElement || Y(e.elements.popper), c, u, o), S = ft(e.elements.reference), C = tn({
@@ -1141,7 +1141,7 @@ function nn(e, t) {
 	return E;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js
 function rn(e, t) {
 	t === void 0 && (t = {});
 	var n = t, r = n.placement, i = n.boundary, a = n.rootBoundary, o = n.padding, s = n.flipVariations, c = n.allowedAutoPlacements, l = c === void 0 ? it : c, u = At(r), d = u ? s ? rt : rt.filter(function(e) {
@@ -1163,7 +1163,7 @@ function rn(e, t) {
 	});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/flip.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/flip.js
 function an(e) {
 	if (U(e) === "auto") return [];
 	var t = Bt(e);
@@ -1224,7 +1224,7 @@ var sn = {
 	data: { _skip: !1 }
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/hide.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/hide.js
 function cn(e, t, n) {
 	return n === void 0 && (n = {
 		x: 0,
@@ -1266,7 +1266,7 @@ var dn = {
 	fn: un
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/offset.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/offset.js
 function fn(e, t, n) {
 	var r = U(e), i = ["left", "top"].indexOf(r) >= 0 ? -1 : 1, a = typeof n == "function" ? n(Object.assign({}, t, { placement: e })) : n, o = a[0], s = a[1];
 	return o ||= 0, s = (s || 0) * i, ["left", "right"].indexOf(r) >= 0 ? {
@@ -1291,7 +1291,7 @@ var mn = {
 	fn: pn
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/popperOffsets.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/popperOffsets.js
 function hn(e) {
 	var t = e.state, n = e.name;
 	t.modifiersData[n] = tn({
@@ -1309,12 +1309,12 @@ var gn = {
 	data: {}
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getAltAxis.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getAltAxis.js
 function _n(e) {
 	return e === "x" ? "y" : "x";
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/preventOverflow.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/preventOverflow.js
 function vn(e) {
 	var t = e.state, n = e.options, r = e.name, i = n.mainAxis, a = i === void 0 ? !0 : i, o = n.altAxis, s = o === void 0 ? !1 : o, c = n.boundary, l = n.rootBoundary, u = n.altBoundary, d = n.padding, f = n.tether, p = f === void 0 ? !0 : f, m = n.tetherOffset, h = m === void 0 ? 0 : m, g = nn(t, {
 		boundary: c,
@@ -1354,7 +1354,7 @@ var yn = {
 	requiresIfExists: ["offset"]
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js
 function bn(e) {
 	return {
 		scrollLeft: e.scrollLeft,
@@ -1362,12 +1362,12 @@ function bn(e) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js
 function xn(e) {
 	return e === W(e) || !G(e) ? Ut(e) : bn(e);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js
 function Sn(e) {
 	var t = e.getBoundingClientRect(), n = lt(t.width) / e.offsetWidth || 1, r = lt(t.height) / e.offsetHeight || 1;
 	return n !== 1 || r !== 1;
@@ -1389,7 +1389,7 @@ function Cn(e, t, n) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/orderModifiers.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/orderModifiers.js
 function wn(e) {
 	var t = /* @__PURE__ */ new Map(), n = /* @__PURE__ */ new Set(), r = [];
 	e.forEach(function(e) {
@@ -1416,7 +1416,7 @@ function Tn(e) {
 	}, []);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/debounce.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/debounce.js
 function En(e) {
 	var t;
 	return function() {
@@ -1428,7 +1428,7 @@ function En(e) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/mergeByName.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/mergeByName.js
 function Dn(e) {
 	var t = e.reduce(function(e, t) {
 		var n = e[t.name];
@@ -1442,7 +1442,7 @@ function Dn(e) {
 	});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/createPopper.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/createPopper.js
 var On = {
 	placement: "bottom",
 	modifiers: [],
@@ -1544,7 +1544,7 @@ function An(e) {
 	};
 }
 //#endregion
-//#region node_modules/react-overlays/esm/popper.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/popper.js
 var jn = An({ defaultModifiers: [
 	dn,
 	gn,
@@ -1667,13 +1667,13 @@ function In(e, t, n) {
 	]), b;
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/contains.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/contains.js
 function Ln(e, t) {
 	if (e.contains) return e.contains(t);
 	if (e.compareDocumentPosition) return e === t || !!(e.compareDocumentPosition(t) & 16);
 }
 //#endregion
-//#region node_modules/react-overlays/esm/safeFindDOMNode.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/safeFindDOMNode.js
 var Rn = /* @__PURE__ */ r((/* @__PURE__ */ t(((e, t) => {
 	var n = !1, r = function() {};
 	if (n) {
@@ -1703,7 +1703,7 @@ function zn(e) {
 	return e && "setState" in e ? g.findDOMNode(e) : e ?? null;
 }
 //#endregion
-//#region node_modules/react-overlays/esm/ownerDocument.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/ownerDocument.js
 var Bn = (function(e) {
 	return T(zn(e));
 }), Vn = 27, Hn = function() {};
@@ -1758,7 +1758,7 @@ function Kn(e, t, n) {
 	]);
 }
 //#endregion
-//#region node_modules/react-overlays/esm/mergeOptionsWithPopperConfig.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/mergeOptionsWithPopperConfig.js
 function qn(e) {
 	var t = {};
 	return Array.isArray(e) ? (e?.forEach(function(e) {
@@ -1789,7 +1789,7 @@ function Yn(e) {
 	});
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useMergedRefs.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useMergedRefs.js
 var Xn = (e) => !e || typeof e == "function" ? e : (t) => {
 	e.current = t;
 };
@@ -1803,12 +1803,12 @@ function Qn(e, t) {
 	return (0, d.useMemo)(() => Zn(e, t), [e, t]);
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/hasClass.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/hasClass.js
 function $n(e, t) {
 	return e.classList ? !!t && e.classList.contains(t) : (" " + (e.className.baseVal || e.className) + " ").indexOf(" " + t + " ") !== -1;
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/usePopperMarginModifiers.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/usePopperMarginModifiers.js
 function er(e) {
 	var t = window.getComputedStyle(e);
 	return {
@@ -1884,7 +1884,7 @@ function tr() {
 	]];
 }
 //#endregion
-//#region node_modules/prop-types-extra/lib/isRequiredForA11y.js
+//#region node_modules/.pnpm/prop-types-extra@1.1.1_react@18.3.1/node_modules/prop-types-extra/lib/isRequiredForA11y.js
 var nr = /* @__PURE__ */ t(((e, t) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.default = n;
 	function n(e) {
@@ -1922,7 +1922,7 @@ function ir(e, t) {
 	}, [e, r]), r;
 }
 //#endregion
-//#region node_modules/react-overlays/esm/Overlay.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/Overlay.js
 var X = /* @__PURE__ */ r(N()), ar = /* @__PURE__ */ d.forwardRef(function(e, t) {
 	var n = e.flip, r = e.offset, i = e.placement, a = e.containerPadding, o = a === void 0 ? 5 : a, s = e.popperConfig, c = s === void 0 ? {} : s, l = e.transition, u = Je(), m = u[0], h = u[1], _ = Je(), v = _[0], y = _[1], b = Qn(h, t), x = ir(e.container), S = ir(e.target), C = (0, d.useState)(!e.show), w = C[0], T = C[1], E = In(S, m, Yn({
 		placement: i,
@@ -1996,7 +1996,7 @@ ar.displayName = "Overlay", ar.propTypes = {
 	onExited: X.default.func
 };
 //#endregion
-//#region node_modules/react-bootstrap/esm/Overlay.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Overlay.js
 var or = [
 	"children",
 	"transition",
@@ -2057,7 +2057,7 @@ function ur(e) {
 }
 ur.defaultProps = cr;
 //#endregion
-//#region node_modules/react-bootstrap/esm/OverlayTrigger.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/OverlayTrigger.js
 var dr = [
 	"trigger",
 	"overlay",
@@ -2150,7 +2150,7 @@ function gr(e) {
 }
 gr.defaultProps = hr;
 //#endregion
-//#region node_modules/react-bootstrap/esm/Row.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Row.js
 var _r = [
 	"bsPrefix",
 	"className",
@@ -2201,7 +2201,7 @@ var xr = [
 });
 Cr.defaultProps = Sr, Cr.displayName = "Tooltip";
 //#endregion
-//#region node_modules/@openedx/paragon/dist/utils/newId.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/utils/newId.js
 var wr = 0, Tr = (e = "id") => (wr += 1, `${e}${wr}`), Er = /* @__PURE__ */ function(e) {
 	return e.MOVED = "MOVED", e.REMOVED = "REMOVED", e.FORMAT = "FORMAT", e.MOVED_AND_FORMAT = "MOVED_AND_FORMAT", e;
 }({});
@@ -2244,7 +2244,7 @@ function Dr(e, t, n) {
 	return r;
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Icon/index.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Icon/index.js
 function Or({ src: e, id: t, className: n, hidden: r, screenReaderText: i, svgAttrs: a, size: o, ...s }) {
 	if (e) {
 		let r = a["aria-label"] || a["aria-labelledby"], c = { ...a };
@@ -2421,7 +2421,7 @@ Ir.propTypes = {
 	trigger: ["hover", "focus"]
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Tooltip/index.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Tooltip/index.js
 var zr = [
 	"auto-start",
 	"auto",
@@ -2470,7 +2470,7 @@ Br.propTypes = {
 	bsPrefix: "tooltip"
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/IconButton/index.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/IconButton/index.js
 var Vr = /* @__PURE__ */ d.forwardRef(({ className: e, alt: t, invertColors: n = !1, icon: r, src: i, iconClassNames: a, onClick: o = () => {}, size: s = "md", variant: c = "primary", iconAs: l = kr, isActive: u = !1, children: f, ...p }, m) => {
 	let g = n ? "inverse-" : "", _ = u ? `${c}-` : "", v = l;
 	return /* @__PURE__ */ d.createElement("button", {
@@ -2498,7 +2498,7 @@ function Hr({ tooltipPlacement: e = "top", tooltipContent: t, ...n }) {
 }
 Vr.IconButtonWithTooltip = Hr;
 //#endregion
-//#region node_modules/@openedx/paragon/dist/OverflowScroll/data/constants.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/OverflowScroll/data/constants.js
 var Ur = "pgn__overflow-scroll-item", Wr = (e) => e?.offsetLeft || 0, Gr = ({ overflowRef: e, activeChildElementIndex: t, childrenElements: n, scrollAnimationBehavior: r = "smooth", onScrollPrevious: i, onScrollNext: a, onChangeOffset: o, currentOffset: s, offset: c, offsetType: l = "percentage" }) => {
 	let u = (0, d.useCallback)((e, t, n) => {
 		let r = parseInt(e, 10);
@@ -2724,13 +2724,13 @@ var Ur = "pgn__overflow-scroll-item", Wr = (e) => e?.offsetLeft || 0, Gr = ({ ov
 	};
 }, ti = (e) => (0, d.useMemo)(() => d.Children.map(d.Children.toArray(e), (e) => (0, d.cloneElement)(e, { className: (0, h.default)(Ur, e.props.className) })), [e]), ni = /* @__PURE__ */ (0, d.createContext)();
 //#endregion
-//#region node_modules/@openedx/paragon/dist/OverflowScroll/OverflowScrollItems.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/OverflowScroll/OverflowScrollItems.js
 function ri({ children: e }) {
 	return ti(e);
 }
 ri.propTypes = { children: X.default.node.isRequired };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/OverflowScroll/OverflowScroll.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/OverflowScroll/OverflowScroll.js
 function ii({ ariaLabel: e, children: t, childQuerySelector: n, hasInteractiveChildren: r, disableScroll: i, disableOpacityMasks: a, onScrollPrevious: o, onScrollNext: s, offset: c, offsetType: l }) {
 	let [u, f] = (0, d.useState)(), { isScrolledToStart: p, isScrolledToEnd: m, scrollToPrevious: h, scrollToNext: g } = ei({
 		childQuerySelector: n,
@@ -2785,7 +2785,7 @@ ii.Items = ri, ii.propTypes = {
 	offsetType: "percentage"
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Stack/index.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Stack/index.js
 var ai = /* @__PURE__ */ (0, d.forwardRef)(({ direction: e = "vertical", gap: t = 0, reversed: n = !1, children: r, className: i, ...a }, o) => /* @__PURE__ */ d.createElement("div", {
 	ref: o,
 	className: (0, h.default)(e === "horizontal" ? "pgn__hstack" : "pgn__vstack", t ? `pgn__stack-gap--${t}` : "", n ? "pgn__stack-reversed" : "", i),
@@ -2822,7 +2822,7 @@ ui.propTypes = {
 	children: X.default.node
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardContext.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardContext.js
 var Z = /* @__PURE__ */ (0, d.createContext)({
 	orientation: "vertical",
 	isLoading: !1,
@@ -2836,7 +2836,7 @@ function di({ orientation: e = "vertical", children: t, isLoading: n = !1, varia
 	} }, t);
 }
 //#endregion
-//#region node_modules/react-loading-skeleton/dist/index.js
+//#region node_modules/.pnpm/react-loading-skeleton@3.5.0_react@18.3.1/node_modules/react-loading-skeleton/dist/index.js
 var fi = d.createContext({}), pi = !0;
 function mi({ baseColor: e, highlightColor: t, width: n, height: r, borderRadius: i, circle: a, direction: o, duration: s, enableAnimation: c = pi, customHighlightBackground: l }) {
 	let u = {};
@@ -2879,7 +2879,7 @@ function hi({ count: e = 1, wrapper: t, className: n, containerClassName: r, con
 	}, t ? h.map((e, n) => d.createElement(t, { key: n }, e)) : h);
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardHeader.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardHeader.js
 var gi = 20, _i = /* @__PURE__ */ d.forwardRef(({ actions: e, className: t, size: n, subtitle: r, title: i, skeletonHeight: a, skeletonWidth: o }, s) => {
 	let { isLoading: c } = (0, d.useContext)(Z), l = (0, d.useCallback)((e) => {
 		if (/* @__PURE__ */ d.isValidElement(e)) {
@@ -2918,7 +2918,7 @@ _i.propTypes = {
 	skeletonWidth: null
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardDivider.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardDivider.js
 var vi = /* @__PURE__ */ (0, d.forwardRef)(({ className: e, ...t }, n) => /* @__PURE__ */ d.createElement("div", {
 	className: (0, h.default)("pgn__card-divider", e),
 	ref: n,
@@ -2952,7 +2952,7 @@ bi.propTypes = {
 	skeletonWidth: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardFooter.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardFooter.js
 var xi = 18, Si = /* @__PURE__ */ d.forwardRef(({ children: e, className: t, isStacked: n, textElement: r, skeletonHeight: i, skeletonWidth: a, orientation: o }, s) => {
 	let { orientation: c, isLoading: l } = (0, d.useContext)(Z), u = o || c, f = `pgn__card-footer ${u}${n ? "-stacked" : ""}`, p = `pgn__card-footer-text ${u}${n ? "-stacked" : ""}`;
 	return l ? /* @__PURE__ */ d.createElement("div", { className: (0, h.default)(t, f) }, /* @__PURE__ */ d.createElement(hi, {
@@ -2982,7 +2982,7 @@ Si.propTypes = {
 	skeletonWidth: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardFallbackDefaultImage.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardFallbackDefaultImage.js
 var Ci = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXwAAACMCAYAAAB/AhJnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAH6SURBVHgB7dRBEYBADACxwuDf5j0QUXywiYhc7zk7APzd3gNAgvABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIp4BaNpp2Q/3/wfPkGyXOQAAAABJRU5ErkJggg==", wi = 140, Ti = 41, Ei = /* @__PURE__ */ d.forwardRef(({ src: e, fallbackSrc: t, srcAlt: n, logoSrc: r, fallbackLogoSrc: i, logoAlt: a, skeletonHeight: o, skeletonWidth: s, logoSkeleton: c, logoSkeletonHeight: l, logoSkeletonWidth: u, className: f, imageLoadingType: p, skeletonDuringImageLoad: m }, g) => {
 	let { orientation: _, isLoading: v } = (0, d.useContext)(Z), [y, b] = (0, d.useState)(!1), [x, S] = (0, d.useState)(!1), C = `pgn__card-wrapper-image-cap ${_}`, w = () => /* @__PURE__ */ d.createElement(hi, {
 		containerClassName: "pgn__card-image-cap-loader",
@@ -3056,7 +3056,7 @@ Ei.propTypes = {
 	skeletonDuringImageLoad: !1
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardStatus.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardStatus.js
 var Di = /* @__PURE__ */ d.forwardRef(({ className: e, children: t, variant: n, icon: r, title: i, actions: a, ...o }, s) => {
 	let { isLoading: c } = (0, d.useContext)(Z);
 	return c ? /* @__PURE__ */ d.createElement("div", {
@@ -3092,7 +3092,7 @@ Di.propTypes = {
 	actions: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardDeck.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardDeck.js
 var Oi = /* @__PURE__ */ d.forwardRef(({ className: e, children: t, columnSizes: n, hasInteractiveChildren: r, canScrollHorizontal: i, hasOverflowScrollItems: a, hasEqualColumnHeights: o }, s) => {
 	let c = (0, d.useMemo)(() => d.Children.map(t, (e) => /* @__PURE__ */ d.createElement(qe, {
 		...n,
@@ -3139,7 +3139,7 @@ Oi.propTypes = {
 	hasEqualColumnHeights: !0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselProvider.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselProvider.js
 var ki = /* @__PURE__ */ (0, d.createContext)();
 function Ai({ columnSizes: e, hasInteractiveChildren: t, canScrollHorizontal: n, children: r, CardCarouselControls: i }) {
 	let { overflowRef: a, setOverflowRef: o, isScrolledToStart: s, isScrolledToEnd: c, scrollToPrevious: l, scrollToNext: u } = (0, d.useContext)(ni), f = (0, d.useMemo)(() => ({
@@ -3190,19 +3190,19 @@ Ai.propTypes = {
 	CardCarouselControls: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselTitle.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselTitle.js
 function ji({ children: e, as: t, className: n }) {
 	let r = t || "h2";
 	return /* @__PURE__ */ d.createElement(r, { className: (0, h.default)("pgn__card-carousel-title", n) }, e);
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselSubtitle.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselSubtitle.js
 function Mi({ children: e, as: t, className: n }) {
 	let r = t || "p";
 	return /* @__PURE__ */ d.createElement(r, { className: (0, h.default)("pgn__card-carousel-subtitle", n) }, e);
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardCarousel/messages.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/messages.js
 var Ni = i({
 	scrollToPrevious: {
 		id: "pgn.CardCarousel.scrollToPrevious",
@@ -3216,7 +3216,7 @@ var Ni = i({
 	}
 });
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselControls.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselControls.js
 function Pi() {
 	let { isScrolledToStart: e, isScrolledToEnd: t, scrollToPrevious: r, scrollToNext: i } = (0, d.useContext)(ki), a = n();
 	return e && t ? null : /* @__PURE__ */ d.createElement("div", { className: "pgn__card-carousel-controls" }, /* @__PURE__ */ d.createElement(ai, {
@@ -3237,7 +3237,7 @@ function Pi() {
 	})));
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselHeader.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselHeader.js
 var Fi = (e) => e ? /* @__PURE__ */ (0, d.isValidElement)(e) ? e : /* @__PURE__ */ d.createElement(ji, null, e) : null, Ii = (e) => e ? /* @__PURE__ */ (0, d.isValidElement)(e) ? e : /* @__PURE__ */ d.createElement(Mi, null, e) : null;
 function Li({ title: e, subtitle: t }) {
 	let { CardCarouselControls: n } = (0, d.useContext)(ki), r = n || Pi, i = Fi(e), a = Ii(t);
@@ -3251,7 +3251,7 @@ Li.propTypes = {
 	subtitle: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselItems.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselItems.js
 function Ri({ children: e }) {
 	let { columnSizes: t, hasInteractiveChildren: n, canScrollHorizontal: r, setOverflowRef: i } = (0, d.useContext)(ki);
 	return /* @__PURE__ */ d.createElement(Oi, {
@@ -3264,7 +3264,7 @@ function Ri({ children: e }) {
 }
 Ri.propTypes = { children: X.default.node.isRequired };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarousel.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarousel.js
 function zi({ ariaLabel: e, children: t, title: n, subtitle: r, columnSizes: i, hasInteractiveChildren: a, canScrollHorizontal: o, disableOpacityMasks: s, onScrollPrevious: c, onScrollNext: l, CardCarouselControls: u }) {
 	return /* @__PURE__ */ d.createElement(ii, {
 		disableScroll: !o,
@@ -3317,7 +3317,7 @@ zi.propTypes = {
 	CardCarouselControls: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Card/index.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/index.js
 var Bi = [
 	"light",
 	"dark",

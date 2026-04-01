@@ -5862,7 +5862,7 @@ var e = Object.create, t = Object.defineProperty, n = Object.getOwnPropertyDescr
 	})();
 }));
 //#endregion
-//#region node_modules/@babel/runtime/helpers/esm/extends.js
+//#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/extends.js
 function g() {
 	return g = Object.assign ? Object.assign.bind() : function(e) {
 		for (var t = 1; t < arguments.length; t++) {
@@ -5873,7 +5873,7 @@ function g() {
 	}, g.apply(null, arguments);
 }
 //#endregion
-//#region node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+//#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
 function _(e, t) {
 	if (e == null) return {};
 	var n = {};
@@ -5884,7 +5884,7 @@ function _(e, t) {
 	return n;
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/ThemeProvider.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/ThemeProvider.js
 var v = /* @__PURE__ */ c(u()), y = /* @__PURE__ */ v.createContext({});
 y.Consumer, y.Provider;
 function b(e, t) {
@@ -5892,7 +5892,7 @@ function b(e, t) {
 	return e || n[t] || t;
 }
 //#endregion
-//#region node_modules/prop-types/lib/ReactPropTypesSecret.js
+//#region node_modules/.pnpm/prop-types@15.8.1/node_modules/prop-types/lib/ReactPropTypesSecret.js
 var ee = /* @__PURE__ */ o(((e, t) => {
 	t.exports = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
 })), te = /* @__PURE__ */ o(((e, t) => {
@@ -5939,7 +5939,7 @@ var ee = /* @__PURE__ */ o(((e, t) => {
 	t.exports = te()();
 }));
 //#endregion
-//#region node_modules/react-bootstrap/esm/createChainedFunction.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/createChainedFunction.js
 function ne() {
 	return [...arguments].filter(function(e) {
 		return e != null;
@@ -5952,7 +5952,7 @@ function ne() {
 	}, null);
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/SafeAnchor.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/SafeAnchor.js
 var re = [
 	"as",
 	"disabled",
@@ -5979,7 +5979,7 @@ var ae = /* @__PURE__ */ v.forwardRef(function(e, t) {
 });
 ae.displayName = "SafeAnchor";
 //#endregion
-//#region node_modules/react-bootstrap/esm/Button.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Button.js
 var S = /* @__PURE__ */ c(h()), oe = [
 	"bsPrefix",
 	"variant",
@@ -6006,7 +6006,7 @@ var S = /* @__PURE__ */ c(h()), oe = [
 });
 ce.displayName = "Button", ce.defaultProps = se;
 //#endregion
-//#region node_modules/react-bootstrap/esm/Col.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Col.js
 var le = [
 	"bsPrefix",
 	"className",
@@ -6036,7 +6036,7 @@ var le = [
 });
 C.displayName = "Col";
 //#endregion
-//#region node_modules/react-bootstrap/esm/Container.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Container.js
 var de = [
 	"bsPrefix",
 	"fluid",
@@ -6048,7 +6048,7 @@ var de = [
 });
 pe.displayName = "Container", pe.defaultProps = fe;
 //#endregion
-//#region node_modules/@openedx/paragon/dist/utils/newId.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/utils/newId.js
 var me = 0, w = (e = "id") => (me += 1, `${e}${me}`), he = /* @__PURE__ */ function(e) {
 	return e.MOVED = "MOVED", e.REMOVED = "REMOVED", e.FORMAT = "FORMAT", e.MOVED_AND_FORMAT = "MOVED_AND_FORMAT", e;
 }({});
@@ -6091,7 +6091,7 @@ function ge(e, t, n) {
 	return r;
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Icon/index.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Icon/index.js
 var T = /* @__PURE__ */ c(x());
 function _e({ src: e, id: t, className: n, hidden: r, screenReaderText: i, svgAttrs: a, size: o, ...s }) {
 	if (e) {
