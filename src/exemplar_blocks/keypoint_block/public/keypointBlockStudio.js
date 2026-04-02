@@ -1,5 +1,5 @@
-import { a as e, c as t, d as n, f as r, h as i, i as a, l as o, m as s, n as c, o as l, p as u, r as d, s as f, t as p, u as m } from "./jsx-runtime-Qc-j99iU.js";
-//#region node_modules/@openedx/paragon/dist/ActionRow/index.js
+import { a as e, c as t, d as n, f as r, h as i, i as a, l as o, m as s, n as c, o as l, p as u, r as d, s as f, t as p, u as m } from "./jsx-runtime-nnRLWf2y.js";
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/ActionRow/index.js
 var h = /* @__PURE__ */ i(u()), g = /* @__PURE__ */ i(n());
 function _({ as: e = "div", isStacked: t = !1, children: n, ...r }) {
 	return /* @__PURE__ */ h.createElement(e, {
@@ -36,7 +36,7 @@ _.Spacer = v, (/* @__PURE__ */ s(((e, t) => {
 	};
 })))();
 //#endregion
-//#region node_modules/uncontrollable/lib/esm/hook.js
+//#region node_modules/.pnpm/uncontrollable@7.2.1_react@18.3.1/node_modules/uncontrollable/lib/esm/hook.js
 function y(e, t, n) {
 	var r = (0, h.useRef)(e !== void 0), i = (0, h.useState)(t), a = i[0], o = i[1], s = e !== void 0, c = r.current;
 	return r.current = s, !s && c && a !== t && o(t), [s ? e : a, (0, h.useCallback)(function(e) {
@@ -45,19 +45,19 @@ function y(e, t, n) {
 	}, [n])];
 }
 //#endregion
-//#region node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
+//#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
 function b(e, t) {
 	return b = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(e, t) {
 		return e.__proto__ = t, e;
 	}, b(e, t);
 }
 //#endregion
-//#region node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
+//#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
 function x(e, t) {
 	e.prototype = Object.create(t.prototype), e.prototype.constructor = e, b(e, t);
 }
 //#endregion
-//#region node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js
+//#region node_modules/.pnpm/react-lifecycles-compat@3.0.4/node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js
 function S() {
 	var e = this.constructor.getDerivedStateFromProps(this.props, this.state);
 	e != null && this.setState(e);
@@ -78,41 +78,41 @@ function w(e, t) {
 }
 S.__suppressDeprecationWarning = !0, C.__suppressDeprecationWarning = !0, w.__suppressDeprecationWarning = !0;
 //#endregion
-//#region node_modules/dom-helpers/esm/ownerDocument.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/ownerDocument.js
 function T(e) {
 	return e && e.ownerDocument || document;
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/ownerWindow.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/ownerWindow.js
 function E(e) {
 	var t = T(e);
 	return t && t.defaultView || window;
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/getComputedStyle.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/getComputedStyle.js
 function D(e, t) {
 	return E(e).getComputedStyle(e, t);
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/hyphenate.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/hyphenate.js
 var O = /([A-Z])/g;
 function k(e) {
 	return e.replace(O, "-$1").toLowerCase();
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/hyphenateStyle.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/hyphenateStyle.js
 var A = /^ms-/;
 function j(e) {
 	return k(e).replace(A, "-ms-");
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/isTransform.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/isTransform.js
 var M = /^((translate|rotate|scale)(X|Y|Z|3d)?|matrix(3d)?|perspective|skew(X|Y)?)$/i;
 function N(e) {
 	return !!(e && M.test(e));
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/css.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/css.js
 function P(e, t) {
 	var n = "", r = "";
 	if (typeof t == "string") return e.style.getPropertyValue(j(t)) || D(e).getPropertyValue(j(t));
@@ -122,7 +122,7 @@ function P(e, t) {
 	}), r && (n += "transform: " + r + ";"), e.style.cssText += ";" + n;
 }
 //#endregion
-//#region node_modules/react-transition-group/esm/config.js
+//#region node_modules/.pnpm/react-transition-group@4.4.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-transition-group/esm/config.js
 var F = { disabled: !1 }, I = h.createContext(null), L = function(e) {
 	return e.scrollTop;
 }, R = /* @__PURE__ */ i(r()), z = "unmounted", B = "exited", ee = "entering", te = "entered", ne = "exiting", re = /* @__PURE__ */ function(e) {
@@ -258,7 +258,7 @@ re.defaultProps = {
 	onExited: ie
 }, re.UNMOUNTED = z, re.EXITED = B, re.ENTERING = ee, re.ENTERED = te, re.EXITING = ne;
 //#endregion
-//#region node_modules/dom-helpers/esm/canUseDOM.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/canUseDOM.js
 var ae = !!(typeof window < "u" && window.document && window.document.createElement), oe = !1, se = !1;
 try {
 	var ce = {
@@ -281,20 +281,20 @@ function le(e, t, n, r) {
 	e.addEventListener(t, n, r);
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/removeEventListener.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/removeEventListener.js
 function ue(e, t, n, r) {
 	var i = r && typeof r != "boolean" ? r.capture : r;
 	e.removeEventListener(t, n, i), n.__once && e.removeEventListener(t, n.__once, i);
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/listen.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/listen.js
 function de(e, t, n, r) {
 	return le(e, t, n, r), function() {
 		ue(e, t, n, r);
 	};
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/triggerEvent.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/triggerEvent.js
 function fe(e, t, n, r) {
 	if (n === void 0 && (n = !1), r === void 0 && (r = !0), e) {
 		var i = document.createEvent("HTMLEvents");
@@ -302,7 +302,7 @@ function fe(e, t, n, r) {
 	}
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/transitionEnd.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/transitionEnd.js
 function pe(e) {
 	var t = P(e, "transitionDuration") || "", n = t.indexOf("ms") === -1 ? 1e3 : 1;
 	return parseFloat(t) * n;
@@ -326,7 +326,7 @@ function he(e, t, n, r) {
 	};
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/transitionEndListener.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/transitionEndListener.js
 function ge(e, t) {
 	var n = P(e, t) || "", r = n.indexOf("ms") === -1 ? 1e3 : 1;
 	return parseFloat(n) * r;
@@ -337,12 +337,12 @@ function _e(e, t) {
 	}, ge(e, "transitionDuration") + ge(e, "transitionDelay"));
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/triggerBrowserReflow.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/triggerBrowserReflow.js
 function ve(e) {
 	e.offsetHeight;
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useCommittedRef.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useCommittedRef.js
 function ye(e) {
 	let t = (0, h.useRef)(e);
 	return (0, h.useEffect)(() => {
@@ -350,7 +350,7 @@ function ye(e) {
 	}, [e]), t;
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useEventCallback.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useEventCallback.js
 function be(e) {
 	let t = ye(e);
 	return (0, h.useCallback)(function(...e) {
@@ -358,7 +358,7 @@ function be(e) {
 	}, [t]);
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/Fade.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Fade.js
 var xe = ["className", "children"], Se, Ce = {
 	in: !1,
 	timeout: 300,
@@ -378,7 +378,7 @@ var xe = ["className", "children"], Se, Ce = {
 });
 Te.defaultProps = Ce, Te.displayName = "Fade";
 //#endregion
-//#region node_modules/dom-helpers/esm/camelize.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/camelize.js
 var Ee = /-(.)/g;
 function De(e) {
 	return e.replace(Ee, function(e, t) {
@@ -386,7 +386,7 @@ function De(e) {
 	});
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/createWithBsPrefix.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/createWithBsPrefix.js
 var Oe = [
 	"className",
 	"bsPrefix",
@@ -405,7 +405,7 @@ function Ae(e, n) {
 	return l.defaultProps = c, l.displayName = a, l;
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useMounted.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useMounted.js
 function je() {
 	let e = (0, h.useRef)(!0), t = (0, h.useRef)(() => e.current);
 	return (0, h.useEffect)(() => (e.current = !0, () => {
@@ -413,19 +413,19 @@ function je() {
 	}), []), t.current;
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useUpdatedRef.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useUpdatedRef.js
 function Me(e) {
 	let t = (0, h.useRef)(e);
 	return t.current = e, t;
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useWillUnmount.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useWillUnmount.js
 function Ne(e) {
 	let t = Me(e);
 	(0, h.useEffect)(() => () => t.current(), []);
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useTimeout.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useTimeout.js
 var Pe = 2 ** 31 - 1;
 function Fe(e, t, n) {
 	let r = n - Date.now();
@@ -446,12 +446,12 @@ function Ie() {
 	}, []);
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useCallbackRef.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useCallbackRef.js
 function Le() {
 	return (0, h.useState)(null);
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useSafeState.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useSafeState.js
 function Re(e) {
 	let t = je();
 	return [e[0], (0, h.useCallback)((n) => {
@@ -483,12 +483,12 @@ var ze = "bottom", Be = "right", Ve = "left", He = "auto", Ue = [
 	"afterWrite"
 ];
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getBasePlacement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getBasePlacement.js
 function Qe(e) {
 	return e.split("-")[0];
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getWindow.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getWindow.js
 function V(e) {
 	if (e == null) return window;
 	if (e.toString() !== "[object Window]") {
@@ -498,7 +498,7 @@ function V(e) {
 	return e;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/instanceOf.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/instanceOf.js
 function $e(e) {
 	return e instanceof V(e).Element || e instanceof Element;
 }
@@ -509,10 +509,10 @@ function tt(e) {
 	return typeof ShadowRoot > "u" ? !1 : e instanceof V(e).ShadowRoot || e instanceof ShadowRoot;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/math.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/math.js
 var nt = Math.max, rt = Math.min, it = Math.round;
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/userAgent.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/userAgent.js
 function at() {
 	var e = navigator.userAgentData;
 	return e != null && e.brands && Array.isArray(e.brands) ? e.brands.map(function(e) {
@@ -520,12 +520,12 @@ function at() {
 	}).join(" ") : navigator.userAgent;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js
 function ot() {
 	return !/^((?!chrome|android).)*safari/i.test(at());
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js
 function st(e, t, n) {
 	t === void 0 && (t = !1), n === void 0 && (n = !1);
 	var r = e.getBoundingClientRect(), i = 1, a = 1;
@@ -543,7 +543,7 @@ function st(e, t, n) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js
 function ct(e) {
 	var t = st(e), n = e.offsetWidth, r = e.offsetHeight;
 	return Math.abs(t.width - n) <= 1 && (n = t.width), Math.abs(t.height - r) <= 1 && (r = t.height), {
@@ -554,7 +554,7 @@ function ct(e) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/contains.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/contains.js
 function lt(e, t) {
 	var n = t.getRootNode && t.getRootNode();
 	if (e.contains(t)) return !0;
@@ -568,17 +568,17 @@ function lt(e, t) {
 	return !1;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getNodeName.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getNodeName.js
 function ut(e) {
 	return e ? (e.nodeName || "").toLowerCase() : null;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js
 function dt(e) {
 	return V(e).getComputedStyle(e);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/isTableElement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/isTableElement.js
 function ft(e) {
 	return [
 		"table",
@@ -587,17 +587,17 @@ function ft(e) {
 	].indexOf(ut(e)) >= 0;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js
 function pt(e) {
 	return (($e(e) ? e.ownerDocument : e.document) || window.document).documentElement;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getParentNode.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getParentNode.js
 function mt(e) {
 	return ut(e) === "html" ? e : e.assignedSlot || e.parentNode || (tt(e) ? e.host : null) || pt(e);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js
 function ht(e) {
 	return !et(e) || dt(e).position === "fixed" ? null : e.offsetParent;
 }
@@ -617,12 +617,12 @@ function _t(e) {
 	return n && (ut(n) === "html" || ut(n) === "body" && dt(n).position === "static") ? t : n || gt(e) || t;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js
 function vt(e) {
 	return ["top", "bottom"].indexOf(e) >= 0 ? "x" : "y";
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/within.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/within.js
 function yt(e, t, n) {
 	return nt(e, rt(t, n));
 }
@@ -631,7 +631,7 @@ function bt(e, t, n) {
 	return r > n ? n : r;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getFreshSideObject.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getFreshSideObject.js
 function xt() {
 	return {
 		top: 0,
@@ -641,19 +641,19 @@ function xt() {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/mergePaddingObject.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/mergePaddingObject.js
 function St(e) {
 	return Object.assign({}, xt(), e);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/expandToHashMap.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/expandToHashMap.js
 function Ct(e, t) {
 	return t.reduce(function(t, n) {
 		return t[n] = e, t;
 	}, {});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/arrow.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/arrow.js
 var wt = function(e, t) {
 	return e = typeof e == "function" ? e(Object.assign({}, t.rects, { placement: t.placement })) : e, St(typeof e == "number" ? Ct(e, Ue) : e);
 };
@@ -678,12 +678,12 @@ var Dt = {
 	requiresIfExists: ["preventOverflow"]
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getVariation.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getVariation.js
 function Ot(e) {
 	return e.split("-")[1];
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/computeStyles.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/computeStyles.js
 var kt = {
 	top: "auto",
 	right: "auto",
@@ -790,7 +790,7 @@ function Rt(e) {
 	});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js
 var zt = {
 	start: "end",
 	end: "start"
@@ -801,7 +801,7 @@ function Bt(e) {
 	});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js
 function Vt(e) {
 	var t = V(e);
 	return {
@@ -810,12 +810,12 @@ function Vt(e) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js
 function Ht(e) {
 	return st(pt(e)).left + Vt(e).scrollLeft;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js
 function Ut(e, t) {
 	var n = V(e), r = pt(e), i = n.visualViewport, a = r.clientWidth, o = r.clientHeight, s = 0, c = 0;
 	if (i) {
@@ -831,7 +831,7 @@ function Ut(e, t) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js
 function Wt(e) {
 	var t = pt(e), n = Vt(e), r = e.ownerDocument?.body, i = nt(t.scrollWidth, t.clientWidth, r ? r.scrollWidth : 0, r ? r.clientWidth : 0), a = nt(t.scrollHeight, t.clientHeight, r ? r.scrollHeight : 0, r ? r.clientHeight : 0), o = -n.scrollLeft + Ht(e), s = -n.scrollTop;
 	return dt(r || t).direction === "rtl" && (o += nt(t.clientWidth, r ? r.clientWidth : 0) - i), {
@@ -842,13 +842,13 @@ function Wt(e) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js
 function Gt(e) {
 	var t = dt(e), n = t.overflow, r = t.overflowX, i = t.overflowY;
 	return /auto|scroll|overlay|hidden/.test(n + i + r);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js
 function Kt(e) {
 	return [
 		"html",
@@ -857,14 +857,14 @@ function Kt(e) {
 	].indexOf(ut(e)) >= 0 ? e.ownerDocument.body : et(e) && Gt(e) ? e : Kt(mt(e));
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js
 function qt(e, t) {
 	t === void 0 && (t = []);
 	var n = Kt(e), r = n === e.ownerDocument?.body, i = V(n), a = r ? [i].concat(i.visualViewport || [], Gt(n) ? n : []) : n, o = t.concat(a);
 	return r ? o : o.concat(qt(mt(a)));
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/rectToClientRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/rectToClientRect.js
 function Jt(e) {
 	return Object.assign({}, e, {
 		left: e.x,
@@ -874,7 +874,7 @@ function Jt(e) {
 	});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js
 function Yt(e, t) {
 	var n = st(e, !1, t === "fixed");
 	return n.top += e.clientTop, n.left += e.clientLeft, n.bottom = n.top + e.clientHeight, n.right = n.left + e.clientWidth, n.width = e.clientWidth, n.height = e.clientHeight, n.x = n.left, n.y = n.top, n;
@@ -896,7 +896,7 @@ function Qt(e, t, n, r) {
 	return s.width = s.right - s.left, s.height = s.bottom - s.top, s.x = s.left, s.y = s.top, s;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/computeOffsets.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/computeOffsets.js
 function $t(e) {
 	var t = e.reference, n = e.element, r = e.placement, i = r ? Qe(r) : null, a = r ? Ot(r) : null, o = t.x + t.width / 2 - n.width / 2, s = t.y + t.height / 2 - n.height / 2, c;
 	switch (i) {
@@ -945,7 +945,7 @@ function $t(e) {
 	return c;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/detectOverflow.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/detectOverflow.js
 function en(e, t) {
 	t === void 0 && (t = {});
 	var n = t, r = n.placement, i = r === void 0 ? e.placement : r, a = n.strategy, o = a === void 0 ? e.strategy : a, s = n.boundary, c = s === void 0 ? Ge : s, l = n.rootBoundary, u = l === void 0 ? Ke : l, d = n.elementContext, f = d === void 0 ? qe : d, p = n.altBoundary, m = p === void 0 ? !1 : p, h = n.padding, g = h === void 0 ? 0 : h, _ = St(typeof g == "number" ? Ct(g, Ue) : g), v = f === "popper" ? Je : qe, y = e.rects.popper, b = e.elements[m ? v : f], x = Qt($e(b) ? b : b.contextElement || pt(e.elements.popper), c, u, o), S = st(e.elements.reference), C = $t({
@@ -969,7 +969,7 @@ function en(e, t) {
 	return E;
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js
 function tn(e, t) {
 	t === void 0 && (t = {});
 	var n = t, r = n.placement, i = n.boundary, a = n.rootBoundary, o = n.padding, s = n.flipVariations, c = n.allowedAutoPlacements, l = c === void 0 ? Xe : c, u = Ot(r), d = u ? s ? Ye : Ye.filter(function(e) {
@@ -991,7 +991,7 @@ function tn(e, t) {
 	});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/flip.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/flip.js
 function nn(e) {
 	if (Qe(e) === "auto") return [];
 	var t = Rt(e);
@@ -1052,7 +1052,7 @@ var an = {
 	data: { _skip: !1 }
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/hide.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/hide.js
 function on(e, t, n) {
 	return n === void 0 && (n = {
 		x: 0,
@@ -1094,7 +1094,7 @@ var ln = {
 	fn: cn
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/offset.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/offset.js
 function un(e, t, n) {
 	var r = Qe(e), i = ["left", "top"].indexOf(r) >= 0 ? -1 : 1, a = typeof n == "function" ? n(Object.assign({}, t, { placement: e })) : n, o = a[0], s = a[1];
 	return o ||= 0, s = (s || 0) * i, ["left", "right"].indexOf(r) >= 0 ? {
@@ -1119,7 +1119,7 @@ var fn = {
 	fn: dn
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/popperOffsets.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/popperOffsets.js
 function pn(e) {
 	var t = e.state, n = e.name;
 	t.modifiersData[n] = $t({
@@ -1137,12 +1137,12 @@ var mn = {
 	data: {}
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/getAltAxis.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/getAltAxis.js
 function hn(e) {
 	return e === "x" ? "y" : "x";
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/modifiers/preventOverflow.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/modifiers/preventOverflow.js
 function gn(e) {
 	var t = e.state, n = e.options, r = e.name, i = n.mainAxis, a = i === void 0 ? !0 : i, o = n.altAxis, s = o === void 0 ? !1 : o, c = n.boundary, l = n.rootBoundary, u = n.altBoundary, d = n.padding, f = n.tether, p = f === void 0 ? !0 : f, m = n.tetherOffset, h = m === void 0 ? 0 : m, g = en(t, {
 		boundary: c,
@@ -1182,7 +1182,7 @@ var _n = {
 	requiresIfExists: ["offset"]
 };
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js
 function vn(e) {
 	return {
 		scrollLeft: e.scrollLeft,
@@ -1190,12 +1190,12 @@ function vn(e) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js
 function yn(e) {
 	return e === V(e) || !et(e) ? Vt(e) : vn(e);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js
 function bn(e) {
 	var t = e.getBoundingClientRect(), n = it(t.width) / e.offsetWidth || 1, r = it(t.height) / e.offsetHeight || 1;
 	return n !== 1 || r !== 1;
@@ -1217,7 +1217,7 @@ function xn(e, t, n) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/orderModifiers.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/orderModifiers.js
 function Sn(e) {
 	var t = /* @__PURE__ */ new Map(), n = /* @__PURE__ */ new Set(), r = [];
 	e.forEach(function(e) {
@@ -1244,7 +1244,7 @@ function Cn(e) {
 	}, []);
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/debounce.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/debounce.js
 function wn(e) {
 	var t;
 	return function() {
@@ -1256,7 +1256,7 @@ function wn(e) {
 	};
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/utils/mergeByName.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/utils/mergeByName.js
 function Tn(e) {
 	var t = e.reduce(function(e, t) {
 		var n = e[t.name];
@@ -1270,7 +1270,7 @@ function Tn(e) {
 	});
 }
 //#endregion
-//#region node_modules/@popperjs/core/lib/createPopper.js
+//#region node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/lib/createPopper.js
 var En = {
 	placement: "bottom",
 	modifiers: [],
@@ -1372,7 +1372,7 @@ function On(e) {
 	};
 }
 //#endregion
-//#region node_modules/react-overlays/esm/popper.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/popper.js
 var kn = On({ defaultModifiers: [
 	ln,
 	mn,
@@ -1495,13 +1495,13 @@ function Pn(e, t, n) {
 	]), b;
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/contains.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/contains.js
 function Fn(e, t) {
 	if (e.contains) return e.contains(t);
 	if (e.compareDocumentPosition) return e === t || !!(e.compareDocumentPosition(t) & 16);
 }
 //#endregion
-//#region node_modules/warning/warning.js
+//#region node_modules/.pnpm/warning@4.0.3/node_modules/warning/warning.js
 var In = /* @__PURE__ */ s(((e, t) => {
 	var n = !1, r = function() {};
 	if (n) {
@@ -1528,12 +1528,12 @@ var In = /* @__PURE__ */ s(((e, t) => {
 	t.exports = r;
 }));
 //#endregion
-//#region node_modules/react-overlays/esm/safeFindDOMNode.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/safeFindDOMNode.js
 function Ln(e) {
 	return e && "setState" in e ? R.findDOMNode(e) : e ?? null;
 }
 //#endregion
-//#region node_modules/react-overlays/esm/ownerDocument.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/ownerDocument.js
 var Rn = (function(e) {
 	return T(Ln(e));
 }), zn = /* @__PURE__ */ i(In()), Bn = 27, Vn = function() {};
@@ -1588,7 +1588,7 @@ function Gn(e, t, n) {
 	]);
 }
 //#endregion
-//#region node_modules/react-overlays/esm/mergeOptionsWithPopperConfig.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/mergeOptionsWithPopperConfig.js
 function Kn(e) {
 	var t = {};
 	return Array.isArray(e) ? (e?.forEach(function(e) {
@@ -1619,7 +1619,7 @@ function Jn(e) {
 	});
 }
 //#endregion
-//#region node_modules/@restart/hooks/esm/useMergedRefs.js
+//#region node_modules/.pnpm/@restart+hooks@0.4.16_react@18.3.1/node_modules/@restart/hooks/esm/useMergedRefs.js
 var Yn = (e) => !e || typeof e == "function" ? e : (t) => {
 	e.current = t;
 };
@@ -1633,12 +1633,12 @@ function Zn(e, t) {
 	return (0, h.useMemo)(() => Xn(e, t), [e, t]);
 }
 //#endregion
-//#region node_modules/dom-helpers/esm/hasClass.js
+//#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/hasClass.js
 function Qn(e, t) {
 	return e.classList ? !!t && e.classList.contains(t) : (" " + (e.className.baseVal || e.className) + " ").indexOf(" " + t + " ") !== -1;
 }
 //#endregion
-//#region node_modules/react-bootstrap/esm/usePopperMarginModifiers.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/usePopperMarginModifiers.js
 function $n(e) {
 	var t = window.getComputedStyle(e);
 	return {
@@ -1714,7 +1714,7 @@ function er() {
 	]];
 }
 //#endregion
-//#region node_modules/prop-types-extra/lib/isRequiredForA11y.js
+//#region node_modules/.pnpm/prop-types-extra@1.1.1_react@18.3.1/node_modules/prop-types-extra/lib/isRequiredForA11y.js
 var tr = /* @__PURE__ */ s(((e, t) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.default = n;
 	function n(e) {
@@ -1789,7 +1789,7 @@ var tr = /* @__PURE__ */ s(((e, t) => {
 });
 or.displayName = "Feedback", or.propTypes = ar;
 //#endregion
-//#region node_modules/react-bootstrap/esm/FormContext.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormContext.js
 var sr = /* @__PURE__ */ h.createContext({ controlId: void 0 }), cr = [
 	"id",
 	"bsPrefix",
@@ -1811,7 +1811,7 @@ var sr = /* @__PURE__ */ h.createContext({ controlId: void 0 }), cr = [
 });
 lr.displayName = "FormCheckInput";
 //#endregion
-//#region node_modules/react-bootstrap/esm/FormCheckLabel.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormCheckLabel.js
 var ur = [
 	"bsPrefix",
 	"bsCustomPrefix",
@@ -1875,7 +1875,7 @@ var fr = [
 });
 pr.displayName = "FormCheck", pr.Input = lr, pr.Label = dr;
 //#endregion
-//#region node_modules/react-bootstrap/esm/FormFileInput.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormFileInput.js
 var mr = [
 	"id",
 	"bsPrefix",
@@ -1897,7 +1897,7 @@ var mr = [
 });
 hr.displayName = "FormFileInput";
 //#endregion
-//#region node_modules/react-bootstrap/esm/FormFileLabel.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormFileLabel.js
 var gr = [
 	"bsPrefix",
 	"bsCustomPrefix",
@@ -1914,7 +1914,7 @@ var gr = [
 });
 _r.displayName = "FormFileLabel";
 //#endregion
-//#region node_modules/react-bootstrap/esm/FormFile.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormFile.js
 var vr = [
 	"id",
 	"bsPrefix",
@@ -1963,7 +1963,7 @@ var vr = [
 });
 yr.displayName = "FormFile", yr.Input = hr, yr.Label = _r;
 //#endregion
-//#region node_modules/react-bootstrap/esm/FormControl.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormControl.js
 var br = [
 	"bsPrefix",
 	"bsCustomPrefix",
@@ -2027,7 +2027,7 @@ var Sr = Object.assign(xr, { Feedback: or }), Cr = [
 });
 wr.displayName = "FormGroup";
 //#endregion
-//#region node_modules/react-bootstrap/esm/FormLabel.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormLabel.js
 var Tr = [
 	"as",
 	"bsPrefix",
@@ -2057,7 +2057,7 @@ var Tr = [
 });
 Dr.displayName = "FormLabel", Dr.defaultProps = Er;
 //#endregion
-//#region node_modules/react-bootstrap/esm/FormText.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormText.js
 var Or = [
 	"bsPrefix",
 	"className",
@@ -2072,7 +2072,7 @@ var Or = [
 });
 kr.displayName = "FormText";
 //#endregion
-//#region node_modules/react-bootstrap/esm/Switch.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Switch.js
 var Ar = /* @__PURE__ */ h.forwardRef(function(e, t) {
 	return /* @__PURE__ */ h.createElement(pr, m({}, e, {
 		ref: t,
@@ -2081,7 +2081,7 @@ var Ar = /* @__PURE__ */ h.forwardRef(function(e, t) {
 });
 Ar.displayName = "Switch", Ar.Input = pr.Input, Ar.Label = pr.Label;
 //#endregion
-//#region node_modules/react-bootstrap/esm/Form.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Form.js
 var jr = [
 	"bsPrefix",
 	"inline",
@@ -2097,7 +2097,7 @@ var jr = [
 });
 Pr.displayName = "Form", Pr.defaultProps = Nr, Pr.Row = Mr, Pr.Group = wr, Pr.Control = Sr, Pr.Check = pr, Pr.File = yr, Pr.Switch = Ar, Pr.Label = Dr, Pr.Text = kr;
 //#endregion
-//#region node_modules/react-overlays/esm/useWaitForDOMRef.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/useWaitForDOMRef.js
 var Fr = function(e) {
 	var t;
 	return typeof document > "u" ? null : e == null ? T().body : (typeof e == "function" && (e = e()), e && "current" in e && (e = e.current), (t = e) != null && t.nodeType && e || null);
@@ -2118,7 +2118,7 @@ function Ir(e, t) {
 	}, [e, r]), r;
 }
 //#endregion
-//#region node_modules/react-overlays/esm/Overlay.js
+//#region node_modules/.pnpm/react-overlays@5.2.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-overlays/esm/Overlay.js
 var Lr = /* @__PURE__ */ h.forwardRef(function(e, t) {
 	var n = e.flip, r = e.offset, i = e.placement, a = e.containerPadding, s = a === void 0 ? 5 : a, c = e.popperConfig, l = c === void 0 ? {} : c, u = e.transition, d = Le(), f = d[0], p = d[1], g = Le(), _ = g[0], v = g[1], y = Zn(p, t), b = Ir(e.container), x = Ir(e.target), S = (0, h.useState)(!e.show), C = S[0], w = S[1], T = Pn(x, f, Jn({
 		placement: i,
@@ -2192,7 +2192,7 @@ Lr.displayName = "Overlay", Lr.propTypes = {
 	onExited: H.default.func
 };
 //#endregion
-//#region node_modules/react-bootstrap/esm/Overlay.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Overlay.js
 var Rr = [
 	"children",
 	"transition",
@@ -2253,7 +2253,7 @@ function Hr(e) {
 }
 Hr.defaultProps = Br;
 //#endregion
-//#region node_modules/react-bootstrap/esm/OverlayTrigger.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/OverlayTrigger.js
 var Ur = [
 	"trigger",
 	"overlay",
@@ -2346,7 +2346,7 @@ function Jr(e) {
 }
 Jr.defaultProps = qr;
 //#endregion
-//#region node_modules/react-bootstrap/esm/Spinner.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Spinner.js
 var Yr = [
 	"bsPrefix",
 	"variant",
@@ -2387,7 +2387,7 @@ var Zr = [
 });
 $r.defaultProps = Qr, $r.displayName = "Tooltip";
 //#endregion
-//#region node_modules/tslib/tslib.es6.mjs
+//#region node_modules/.pnpm/tslib@2.8.1/node_modules/tslib/tslib.es6.mjs
 var ei = function() {
 	return ei = Object.assign || function(e) {
 		for (var t, n = 1, r = arguments.length; n < r; n++) for (var i in t = arguments[n], t) Object.prototype.hasOwnProperty.call(t, i) && (e[i] = t[i]);
@@ -2405,7 +2405,7 @@ function ni(e, t, n) {
 	return e.concat(a || Array.prototype.slice.call(t));
 }
 //#endregion
-//#region node_modules/@formatjs/fast-memoize/lib/index.js
+//#region node_modules/.pnpm/@formatjs+fast-memoize@2.2.3/node_modules/@formatjs/fast-memoize/lib/index.js
 function ri(e, t) {
 	var n = t && t.cache ? t.cache : pi, r = t && t.serializer ? t.serializer : di;
 	return (t && t.strategy ? t.strategy : ci)(e, {
@@ -2455,7 +2455,7 @@ var pi = { create: function() {
 	monadic: ui
 };
 //#endregion
-//#region node_modules/@formatjs/ecma402-abstract/lib/utils.js
+//#region node_modules/.pnpm/@formatjs+ecma402-abstract@2.2.4/node_modules/@formatjs/ecma402-abstract/lib/utils.js
 function hi(e, t, n) {
 	if (n === void 0 && (n = Error), !e) throw new n(t);
 }
@@ -2486,13 +2486,13 @@ var gi = {
 	onWarn: function(e) {}
 };
 //#endregion
-//#region node_modules/react-intl/lib/src/utils.js
+//#region node_modules/.pnpm/react-intl@6.8.9_react@18.3.1_typescript@5.9.3/node_modules/react-intl/lib/src/utils.js
 function _i(e) {
 	hi(e, "[React Intl] Could not find required `intl` object. <IntlProvider> needs to exist in the component ancestry.");
 }
 ei(ei({}, gi), { textComponent: h.Fragment });
 //#endregion
-//#region node_modules/react-is/cjs/react-is.production.min.js
+//#region node_modules/.pnpm/react-is@16.13.1/node_modules/react-is/cjs/react-is.production.min.js
 var vi = /* @__PURE__ */ s(((e) => {
 	var t = typeof Symbol == "function" && Symbol.for, n = t ? Symbol.for("react.element") : 60103, r = t ? Symbol.for("react.portal") : 60106, i = t ? Symbol.for("react.fragment") : 60107, a = t ? Symbol.for("react.strict_mode") : 60108, o = t ? Symbol.for("react.profiler") : 60114, s = t ? Symbol.for("react.provider") : 60109, c = t ? Symbol.for("react.context") : 60110, l = t ? Symbol.for("react.async_mode") : 60111, u = t ? Symbol.for("react.concurrent_mode") : 60111, d = t ? Symbol.for("react.forward_ref") : 60112, f = t ? Symbol.for("react.suspense") : 60113, p = t ? Symbol.for("react.suspense_list") : 60120, m = t ? Symbol.for("react.memo") : 60115, h = t ? Symbol.for("react.lazy") : 60116, g = t ? Symbol.for("react.block") : 60121, _ = t ? Symbol.for("react.fundamental") : 60117, v = t ? Symbol.for("react.responder") : 60118, y = t ? Symbol.for("react.scope") : 60119;
 	function b(e) {
@@ -2618,13 +2618,13 @@ var bi = typeof window < "u" && !window.__REACT_INTL_BYPASS_GLOBAL_CONTEXT__ ? w
 bi.Consumer, bi.Provider;
 var xi = bi;
 //#endregion
-//#region node_modules/react-intl/lib/src/components/useIntl.js
+//#region node_modules/.pnpm/react-intl@6.8.9_react@18.3.1_typescript@5.9.3/node_modules/react-intl/lib/src/components/useIntl.js
 function Si() {
 	var e = h.useContext(xi);
 	return _i(e), e;
 }
 //#endregion
-//#region node_modules/react-intl/lib/src/components/createFormattedComponent.js
+//#region node_modules/.pnpm/react-intl@6.8.9_react@18.3.1_typescript@5.9.3/node_modules/react-intl/lib/src/components/createFormattedComponent.js
 var Ci;
 (function(e) {
 	e.formatDate = "FormattedDate", e.formatTime = "FormattedTime", e.formatNumber = "FormattedNumber", e.formatList = "FormattedList", e.formatDisplayName = "FormattedDisplayName";
@@ -2655,13 +2655,13 @@ function Di(e) {
 	return t.displayName = Ci[e], t;
 }
 //#endregion
-//#region node_modules/react-intl/lib/index.js
+//#region node_modules/.pnpm/react-intl@6.8.9_react@18.3.1_typescript@5.9.3/node_modules/react-intl/lib/index.js
 function Oi(e) {
 	return e;
 }
 Di("formatDate"), Di("formatTime"), Di("formatNumber"), Di("formatList"), Di("formatDisplayName"), Ei("formatDate"), Ei("formatTime");
 //#endregion
-//#region node_modules/@openedx/paragon/icons/es5/Add.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/icons/es5/Add.js
 var ki = (e) => /* @__PURE__ */ h.createElement("svg", {
 	width: 24,
 	height: 24,
@@ -2850,7 +2850,7 @@ Vi.propTypes = {
 	trigger: ["hover", "focus"]
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Tooltip/index.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Tooltip/index.js
 var Wi = [
 	"auto-start",
 	"auto",
@@ -2899,7 +2899,7 @@ Gi.propTypes = {
 	bsPrefix: "tooltip"
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/IconButton/index.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/IconButton/index.js
 var Ki = /* @__PURE__ */ h.forwardRef(({ className: e, alt: t, invertColors: n = !1, icon: r, src: i, iconClassNames: o, onClick: s = () => {}, size: c = "md", variant: l = "primary", iconAs: u = a, isActive: d = !1, children: f, ...p }, m) => {
 	let _ = n ? "inverse-" : "", v = d ? `${l}-` : "", y = u;
 	return /* @__PURE__ */ h.createElement("button", {
@@ -2927,7 +2927,7 @@ function qi({ tooltipPlacement: e = "top", tooltipContent: t, ...n }) {
 }
 Ki.IconButtonWithTooltip = qi;
 //#endregion
-//#region node_modules/imask/esm/core/utils.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/core/utils.js
 function Ji(e) {
 	return typeof e == "string" || e instanceof String;
 }
@@ -2982,7 +2982,7 @@ function $i(e, t) {
 	return !1;
 }
 //#endregion
-//#region node_modules/imask/esm/core/action-details.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/core/action-details.js
 var ea = class {
 	constructor(e) {
 		for (Object.assign(this, e); this.value.slice(0, this.startChangePos) !== this.oldValue.slice(0, this.startChangePos);) --this.oldSelection.start;
@@ -3014,12 +3014,12 @@ var ea = class {
 	}
 };
 //#endregion
-//#region node_modules/imask/esm/core/holder.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/core/holder.js
 function W(e, t) {
 	return new W.InputMask(e, t);
 }
 //#endregion
-//#region node_modules/imask/esm/masked/factory.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/masked/factory.js
 function ta(e) {
 	if (e == null) throw Error("mask property should be defined");
 	return e instanceof RegExp ? W.MaskedRegExp : Ji(e) ? W.MaskedPattern : e === Date ? W.MaskedDate : e === Number ? W.MaskedNumber : Array.isArray(e) || e === Array ? W.MaskedDynamic : W.Masked && e.prototype instanceof W.Masked ? e : W.Masked && e instanceof W.Masked ? e.constructor : e instanceof Function ? W.MaskedFunction : (console.warn("Mask not found for mask", e), W.Masked);
@@ -3049,7 +3049,7 @@ function ra(e) {
 }
 W.createMask = ra;
 //#endregion
-//#region node_modules/imask/esm/controls/mask-element.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/controls/mask-element.js
 var ia = class {
 	get selectionStart() {
 		let e;
@@ -3076,7 +3076,7 @@ var ia = class {
 };
 W.MaskElement = ia;
 //#endregion
-//#region node_modules/imask/esm/controls/html-mask-element.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/controls/html-mask-element.js
 var aa = 90, oa = 89, sa = class extends ia {
 	constructor(e) {
 		super(), this.input = e, this._onKeydown = this._onKeydown.bind(this), this._onInput = this._onInput.bind(this), this._onBeforeinput = this._onBeforeinput.bind(this), this._onCompositionEnd = this._onCompositionEnd.bind(this);
@@ -3112,7 +3112,7 @@ var aa = 90, oa = 89, sa = class extends ia {
 };
 W.HTMLMaskElement = sa;
 //#endregion
-//#region node_modules/imask/esm/controls/html-input-mask-element.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/controls/html-input-mask-element.js
 var ca = class extends sa {
 	constructor(e) {
 		super(e), this.input = e;
@@ -3135,7 +3135,7 @@ var ca = class extends sa {
 };
 W.HTMLMaskElement = sa;
 //#endregion
-//#region node_modules/imask/esm/controls/html-contenteditable-mask-element.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/controls/html-contenteditable-mask-element.js
 var la = class extends sa {
 	get _unsafeSelectionStart() {
 		let e = this.rootElement, t = e.getSelection && e.getSelection(), n = t && t.anchorOffset, r = t && t.focusOffset;
@@ -3161,7 +3161,7 @@ var la = class extends sa {
 };
 W.HTMLContenteditableMaskElement = la;
 //#endregion
-//#region node_modules/imask/esm/controls/input-history.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/controls/input-history.js
 var ua = class e {
 	constructor() {
 		this.states = [], this.currentIndex = 0;
@@ -3353,7 +3353,7 @@ ua.MAX_LENGTH = 100, W.InputMask = class {
 	}
 };
 //#endregion
-//#region node_modules/imask/esm/core/change-details.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/core/change-details.js
 var G = class e {
 	static normalize(t) {
 		return Array.isArray(t) ? t : [t, new e()];
@@ -3381,7 +3381,7 @@ var G = class e {
 };
 W.ChangeDetails = G;
 //#endregion
-//#region node_modules/imask/esm/core/continuous-tail-details.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/core/continuous-tail-details.js
 var da = class {
 	constructor(e, t, n) {
 		e === void 0 && (e = ""), t === void 0 && (t = 0), this.value = e, this.from = t, this.stop = n;
@@ -3606,7 +3606,7 @@ K.DEFAULTS = { skipInvalid: !0 }, K.EMPTY_VALUES = [
 	""
 ], W.Masked = K;
 //#endregion
-//#region node_modules/imask/esm/masked/pattern/chunk-tail-details.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/masked/pattern/chunk-tail-details.js
 var fa = class e {
 	constructor(e, t) {
 		e === void 0 && (e = []), t === void 0 && (t = 0), this.chunks = e, this.from = t;
@@ -3958,7 +3958,7 @@ ha.DEFAULT_DEFINITIONS = {
 	}
 };
 //#endregion
-//#region node_modules/imask/esm/masked/pattern.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/masked/pattern.js
 var q = class e extends K {
 	constructor(t) {
 		super({
@@ -4230,7 +4230,7 @@ q.DEFAULTS = {
 	placeholderChar: "_"
 }, q.STOP_CHAR = "`", q.ESCAPE_CHAR = "\\", q.InputDefinition = ha, q.FixedDefinition = ma, W.MaskedPattern = q;
 //#endregion
-//#region node_modules/imask/esm/masked/range.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/masked/range.js
 var ga = class extends q {
 	get _matchFrom() {
 		return this.maxLength - String(this.from).length;
@@ -4285,7 +4285,7 @@ var ga = class extends q {
 };
 W.MaskedRange = ga;
 //#endregion
-//#region node_modules/imask/esm/masked/date.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/masked/date.js
 var _a = "d{.}`m{.}`Y", va = class e extends q {
 	static extractPatternOptions(e) {
 		let { mask: t, pattern: n, ...r } = e;
@@ -4373,7 +4373,7 @@ va.GET_DEFAULT_BLOCKS = () => ({
 	}
 }, W.MaskedDate = va;
 //#endregion
-//#region node_modules/imask/esm/masked/dynamic.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/masked/dynamic.js
 var ya = class e extends K {
 	constructor(t) {
 		super({
@@ -4566,7 +4566,7 @@ ya.DEFAULTS = {
 	}
 }, W.MaskedDynamic = ya;
 //#endregion
-//#region node_modules/imask/esm/masked/enum.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/masked/enum.js
 var ba = class e extends q {
 	constructor(t) {
 		super({
@@ -4627,7 +4627,7 @@ ba.DEFAULTS = {
 	}
 };
 //#endregion
-//#region node_modules/imask/esm/masked/number.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/masked/number.js
 var xa, Sa = class e extends K {
 	constructor(t) {
 		super({
@@ -4797,7 +4797,7 @@ xa = Sa, Sa.UNMASKED_RADIX = ".", Sa.EMPTY_VALUES = [...K.EMPTY_VALUES, 0], Sa.D
 	})
 }, W.MaskedNumber = Sa;
 //#endregion
-//#region node_modules/imask/esm/masked/pipe.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/masked/pipe.js
 var Ca = {
 	MASKED: "value",
 	UNMASKED: "unmaskedValue",
@@ -4887,12 +4887,12 @@ W.PIPE_TYPE = Ca, W.createPipe = wa, W.pipe = Ta, W.RepeatBlock = class extends 
 	}
 };
 //#endregion
-//#region node_modules/imask/esm/index.js
+//#region node_modules/.pnpm/imask@7.6.1/node_modules/imask/esm/index.js
 try {
 	globalThis.IMask = W;
 } catch {}
 //#endregion
-//#region node_modules/react-imask/esm/mixin.js
+//#region node_modules/.pnpm/react-imask@7.6.1_react@18.3.1/node_modules/react-imask/esm/mixin.js
 var Ea = {
 	mask: H.default.oneOfType([
 		H.default.array,
@@ -5013,7 +5013,7 @@ function Aa(e) {
 	}));
 }
 //#endregion
-//#region node_modules/react-imask/esm/input.js
+//#region node_modules/.pnpm/react-imask@7.6.1_react@18.3.1/node_modules/react-imask/esm/input.js
 var ja = Aa((e) => {
 	let { inputRef: t, ...n } = e;
 	return h.createElement("input", {
@@ -5093,7 +5093,7 @@ function Ba({ children: t, controlId: n, isInvalid: r, isValid: i, size: a }) {
 	return /* @__PURE__ */ h.createElement(Ra.Provider, { value: p }, t);
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/constants.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/constants.js
 var Va = {
 	SMALL: "sm",
 	LARGE: "lg"
@@ -5159,7 +5159,7 @@ Ga.propTypes = {
 	muted: !1
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormControlFeedback.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormControlFeedback.js
 function Ka({ children: e, ...t }) {
 	let { getDescriptorProps: n, isInvalid: r, isValid: i } = J(), a = n(t), o = (0, g.default)("pgn__form-control-description", t.className), s = t.type || Ua({
 		isInvalid: r,
@@ -5194,7 +5194,7 @@ Ka.propTypes = {
 	muted: !1
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormControlFloatingLabel.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormControlFloatingLabel.js
 function qa({ children: e }) {
 	let { controlId: t } = J();
 	return /* @__PURE__ */ h.createElement("div", { className: "pgn__form-control-floating-label" }, /* @__PURE__ */ h.createElement("div", { className: "pgn__form-control-floating-label-content" }, /* @__PURE__ */ h.createElement("label", {
@@ -5204,7 +5204,7 @@ function qa({ children: e }) {
 }
 qa.propTypes = { children: H.default.node.isRequired };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormControlDecorator.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormControlDecorator.js
 function Ja({ children: e, location: t }) {
 	return /* @__PURE__ */ h.createElement("div", { className: `pgn__form-control-decorator pgn__form-control-decorator-${t}` }, e);
 }
@@ -5213,7 +5213,7 @@ Ja.propTypes = {
 	location: H.default.oneOf(["leading", "trailing"])
 }, Ja.defaultProps = { location: "leading" };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormControlDecoratorGroup.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormControlDecoratorGroup.js
 function Ya({ children: e, leadingElement: t, trailingElement: n, floatingLabel: r, className: i, ...a }) {
 	let o = J(a), s = a.size || o.size;
 	return /* @__PURE__ */ h.createElement("div", {
@@ -5244,7 +5244,7 @@ Ya.propTypes = {
 	size: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormControl.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormControl.js
 var Xa = /* @__PURE__ */ h.forwardRef(({ as: e, className: t, controlClassName: n, leadingElement: r, trailingElement: i, floatingLabel: a, autoResize: o, onChange: s, inputMask: c, ...l }, u) => {
 	let { isInvalid: d, isValid: f, getControlProps: p, ...m } = J(), _ = h.useRef(), v = u || _, y = l.size || m.size, [b, x] = Fa({
 		defaultValue: l.defaultValue,
@@ -5319,7 +5319,7 @@ Xa.Feedback = Ka, Xa.Description = Ka, Xa.propTypes = {
 	inputMask: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormLabel.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormLabel.js
 function Za({ children: e, isInline: t = !1, ...n }) {
 	let { size: r, isControlGroup: i, getLabelProps: a } = J(), o = (0, g.default)("pgn__form-label", {
 		"pgn__form-label-inline": t,
@@ -5332,7 +5332,7 @@ function Za({ children: e, isInline: t = !1, ...n }) {
 	return /* @__PURE__ */ h.createElement(c, s, e);
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormGroup.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormGroup.js
 function Qa({ children: e, controlId: t, isInvalid: n = !1, isValid: r = !1, size: i, as: a, ...o }) {
 	return /* @__PURE__ */ h.createElement(a ?? "div", {
 		...o,
@@ -5385,7 +5385,7 @@ to.propTypes = {
 	defaultValue: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormRadio.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormRadio.js
 var no = /* @__PURE__ */ h.forwardRef((e, t) => {
 	let { getControlProps: n } = J(), { getRadioControlProps: r, hasRadioSetProvider: i } = eo(), a = n({
 		...e,
@@ -5432,7 +5432,7 @@ ro.propTypes = {
 	disabled: !1
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormControlSet.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormControlSet.js
 function io({ as: e, className: t, isInline: n, children: r, ...i }) {
 	return /* @__PURE__ */ h.createElement(e, {
 		className: (0, g.default)(t, {
@@ -5454,7 +5454,7 @@ io.propTypes = {
 	children: null
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormRadioSet.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormRadioSet.js
 function ao({ children: e, name: t, value: n, defaultValue: r, isInline: i, onChange: a, onFocus: o, onBlur: s, ...c }) {
 	let { getControlProps: l, useSetIsControlGroupEffect: u } = J();
 	u(!0);
@@ -5492,14 +5492,14 @@ ao.propTypes = {
 	onBlur: void 0
 };
 //#endregion
-//#region node_modules/uuid/dist/esm-browser/rng.js
+//#region node_modules/.pnpm/uuid@9.0.1/node_modules/uuid/dist/esm-browser/rng.js
 var oo, so = new Uint8Array(16);
 function co() {
 	if (!oo && (oo = typeof crypto < "u" && crypto.getRandomValues && crypto.getRandomValues.bind(crypto), !oo)) throw Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
 	return oo(so);
 }
 //#endregion
-//#region node_modules/uuid/dist/esm-browser/stringify.js
+//#region node_modules/.pnpm/uuid@9.0.1/node_modules/uuid/dist/esm-browser/stringify.js
 var X = [];
 for (let e = 0; e < 256; ++e) X.push((e + 256).toString(16).slice(1));
 function lo(e, t = 0) {
@@ -5507,7 +5507,7 @@ function lo(e, t = 0) {
 }
 var uo = { randomUUID: typeof crypto < "u" && crypto.randomUUID && crypto.randomUUID.bind(crypto) };
 //#endregion
-//#region node_modules/uuid/dist/esm-browser/v4.js
+//#region node_modules/.pnpm/uuid@9.0.1/node_modules/uuid/dist/esm-browser/v4.js
 function fo(e, t, n) {
 	if (uo.randomUUID && !t && !e) return uo.randomUUID();
 	e ||= {};
@@ -5520,7 +5520,7 @@ function fo(e, t, n) {
 	return lo(r);
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/utils/propTypes/utils.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/utils/propTypes/utils.js
 var po = (e, t, n) => ((r, i, a, ...o) => t(r) && r[i] === void 0 ? /* @__PURE__ */ Error(`${a}: ${i} is required when ${n}`) : e(r, i, a, ...o)), mo = (e, t) => t.every((t) => e[t] !== void 0), ho = (e, t) => po(e, (e) => Array.isArray(t) ? mo(e, t) : e[t] === !0, `${t} ${Array.isArray(t) ? "are defined" : "is truthy"}`), go = /* @__PURE__ */ h.forwardRef(({ className: e, screenReaderText: t, ...n }, r) => {
 	let i = {
 		...n,
@@ -5533,7 +5533,7 @@ var po = (e, t, n) => ((r, i, a, ...o) => t(r) && r[i] === void 0 ? /* @__PURE__
 	}, t && /* @__PURE__ */ h.createElement("span", { className: "sr-only" }, t));
 });
 //#endregion
-//#region node_modules/@openedx/paragon/dist/hooks/useArrowKeyNavigationHook.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/hooks/useArrowKeyNavigationHook.js
 function _o({ event: e, currentIndex: t, activeElement: n }) {
 	t !== -1 && (n.click(), e.preventDefault());
 }
@@ -5584,7 +5584,7 @@ function bo(e = {}) {
 	}, [n, t]), r;
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/messages.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/messages.js
 var xo = Oi({
 	iconButtonOpened: {
 		id: "pgn.FormAutosuggest.iconButtonOpened",
@@ -5792,7 +5792,7 @@ So.defaultProps = {
 	screenReaderText: H.default.string
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Menu/MenuItem.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Menu/MenuItem.js
 function Co({ as: e = "button", children: t, defaultSelected: n = !1, iconAfter: r, iconBefore: i, ...o }) {
 	let s = (0, g.default)(o.className, "pgn__menu-item");
 	return /* @__PURE__ */ (0, h.createElement)(e, {
@@ -5807,7 +5807,7 @@ function Co({ as: e = "button", children: t, defaultSelected: n = !1, iconAfter:
 	})));
 }
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormAutosuggestOption.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormAutosuggestOption.js
 function wo({ children: e, className: t, onClick: n, ...r }) {
 	return /* @__PURE__ */ h.createElement(Co, {
 		as: "li",
@@ -5870,7 +5870,7 @@ Do.propTypes = {
 	defaultValue: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormCheckbox.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormCheckbox.js
 var Oo = /* @__PURE__ */ h.forwardRef(({ isIndeterminate: e, ...t }, n) => {
 	let { getCheckboxControlProps: r, hasCheckboxSetProvider: i } = Eo(), a = h.useRef(), o = n || a, { getControlProps: s } = J(), c = s({
 		...t,
@@ -5941,7 +5941,7 @@ ko.propTypes = {
 	disabled: !1
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormSwitch.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormSwitch.js
 var Ao = /* @__PURE__ */ h.forwardRef(({ isIndeterminate: e, ...t }, n) => {
 	let r = h.useRef(), i = n || r, { getControlProps: a } = J(), o = a({
 		...t,
@@ -5985,7 +5985,7 @@ jo.propTypes = {
 	floatLabelLeft: !1
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormCheckboxSet.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormCheckboxSet.js
 function Mo({ children: e, name: t, value: n, defaultValue: r, isInline: i, onChange: a, onFocus: o, onBlur: s, ...c }) {
 	let { getControlProps: l, useSetIsControlGroupEffect: u } = J();
 	u(!0);
@@ -6023,11 +6023,11 @@ Mo.propTypes = {
 	onBlur: void 0
 };
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Form/FormSwitchSet.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Form/FormSwitchSet.js
 var No = Mo, Z = Pr;
 Z.Control = Xa, Z.Radio = ro, Z.RadioSet = ao, Z.Autosuggest = So, Z.AutosuggestOption = wo, Z.Checkbox = ko, Z.CheckboxSet = Mo, Z.Switch = jo, Z.SwitchSet = No, Z.Label = Za, Z.Group = Qa, Z.Text = Ga;
 //#endregion
-//#region node_modules/@openedx/paragon/dist/Stack/index.js
+//#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Stack/index.js
 var Po = /* @__PURE__ */ (0, h.forwardRef)(({ direction: e = "vertical", gap: t = 0, reversed: n = !1, children: r, className: i, ...a }, o) => /* @__PURE__ */ h.createElement("div", {
 	ref: o,
 	className: (0, g.default)(e === "horizontal" ? "pgn__hstack" : "pgn__vstack", t ? `pgn__stack-gap--${t}` : "", n ? "pgn__stack-reversed" : "", i),

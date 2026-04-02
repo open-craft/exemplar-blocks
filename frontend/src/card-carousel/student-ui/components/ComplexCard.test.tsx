@@ -14,7 +14,7 @@ describe('ComplexCard — IMAGE type', () => {
           cardType: CardType.IMAGE,
           secondaryContent: { location: '/img.jpg', altText: 'Test image' },
         }}
-      />
+      />,
     );
     const img = screen.getByAltText('Test image');
     expect(img).toHaveAttribute('src', '/img.jpg');
@@ -29,9 +29,13 @@ describe('ComplexCard — CONTENT_HIGHLIGHT type', () => {
         data={{
           title: 'Test',
           cardType: CardType.CONTENT_HIGHLIGHT,
-          secondaryContent: { title: 'CH Title', subtitle: 'CH Sub', description: 'CH Desc' },
+          secondaryContent: {
+            title: 'CH Title',
+            subtitle: 'CH Sub',
+            description: 'CH Desc',
+          },
         }}
-      />
+      />,
     );
     expect(screen.getByText('CH Title')).toBeInTheDocument();
     expect(screen.getByText('CH Sub')).toBeInTheDocument();
@@ -47,9 +51,13 @@ describe('ComplexCard — RICH_LIST type', () => {
         data={{
           title: 'Test',
           cardType: CardType.RICH_LIST,
-          secondaryContent: { items: [{ icon: 'star', title: 'Item', description: 'Description' }] },
+          secondaryContent: {
+            items: [
+              { icon: 'star', title: 'Item', description: 'Description' },
+            ],
+          },
         }}
-      />
+      />,
     );
     expect(screen.getByText('star')).toBeVisible();
     expect(screen.getByText('Item')).toBeVisible();
@@ -65,9 +73,11 @@ describe('ComplexCard — HOVER_LIST type', () => {
         data={{
           title: 'Test',
           cardType: CardType.HOVER_LIST,
-          secondaryContent: { items: [{ description: 'Item', hoverContent: 'Hover' }] },
+          secondaryContent: {
+            items: [{ description: 'Item', hoverContent: 'Hover' }],
+          },
         }}
-      />
+      />,
     );
     expect(screen.getByText('Item')).toBeVisible();
     expect(screen.getByText('Hover')).toBeInTheDocument();
@@ -77,15 +87,23 @@ describe('ComplexCard — HOVER_LIST type', () => {
 // Tests for the ContentLayout
 
 describe('ContentLayout', () => {
-  const chContent = { title: 'CH Title', subtitle: 'CH Sub', description: 'CH Desc' };
+  const chContent = {
+    title: 'CH Title',
+    subtitle: 'CH Sub',
+    description: 'CH Desc',
+  };
   const rlContent = { items: [] };
   const imgContent = { location: '/img.jpg', altText: 'Alt Image Content' };
 
   it('renders Card.ImageCap and children for IMAGE type without a layout wrapper', () => {
     const { container } = render(
-      <ContentLayout cardType={CardType.IMAGE} orientation={Orientation.HORIZONTAL} secondaryContent={imgContent}>
+      <ContentLayout
+        cardType={CardType.IMAGE}
+        orientation={Orientation.HORIZONTAL}
+        secondaryContent={imgContent}
+      >
         <span>child component</span>
-      </ContentLayout>
+      </ContentLayout>,
     );
     expect(screen.getByAltText('Alt Image Content')).toBeInTheDocument();
     expect(screen.getByText('child component')).toBeInTheDocument();
@@ -94,9 +112,13 @@ describe('ContentLayout', () => {
 
   it('uses "row" outer class for CONTENT_HIGHLIGHT + horizontal', () => {
     const { container } = render(
-      <ContentLayout cardType={CardType.CONTENT_HIGHLIGHT} orientation={Orientation.HORIZONTAL} secondaryContent={chContent}>
+      <ContentLayout
+        cardType={CardType.CONTENT_HIGHLIGHT}
+        orientation={Orientation.HORIZONTAL}
+        secondaryContent={chContent}
+      >
         <span />
-      </ContentLayout>
+      </ContentLayout>,
     );
     expect(container.querySelector('.row')).toBeInTheDocument();
     expect(container.querySelector('.col')).toBeInTheDocument();
@@ -104,9 +126,13 @@ describe('ContentLayout', () => {
 
   it('uses "d-flex flex-column" outer class for CONTENT_HIGHLIGHT + vertical', () => {
     const { container } = render(
-      <ContentLayout cardType={CardType.CONTENT_HIGHLIGHT} orientation={Orientation.VERTICAL} secondaryContent={chContent}>
+      <ContentLayout
+        cardType={CardType.CONTENT_HIGHLIGHT}
+        orientation={Orientation.VERTICAL}
+        secondaryContent={chContent}
+      >
         <span />
-      </ContentLayout>
+      </ContentLayout>,
     );
     expect(container.querySelector('.d-flex.flex-column')).toBeInTheDocument();
     expect(container.querySelector('.flex-grow-1')).toBeInTheDocument();
@@ -114,34 +140,45 @@ describe('ContentLayout', () => {
 
   it('uses "row" outer class for RICH_LIST + horizontal', () => {
     const { container } = render(
-      <ContentLayout cardType={CardType.RICH_LIST} orientation={Orientation.HORIZONTAL} secondaryContent={rlContent}>
+      <ContentLayout
+        cardType={CardType.RICH_LIST}
+        orientation={Orientation.HORIZONTAL}
+        secondaryContent={rlContent}
+      >
         <span />
-      </ContentLayout>
+      </ContentLayout>,
     );
     expect(container.querySelector('.row')).toBeInTheDocument();
   });
 
   it('uses "d-flex flex-column" outer class for RICH_LIST + vertical', () => {
     const { container } = render(
-      <ContentLayout cardType={CardType.RICH_LIST} orientation={Orientation.VERTICAL} secondaryContent={rlContent}>
+      <ContentLayout
+        cardType={CardType.RICH_LIST}
+        orientation={Orientation.VERTICAL}
+        secondaryContent={rlContent}
+      >
         <span />
-      </ContentLayout>
+      </ContentLayout>,
     );
     expect(container.querySelector('.d-flex.flex-column')).toBeInTheDocument();
   });
 
   it('renders children directly without a layout wrapper for HOVER_LIST (fallback)', () => {
     const { container } = render(
-      <ContentLayout cardType={CardType.HOVER_LIST} orientation={Orientation.HORIZONTAL} secondaryContent={rlContent}>
+      <ContentLayout
+        cardType={CardType.HOVER_LIST}
+        orientation={Orientation.HORIZONTAL}
+        secondaryContent={rlContent}
+      >
         <span data-testid="child" />
-      </ContentLayout>
+      </ContentLayout>,
     );
     expect(screen.getByTestId('child')).toBeInTheDocument();
     expect(container.querySelector('.row')).not.toBeInTheDocument();
     expect(container.querySelector('.d-flex')).not.toBeInTheDocument();
   });
 });
-
 
 // Tests for the card's content itself
 describe('ComplexCard — card content', () => {
@@ -151,9 +188,13 @@ describe('ComplexCard — card content', () => {
     render(
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
-        data={{ title: 'My Card Title', cardType: CardType.IMAGE, secondaryContent: imageData }}
-        position='1/3'
-      />
+        data={{
+          title: 'My Card Title',
+          cardType: CardType.IMAGE,
+          secondaryContent: imageData,
+        }}
+        position="1/3"
+      />,
     );
     expect(screen.getByText('1/3')).toBeInTheDocument();
   });
@@ -162,8 +203,14 @@ describe('ComplexCard — card content', () => {
     render(
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
-        data={{ title: 'My Card Title', subtitle: 'Subtitle Text',  description: 'Card description', cardType: CardType.IMAGE, secondaryContent: imageData }}
-      />
+        data={{
+          title: 'My Card Title',
+          subtitle: 'Subtitle Text',
+          description: 'Card description',
+          cardType: CardType.IMAGE,
+          secondaryContent: imageData,
+        }}
+      />,
     );
     expect(screen.getByText('My Card Title')).toBeVisible();
     expect(screen.getByText('Subtitle Text')).toBeVisible();
@@ -181,9 +228,9 @@ describe('ComplexCard — card content', () => {
           ctaLink: '/start',
           secondaryContent: imageData,
         }}
-      />
+      />,
     );
-    expect(screen.getByText("Start Now")).toBeInTheDocument();
+    expect(screen.getByText('Start Now')).toBeInTheDocument();
   });
 
   it('does not render CTA button when ctaLink is missing', () => {
@@ -196,7 +243,7 @@ describe('ComplexCard — card content', () => {
           ctaLabel: 'Start Now',
           secondaryContent: imageData,
         }}
-      />
+      />,
     );
     expect(screen.queryByTestId('cta-button')).not.toBeInTheDocument();
   });
@@ -211,7 +258,7 @@ describe('ComplexCard — card content', () => {
           ctaLink: '/start',
           secondaryContent: imageData,
         }}
-      />
+      />,
     );
     expect(screen.queryByTestId('cta-button')).not.toBeInTheDocument();
   });

@@ -1,15 +1,14 @@
 export interface KeyPoint {
-  keypoint: string,
-  description: string
+  keypoint: string;
+  description: string;
 }
 
 export interface KeyPoints {
-  keypoints?: KeyPoint[]
+  keypoints?: KeyPoint[];
 }
 
-
 export interface XBlockData extends KeyPoints {
-  header: string,
-  button_link: string,
-  button_text: string,
+  header: string;
+  button_link: string;
+  button_text: string;
 }

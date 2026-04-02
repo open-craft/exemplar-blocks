@@ -45,7 +45,9 @@ describe('MaterialIcon', () => {
   });
 
   it('uses custom bg and fg classes when provided', () => {
-    const { container } = render(<MaterialIcon name="star" bg="bg-primary-500" fg="text-brand-400" />);
+    const { container } = render(
+      <MaterialIcon name="star" bg="bg-primary-500" fg="text-brand-400" />,
+    );
     const wrapper = container.firstChild as HTMLElement;
     expect(wrapper.className).toContain('bg-primary-500');
     expect(wrapper.className).not.toContain('bg-secondary-500');

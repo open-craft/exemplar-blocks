@@ -21,3 +21,35 @@ test:
     - mise run install
     - mise run init_sdk
     - mise run test-python
+
+frontend quality:
+  stage: test
+  image: node:24-alpine
+  script:
+    - apk add pnpm
+    - cd frontend
+    - pnpm install
+    - pnpm run lint
+
+frontend build:
+  stage: test
+  image: node:24-alpine
+  script:
+    - apk add pnpm git
+    - cd frontend
+    - pnpm install
+    - XBLOCK=card_carousel pnpm run build
+    - XBLOCK=keypoint_block pnpm run build
+    # Check build artefacts are up to date.
+    # The frontend build artefacts are committed to the repo.
+    # If there are changes in the repo after the build commands above, then the build artefacts aren't up to date.
+    - git diff --exit-code
+
+frontend test:
+  stage: test
+  image: node:24-alpine
+  script:
+    - apk add pnpm git
+    - cd frontend
+    - pnpm install
+    - pnpm run test

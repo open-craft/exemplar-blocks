@@ -136,14 +136,14 @@ From the repository root:
 
 ```bash
 cd frontend
-npm install                              # first time only
-XBLOCK=keypoint_block npm run build      # compile React → public/
+pnpm install                              # first time only
+XBLOCK=keypoint_block pnpm run build      # compile React → public/
 ```
 
 Or to watch for changes during development:
 
 ```bash
-XBLOCK=keypoint_block npm run build:watch
+XBLOCK=keypoint_block pnpm run build:watch
 ```
 
 ### Running in the workbench
@@ -163,5 +163,5 @@ to see the block with sample data.
 mise run test-python
 
 # Frontend (from the frontend/ directory)
-npm run test
+pnpm run test
 ```
