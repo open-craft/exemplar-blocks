@@ -3,7 +3,7 @@ from xblock.field_data import DictFieldData
 from xblock.fields import ScopeIds
 from xblock.test.toy_runtime import ToyRuntime
 
-from exemplar_blocks.cover_block import CoverBlock
+from cover_block import CoverBlock
 
 
 def make_block(**fields: str) -> CoverBlock:

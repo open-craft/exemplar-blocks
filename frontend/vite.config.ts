@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => {
           'src/card-carousel/studio-ui/main.tsx',
         ),
       },
-      outDir: resolve(__dirname, '../src/exemplar_blocks/card_carousel/public'),
+      outDir: resolve(__dirname, '../src/card_carousel/public'),
     },
     keypoint_block: {
       entry: {
@@ -51,10 +51,7 @@ export default defineConfig(({ mode }) => {
           'src/keypoint-block/studio-ui/index.tsx',
         ),
       },
-      outDir: resolve(
-        __dirname,
-        '../src/exemplar_blocks/keypoint_block/public',
-      ),
+      outDir: resolve(__dirname, '../src/keypoint_block/public'),
     },
   };
 
