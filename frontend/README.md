@@ -40,7 +40,7 @@ const libs = {
         'src/my-new-block/student-ui/main.tsx',
       ),
     },
-    outDir: resolve('.../src/exemplar-blocks/my_new_block/public'),
+    outDir: resolve('.../src/my_new_block/public'),
   },
 };
 ```

@@ -2,7 +2,7 @@ from xblock.field_data import DictFieldData
 from xblock.fields import ScopeIds
 from xblock.test.toy_runtime import ToyRuntime
 
-from exemplar_blocks.two_column_block import TwoColumnBlock
+from two_column_block import TwoColumnBlock
 
 
 def make_block(**fields: str) -> TwoColumnBlock:

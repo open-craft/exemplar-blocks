@@ -1,6 +1,6 @@
 [project]
 name = "exemplar-blocks"
-version = "0.2.0"
+version = "0.3.0"
 description = "A collection of XBlocks for managing and displaying aesthetically pleasing HTML content"
 readme = "README.md"
 license = "Apache-2.0"
@@ -10,10 +10,10 @@ dependencies = [
 ]
 
 [project.entry-points."xblock.v1"]
-cover = "exemplar_blocks.cover_block:CoverBlock"
-two_column = "exemplar_blocks.two_column_block:TwoColumnBlock"
-card_carousel = "exemplar_blocks.card_carousel:CardCarouselXBlock"
-keypoints = "exemplar_blocks.keypoint_block:KeypointXBlock"
+card_carousel = "card_carousel:CardCarouselXBlock"
+cover = "cover_block:CoverBlock"
+keypoints = "keypoint_block:KeypointXBlock"
+two_column = "two_column_block:TwoColumnBlock"
 
 [build-system]
 requires = ["uv_build>=0.10.3,<0.11.0"]
@@ -36,3 +36,14 @@ follow_untyped_imports = true
 
 [tool.uv]
 package = true
+
+[tool.uv.build-backend]
+module-name = [
+    "card_carousel",
+    "cover_block",
+    "keypoint_block",
+    "two_column_block",
+]
+wheel-exclude = [
+    "keypoint_block/images/**"
+]
