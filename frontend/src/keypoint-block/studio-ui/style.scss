@@ -1,35 +1,12 @@
-@import '../index';
+@import '../../base';
+@import '../../studio';
 
-.xblock-keypoints {
-  // Bootstrap grid requires border-box sizing. Since we don't import
-  // the full reboot (to avoid affecting LMS global styles), scope it here.
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  label {
-    font-size: 1.6rem;
-  }
-
-  h4 {
-    font-size: 1.8rem;
-    font-weight: 600;
-  }
-
-  .studio-editor-scroll {
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
-  }
-
-  .keypoint-entry {
-    border: 1px solid $gray-200;
-    border-radius: $border-radius;
-    padding: $spacer;
-    margin-bottom: 0.75rem;
-    background-color: $gray-100;
-  }
+.xblock-keypoints .keypoint-entry {
+  border: 1px solid $gray-200;
+  border-radius: $border-radius;
+  padding: $spacer;
+  margin-bottom: 0.75rem;
+  background-color: $gray-100;
 }
 
 // Action bar sits outside .xblock-keypoints so that the platform rule

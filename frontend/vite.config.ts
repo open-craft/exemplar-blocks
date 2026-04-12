@@ -53,6 +53,19 @@ export default defineConfig(({ mode }) => {
       },
       outDir: resolve(__dirname, '../src/keypoint_block/public'),
     },
+    cover_block: {
+      entry: {
+        coverBlockStudent: resolve(
+          import.meta.dirname,
+          'src/cover-block/student-ui/main.tsx',
+        ),
+        coverBlockStudio: resolve(
+          import.meta.dirname,
+          'src/cover-block/studio-ui/main.tsx',
+        ),
+      },
+      outDir: resolve(__dirname, '../src/cover_block/public'),
+    },
   };
 
   const xblock = process.env.XBLOCK;

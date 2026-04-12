@@ -5,6 +5,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import StudioUi from './studio-ui';
 import { type XBlockRuntime } from '../../types';
 import { type KeyPoint } from '../type';
+import { RuntimeContext } from '../../lib/context.ts';
 
 // ── jQuery mock ──────────────────────────────────────────────────────────────
 // $.post returns a jQuery-style deferred with .done()/.fail() chaining.
@@ -57,7 +58,9 @@ const sampleKeypoints: KeyPoint[] = [
 function mockRuntime(): XBlockRuntime {
   return {
     notify: vi.fn(),
-    handlerUrl: vi.fn(),
+    handlerUrl: vi
+      .fn()
+      .mockImplementation((_element, name: string) => `/handler/${name}`),
   };
 }
 
@@ -69,12 +72,17 @@ function renderStudio(
     initialKeypoints: sampleKeypoints,
     initialButtonText: 'Glossary',
     initialButtonLink: 'https://example.com/glossary',
-    studioSaveUrl: '/handler/studio_save',
-    runtime: mockRuntime(),
     ...overrides,
   };
-  const result = render(<StudioUi {...props} />);
-  return { ...result, runtime: props.runtime };
+  const runtime = mockRuntime();
+  const result = render(
+    <RuntimeContext.Provider
+      value={{ runtime, element: document.createElement('div') }}
+    >
+      <StudioUi {...props} />
+    </RuntimeContext.Provider>,
+  );
+  return { ...result, runtime };
 }
 
 // ── tests ────────────────────────────────────────────────────────────────────

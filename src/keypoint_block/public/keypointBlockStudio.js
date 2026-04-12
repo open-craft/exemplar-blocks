@@ -1,4 +1,4 @@
-import { a as e, c as t, d as n, f as r, h as i, i as a, l as o, m as s, n as c, o as l, p as u, r as d, s as f, t as p, u as m } from "./jsx-runtime-nnRLWf2y.js";
+import { a as e, c as t, d as n, f as r, h as i, i as a, l as o, m as s, n as c, o as l, p as u, r as d, s as f, t as p, u as m } from "./jsx-runtime-vjw70OPC.js";
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/ActionRow/index.js
 var h = /* @__PURE__ */ i(u()), g = /* @__PURE__ */ i(n());
 function _({ as: e = "div", isStacked: t = !1, children: n, ...r }) {
@@ -326,7 +326,7 @@ function he(e, t, n, r) {
 	};
 }
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/transitionEndListener.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/transitionEndListener.js
 function ge(e, t) {
 	var n = P(e, t) || "", r = n.indexOf("ms") === -1 ? 1e3 : 1;
 	return parseFloat(n) * r;
@@ -337,7 +337,7 @@ function _e(e, t) {
 	}, ge(e, "transitionDuration") + ge(e, "transitionDelay"));
 }
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/triggerBrowserReflow.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/triggerBrowserReflow.js
 function ve(e) {
 	e.offsetHeight;
 }
@@ -358,7 +358,7 @@ function be(e) {
 	}, [t]);
 }
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Fade.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Fade.js
 var xe = ["className", "children"], Se, Ce = {
 	in: !1,
 	timeout: 300,
@@ -386,7 +386,7 @@ function De(e) {
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/createWithBsPrefix.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/createWithBsPrefix.js
 var Oe = [
 	"className",
 	"bsPrefix",
@@ -1638,7 +1638,7 @@ function Qn(e, t) {
 	return e.classList ? !!t && e.classList.contains(t) : (" " + (e.className.baseVal || e.className) + " ").indexOf(" " + t + " ") !== -1;
 }
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/usePopperMarginModifiers.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/usePopperMarginModifiers.js
 function $n(e) {
 	var t = window.getComputedStyle(e);
 	return {
@@ -1789,7 +1789,7 @@ var tr = /* @__PURE__ */ s(((e, t) => {
 });
 or.displayName = "Feedback", or.propTypes = ar;
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormContext.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormContext.js
 var sr = /* @__PURE__ */ h.createContext({ controlId: void 0 }), cr = [
 	"id",
 	"bsPrefix",
@@ -1811,7 +1811,7 @@ var sr = /* @__PURE__ */ h.createContext({ controlId: void 0 }), cr = [
 });
 lr.displayName = "FormCheckInput";
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormCheckLabel.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormCheckLabel.js
 var ur = [
 	"bsPrefix",
 	"bsCustomPrefix",
@@ -1875,7 +1875,7 @@ var fr = [
 });
 pr.displayName = "FormCheck", pr.Input = lr, pr.Label = dr;
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormFileInput.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormFileInput.js
 var mr = [
 	"id",
 	"bsPrefix",
@@ -1897,7 +1897,7 @@ var mr = [
 });
 hr.displayName = "FormFileInput";
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormFileLabel.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormFileLabel.js
 var gr = [
 	"bsPrefix",
 	"bsCustomPrefix",
@@ -1914,7 +1914,7 @@ var gr = [
 });
 _r.displayName = "FormFileLabel";
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormFile.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormFile.js
 var vr = [
 	"id",
 	"bsPrefix",
@@ -1963,7 +1963,7 @@ var vr = [
 });
 yr.displayName = "FormFile", yr.Input = hr, yr.Label = _r;
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormControl.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormControl.js
 var br = [
 	"bsPrefix",
 	"bsCustomPrefix",
@@ -2027,7 +2027,7 @@ var Sr = Object.assign(xr, { Feedback: or }), Cr = [
 });
 wr.displayName = "FormGroup";
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormLabel.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormLabel.js
 var Tr = [
 	"as",
 	"bsPrefix",
@@ -2057,7 +2057,7 @@ var Tr = [
 });
 Dr.displayName = "FormLabel", Dr.defaultProps = Er;
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormText.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/FormText.js
 var Or = [
 	"bsPrefix",
 	"className",
@@ -2072,7 +2072,7 @@ var Or = [
 });
 kr.displayName = "FormText";
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Switch.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Switch.js
 var Ar = /* @__PURE__ */ h.forwardRef(function(e, t) {
 	return /* @__PURE__ */ h.createElement(pr, m({}, e, {
 		ref: t,
@@ -2081,7 +2081,7 @@ var Ar = /* @__PURE__ */ h.forwardRef(function(e, t) {
 });
 Ar.displayName = "Switch", Ar.Input = pr.Input, Ar.Label = pr.Label;
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Form.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Form.js
 var jr = [
 	"bsPrefix",
 	"inline",
@@ -2192,7 +2192,7 @@ Lr.displayName = "Overlay", Lr.propTypes = {
 	onExited: H.default.func
 };
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Overlay.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Overlay.js
 var Rr = [
 	"children",
 	"transition",
@@ -2253,7 +2253,7 @@ function Hr(e) {
 }
 Hr.defaultProps = Br;
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/OverlayTrigger.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/OverlayTrigger.js
 var Ur = [
 	"trigger",
 	"overlay",
@@ -2346,7 +2346,7 @@ function Jr(e) {
 }
 Jr.defaultProps = qr;
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Spinner.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Spinner.js
 var Yr = [
 	"bsPrefix",
 	"variant",
@@ -6032,9 +6032,20 @@ var Po = /* @__PURE__ */ (0, h.forwardRef)(({ direction: e = "vertical", gap: t 
 	ref: o,
 	className: (0, g.default)(e === "horizontal" ? "pgn__hstack" : "pgn__vstack", t ? `pgn__stack-gap--${t}` : "", n ? "pgn__stack-reversed" : "", i),
 	...a
-}, r)), Q = p();
-function Fo({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initialButtonLink: r, studioSaveUrl: i, runtime: a }) {
-	let [o, s] = h.useState(e), [l, u] = h.useState(t), [f, p] = h.useState(n), [m, g] = h.useState(r), v = () => {
+}, r)), Fo = (0, h.createContext)({
+	runtime: {
+		handlerUrl() {
+			return "";
+		},
+		notify() {}
+	},
+	element: document.createElement("div")
+}), Io = (e) => {
+	let t = (0, h.useContext)(Fo);
+	return t.runtime.handlerUrl(t.element, e);
+}, Q = p();
+function Lo({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initialButtonLink: r }) {
+	let { runtime: i } = (0, h.useContext)(Fo), a = Io("studio_save"), [o, s] = h.useState(e), [l, u] = h.useState(t), [f, p] = h.useState(n), [m, g] = h.useState(r), v = () => {
 		u([...l, {
 			keypoint: "",
 			description: ""
@@ -6048,157 +6059,163 @@ function Fo({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 	}, b = (e) => {
 		u(l.filter((t, n) => n !== e));
 	};
-	return /* @__PURE__ */ (0, Q.jsxs)(Q.Fragment, { children: [/* @__PURE__ */ (0, Q.jsx)(c, {
-		className: "xblock-keypoints editor-with-buttons",
-		children: /* @__PURE__ */ (0, Q.jsx)("div", {
-			className: "studio-editor-scroll",
-			children: /* @__PURE__ */ (0, Q.jsxs)(Po, {
-				direction: "vertical",
-				gap: 3,
-				className: "p-2",
-				children: [
-					/* @__PURE__ */ (0, Q.jsxs)(Z.Group, { children: [/* @__PURE__ */ (0, Q.jsx)(Z.Label, { children: "Block Header" }), /* @__PURE__ */ (0, Q.jsx)(Z.Control, {
-						value: o,
-						onChange: (e) => s(e.target.value),
-						placeholder: "e.g. Key Concepts to Explore"
-					})] }),
-					/* @__PURE__ */ (0, Q.jsxs)("div", { children: [
-						/* @__PURE__ */ (0, Q.jsxs)(_, {
-							className: "mb-2",
-							children: [
-								/* @__PURE__ */ (0, Q.jsx)("h4", {
-									className: "m-0",
-									children: "Key Terms"
-								}),
-								/* @__PURE__ */ (0, Q.jsx)(_.Spacer, {}),
-								/* @__PURE__ */ (0, Q.jsx)(d, {
-									iconBefore: ki,
-									onClick: v,
-									size: "lg",
-									children: "Add Key Term"
-								})
-							]
-						}),
-						l.length === 0 && /* @__PURE__ */ (0, Q.jsx)("p", {
-							className: "text-muted",
-							children: "No key terms added yet. Click \"Add Key Term\" to get started."
-						}),
-						l.map((e, t) => /* @__PURE__ */ (0, Q.jsxs)("div", {
-							className: "keypoint-entry",
-							children: [
-								/* @__PURE__ */ (0, Q.jsxs)(_, {
-									className: "mb-2",
-									children: [
-										/* @__PURE__ */ (0, Q.jsxs)("span", {
-											className: "font-weight-bold",
-											children: ["Term ", t + 1]
-										}),
-										/* @__PURE__ */ (0, Q.jsx)(_.Spacer, {}),
-										/* @__PURE__ */ (0, Q.jsx)(d, {
-											variant: "outline-danger",
-											iconBefore: Pi,
-											size: "lg",
-											onClick: () => b(t),
-											children: "Remove"
-										})
-									]
-								}),
-								/* @__PURE__ */ (0, Q.jsxs)(Z.Group, {
-									className: "mb-2",
-									children: [/* @__PURE__ */ (0, Q.jsx)(Z.Label, { children: "Label" }), /* @__PURE__ */ (0, Q.jsx)(Z.Control, {
-										value: e.keypoint,
-										onChange: (e) => y(t, { keypoint: e.target.value }),
-										placeholder: "e.g. Fluid balance"
-									})]
-								}),
-								/* @__PURE__ */ (0, Q.jsxs)(Z.Group, {
-									className: "mb-0",
-									children: [/* @__PURE__ */ (0, Q.jsx)(Z.Label, { children: "Description" }), /* @__PURE__ */ (0, Q.jsx)(Z.Control, {
-										as: "textarea",
-										rows: 3,
-										value: e.description,
-										onChange: (e) => y(t, { description: e.target.value }),
-										placeholder: "e.g. The regulation of fluids within the body..."
-									})]
-								})
-							]
-						}, `keypoint-${t}`))
-					] }),
-					/* @__PURE__ */ (0, Q.jsxs)("div", { children: [
-						/* @__PURE__ */ (0, Q.jsx)("h4", {
-							className: "mb-2",
-							children: "Action Button"
-						}),
-						/* @__PURE__ */ (0, Q.jsxs)(Z.Group, {
-							className: "mb-2",
-							children: [/* @__PURE__ */ (0, Q.jsx)(Z.Label, { children: "Button Text" }), /* @__PURE__ */ (0, Q.jsx)(Z.Control, {
-								value: f,
-								onChange: (e) => p(e.target.value),
-								placeholder: "e.g. Glossary"
-							})]
-						}),
-						/* @__PURE__ */ (0, Q.jsxs)(Z.Group, {
-							className: "mb-0",
-							children: [/* @__PURE__ */ (0, Q.jsx)(Z.Label, { children: "Button Link" }), /* @__PURE__ */ (0, Q.jsx)(Z.Control, {
-								value: m,
-								onChange: (e) => g(e.target.value),
-								placeholder: "e.g. https://example.com/glossary"
-							})]
-						})
-					] })
-				]
+	return /* @__PURE__ */ (0, Q.jsxs)("div", {
+		className: "react-studio-block",
+		children: [/* @__PURE__ */ (0, Q.jsx)(c, {
+			className: "xblock-keypoints editor-with-buttons",
+			children: /* @__PURE__ */ (0, Q.jsx)("div", {
+				className: "studio-editor-scroll",
+				children: /* @__PURE__ */ (0, Q.jsxs)(Po, {
+					direction: "vertical",
+					gap: 3,
+					className: "p-2",
+					children: [
+						/* @__PURE__ */ (0, Q.jsxs)(Z.Group, { children: [/* @__PURE__ */ (0, Q.jsx)(Z.Label, { children: "Block Header" }), /* @__PURE__ */ (0, Q.jsx)(Z.Control, {
+							value: o,
+							onChange: (e) => s(e.target.value),
+							placeholder: "e.g. Key Concepts to Explore"
+						})] }),
+						/* @__PURE__ */ (0, Q.jsxs)("div", { children: [
+							/* @__PURE__ */ (0, Q.jsxs)(_, {
+								className: "mb-2",
+								children: [
+									/* @__PURE__ */ (0, Q.jsx)("h4", {
+										className: "m-0",
+										children: "Key Terms"
+									}),
+									/* @__PURE__ */ (0, Q.jsx)(_.Spacer, {}),
+									/* @__PURE__ */ (0, Q.jsx)(d, {
+										iconBefore: ki,
+										onClick: v,
+										size: "lg",
+										children: "Add Key Term"
+									})
+								]
+							}),
+							l.length === 0 && /* @__PURE__ */ (0, Q.jsx)("p", {
+								className: "text-muted",
+								children: "No key terms added yet. Click \"Add Key Term\" to get started."
+							}),
+							l.map((e, t) => /* @__PURE__ */ (0, Q.jsxs)("div", {
+								className: "keypoint-entry",
+								children: [
+									/* @__PURE__ */ (0, Q.jsxs)(_, {
+										className: "mb-2",
+										children: [
+											/* @__PURE__ */ (0, Q.jsxs)("span", {
+												className: "font-weight-bold",
+												children: ["Term ", t + 1]
+											}),
+											/* @__PURE__ */ (0, Q.jsx)(_.Spacer, {}),
+											/* @__PURE__ */ (0, Q.jsx)(d, {
+												variant: "outline-danger",
+												iconBefore: Pi,
+												size: "lg",
+												onClick: () => b(t),
+												children: "Remove"
+											})
+										]
+									}),
+									/* @__PURE__ */ (0, Q.jsxs)(Z.Group, {
+										className: "mb-2",
+										children: [/* @__PURE__ */ (0, Q.jsx)(Z.Label, { children: "Label" }), /* @__PURE__ */ (0, Q.jsx)(Z.Control, {
+											value: e.keypoint,
+											onChange: (e) => y(t, { keypoint: e.target.value }),
+											placeholder: "e.g. Fluid balance"
+										})]
+									}),
+									/* @__PURE__ */ (0, Q.jsxs)(Z.Group, {
+										className: "mb-0",
+										children: [/* @__PURE__ */ (0, Q.jsx)(Z.Label, { children: "Description" }), /* @__PURE__ */ (0, Q.jsx)(Z.Control, {
+											as: "textarea",
+											rows: 3,
+											value: e.description,
+											onChange: (e) => y(t, { description: e.target.value }),
+											placeholder: "e.g. The regulation of fluids within the body..."
+										})]
+									})
+								]
+							}, `keypoint-${t}`))
+						] }),
+						/* @__PURE__ */ (0, Q.jsxs)("div", { children: [
+							/* @__PURE__ */ (0, Q.jsx)("h4", {
+								className: "mb-2",
+								children: "Action Button"
+							}),
+							/* @__PURE__ */ (0, Q.jsxs)(Z.Group, {
+								className: "mb-2",
+								children: [/* @__PURE__ */ (0, Q.jsx)(Z.Label, { children: "Button Text" }), /* @__PURE__ */ (0, Q.jsx)(Z.Control, {
+									value: f,
+									onChange: (e) => p(e.target.value),
+									placeholder: "e.g. Glossary"
+								})]
+							}),
+							/* @__PURE__ */ (0, Q.jsxs)(Z.Group, {
+								className: "mb-0",
+								children: [/* @__PURE__ */ (0, Q.jsx)(Z.Label, { children: "Button Link" }), /* @__PURE__ */ (0, Q.jsx)(Z.Control, {
+									value: m,
+									onChange: (e) => g(e.target.value),
+									placeholder: "e.g. https://example.com/glossary"
+								})]
+							})
+						] })
+					]
+				})
 			})
-		})
-	}), /* @__PURE__ */ (0, Q.jsx)("div", {
-		className: "xblock-actions",
-		children: /* @__PURE__ */ (0, Q.jsxs)(_, { children: [
-			/* @__PURE__ */ (0, Q.jsx)(_.Spacer, {}),
-			/* @__PURE__ */ (0, Q.jsx)(d, {
-				variant: "tertiary",
-				size: "lg",
-				onClick: () => a.notify("cancel", {}),
-				children: "Cancel"
-			}),
-			/* @__PURE__ */ (0, Q.jsx)(d, {
-				variant: "primary",
-				onClick: () => {
-					a.notify("save", { state: "start" }), $.post(i, JSON.stringify({
-						header: o,
-						keypoints: l,
-						button_text: f,
-						button_link: m
-					})).done(() => {
-						a.notify("save", { state: "end" });
-					}).fail(() => {
-						a.notify("error", {
-							title: "Save Error",
-							message: "Failed to save keypoint configuration"
+		}), /* @__PURE__ */ (0, Q.jsx)("div", {
+			className: "xblock-actions",
+			children: /* @__PURE__ */ (0, Q.jsxs)(_, { children: [
+				/* @__PURE__ */ (0, Q.jsx)(_.Spacer, {}),
+				/* @__PURE__ */ (0, Q.jsx)(d, {
+					variant: "tertiary",
+					size: "lg",
+					onClick: () => i.notify("cancel", {}),
+					children: "Cancel"
+				}),
+				/* @__PURE__ */ (0, Q.jsx)(d, {
+					variant: "primary",
+					onClick: () => {
+						i.notify("save", { state: "start" }), $.post(a, JSON.stringify({
+							header: o,
+							keypoints: l,
+							button_text: f,
+							button_link: m
+						})).done(() => {
+							i.notify("save", { state: "end" });
+						}).fail(() => {
+							i.notify("error", {
+								title: "Save Error",
+								message: "Failed to save keypoint configuration"
+							});
 						});
-					});
-				},
-				size: "lg",
-				children: "Save"
-			})
-		] })
-	})] });
+					},
+					size: "lg",
+					children: "Save"
+				})
+			] })
+		})]
+	});
 }
 //#endregion
-//#region src/keypoint-block/studio-ui/index.tsx
-var Io = (e, t, { header: n, keypoints: r, button_text: i, button_link: a }) => {
-	let o = t && "jquery" in t ? t[0] : t;
-	if (!o || !(o instanceof Element)) {
-		console.error("Invalid DOM element provided to renderBlock:", t);
-		return;
-	}
-	let s = e.handlerUrl(o, "studio_save");
-	R.render(/* @__PURE__ */ (0, Q.jsx)(h.StrictMode, { children: /* @__PURE__ */ (0, Q.jsx)(Fo, {
-		initialHeader: n || "",
-		initialKeypoints: r || [],
-		initialButtonText: i || "",
-		initialButtonLink: a || "",
-		studioSaveUrl: s,
-		runtime: e
+//#region src/lib/utils.ts
+var Ro = (e) => {
+	let t = e && "jquery" in e ? e[0] : e;
+	if (!t || !(t instanceof Element)) throw console.error("Invalid DOM element provided to renderBlock:", e), Error("Invalid DOM Element. See previously logged details.");
+	return t;
+}, zo = (e, t, { header: n, keypoints: r, button_text: i, button_link: a }) => {
+	let o = Ro(t);
+	R.render(/* @__PURE__ */ (0, Q.jsx)(h.StrictMode, { children: /* @__PURE__ */ (0, Q.jsx)(Fo.Provider, {
+		value: {
+			runtime: e,
+			element: o
+		},
+		children: /* @__PURE__ */ (0, Q.jsx)(Lo, {
+			initialHeader: n || "",
+			initialKeypoints: r || [],
+			initialButtonText: i || "",
+			initialButtonLink: a || ""
+		})
 	}) }), o);
 };
 //#endregion
-export { Io as renderBlock };
+export { zo as renderBlock };

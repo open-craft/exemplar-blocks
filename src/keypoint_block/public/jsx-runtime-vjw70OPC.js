@@ -5884,7 +5884,7 @@ function _(e, t) {
 	return n;
 }
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/ThemeProvider.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/ThemeProvider.js
 var v = /* @__PURE__ */ c(u()), y = /* @__PURE__ */ v.createContext({});
 y.Consumer, y.Provider;
 function b(e, t) {
@@ -5939,7 +5939,7 @@ var ee = /* @__PURE__ */ o(((e, t) => {
 	t.exports = te()();
 }));
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/createChainedFunction.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/createChainedFunction.js
 function ne() {
 	return [...arguments].filter(function(e) {
 		return e != null;
@@ -5952,7 +5952,7 @@ function ne() {
 	}, null);
 }
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/SafeAnchor.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/SafeAnchor.js
 var re = [
 	"as",
 	"disabled",
@@ -5979,7 +5979,7 @@ var ae = /* @__PURE__ */ v.forwardRef(function(e, t) {
 });
 ae.displayName = "SafeAnchor";
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Button.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Button.js
 var S = /* @__PURE__ */ c(h()), oe = [
 	"bsPrefix",
 	"variant",
@@ -6006,7 +6006,7 @@ var S = /* @__PURE__ */ c(h()), oe = [
 });
 ce.displayName = "Button", ce.defaultProps = se;
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Col.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Col.js
 var le = [
 	"bsPrefix",
 	"className",
@@ -6036,7 +6036,7 @@ var le = [
 });
 C.displayName = "Col";
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.8_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Container.js
+//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Container.js
 var de = [
 	"bsPrefix",
 	"fluid",
@@ -6165,15 +6165,15 @@ var ve = ge(_e, "Icon", { className: {
 	ref: o,
 	className: (0, S.default)(a.className, e && be[e])
 }, t)), Se = /* @__PURE__ */ o(((e) => {
-	var t = u(), n = Symbol.for("react.element"), r = Symbol.for("react.fragment"), i = Object.prototype.hasOwnProperty, a = t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, o = {
+	var t = u(), n = Symbol.for("react.element"), r = Object.prototype.hasOwnProperty, i = t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, a = {
 		key: !0,
 		ref: !0,
 		__self: !0,
 		__source: !0
 	};
-	function s(e, t, r) {
+	function o(e, t, o) {
 		var s, c = {}, l = null, u = null;
-		for (s in r !== void 0 && (l = "" + r), t.key !== void 0 && (l = "" + t.key), t.ref !== void 0 && (u = t.ref), t) i.call(t, s) && !o.hasOwnProperty(s) && (c[s] = t[s]);
+		for (s in o !== void 0 && (l = "" + o), t.key !== void 0 && (l = "" + t.key), t.ref !== void 0 && (u = t.ref), t) r.call(t, s) && !a.hasOwnProperty(s) && (c[s] = t[s]);
 		if (e && e.defaultProps) for (s in t = e.defaultProps, t) c[s] === void 0 && (c[s] = t[s]);
 		return {
 			$$typeof: n,
@@ -6181,10 +6181,10 @@ var ve = ge(_e, "Icon", { className: {
 			key: l,
 			ref: u,
 			props: c,
-			_owner: a.current
+			_owner: i.current
 		};
 	}
-	e.Fragment = r, e.jsx = s, e.jsxs = s;
+	e.jsx = o, e.jsxs = o;
 })), Ce = /* @__PURE__ */ o(((e, t) => {
 	t.exports = Se();
 }));

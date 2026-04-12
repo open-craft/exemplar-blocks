@@ -40,6 +40,7 @@ frontend build:
     - pnpm install
     - XBLOCK=card_carousel pnpm run build
     - XBLOCK=keypoint_block pnpm run build
+    - XBLOCK=cover_block pnpm run build
     # Check build artefacts are up to date.
     # The frontend build artefacts are committed to the repo.
     # If there are changes in the repo after the build commands above, then the build artefacts aren't up to date.
