@@ -1,0 +1,20 @@
+.xblock-two-column {
+  .lesson-list-item + .lesson-list-item:before {
+    content: '';
+    width: 100%;
+    margin: 0 calc(var(--pgn-spacing-grid-gutter-width) * 0.5);
+    height: 1px;
+    background-color: var(--pgn-color-gray-200);
+    margin-bottom: calc(var(--pgn-spacing-spacer-base) * 0.5);
+  }
+
+  // implement reversed order on small screens
+  &.two-column-reverse {
+    flex-direction: column-reverse;
+  }
+  @media (min-width: 576px) {
+    &.two-column-reverse {
+      flex-direction: row;
+    }
+  }
+}

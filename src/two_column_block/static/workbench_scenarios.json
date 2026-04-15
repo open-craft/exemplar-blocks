@@ -1,0 +1,218 @@
+[
+  {
+    "scenario_name": "TwoColumnBlock: default data",
+    "attributes": {}
+  },
+  {
+    "scenario_name": "TwoColumnBlock: upcoming course list (text and lesson list)",
+    "attributes": {
+      "display_name": "Upcoming lessons",
+      "column_data": {
+        "left": {
+          "kind": "text",
+          "content": "<h2><span style=\"color: #ce4b0d;\">Essential Question</span></h2>\n<p><span style=\"color: #236fa1;\">How can I identify specific types of cardiovascular disorders?</span></p>",
+          "verticalAlignment": "start"
+        },
+        "right": {
+          "kind": "lessonList",
+          "title": "Overview",
+          "text": "You will engage in readings focused on disorders of the heart, blood vessels, red blood cells, and clotting. You will test your knowledge with case studies and questions.",
+          "lessons": [
+            {
+              "id": "4.1.1",
+              "title": "Arterial and Venous Disorders"
+            },
+            {
+              "id": "4.1.2",
+              "title": "consequences of Poor Perfusion Oxygenation"
+            },
+            {
+              "id": "4.1.3",
+              "title": "Disorders of Heart Function"
+            },
+            {
+              "id": "4.1.4",
+              "title": "Lesson Summary"
+            },
+            {
+              "id": "4.1.5",
+              "title": "Quiz"
+            }
+          ]
+        },
+        "ratio": "6:6",
+        "order": "leftAboveRight"
+      }
+    }
+  },
+  {
+    "scenario_name": "TwoColumnBlock: lesson up next (lesson intro and image grid)",
+    "attributes": {
+      "display_name": "Lesson up next",
+      "column_data": {
+        "left": {
+          "kind": "lessonIntro",
+          "title": "Up Next",
+          "summary": "Introduces the first lesson of the section by exploring how arterial and venous systems function differently and why those differences matter through the unfolding clinical case of Edward.",
+          "lesson": {
+            "id": "4.1.1",
+            "title": "Arterial and Venous Disorders",
+            "url": "https://example.com"
+          },
+          "showStartLessonButton": true,
+          "previousLesson": null
+        },
+        "right": {
+          "kind": "imageGrid",
+          "featuredImage": {
+            "url": "https://picsum.photos/id/363/800/400",
+            "decorative": true,
+            "alt": "",
+            "onClickUrl": ""
+          },
+          "bottomImage": {
+            "url": "https://picsum.photos/id/903/400",
+            "decorative": true,
+            "alt": "",
+            "onClickUrl": "https://example.com/"
+          },
+          "text": {
+            "content": "Edward's Case",
+            "alignment": "center",
+            "fontSize": "large",
+            "backgroundColor": "#df4f12",
+            "color": "#ffffff"
+          },
+          "bottomRowOrder": "imageText"
+        },
+        "ratio": "6:6",
+        "order": "rightAboveLeft"
+      }
+    }
+  },
+  {
+    "scenario_name": "TwoColumnBlock: second lesson up next (lesson intro and image grid)",
+    "attributes": {
+      "display_name": "Second lesson up next",
+      "column_data": {
+        "left": {
+          "kind": "lessonIntro",
+          "title": "Up Next",
+          "summary": "Explores how impaired perfusion and oxygen delivery affect tissues and organs, highlighting the downstream consequences of reduced blood flow and inadequate oxygenation through Sophie's unfolding clinical case.",
+          "lesson": {
+            "id": "4.1.2",
+            "title": "Consequences of Poor Perfusion Oxygenation",
+            "url": "https://example.com"
+          },
+          "showStartLessonButton": true,
+          "previousLesson": {
+            "id": "4.1.1",
+            "title": "",
+            "url": ""
+          }
+        },
+        "right": {
+          "kind": "imageGrid",
+          "featuredImage": {
+            "url": "https://picsum.photos/id/870/800/400",
+            "decorative": true,
+            "alt": "",
+            "onClickUrl": ""
+          },
+          "bottomImage": {
+            "url": "https://picsum.photos/id/53/400",
+            "decorative": true,
+            "alt": "",
+            "onClickUrl": "https://example.com/"
+          },
+          "text": {
+            "content": "Sophie's Case",
+            "alignment": "center",
+            "fontSize": "large",
+            "backgroundColor": "#df4f12",
+            "color": "#ffffff"
+          },
+          "bottomRowOrder": "imageText"
+        },
+        "ratio": "6:6",
+        "order": "rightAboveLeft"
+      }
+    }
+  },
+  {
+    "scenario_name": "TwoColumnBlock: patient presenting to care (text and image grid)",
+    "attributes": {
+      "display_name": "Info: Edward presenting to care",
+      "column_data": {
+        "left": {
+          "kind": "text",
+          "content": "<h4><span style=\"color: #d44f00;\">By the time Edward presents to urgent care, his vital signs add important context.</span></h4>\n<p>&nbsp;</p>\n<p><strong>He reports pain and swelling in his left lower leg.</strong></p>\n<p>His blood pressure is elevated -- 160/92 mmHg, higher on reassessment. His medical history includes hypertension, hypercholesterolemia, and long-term cigarette smoking.</p>\n<p>What began as a minor discomfort now raises broader questions about blood flow, pressure, and vessel health.</p>",
+          "verticalAlignment": "center"
+        },
+        "right": {
+          "kind": "imageGrid",
+          "featuredImage": {
+            "url": "https://picsum.photos/id/259/800/400",
+            "decorative": false,
+            "alt": "An abstract photo of Edward",
+            "onClickUrl": ""
+          },
+          "bottomImage": {
+            "url": "https://picsum.photos/id/100/400",
+            "decorative": true,
+            "alt": "",
+            "onClickUrl": "https://example.com/"
+          },
+          "text": {
+            "content": "The symptoms in Edward's leg can no longer be viewed in isolation.",
+            "alignment": "center",
+            "fontSize": "small",
+            "backgroundColor": "#df4f12",
+            "color": "#ffffff"
+          },
+          "bottomRowOrder": "textImage"
+        },
+        "ratio": "5:7",
+        "order": "rightAboveLeft"
+      }
+    }
+  },
+  {
+    "scenario_name": "TwoColumnBlock: patient info (text and image grid)",
+    "attributes": {
+      "display_name": "Info: Edward's leg",
+      "column_data": {
+        "left": {
+          "kind": "text",
+          "content": "<h4><strong>The skin on his left lower leg feels warm to the touch.</strong></h4>\n<h4><strong>Something feels different.</strong></h4>",
+          "verticalAlignment": "center"
+        },
+        "right": {
+          "kind": "imageGrid",
+          "featuredImage": {
+            "url": "https://picsum.photos/id/192/800/400",
+            "decorative": true,
+            "alt": "",
+            "onClickUrl": ""
+          },
+          "bottomImage": {
+            "url": "https://picsum.photos/id/953/400",
+            "decorative": true,
+            "alt": "",
+            "onClickUrl": "https://example.com/"
+          },
+          "text": {
+            "content": "The pain is sharper now, localized, persistent.",
+            "alignment": "center",
+            "fontSize": "small",
+            "backgroundColor": "#df4f12",
+            "color": "#ffffff"
+          },
+          "bottomRowOrder": "imageText"
+        },
+        "ratio": "5:7",
+        "order": "leftAboveRight"
+      }
+    }
+  }
+]

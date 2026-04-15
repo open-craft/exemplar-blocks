@@ -1,0 +1,56 @@
+@import '@openedx/paragon/dist/core.min.css';
+@import '@openedx/paragon/dist/light.min.css';
+
+:root {
+}
+
+// Hide the "close" button at the bottom of the editor modal.
+// We want our own save and cancel buttons.
+.edit-xblock-modal > .modal-actions {
+  display: none !important;
+}
+
+.two-column-block-editor {
+  // Based on the studio .list-input.settings-list css,
+  // used to make scrolling neat with the sticky footer.
+  .wrapper-comp-settings > .inner-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: calc(100vh - 205px);
+    height: 375px;
+  }
+
+  // the bottom action bar with save and close buttons
+  .xblock-actions {
+    border-top: 1px solid var(--pgn-color-gray-200);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  label {
+    font-size: 1.6rem;
+  }
+
+  h4 {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  .column-editor {
+    border: 1px solid var(--pgn-color-gray-300);
+    border-radius: 3px;
+  }
+
+  //// override styling from the injected studio/mfe css
+
+  .pgn__form-label {
+    font-size: 16px !important;
+  }
+
+  .pgn__form-label.sm {
+    font-size: 12px !important;
+  }
+
+  .pgn__form-label.lg {
+    font-size: 22px !important;
+  }
+}

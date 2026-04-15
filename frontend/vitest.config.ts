@@ -57,6 +57,11 @@ export default defineConfig(({ mode }) => {
           return false;
         }
       },
+      coverage: {
+        provider: 'v8',
+        enabled: true,
+        reporter: ['text'],
+      },
     },
   };
 });

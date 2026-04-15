@@ -66,6 +66,19 @@ export default defineConfig(({ mode }) => {
       },
       outDir: resolve(__dirname, '../src/cover_block/public'),
     },
+    two_column_block: {
+      entry: {
+        twoColumnBlockStudent: resolve(
+          import.meta.dirname,
+          'src/two-column-block/student-ui/main.tsx',
+        ),
+        twoColumnBlockStudio: resolve(
+          import.meta.dirname,
+          'src/two-column-block/studio-ui/main.tsx',
+        ),
+      },
+      outDir: resolve(__dirname, '../src/two_column_block/public'),
+    },
   };
 
   const xblock = process.env.XBLOCK;

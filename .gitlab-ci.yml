@@ -8,10 +8,14 @@ quality:
   stage: test
   image: astral/uv:python3.11-alpine
   script:
-    - apk add mise
+    - apk add mise git pnpm
+    - (cd frontend && pnpm install)
     - mise run install
     - mise run init_sdk
     - mise run quality
+    - mise run sync-types
+    # If the types were out of sync, there will be a git diff here.
+    - git diff --exit-code
 
 test:
   stage: test
@@ -41,6 +45,7 @@ frontend build:
     - XBLOCK=card_carousel pnpm run build
     - XBLOCK=keypoint_block pnpm run build
     - XBLOCK=cover_block pnpm run build
+    - XBLOCK=two_column_block pnpm run build
     # Check build artefacts are up to date.
     # The frontend build artefacts are committed to the repo.
     # If there are changes in the repo after the build commands above, then the build artefacts aren't up to date.
