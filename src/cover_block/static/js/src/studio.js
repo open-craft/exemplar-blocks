@@ -1,6 +1,7 @@
 function CoverEditor(runtime, element, data) {
   (async () => {
-    const { renderBlock } = await import(data.url);
-    renderBlock(runtime, element, data);
+    const { url, ...blockData } = data;
+    const { renderBlock } = await import(url);
+    renderBlock(runtime, element, blockData);
   })();
 }

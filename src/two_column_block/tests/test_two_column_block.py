@@ -20,25 +20,12 @@ def get_student_content(block: TwoColumnBlock) -> str:
     return as_dict["content"]
 
 
-def test_defaults_render():
+def test_block_html():
     """
-    Test that the defaults render as expected.
+    Test that the block with defaults render as expected.
+
+    The rendering is very barebones; most of the UI is built with react.
     """
     block = make_block()
     content = get_student_content(block)
-    # TODO: update placeholders when we have real content
-    assert "Column One" in content
-    assert "Column Two" in content
-
-
-def test_overrides():
-    """
-    Test that the values override properly.
-    """
-    block = make_block(
-        # TODO: content fields
-    )
-    content = get_student_content(block)
-    # TODO: update placeholders when we have real content
-    assert "Column One" in content
-    assert "Column Two" in content
+    assert "two-column-block" in content

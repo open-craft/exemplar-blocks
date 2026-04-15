@@ -23,6 +23,12 @@ run = [
     "cd xblock-sdk && uv run ./manage.py migrate",
 ]
 
+[tasks.sync-types]
+description = "Generate Typescript types from Pydantic models in the backend (requires frontend dependencies to be installed)."
+run = [
+    "pydantic2ts --module ./src/two_column_block/types.py --output ./frontend/src/two-column-block/apiTypes.ts --json2ts-cmd ./frontend/node_modules/.bin/json2ts"
+]
+
 [tasks.format]
 description = "Apply standard formatting to code files"
 run = [
@@ -46,7 +52,10 @@ dir = "./xblock-sdk"
 [tasks.test-python]
 description = "Run Python unit tests"
 env = { DJANGO_SETTINGS_MODULE = "workbench.settings" }
-run = "uv run pytest src"
+run = [
+    "uv run pytest --cov=src src",
+    "uv run coverage html",
+]
 
 [tasks.test]
 description = "Run all backend Python tests"

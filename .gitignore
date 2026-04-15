@@ -2,7 +2,11 @@
 var/*
 .venv/*
 
+.coverage
+htmlcov
+
 frontend/node_modules
+frontend/src/htmlcov
 frontend/dist
 # vitest generates a node_modules directory inside src for caching
 frontend/src/node_modules

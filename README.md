@@ -6,7 +6,7 @@ A collection of related XBlocks.
 
 - **Cover XBlock**: an aesthetically pleasing block intended for use as a section introduction.
 - **Keypoint XBlock:** a sleek looking glossary xblock, which helps to list down keypoint and defination.
-- [not implemented yet] **Two Column XBlock** an aesthetically pleasing block intended to display engaging static HTML content in two columns.
+- **Two Column XBlock** an aesthetically pleasing block intended to display engaging static HTML content in two columns.
 - **Card Carousel XBlock**: an XBlock that can present a list of cards in a Carousel. The cards support multiple layouts for presenting the content. This is **NOT usable in courses** yet, only supports demo in the XBlock Workbench.
 
 ## Installation
@@ -54,7 +54,9 @@ See the [Open edX documentation](https://docs.openedx.org/en/latest/educators/ho
 
 ## Development Workflow
 
-To begin development on this block:
+### Backend
+
+To begin development on the backend (in python):
 
 1. Install [Mise](https://mise.jdx.dev/getting-started.html)
 2. Clone this repository: `git clone git@gitlab.com:opencraft/dev/exemplar-blocks.git`
@@ -89,3 +91,19 @@ And run the tests with:
 ```bash
 mise run test
 ```
+
+Coverage is generated for these backend tests.
+See `htmlcov/index.html` for a report.
+
+If you make changes to any backend Pydantic types, be sure to regenerate the corresponding frontend Typescript types with:
+
+```bash
+# frontend dependencies must also be installed
+(cd frontend && pnpm install)
+
+mise run sync-types
+```
+
+### Frontend
+
+For frontend dev, see ./frontend/README.md
