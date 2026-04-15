@@ -7673,7 +7673,7 @@ var Q = m(), Vf = () => {
 		}),
 		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
 			as: u,
-			controlId: "cover-form-media-url",
+			controlId: "cover-form-media-alt-text",
 			xs: 12,
 			children: [
 				/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Image Alt Text" }),
@@ -7705,7 +7705,8 @@ var Q = m(), Vf = () => {
 			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
 				as: K.Control,
 				name: "top_header_color",
-				type: "color"
+				type: "color",
+				"aria-label": "Top header color"
 			})]
 		}),
 		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
@@ -7719,19 +7720,20 @@ var Q = m(), Vf = () => {
 		}),
 		r && /* @__PURE__ */ (0, Q.jsxs)(K.Group, {
 			as: u,
-			controlId: "cover-form-subheader-color",
+			controlId: "cover-form-main-header-color",
 			xs: 12,
 			sm: 4,
 			lg: 2,
 			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
 				as: K.Control,
 				name: "main_header_color",
-				type: "color"
+				type: "color",
+				"aria-label": "Main header color"
 			})]
 		}),
 		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
 			as: u,
-			controlId: "cover-form-main-header",
+			controlId: "cover-form-subheader",
 			...i,
 			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Subheader" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
 				as: K.Control,
@@ -7747,7 +7749,8 @@ var Q = m(), Vf = () => {
 			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
 				as: K.Control,
 				name: "subheader_color",
-				type: "color"
+				type: "color",
+				"aria-label": "Subheader color"
 			})]
 		}),
 		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
@@ -7768,7 +7771,8 @@ var Q = m(), Vf = () => {
 			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
 				as: K.Control,
 				name: "description_color",
-				type: "color"
+				type: "color",
+				"aria-label": "Description color"
 			})]
 		})
 	] });

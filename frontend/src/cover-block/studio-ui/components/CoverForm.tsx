@@ -32,7 +32,7 @@ const CoverForm = () => {
         <Form.Label>Image URL</Form.Label>
         <Field as={Form.Control} name="media_url" />
       </Form.Group>
-      <Form.Group as={Col} controlId="cover-form-media-url" xs={12}>
+      <Form.Group as={Col} controlId="cover-form-media-alt-text" xs={12}>
         <Form.Label>Image Alt Text</Form.Label>
         <Field as={Form.Control} name="media_alt_text" />
         <Form.Text muted>
@@ -56,7 +56,12 @@ const CoverForm = () => {
           lg={2}
         >
           <Form.Label>Color</Form.Label>
-          <Field as={Form.Control} name="top_header_color" type="color" />
+          <Field
+            as={Form.Control}
+            name="top_header_color"
+            type="color"
+            aria-label="Top header color"
+          />
         </Form.Group>
       )}
       <Form.Group
@@ -70,20 +75,21 @@ const CoverForm = () => {
       {colorsEnabled && (
         <Form.Group
           as={Col}
-          controlId="cover-form-subheader-color"
+          controlId="cover-form-main-header-color"
           xs={12}
           sm={4}
           lg={2}
         >
           <Form.Label>Color</Form.Label>
-          <Field as={Form.Control} name="main_header_color" type="color" />
+          <Field
+            as={Form.Control}
+            name="main_header_color"
+            type="color"
+            aria-label="Main header color"
+          />
         </Form.Group>
       )}
-      <Form.Group
-        as={Col}
-        controlId="cover-form-main-header"
-        {...mainColumSizes}
-      >
+      <Form.Group as={Col} controlId="cover-form-subheader" {...mainColumSizes}>
         <Form.Label>Subheader</Form.Label>
         <Field as={Form.Control} name="subheader" />
       </Form.Group>
@@ -96,7 +102,12 @@ const CoverForm = () => {
           lg={2}
         >
           <Form.Label>Color</Form.Label>
-          <Field as={Form.Control} name="subheader_color" type="color" />
+          <Field
+            as={Form.Control}
+            name="subheader_color"
+            type="color"
+            aria-label="Subheader color"
+          />
         </Form.Group>
       )}
       <Form.Group
@@ -116,7 +127,12 @@ const CoverForm = () => {
           lg={2}
         >
           <Form.Label>Color</Form.Label>
-          <Field as={Form.Control} name="description_color" type="color" />
+          <Field
+            as={Form.Control}
+            name="description_color"
+            type="color"
+            aria-label="Description color"
+          />
         </Form.Group>
       )}
     </Row>

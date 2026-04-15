@@ -1,52 +1,11 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import StudioUi from './studio-ui';
-import { type XBlockRuntime } from '../../types';
 import { type KeyPoint } from '../type';
 import { RuntimeContext } from '../../lib/context.ts';
-
-// ── jQuery mock ──────────────────────────────────────────────────────────────
-// $.post returns a jQuery-style deferred with .done()/.fail() chaining.
-interface MockDeferred {
-  done: (cb: () => void) => MockDeferred;
-  fail: (cb: () => void) => MockDeferred;
-  _resolveDone: () => void;
-  _resolveFail: () => void;
-}
-
-function createMockDeferred(): MockDeferred {
-  let doneCb: (() => void) | null = null;
-  let failCb: (() => void) | null = null;
-  const deferred: MockDeferred = {
-    done(cb) {
-      doneCb = cb;
-      return deferred;
-    },
-    fail(cb) {
-      failCb = cb;
-      return deferred;
-    },
-    _resolveDone() {
-      doneCb?.();
-    },
-    _resolveFail() {
-      failCb?.();
-    },
-  };
-  return deferred;
-}
-
-let lastDeferred: MockDeferred;
-const mockPost = vi.fn(() => {
-  lastDeferred = createMockDeferred();
-  return lastDeferred;
-});
-
-// Assign to globalThis so the component's `$.post(...)` calls hit our mock.
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(globalThis as any).$ = { post: mockPost };
+import { mockRuntime, stubJquery } from '../../lib/specHelpers.ts';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -54,15 +13,6 @@ const sampleKeypoints: KeyPoint[] = [
   { keypoint: 'Fluid balance', description: 'Regulation of fluids.' },
   { keypoint: 'Neural signaling', description: 'How neurons communicate.' },
 ];
-
-function mockRuntime(): XBlockRuntime {
-  return {
-    notify: vi.fn(),
-    handlerUrl: vi
-      .fn()
-      .mockImplementation((_element, name: string) => `/handler/${name}`),
-  };
-}
 
 function renderStudio(
   overrides: Partial<React.ComponentProps<typeof StudioUi>> = {},
@@ -87,13 +37,9 @@ function renderStudio(
 
 // ── tests ────────────────────────────────────────────────────────────────────
 
-beforeEach(() => {
-  mockPost.mockClear();
-});
-
 describe('StudioUi', () => {
   // ─── initial rendering ───────────────────────────────────────────────────
-
+  const { getLastDeferred, mockPost } = stubJquery();
   describe('initial rendering', () => {
     it('renders the Block Header input with initial value', () => {
       renderStudio();
@@ -337,7 +283,9 @@ describe('StudioUi', () => {
       const { runtime } = renderStudio();
 
       await user.click(screen.getByText('Save'));
-      lastDeferred._resolveDone();
+      const lastDeferred = getLastDeferred();
+      expect(lastDeferred).toBeTruthy();
+      lastDeferred!._resolveDone();
 
       expect(runtime.notify).toHaveBeenCalledWith('save', { state: 'end' });
     });
@@ -347,7 +295,9 @@ describe('StudioUi', () => {
       const { runtime } = renderStudio();
 
       await user.click(screen.getByText('Save'));
-      lastDeferred._resolveFail();
+      const lastDeferred = getLastDeferred();
+      expect(lastDeferred).toBeTruthy();
+      lastDeferred!._resolveFail();
 
       expect(runtime.notify).toHaveBeenCalledWith('error', {
         title: 'Save Error',
