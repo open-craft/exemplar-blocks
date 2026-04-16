@@ -48069,12 +48069,13 @@ var K = x(), $d = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 				...e,
 				featuredImage: {
 					...e.featuredImage,
+					alt: n.target.checked ? "" : e.featuredImage.alt,
 					decorative: n.target.checked
 				}
 			}),
 			children: "Decorative image"
 		}),
-		/* @__PURE__ */ (0, K.jsx)(H.Control, {
+		!e.featuredImage.decorative && /* @__PURE__ */ (0, K.jsx)(H.Control, {
 			value: e.featuredImage.alt,
 			onChange: (n) => t({
 				...e,
@@ -48135,29 +48136,33 @@ var K = x(), $d = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 		}),
 		placeholder: ""
 	})] }),
-	/* @__PURE__ */ (0, K.jsxs)(H.Group, { children: [/* @__PURE__ */ (0, K.jsx)(H.Label, { children: "Alt text" }), /* @__PURE__ */ (0, K.jsx)(H.Checkbox, {
-		className: "d-flex",
-		checked: e.bottomImage.decorative,
-		onChange: (n) => t({
-			...e,
-			bottomImage: {
-				...e.bottomImage,
-				decorative: n.target.checked
-			}
+	/* @__PURE__ */ (0, K.jsxs)(H.Group, { children: [
+		/* @__PURE__ */ (0, K.jsx)(H.Label, { children: "Alt text" }),
+		/* @__PURE__ */ (0, K.jsx)(H.Checkbox, {
+			className: "d-flex",
+			checked: e.bottomImage.decorative,
+			onChange: (n) => t({
+				...e,
+				bottomImage: {
+					...e.bottomImage,
+					alt: n.target.checked ? "" : e.bottomImage.alt,
+					decorative: n.target.checked
+				}
+			}),
+			children: "Decorative image"
 		}),
-		children: "Decorative image"
-	})] }),
-	/* @__PURE__ */ (0, K.jsx)(H.Group, { children: /* @__PURE__ */ (0, K.jsx)(H.Control, {
-		value: e.bottomImage.alt,
-		onChange: (n) => t({
-			...e,
-			bottomImage: {
-				...e.bottomImage,
-				alt: n.target.value
-			}
-		}),
-		placeholder: "Alt text"
-	}) }),
+		!e.bottomImage.decorative && /* @__PURE__ */ (0, K.jsx)(H.Control, {
+			value: e.bottomImage.alt,
+			onChange: (n) => t({
+				...e,
+				bottomImage: {
+					...e.bottomImage,
+					alt: n.target.value
+				}
+			}),
+			placeholder: "Alt text"
+		})
+	] }),
 	/* @__PURE__ */ (0, K.jsxs)(H.Group, { children: [/* @__PURE__ */ (0, K.jsx)(H.Label, { children: "Image link (optional)" }), /* @__PURE__ */ (0, K.jsx)(H.Control, {
 		value: e.bottomImage.onClickUrl,
 		onChange: (n) => t({

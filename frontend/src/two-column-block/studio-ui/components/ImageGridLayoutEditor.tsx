@@ -47,6 +47,8 @@ export const ImageGridLayoutEditor = ({
               ...data,
               featuredImage: {
                 ...data.featuredImage,
+                // clear any existing alt text if switching to decorative
+                alt: e.target.checked ? '' : data.featuredImage.alt,
                 decorative: e.target.checked,
               },
             })
@@ -55,16 +57,18 @@ export const ImageGridLayoutEditor = ({
           Decorative image
         </Form.Checkbox>
 
-        <Form.Control
-          value={data.featuredImage.alt}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            onUpdate({
-              ...data,
-              featuredImage: { ...data.featuredImage, alt: e.target.value },
-            })
-          }
-          placeholder="Alt text"
-        />
+        {!data.featuredImage.decorative && (
+          <Form.Control
+            value={data.featuredImage.alt}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              onUpdate({
+                ...data,
+                featuredImage: { ...data.featuredImage, alt: e.target.value },
+              })
+            }
+            placeholder="Alt text"
+          />
+        )}
       </Form.Group>
 
       <Form.Group>
@@ -138,6 +142,8 @@ export const ImageGridLayoutEditor = ({
               ...data,
               bottomImage: {
                 ...data.bottomImage,
+                // clear any existing alt text if switching to decorative
+                alt: e.target.checked ? '' : data.bottomImage.alt,
                 decorative: e.target.checked,
               },
             })
@@ -145,19 +151,19 @@ export const ImageGridLayoutEditor = ({
         >
           Decorative image
         </Form.Checkbox>
-      </Form.Group>
 
-      <Form.Group>
-        <Form.Control
-          value={data.bottomImage.alt}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            onUpdate({
-              ...data,
-              bottomImage: { ...data.bottomImage, alt: e.target.value },
-            })
-          }
-          placeholder="Alt text"
-        />
+        {!data.bottomImage.decorative && (
+          <Form.Control
+            value={data.bottomImage.alt}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              onUpdate({
+                ...data,
+                bottomImage: { ...data.bottomImage, alt: e.target.value },
+              })
+            }
+            placeholder="Alt text"
+          />
+        )}
       </Form.Group>
 
       <Form.Group>
