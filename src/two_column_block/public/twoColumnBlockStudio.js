@@ -48642,7 +48642,7 @@ var K = x(), $d = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 			}), /* @__PURE__ */ (0, K.jsx)(p, {
 				variant: "tertiary",
 				size: "lg",
-				onClick: n,
+				onClick: () => n(),
 				children: "Cancel"
 			})] })
 		})]

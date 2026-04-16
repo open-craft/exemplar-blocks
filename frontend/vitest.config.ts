@@ -60,7 +60,12 @@ export default defineConfig(({ mode }) => {
       coverage: {
         provider: 'v8',
         enabled: true,
-        reporter: ['text'],
+        reporter: ['text', 'html'],
+        reportsDirectory: './coverage',
+        include: ['src/**/*.{ts,tsx}'],
+      },
+      sequence: {
+        shuffle: true,
       },
     },
   };
