@@ -1,12 +1,11 @@
-"""
-Type definitions and Pydantic models
-"""
+"""Type definitions and Pydantic models"""
 
-from typing import Literal, List, Annotated
 from enum import Enum
+from typing import Annotated, Literal
 
-import nh3
-from pydantic import BaseModel, Field, ConfigDict, AfterValidator
+from pydantic import AfterValidator, BaseModel, ConfigDict, Field
+
+from .utils import sanitise_text_layout_html
 
 WorkbenchScenario = tuple[str, str]
 
@@ -14,19 +13,6 @@ WorkbenchScenario = tuple[str, str]
 
 # NOTE: we're using camelCase rather than snake_case here to match up with the frontend types.
 # We could use Pydantic alias generators ( https://stackoverflow.com/a/77424889 ), but it's not that important (yet).
-
-
-def sanitise_text_layout_html(value: str) -> str:
-    # Specific rules for the body of the text layout.
-    # The html here should be restricted to only a small number of tags to preserve neat typography,
-    # and of course to avoid scripting or other unwanted things.
-    # docs for nh3: https://nh3.readthedocs.io/en/latest/#nh3.clean
-    cleaner = nh3.Cleaner(
-        tags={"h1", "h2", "h3", "h4", "h5", "p", "strong", "em", "span"},
-        attributes={"*": {"style"}},
-        filter_style_properties={"color"},
-    )
-    return cleaner.clean(value)
 
 
 # ratios are designed to work well with the Bootstrap 12 column grid.
@@ -112,7 +98,7 @@ class LessonListLayoutData(BaseModel):
     kind: Literal["lessonList"]
     title: str
     text: str
-    lessons: List[LessonInfo]
+    lessons: list[LessonInfo]
 
 
 class LessonIntroLayoutData(BaseModel):
