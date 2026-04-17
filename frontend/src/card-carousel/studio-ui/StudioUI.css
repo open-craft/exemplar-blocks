@@ -1,0 +1,10 @@
+@import '@openedx/paragon/dist/core.min.css';
+@import '@openedx/paragon/dist/light.min.css';
+
+/* 
+* The CMS hardcodes the height of the "Edit" modal to be 435px in cms/static/sass/elements/_modal-window.scss
+* This is insufficient for this UI. So bumping it up to 635px.
+* */
+.studio-ui {
+  min-height: 635px;
+}

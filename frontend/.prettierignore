@@ -1,2 +1,3 @@
 *.yaml
 *.md
+src/card-carousel/types.ts

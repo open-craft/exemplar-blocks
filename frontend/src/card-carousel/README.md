@@ -13,19 +13,22 @@ An Open edX Paragon based UI that renders a horizontally scrollable carousel of 
 
 ## Layouts
 
-- **`HORIZONTAL`** — primary content and secondary content sit side-by-side. The carousel column width is wider to accommodate the layout.
-- **`VERTICAL`** — primary content stacks above secondary content. The carousel uses narrower columns.
+- `HORIZONTAL` — primary content and secondary content sit side-by-side. The carousel column width is wider to accommodate the layout.
+- `VERTICAL` — primary content stacks above secondary content. The carousel uses narrower columns.
 
-## Data Structure
+## Data Models
 
-The data structures are defined in `types.ts`.
+The data models for this application are defined in the XBlocks [types.py](../../../src/card_carousel/types.py) file. They are synced using the `pydantic2ts` CLI.
 
-## MaterialIcon
+> [!NOTE]
+> To update the data models, change the model in `types.py` and run `mise run sync-types`.
 
-A small utility component used inside `RichList` and `HoverList`. This uses the "Material Icon" webfont that's injected into the HTML by the XBlock.
-This is used in place of something like the `@mui/icons-material` React library to avoid bundling all the SVGs, but have the support for all the icons at runtime.
+## Google Material Icon
+
+The icons for this XBlock are from the [Google's Material Icons Font](https://developers.google.com/fonts/docs/material_icons).
+This is used in place of Paragon's icons or the `@mui/icons-material` React library to avoid bundling all the SVGs, but have the support for all the icons at runtime.
 
 ## Dev Notes
 
-1. Only the `student-ui` is implemented. The `studio-ui` just has placeholder files.
-2. The `index.html` files in the `student-ui` and `studio-ui` are useful for developing the libraries without involving the XBlock workbench. They act as entry points for Vite to serve the components when `pnpm run dev` is used. They are currently **not used**.
+The `index.html` file is useful for developing the libraries without involving the XBlock workbench. It along with `studio-ui/demo.tsx` acts as entry point for `pnpm run dev`.
+

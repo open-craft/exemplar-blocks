@@ -1,0 +1,5 @@
+/* This is copied from the CMS's runtime styles to match the UI expectations */
+.carousel-editor {
+  max-height: 540px;
+  overflow-y: scroll;
+}

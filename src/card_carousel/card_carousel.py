@@ -2,13 +2,43 @@
 Main module of the "Card Carousel" XBlock.
 """
 
+import logging
 import json
-from html import escape
-from importlib.resources import files
 
+from pathlib import Path
+
+from pydantic import ValidationError
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
+from xblock.exceptions import JsonHandlerError
 from xblock.fields import Scope, String, List, Boolean
+from xblock.utils.resources import ResourceLoader
+
+from .types import CardData, CardType, ContentHighlightData, Orientation, InitData
+
+
+logger = logging.getLogger(__name__)
+resource_loader = ResourceLoader(__name__)
+
+DEFAULT_CARD = CardData(
+    id=1,
+    name="Placeholder Card",
+    title="Carousel Card",
+    subtitle=(
+        "Use the 'Edit' button to change the contents of this card and add more "
+        "cards to the carousel."
+    ),
+    description=(
+        "P.S: Cards have a 'Call to action' button that can link to any content "
+        "on the course or anywhere else on the web."
+    ),
+    cardType=CardType.CONTENT_HIGHLIGHT,
+    secondaryContent=ContentHighlightData(
+        title="Layouts",
+        subtitle="💡",
+        description="The card carousel supports multiple layouts.",
+    ),
+)
 
 
 class CardCarouselXBlock(XBlock):
@@ -28,30 +58,31 @@ class CardCarouselXBlock(XBlock):
     orientation = String(
         display_name="Orientation of the Card Content",
         help="Horizontal for side-by-side content, Vertical for top and bottom content.",
-        default="HORIZONTAL",
+        default=Orientation.HORIZONTAL,
         values=[
             {"display_name": "Horizontal", "value": "HORIZONTAL"},
             {"display_name": "Vertical", "value": "VERTICAL"},
         ],
     )
-    cards = List(help="List of Cards", default=[], scope=Scope.content)
+    cards = List(
+        help="List of Cards", default=[DEFAULT_CARD.model_dump()], scope=Scope.content
+    )
     disable_numbering = Boolean(
         help="Disable position labels (eg., 1/3) on the cards",
         default=False,
         scope=Scope.content,
     )
 
-    def resource_string(self, path):
+    def resource_string(self, path: str | Path) -> str:
         """Handy helper for getting resources from our kit."""
-        return files(__package__).joinpath(path).read_text(encoding="utf-8")
+        return resource_loader.load_unicode(path)
 
     def student_view(self, context=None):
         """
         The primary view of the CardCarouselXBlock, shown to students
         when viewing courses.
         """
-        html = self.resource_string("static/html/card_carousel.html")
-        frag = Fragment(html.format(self=self))
+        frag = Fragment()
         frag.add_css(self.resource_string("public/frontend.css"))
         frag.add_resource_url(
             "https://fonts.googleapis.com/icon?family=Material+Icons",
@@ -59,6 +90,7 @@ class CardCarouselXBlock(XBlock):
             "head",
         )
         frag.add_javascript(self.resource_string("static/student.js"))
+
         frag.initialize_js(
             "CardCarouselXBlock",
             {
@@ -73,122 +105,63 @@ class CardCarouselXBlock(XBlock):
         )
         return frag
 
+    def studio_view(self, context=None):
+        """
+        Editor View for the CardCarouselXBlock, show to content authors.
+        """
+        html = self.resource_string("static/html/card_carousel_editor.html")
+        frag = Fragment(html)
+        frag.add_css(self.resource_string("public/frontend.css"))
+        frag.add_resource_url(
+            "https://fonts.googleapis.com/icon?family=Material+Icons",
+            "text/css",
+            "head",
+        )
+
+        frag.add_javascript(self.resource_string("static/studio.js"))
+        frag.add_css(self.resource_string("static/studio-fixes.css"))
+        frag.initialize_js(
+            "CardCarouselEditor",
+            {
+                "url": self.runtime.local_resource_url(
+                    self, "public/cardCarouselStudio.js"
+                ),
+                "orientation": self.orientation,
+                "cards": self.cards,
+                "displayName": self.display_name,
+                "disableNumbering": self.disable_numbering,
+            },
+        )
+        return frag
+
+    @XBlock.json_handler
+    def studio_save(self, data: dict, suffix=""):
+        """
+        Get the data from the Studio Editor and save it on the XBlock.
+        """
+        del data["orientation"]
+        try:
+            carousel = InitData.model_validate(data)
+        except ValidationError as e:
+            logger.exception("Invalid data recieved from studio.")
+            message = "\n".join(
+                f"Field: {err['loc']}. Error: {err['msg']}" for err in e.errors()
+            )
+            raise JsonHandlerError(400, message)
+
+        self.display_name = carousel.displayName
+        self.orientation = carousel.orientation
+        self.cards = [c.model_dump() for c in carousel.cards]
+        self.disable_numbering = carousel.disableNumbering
+        logger.info("Successfully saved Card Carousel data.")
+        return {"result": "success"}
+
     @staticmethod
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
-        rich_list_card = {
-            "cardType": "RICH_LIST",
-            "title": "Build Employability Skills",
-            "description": escape(
-                "When assessing a patient's condition, providers must identify and apply their knowledge based on assessment findings. To perform their role, providers must develop specific skills. This section helps you begin building the skills that employers seek when hiring or promoting healthcare professionals."
-            ),
-            "secondaryContent": {
-                "items": [
-                    {
-                        "icon": "local_library",
-                        "title": "Acute care",
-                        "description": escape(
-                            "Apply knowledge of patient's pathophysiology when analyzing patient data and assessments."
-                        ),
-                    },
-                    {
-                        "icon": "timer",
-                        "title": "Early intervention",
-                        "description": "Identify risks and potential or existing health problems and acts according to scope of licensure to prevent complications.",
-                    },
-                    {
-                        "icon": "favorite_border",
-                        "title": "Physiology",
-                        "description": "Identify normal physiological functions of living organisms and their parts.",
-                    },
-                ]
-            },
-        }
-        content_highlight_card = {
-            "cardType": "CONTENT_HIGHLIGHT",
-            "title": "Develop Competence",
-            "description": "In this course, you can demonstrate these skills by passing a final assessment that measures whether you have mastered the following competency.",
-            "secondaryContent": {
-                "title": "Cardiovascular and Lymphatic Systems",
-                "subtitle": "Competency 738.11.4",
-                "description": "The learner describes pathogenesis, manifestations, complications, and variations of the cardiovascular and lymphatic systems.",
-            },
-        }
-        hover_list_card = {
-            "cardType": "HOVER_LIST",
-            "title": "Prepare for the Assessment",
-            "subtitle": "There are six evidence statements for this competency, hover over each to turn them into questions.",
-            "secondaryContent": {
-                "items": [
-                    {
-                        "description": "The learner identifies characteristics of given blood vessel disorders (i.e., aneurysm, thrombus, and embolus).",
-                        "hoverContent": "What if this turns out to be really long text? The learner identifies characteristics of given blood vessel disorders (i.e., aneurysm, thrombus, and embolus). The learner identifies characteristics of given blood vessel disorders (i.e., aneurysm, thrombus, and embolus). The learner identifies characteristics of given blood vessel disorders (i.e., aneurysm, thrombus, and embolus).",
-                        "icon": "",
-                    },
-                    {
-                        "description": "The learner identifies the differences among atherosclerosis, angina pectoris, myocardial infarction, and heart dysrhythmias.",
-                        "hoverContent": "",
-                        "icon": "",
-                    },
-                    {
-                        "description": "The learner identifies differences between congestive heart failure, valvular heart diseases, endocarditis, and pericarditis.",
-                        "hoverContent": "",
-                        "icon": "",
-                    },
-                    {
-                        "description": "The learner identifies differences between benign and malignant hypertension.",
-                        "hoverContent": "Can you identify the differences between benign and malignant hypertension?",
-                        "icon": "psychology_alt",
-                    },
-                    {
-                        "description": "Given a description of anemia, the learner identifies the type described (i.e., folic acid anemia, pernicious anemia, iron-deficiency anemia, and aplastic anemia).",
-                        "hoverContent": "",
-                        "icon": "",
-                    },
-                    {
-                        "description": "The learner identifies differences between diseases that are infectious and diseases that are communicable.",
-                        "hoverContent": "",
-                        "icon": "",
-                    },
-                ]
-            },
-        }
-        image_card = {
-            "cardType": "IMAGE",
-            "title": "Up Next",
-            "subtitle": "4.1 Cardiovascular Systems Pathophysiology",
-            "description": "Examines how normal cardiac and vascular functions are disrupted by disease, highlighting key mechanisms that affect blood flow, oxygen delivery, and systemic regulation.",
-            "ctaLabel": "Start 4.1",
-            "ctaLink": "/",
-            "secondaryContent": {
-                "location": "https://picsum.photos/512/512/",
-                "altText": "Random Image from picsum.photos",
-            },
-        }
-        section_card_1 = {
-            "cardType": "IMAGE",
-            "title": "4.1",
-            "subtitle": "Cardiovascular System Pathophysiology",
-            "description": "Examines how normal cardiac and vascular functions are disrupted by disease, highlighting key mechanisms that affect blood flow, oxygen delivery, and systemic regulation.",
-            "secondaryContent": {
-                "location": "https://picsum.photos/500/500/",
-                "altText": "Random Image from picsum.photos",
-            },
-        }
-        section_card_2 = {
-            "cardType": "IMAGE",
-            "title": "4.2",
-            "subtitle": "Lymphatic System Pathophysiology",
-            "description": "Explores how the lymphatic network supports fluid balance and immune defense, and how dysfunction can lead to edema, impaired immunity, and disease.",
-            "secondaryContent": {
-                "location": "https://picsum.photos/512/512/",
-                "altText": "Random Image from picsum.photos",
-            },
-        }
-        demo_cards = json.dumps(
-            [rich_list_card, content_highlight_card, hover_list_card, image_card]
-        )
-        vertical_cards = json.dumps([section_card_1, section_card_2])
+        demo_data = json.loads(resource_loader.load_unicode("static/demo.json"))
+        demo_cards = json.dumps(demo_data["horizontal"])
+        vertical_cards = json.dumps(demo_data["vertical"])
 
         return [
             (

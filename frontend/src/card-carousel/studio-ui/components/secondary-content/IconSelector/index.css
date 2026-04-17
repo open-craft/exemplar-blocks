@@ -1,0 +1,29 @@
+.icon-selector {
+  position: relative;
+}
+
+.icon-list-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 242px;
+  min-height: 242px;
+  max-height: 300px;
+  overflow: scroll;
+  z-index: 100;
+  background-color: var(--pgn-color-body-bg);
+}
+
+.icon-symbol {
+  background-color: var(--pgn-color-body-bg);
+  color: var(--pgn-color-body-base);
+  border: 0;
+}
+
+.icon-symbol:hover {
+  background-color: var(--pgn-color-light);
+}
+.icon-symbol:focus {
+  background-color: var(--pgn-color-light);
+  border: 0;
+}
