@@ -10,6 +10,7 @@ describe('ComplexCard — IMAGE type', () => {
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
         data={{
+          id: 1,
           title: 'Test',
           cardType: CardType.IMAGE,
           secondaryContent: { location: '/img.jpg', altText: 'Test image' },
@@ -27,6 +28,7 @@ describe('ComplexCard — CONTENT_HIGHLIGHT type', () => {
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
         data={{
+          id: 1,
           title: 'Test',
           cardType: CardType.CONTENT_HIGHLIGHT,
           secondaryContent: {
@@ -49,6 +51,7 @@ describe('ComplexCard — RICH_LIST type', () => {
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
         data={{
+          id: 1,
           title: 'Test',
           cardType: CardType.RICH_LIST,
           secondaryContent: {
@@ -71,6 +74,7 @@ describe('ComplexCard — HOVER_LIST type', () => {
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
         data={{
+          id: 1,
           title: 'Test',
           cardType: CardType.HOVER_LIST,
           secondaryContent: {
@@ -189,6 +193,7 @@ describe('ComplexCard — card content', () => {
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
         data={{
+          id: 1,
           title: 'My Card Title',
           cardType: CardType.IMAGE,
           secondaryContent: imageData,
@@ -204,6 +209,7 @@ describe('ComplexCard — card content', () => {
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
         data={{
+          id: 1,
           title: 'My Card Title',
           subtitle: 'Subtitle Text',
           description: 'Card description',
@@ -222,6 +228,7 @@ describe('ComplexCard — card content', () => {
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
         data={{
+          id: 1,
           title: 'Title',
           cardType: CardType.IMAGE,
           ctaLabel: 'Start Now',
@@ -238,6 +245,7 @@ describe('ComplexCard — card content', () => {
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
         data={{
+          id: 1,
           title: 'Title',
           cardType: CardType.IMAGE,
           ctaLabel: 'Start Now',
@@ -253,6 +261,7 @@ describe('ComplexCard — card content', () => {
       <ComplexCard
         orientation={Orientation.HORIZONTAL}
         data={{
+          id: 1,
           title: 'Title',
           cardType: CardType.IMAGE,
           ctaLink: '/start',

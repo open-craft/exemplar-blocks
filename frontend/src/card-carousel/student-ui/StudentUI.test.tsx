@@ -14,11 +14,13 @@ const mockRuntime: XBlockRuntime = { handlerUrl: vi.fn(), notify: vi.fn() };
 
 const mockCards: Array<CardData> = [
   {
+    id: 1,
     title: 'Card 1',
     cardType: CardType.IMAGE,
     secondaryContent: { location: '', altText: '' },
   },
   {
+    id: 2,
     title: 'Card 2',
     cardType: CardType.RICH_LIST,
     secondaryContent: {
@@ -28,6 +30,7 @@ const mockCards: Array<CardData> = [
     },
   },
   {
+    id: 3,
     title: 'Card 3',
     cardType: CardType.HOVER_LIST,
     secondaryContent: {

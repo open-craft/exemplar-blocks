@@ -26,7 +26,8 @@ run = [
 [tasks.sync-types]
 description = "Generate Typescript types from Pydantic models in the backend (requires frontend dependencies to be installed)."
 run = [
-    "pydantic2ts --module ./src/two_column_block/types.py --output ./frontend/src/two-column-block/apiTypes.ts --json2ts-cmd ./frontend/node_modules/.bin/json2ts"
+    "pydantic2ts --module ./src/two_column_block/types.py --output ./frontend/src/two-column-block/apiTypes.ts --json2ts-cmd ./frontend/node_modules/.bin/json2ts",
+    "pydantic2ts --module ./src/card_carousel/types.py --output ./frontend/src/card-carousel/types.ts  --json2ts-cmd \"./frontend/node_modules/.bin/json2ts --inferStringEnumKeysFromValues\""
 ]
 
 [tasks.format]
@@ -49,6 +50,7 @@ description = "Run a dev server"
 run = "uv run ./manage.py runserver"
 dir = "./xblock-sdk"
 
+
 [tasks.test-python]
 description = "Run Python unit tests"
 env = { DJANGO_SETTINGS_MODULE = "workbench.settings" }
@@ -60,3 +62,6 @@ run = [
 [tasks.test]
 description = "Run all backend Python tests"
 depends = ["quality", "test-python"]
+
+[tools]
+pnpm = "latest"
