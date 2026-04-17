@@ -1,7 +1,8 @@
-import type { CoverStyleSet, InitData } from '../types.ts';
+import type { CoverStyleSet } from '../types.ts';
 import { deriveColor } from '../../lib/utils.ts';
+import type { CoverBlockFields } from '../apiTypes.ts';
 
-export const deriveStyles = (data: InitData): CoverStyleSet => {
+export const deriveStyles = (data: CoverBlockFields): CoverStyleSet => {
   return {
     top_header: deriveColor('top_header', data.top_header_color),
     description: deriveColor('description', data.description_color),

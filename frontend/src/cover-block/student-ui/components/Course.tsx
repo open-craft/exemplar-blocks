@@ -1,9 +1,9 @@
-import type { InitData } from '../../types.ts';
 import * as React from 'react';
 import { Col, Container, Row } from '@openedx/paragon';
 import { deriveStyles } from '../../lib/utils.ts';
+import type { CoverBlockFields } from '../../apiTypes.ts';
 
-const CourseCover: React.FC<InitData> = (props) => {
+const CourseCover: React.FC<CoverBlockFields> = (props) => {
   const styles = deriveStyles(props);
   return (
     <Container

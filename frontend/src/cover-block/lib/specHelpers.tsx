@@ -1,9 +1,11 @@
-import type { InitData } from '../types.ts';
 import { type ReactNode, StrictMode } from 'react';
 import { IntlProvider } from 'react-intl';
 import { render } from '@testing-library/react';
+import { type CoverBlockFields, Variant } from '../apiTypes.ts';
 
-export const initDataFactory = (overrides?: Partial<InitData>): InitData => {
+export const initDataFactory = (
+  overrides?: Partial<CoverBlockFields>,
+): CoverBlockFields => {
   return {
     display_name: 'Cover',
     description: 'This is descriptive text',
@@ -16,7 +18,7 @@ export const initDataFactory = (overrides?: Partial<InitData>): InitData => {
     subheader_color: '#cccccc',
     top_header: 'Section N',
     top_header_color: '#dddddd',
-    variant: 'course',
+    variant: Variant.course,
     ...overrides,
   };
 };

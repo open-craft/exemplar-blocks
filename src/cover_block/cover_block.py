@@ -2,39 +2,45 @@
 Main Cover Block code module. Provides the XBlock for import by the studio.
 """
 
+import logging
 from typing import Callable, Union
 
 from django.conf import settings
 from django.template import Template, Context
+from pydantic import ValidationError, HttpUrl
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
+from xblock.exceptions import JsonHandlerError
 from xblock.fields import String, Scope
 from xblock.utils.resources import ResourceLoader
 
-from .types import WorkbenchScenario
+from .types import WorkbenchScenario, CoverBlockFields
 
+logger = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
 
 
-def default_media_url() -> str:
+def default_media_url() -> HttpUrl:
     """
     Get the default media URL if set in the Django settings. Otherwise, use
     picsum photo.
     """
-    return getattr(
-        settings,
-        "COVERBLOCK_DEFAULT_MEDIA_URL",
-        "https://picsum.photos/2000/2000",
+    return HttpUrl(
+        getattr(
+            settings,
+            "COVERBLOCK_DEFAULT_MEDIA_URL",
+            "https://picsum.photos/2000/2000",
+        )
     )
 
 
-def call_or_string(target: Union[str, Callable[[], str]]) -> str:
+def call_or_string(target: Union[str, Callable[[], HttpUrl]]) -> HttpUrl:
     """
     Used for handling the default value in the media URL field, since the default
     is a function.
     """
     if isinstance(target, str):
-        return target
+        return HttpUrl(target)
     return target()
 
 
@@ -52,11 +58,6 @@ class CoverBlock(XBlock):
     variant = String(
         display_name="Variant",
         default="section",
-        choices=(
-            ("Section Header", "section"),
-            ("Course Header", "course"),
-            ("Separator", "separator"),
-        ),
     )
     top_header = String(
         display_name="Top header",
@@ -124,16 +125,6 @@ class CoverBlock(XBlock):
             "decorative to meet accessibility standards."
         ),
     )
-    editable_fields: tuple[str, ...] = (  # type: ignore
-        "display_name",
-        "variant",
-        "top_header",
-        "main_header",
-        "subheader",
-        "description",
-        "media_url",
-        "media_alt_text",
-    )
 
     @property
     def dev_mode(self) -> bool:
@@ -169,20 +160,20 @@ class CoverBlock(XBlock):
         """
         Return values of all the fields.
         """
-        return {
-            "display_name": self.display_name,
-            "variant": self.variant,
-            "top_header": self.top_header,
-            "top_header_color": self.top_header_color,
-            "main_header": self.main_header,
-            "main_header_color": self.main_header_color,
-            "subheader": self.subheader,
-            "subheader_color": self.subheader_color,
-            "description": self.description,
-            "description_color": self.description_color,
-            "media_url": call_or_string(self.media_url),
-            "media_alt_text": self.media_alt_text,
-        }
+        return CoverBlockFields(
+            display_name=self.display_name,
+            variant=self.variant,
+            top_header=self.top_header,
+            top_header_color=self.top_header_color,
+            main_header=self.main_header,
+            main_header_color=self.main_header_color,
+            subheader=self.subheader,
+            subheader_color=self.subheader_color,
+            description=self.description,
+            description_color=self.description_color,
+            media_url=call_or_string(self.media_url),
+            media_alt_text=self.media_alt_text,
+        ).model_dump(mode="json")
 
     def studio_view(self, context=None) -> Fragment:
         """
@@ -206,13 +197,18 @@ class CoverBlock(XBlock):
     @XBlock.json_handler
     def studio_save(self, data, suffix=""):
         """Save configuration data from the studio editor."""
-        old_data = self.field_data()
-        for field, old_value in old_data.items():
-            setattr(self, field, str(data.get(field, old_value)))
+        try:
+            CoverBlockFields.model_validate(data)
+        except ValidationError as e:
+            logger.exception("Invalid data received from studio.")
+            message = "\n".join(
+                f"Field: {err['loc']}. Error: {err['msg']}" for err in e.errors()
+            )
+            raise JsonHandlerError(400, message)
+        for field, value in data.items():
+            setattr(self, field, value)
         return {"result": "success"}
 
-    # TO-DO: change this to create the scenarios you'd like to see in the
-    # workbench while developing your XBlock.
     @staticmethod
     def workbench_scenarios() -> list[WorkbenchScenario]:
         """A canned scenario for display in the workbench."""

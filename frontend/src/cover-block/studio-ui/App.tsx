@@ -1,14 +1,14 @@
-import type { InitData } from '../types.ts';
 import { useHandlerUrl } from '../../lib/hooks.ts';
 import { useContext } from 'react';
 import { RuntimeContext } from '../../lib/context.ts';
 import { Formik } from 'formik';
 import Editor from './components/Editor.tsx';
+import type { CoverBlockFields } from '../apiTypes.ts';
 
-const App = (data: InitData) => {
+const App = (data: CoverBlockFields) => {
   const { runtime } = useContext(RuntimeContext);
   const studioSaveUrl = useHandlerUrl('studio_save');
-  const handleSave = (saveData: InitData) => {
+  const handleSave = (saveData: CoverBlockFields) => {
     runtime.notify('save', { state: 'start' });
     $.post(studioSaveUrl, JSON.stringify(saveData))
       .done(() => {

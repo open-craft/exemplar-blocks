@@ -143,7 +143,7 @@ class CardCarouselXBlock(XBlock):
         try:
             carousel = InitData.model_validate(data)
         except ValidationError as e:
-            logger.exception("Invalid data recieved from studio.")
+            logger.exception("Invalid data received from studio.")
             message = "\n".join(
                 f"Field: {err['loc']}. Error: {err['msg']}" for err in e.errors()
             )
