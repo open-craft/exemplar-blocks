@@ -161,7 +161,7 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
           >
             Save
           </Button>
-          <Button variant="tertiary" size="lg" onClick={onCancel}>
+          <Button variant="tertiary" size="lg" onClick={() => onCancel()}>
             Cancel
           </Button>
         </ActionRow>
