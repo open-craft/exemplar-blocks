@@ -205,7 +205,7 @@ class CoverBlock(XBlock):
                 f"Field: {err['loc']}. Error: {err['msg']}" for err in e.errors()
             )
             raise JsonHandlerError(400, message)
-        for field, value in model_data:
+        for field, value in model_data.model_dump(mode="json").items():
             setattr(self, field, value)
         return {"result": "success"}
 
