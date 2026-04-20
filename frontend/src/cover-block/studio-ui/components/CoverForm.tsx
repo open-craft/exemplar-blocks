@@ -1,6 +1,6 @@
 import { Col, Form, Row } from '@openedx/paragon';
 import { Field, useField } from 'formik';
-import type { Variant } from '../../types.ts';
+import type { Variant } from '../../apiTypes.ts';
 
 const CoverForm = () => {
   const [variant] = useField<Variant>('variant');

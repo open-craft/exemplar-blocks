@@ -198,14 +198,14 @@ class CoverBlock(XBlock):
     def studio_save(self, data, suffix=""):
         """Save configuration data from the studio editor."""
         try:
-            CoverBlockFields.model_validate(data)
+            model_data = CoverBlockFields.model_validate(data)
         except ValidationError as e:
             logger.exception("Invalid data received from studio.")
             message = "\n".join(
                 f"Field: {err['loc']}. Error: {err['msg']}" for err in e.errors()
             )
             raise JsonHandlerError(400, message)
-        for field, value in data.items():
+        for field, value in model_data:
             setattr(self, field, value)
         return {"result": "success"}
 

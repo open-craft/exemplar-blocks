@@ -1,9 +1,8 @@
 import * as React from 'react';
-import type { Variant } from '../types.ts';
 import CourseCover from './components/Course.tsx';
 import SectionCover from './components/Section.tsx';
 import Separator from './components/Separator.tsx';
-import type { CoverBlockFields } from '../apiTypes.ts';
+import { type CoverBlockFields, Variant } from '../apiTypes.ts';
 
 const variants: Record<Variant, React.FC<CoverBlockFields>> = {
   course: CourseCover,
