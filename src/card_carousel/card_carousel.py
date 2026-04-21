@@ -139,7 +139,6 @@ class CardCarouselXBlock(XBlock):
         """
         Get the data from the Studio Editor and save it on the XBlock.
         """
-        del data["orientation"]
         try:
             carousel = InitData.model_validate(data)
         except ValidationError as e:
