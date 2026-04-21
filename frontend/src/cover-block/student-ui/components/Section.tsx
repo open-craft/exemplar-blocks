@@ -1,8 +1,8 @@
-import type { InitData } from '../../types.ts';
 import * as React from 'react';
 import { Col, Container, Row } from '@openedx/paragon';
+import type { CoverBlockFields } from '../../apiTypes.ts';
 
-const SectionCover: React.FC<InitData> = (props) => (
+const SectionCover: React.FC<CoverBlockFields> = (props) => (
   <Container
     fluid={true}
     className="section-cover px-0"

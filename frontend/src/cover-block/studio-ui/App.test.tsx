@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { render, waitFor, fireEvent } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ReactNode } from 'react';
 import * as React from 'react';
@@ -8,6 +8,7 @@ import { RuntimeContext } from '../../lib/context.ts';
 import { mockRuntime, stubJquery } from '../../lib/specHelpers.ts';
 import { initDataFactory } from '../lib/specHelpers.tsx';
 import App from './App.tsx';
+import { Variant } from '../apiTypes.ts';
 
 const specRender = (component: ReactNode) => {
   const runtime = mockRuntime();
@@ -32,7 +33,7 @@ describe('App.tsx', () => {
   });
   it('dynamically shows the color selectors', async () => {
     const { screen } = specRender(
-      <App {...initDataFactory({ variant: 'section' })} />,
+      <App {...initDataFactory({ variant: Variant.section })} />,
     );
     // Section does not have any color pickers.
     await waitFor(() => expect(screen.queryAllByText(/color/i).length).toBe(0));
@@ -44,7 +45,7 @@ describe('App.tsx', () => {
   });
   it('dynamically removes the color selectors', async () => {
     const { screen } = specRender(
-      <App {...initDataFactory({ variant: 'course' })} />,
+      <App {...initDataFactory({ variant: Variant.course })} />,
     );
     await waitFor(() =>
       expect(screen.queryAllByText(/color/i).length).toEqual(4),
@@ -56,7 +57,7 @@ describe('App.tsx', () => {
   it('submits changes to the server', async () => {
     const user = userEvent.setup();
     const { screen } = specRender(
-      <App {...initDataFactory({ variant: 'course' })} />,
+      <App {...initDataFactory({ variant: Variant.course })} />,
     );
     const displayName = screen.getByLabelText('Display Name');
     await user.clear(displayName);
@@ -79,7 +80,7 @@ describe('App.tsx', () => {
   it('informs the runtime about the save status', async () => {
     const user = userEvent.setup();
     const { screen, runtime } = specRender(
-      <App {...initDataFactory({ variant: 'course' })} />,
+      <App {...initDataFactory({ variant: Variant.course })} />,
     );
     await user.click(screen.getByText('Save'));
     expect(runtime.notify).toHaveBeenCalledWith('save', { state: 'start' });
