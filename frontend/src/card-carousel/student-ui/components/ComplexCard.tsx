@@ -6,12 +6,11 @@ import Card from '@openedx/paragon/dist/Card';
 
 import {
   type CardData,
-  CardType,
   type ContentHighlightData,
   type RichListData,
   type HoverListData,
   type ImageData,
-  Orientation,
+  type Orientation,
 } from '../../types';
 import { ContentHighlight } from './ContentHighlight';
 import { RichList } from './RichList';
@@ -25,21 +24,19 @@ interface ComplexCardProps {
 }
 
 interface ContentLayoutProps {
-  cardType: CardType;
   orientation: Orientation;
-  secondaryContent: RichListData | ContentHighlightData | ImageData;
+  secondaryContent: Card['secondaryContent'];
 }
 
 export const ContentLayout = ({
-  cardType,
   orientation,
   secondaryContent,
   children,
 }: PropsWithChildren<ContentLayoutProps>) => {
   let secondaryContentElement = null;
 
-  switch (cardType) {
-    case CardType.IMAGE:
+  switch (secondaryContent.kind) {
+    case 'IMAGE':
       return (
         <>
           <Card.ImageCap
@@ -49,7 +46,7 @@ export const ContentLayout = ({
           {children}
         </>
       );
-    case CardType.CONTENT_HIGHLIGHT:
+    case 'CONTENT_HIGHLIGHT':
       secondaryContentElement = (
         <ContentHighlight
           {...(secondaryContent as ContentHighlightData)}
@@ -57,23 +54,23 @@ export const ContentLayout = ({
         />
       );
       break;
-    case CardType.RICH_LIST:
+    case 'RICH_LIST':
       secondaryContentElement = (
         <RichList {...(secondaryContent as RichListData)} />
       );
       break;
     // The HOVER_LIST's contents are rendered as a part of the primary content itself.
-    case CardType.HOVER_LIST:
+    case 'HOVER_LIST':
     default:
       return children;
   }
 
   const outerClass =
-    orientation === Orientation.HORIZONTAL
-      ? 'row'
+    orientation === 'HORIZONTAL'
+      ? 'd-flex w-100'
       : 'd-flex flex-column h-100 justify-content-between';
   const innerClass =
-    orientation === Orientation.HORIZONTAL ? 'col' : 'flex-grow-1';
+    orientation === 'HORIZONTAL' ? 'flex-grow-1 w-50' : 'flex-grow-1';
 
   return (
     <div className={outerClass}>
@@ -92,13 +89,7 @@ export default function ComplexCard({
     <Card orientation={orientation.toLowerCase()}>
       <ContentLayout
         orientation={orientation}
-        cardType={data.cardType}
-        secondaryContent={
-          data.secondaryContent as
-            | RichListData
-            | ContentHighlightData
-            | ImageData
-        }
+        secondaryContent={data.secondaryContent}
       >
         <Card.Body>
           {position && (
@@ -115,7 +106,7 @@ export default function ComplexCard({
               <Button variant="primary">{data.ctaLabel}</Button>
             </Card.Section>
           )}
-          {data.cardType === CardType.HOVER_LIST && (
+          {data.secondaryContent?.kind === 'HOVER_LIST' && (
             <Card.Section>
               <HoverList {...(data.secondaryContent as HoverListData)} />
             </Card.Section>

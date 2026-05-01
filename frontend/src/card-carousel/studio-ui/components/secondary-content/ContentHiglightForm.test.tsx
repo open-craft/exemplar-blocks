@@ -1,7 +1,7 @@
 import { render, screen } from '../../tests-utils';
 import { describe, it, expect } from 'vitest';
 import { Formik } from 'formik';
-import { CardType, Orientation, type InitData } from '../../../types';
+import { type InitData } from '../../../types';
 import ContentHighlightForm from './ContentHiglightForm';
 
 const makeInitData = (
@@ -12,13 +12,18 @@ const makeInitData = (
   cards: [
     {
       id: 1,
+      name: '',
       title: '',
-      cardType: CardType.CONTENT_HIGHLIGHT,
-      secondaryContent: { title, subtitle, description },
+      secondaryContent: {
+        kind: 'CONTENT_HIGHLIGHT',
+        title,
+        subtitle,
+        description,
+      },
     },
   ],
   displayName: 'Test',
-  orientation: Orientation.HORIZONTAL,
+  orientation: 'HORIZONTAL',
 });
 
 const ContentHighlightFormWithContext = ({

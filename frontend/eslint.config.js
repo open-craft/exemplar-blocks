@@ -6,7 +6,11 @@ import tseslint from 'typescript-eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  globalIgnores(['**/apiTypes.ts', 'src/coverage/']),
+  globalIgnores([
+    '**/apiTypes.ts',
+    'src/card-carousel/types.ts',
+    'src/coverage/',
+  ]),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [

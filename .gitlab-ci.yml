@@ -10,6 +10,8 @@ quality:
   script:
     - apk add mise git pnpm
     - (cd frontend && pnpm install)
+    # The tools are already installed with apk
+    - export MISE_AUTO_INSTALL=false 
     - mise run install
     - mise run init_sdk
     - mise run quality
@@ -22,6 +24,8 @@ test:
   image: astral/uv:python3.11-alpine
   script:
     - apk add mise
+    # The tools are already installed with apk
+    - export MISE_AUTO_INSTALL=false 
     - mise run install
     - mise run init_sdk
     - mise run test-python

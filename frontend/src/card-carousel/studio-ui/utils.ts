@@ -1,4 +1,4 @@
-import { type CardData, CardType } from '../types';
+import { type CardData } from '../types';
 
 export function newCard(cards: Array<CardData> = []): CardData {
   const newId = cards.length ? Math.max(...cards.map((c) => c.id)) + 1 : 1;
@@ -7,7 +7,6 @@ export function newCard(cards: Array<CardData> = []): CardData {
     name: `Card #${newId}`,
     title: '',
     subtitle: '',
-    cardType: CardType.UNKNOWN,
     secondaryContent: null,
   };
 }

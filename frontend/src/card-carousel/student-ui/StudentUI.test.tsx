@@ -5,7 +5,7 @@ import {
 } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import StudentUI from './StudentUI';
-import { CardType, Orientation, type CardData } from '../types';
+import { type CardData } from '../types';
 import type { XBlockRuntime } from '../../types';
 import { IntlProvider } from 'react-intl';
 import type { ReactElement, ReactNode } from 'react';
@@ -15,15 +15,16 @@ const mockRuntime: XBlockRuntime = { handlerUrl: vi.fn(), notify: vi.fn() };
 const mockCards: Array<CardData> = [
   {
     id: 1,
+    name: 'Card 1',
     title: 'Card 1',
-    cardType: CardType.IMAGE,
-    secondaryContent: { location: '', altText: '' },
+    secondaryContent: { kind: 'IMAGE', location: '', altText: '' },
   },
   {
     id: 2,
+    name: 'Card 2',
     title: 'Card 2',
-    cardType: CardType.RICH_LIST,
     secondaryContent: {
+      kind: 'RICH_LIST',
       items: [
         { icon: 'help', title: 'Hello', description: 'Testing Rich List' },
       ],
@@ -31,9 +32,10 @@ const mockCards: Array<CardData> = [
   },
   {
     id: 3,
+    name: 'Card 3',
     title: 'Card 3',
-    cardType: CardType.HOVER_LIST,
     secondaryContent: {
+      kind: 'HOVER_LIST',
       items: [
         {
           description: 'Original',
@@ -62,7 +64,7 @@ describe('StudentUI', () => {
         initData={{
           cards: mockCards,
           displayName: 'My Carousel',
-          orientation: Orientation.HORIZONTAL,
+          orientation: 'HORIZONTAL',
         }}
       />,
     );
@@ -79,7 +81,7 @@ describe('StudentUI', () => {
         initData={{
           cards: mockCards,
           displayName: 'Test',
-          orientation: Orientation.HORIZONTAL,
+          orientation: 'HORIZONTAL',
         }}
       />,
     );
@@ -93,7 +95,7 @@ describe('StudentUI', () => {
         initData={{
           cards: mockCards,
           displayName: 'Test',
-          orientation: Orientation.HORIZONTAL,
+          orientation: 'HORIZONTAL',
         }}
       />,
     );
@@ -109,7 +111,7 @@ describe('StudentUI', () => {
         initData={{
           cards: mockCards,
           displayName: 'Test',
-          orientation: Orientation.HORIZONTAL,
+          orientation: 'HORIZONTAL',
           disableNumbering: true,
         }}
       />,
@@ -124,7 +126,7 @@ describe('StudentUI', () => {
         initData={{
           cards: [],
           displayName: 'Empty',
-          orientation: Orientation.VERTICAL,
+          orientation: 'VERTICAL',
         }}
       />,
     );
@@ -138,7 +140,7 @@ describe('StudentUI', () => {
         initData={{
           cards: mockCards,
           displayName: '',
-          orientation: Orientation.VERTICAL,
+          orientation: 'VERTICAL',
         }}
       />,
     );

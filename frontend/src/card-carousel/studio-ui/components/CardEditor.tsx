@@ -1,10 +1,10 @@
 import { useState, type FC } from 'react';
 import Form from '@openedx/paragon/dist/Form';
 import { useFormikContext } from 'formik';
-import { CardType } from '../../types';
 import type {
   InitData,
   CardData,
+  CardType,
   ContentHighlightData,
   RichListData,
   HoverListData,
@@ -17,49 +17,46 @@ import ContentHighlightForm from './secondary-content/ContentHiglightForm';
 
 function blankContent(ct: CardType): CardData['secondaryContent'] {
   switch (ct) {
-    case CardType.IMAGE:
-      return { location: '', altText: '' } as ImageData;
-    case CardType.CONTENT_HIGHLIGHT:
+    case 'IMAGE':
+      return { kind: ct, location: '', altText: '' } as ImageData;
+    case 'CONTENT_HIGHLIGHT':
       return {
+        kind: ct,
         title: '',
         subtitle: '',
         description: '',
       } as ContentHighlightData;
-    case CardType.RICH_LIST:
+    case 'RICH_LIST':
       return {
+        kind: ct,
         items: [{ icon: '', title: '', description: '' }],
       } as RichListData;
-    case CardType.HOVER_LIST:
+    case 'HOVER_LIST':
       return {
+        kind: ct,
         items: [{ icon: '', description: '', hoverContent: '' }],
       } as HoverListData;
     default:
-      return { location: '', altText: '' } as ImageData;
+      return null;
   }
 }
 
-interface SecondayContentFormProps {
-  cardIndex: number;
-  cardType: CardType;
-}
-
-const SecondaryForm: Partial<Record<CardType, FC<{ cardIndex: number }>>> = {
-  [CardType.IMAGE]: ImageForm,
-  [CardType.RICH_LIST]: IconListItemForm,
-  [CardType.CONTENT_HIGHLIGHT]: ContentHighlightForm,
-  [CardType.HOVER_LIST]: HoverListItemForm,
+const SecondaryForm: Record<CardType, FC<{ cardIndex: number }>> = {
+  IMAGE: ImageForm,
+  RICH_LIST: IconListItemForm,
+  CONTENT_HIGHLIGHT: ContentHighlightForm,
+  HOVER_LIST: HoverListItemForm,
 };
 
-function SecondayContentForm({
-  cardIndex,
-  cardType,
-}: SecondayContentFormProps) {
+function SecondayContentForm({ cardIndex }: { cardIndex: number }) {
   const { values, handleChange, handleBlur, setFieldValue } =
     useFormikContext<InitData>();
   const [showButton, setShowButton] = useState(false);
   const card = values.cards[cardIndex];
   const prefix = `cards[${cardIndex}]`;
-  const ActiveForm = SecondaryForm[cardType];
+  const ActiveForm = card.secondaryContent?.kind
+    ? SecondaryForm[card.secondaryContent.kind]
+    : null;
 
   return (
     <div className="row mt-5">
@@ -82,7 +79,7 @@ function SecondayContentForm({
             onBlur={handleBlur}
           />
         </Form.Group>
-        {cardType !== CardType.HOVER_LIST && (
+        {card.secondaryContent?.kind !== 'HOVER_LIST' && (
           <>
             <Form.Group>
               <Form.Label>Body Content</Form.Label>
@@ -174,19 +171,19 @@ export default function CardEditor({ cardIndex }: CardEditorProps) {
         <Form.Control
           as="select"
           name={`${prefix}.cardType`}
-          value={card.cardType ?? CardType.UNKNOWN}
+          value={card.secondaryContent?.kind ?? 'UNKNOWN'}
           onChange={handleCardTypeChange}
           onBlur={handleBlur}
         >
-          <option value={CardType.UNKNOWN}>Choose Content Type</option>
-          <option value={CardType.IMAGE}>Image</option>
-          <option value={CardType.CONTENT_HIGHLIGHT}>Highlighted Text</option>
-          <option value={CardType.RICH_LIST}>Icon List</option>
-          <option value={CardType.HOVER_LIST}>Interactive List</option>
+          <option value="UNKNOWN">Choose Content Type</option>
+          <option value="IMAGE">Image</option>
+          <option value="CONTENT_HIGHLIGHT">Highlighted Text</option>
+          <option value="RICH_LIST">Icon List</option>
+          <option value="HOVER_LIST">Interactive List</option>
         </Form.Control>
       </Form.Group>
-      {card.cardType !== CardType.UNKNOWN && (
-        <SecondayContentForm cardIndex={cardIndex} cardType={card.cardType} />
+      {card.secondaryContent?.kind && (
+        <SecondayContentForm cardIndex={cardIndex} />
       )}
     </div>
   );

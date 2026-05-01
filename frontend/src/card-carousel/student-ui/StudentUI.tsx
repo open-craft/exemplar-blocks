@@ -1,6 +1,6 @@
 import { CardCarousel } from '@openedx/paragon';
 import type { XBlockRuntime } from '../../types';
-import { type InitData, Orientation } from '../types';
+import { type InitData } from '../types';
 import ComplexCard from './components/ComplexCard';
 
 import './StudentUI.css';
@@ -23,9 +23,7 @@ function StudentUI({
       canScrollHorizontal={true}
       disableOpacityMasks={true}
       columnSizes={
-        orientation === Orientation.HORIZONTAL
-          ? horizontalCardSizes
-          : verticalCardSizes
+        orientation === 'HORIZONTAL' ? horizontalCardSizes : verticalCardSizes
       }
     >
       {cards.map((c, i) => (

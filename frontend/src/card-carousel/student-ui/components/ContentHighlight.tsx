@@ -1,6 +1,6 @@
-import { type ContentHighlightData, Orientation } from '../../types';
+import { type ContentHighlightData, type Orientation } from '../../types';
 
-interface ContentHighlightProps extends ContentHighlightData {
+export interface ContentHighlightProps extends ContentHighlightData {
   orientation: Orientation;
 }
 
@@ -11,7 +11,7 @@ export function ContentHighlight({
   orientation,
 }: ContentHighlightProps) {
   const roundedCorners =
-    orientation === Orientation.HORIZONTAL
+    orientation === 'HORIZONTAL'
       ? {
           borderTopRightRadius: 'var(--pgn-size-border-radius-lg)',
           borderBottomRightRadius: 'var(--pgn-size-border-radius-lg)',

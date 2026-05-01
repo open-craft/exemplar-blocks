@@ -11439,11 +11439,7 @@ var Lo = /* @__PURE__ */ (0, R.forwardRef)(({ direction: e = "vertical", gap: t 
 	ref: o,
 	className: (0, Er.default)(e === "horizontal" ? "pgn__hstack" : "pgn__vstack", t ? `pgn__stack-gap--${t}` : "", n ? "pgn__stack-reversed" : "", i),
 	...a
-}, r)), Ro = /* @__PURE__ */ function(e) {
-	return e.UNKNOWN = "UNKNOWN", e.IMAGE = "IMAGE", e.CONTENT_HIGHLIGHT = "CONTENT_HIGHLIGHT", e.RICH_LIST = "RICH_LIST", e.HOVER_LIST = "HOVER_LIST", e;
-}({}), zo = /* @__PURE__ */ function(e) {
-	return e.HORIZONTAL = "HORIZONTAL", e.VERTICAL = "VERTICAL", e;
-}({}), Bo = /* @__PURE__ */ o(((e) => {
+}, r)), Ro = /* @__PURE__ */ o(((e) => {
 	var t = u(), n = Symbol.for("react.element"), r = Symbol.for("react.fragment"), i = Object.prototype.hasOwnProperty, a = t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, o = {
 		key: !0,
 		ref: !0,
@@ -11464,8 +11460,8 @@ var Lo = /* @__PURE__ */ (0, R.forwardRef)(({ direction: e = "vertical", gap: t 
 		};
 	}
 	e.Fragment = r, e.jsx = s, e.jsxs = s;
-})), Vo = /* @__PURE__ */ o(((e, t) => {
-	t.exports = Bo();
+})), zo = /* @__PURE__ */ o(((e, t) => {
+	t.exports = Ro();
 }));
 //#endregion
-export { m as C, c as E, h as S, o as T, kn as _, Fo as a, _n as b, J as c, Va as d, Kr as f, z as g, An as h, Lo as i, Y as l, Rn as m, Ro as n, Do as o, Zn as p, zo as r, Eo as s, Vo as t, q as u, On as v, u as w, pn as x, Dn as y };
+export { o as C, u as S, Dn as _, Eo as a, h as b, q as c, Zn as d, Rn as f, On as g, kn as h, Do as i, Va as l, z as m, Lo as n, J as o, An as p, Fo as r, Y as s, zo as t, Kr as u, _n as v, c as w, m as x, pn as y };

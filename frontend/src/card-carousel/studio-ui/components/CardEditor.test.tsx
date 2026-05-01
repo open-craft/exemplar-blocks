@@ -2,12 +2,7 @@ import { render, screen } from '../tests-utils';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, beforeEach } from 'vitest';
 import { Formik } from 'formik';
-import {
-  Orientation,
-  CardType,
-  type InitData,
-  type CardData,
-} from '../../types';
+import { type InitData, type CardData } from '../../types';
 import CardEditor from './CardEditor';
 
 const defaultCard: CardData = {
@@ -15,14 +10,13 @@ const defaultCard: CardData = {
   name: 'Test Card',
   title: '',
   subtitle: '',
-  cardType: CardType.UNKNOWN,
   secondaryContent: null,
 };
 
 const testInitData: InitData = {
   cards: [defaultCard],
   displayName: 'Test Carousel',
-  orientation: Orientation.HORIZONTAL,
+  orientation: 'HORIZONTAL',
 };
 
 // Wrap the component in Formik so useFormikContext has data
@@ -40,14 +34,14 @@ describe('CardEditor', () => {
     );
     expect(
       screen.getByRole('combobox', { name: 'Supporting Content' }),
-    ).toHaveValue(CardType.UNKNOWN);
+    ).toHaveValue('UNKNOWN');
   });
 
   describe('Card Type: IMAGE', () => {
     beforeEach(async () => {
       const user = userEvent.setup();
       render(<CardEditorWithContext />);
-      await user.selectOptions(screen.getByRole('combobox'), CardType.IMAGE);
+      await user.selectOptions(screen.getByRole('combobox'), 'IMAGE');
     });
 
     it('shows Primary: title, subtitle, description, CTA Button Toggle', () => {
@@ -69,10 +63,7 @@ describe('CardEditor', () => {
     beforeEach(async () => {
       const user = userEvent.setup();
       render(<CardEditorWithContext />);
-      await user.selectOptions(
-        screen.getByRole('combobox'),
-        CardType.RICH_LIST,
-      );
+      await user.selectOptions(screen.getByRole('combobox'), 'RICH_LIST');
     });
 
     it('shows Primary: title, subtitle, body content, CTA button toggle', () => {
@@ -96,10 +87,7 @@ describe('CardEditor', () => {
     beforeEach(async () => {
       const user = userEvent.setup();
       render(<CardEditorWithContext />);
-      await user.selectOptions(
-        screen.getByRole('combobox'),
-        CardType.HOVER_LIST,
-      );
+      await user.selectOptions(screen.getByRole('combobox'), 'HOVER_LIST');
     });
 
     it('shows Primary: title and subtitle only (no body content or CTA button)', () => {
@@ -127,7 +115,7 @@ describe('CardEditor', () => {
       render(<CardEditorWithContext />);
       await user.selectOptions(
         screen.getByRole('combobox'),
-        CardType.CONTENT_HIGHLIGHT,
+        'CONTENT_HIGHLIGHT',
       );
     });
 

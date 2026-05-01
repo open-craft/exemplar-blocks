@@ -32,8 +32,8 @@ DEFAULT_CARD = CardData(
         "P.S: Cards have a 'Call to action' button that can link to any content "
         "on the course or anywhere else on the web."
     ),
-    cardType=CardType.CONTENT_HIGHLIGHT,
     secondaryContent=ContentHighlightData(
+        kind=CardType.CONTENT_HIGHLIGHT,
         title="Layouts",
         subtitle="💡",
         description="The card carousel supports multiple layouts.",
@@ -90,7 +90,6 @@ class CardCarouselXBlock(XBlock):
             "head",
         )
         frag.add_javascript(self.resource_string("static/student.js"))
-
         frag.initialize_js(
             "CardCarouselXBlock",
             {
@@ -98,7 +97,10 @@ class CardCarouselXBlock(XBlock):
                     self, "public/cardCarouselStudent.js"
                 ),
                 "orientation": self.orientation,
-                "cards": self.cards,
+                # Data model was changed between versions 0.6 and 0.7.
+                # The parsing and dumping of card data here ensures any old data
+                # is migrated to the new format.
+                "cards": [CardData(**c).model_dump() for c in self.cards],
                 "displayName": self.display_name,
                 "disableNumbering": self.disable_numbering,
             },
@@ -127,7 +129,10 @@ class CardCarouselXBlock(XBlock):
                     self, "public/cardCarouselStudio.js"
                 ),
                 "orientation": self.orientation,
-                "cards": self.cards,
+                # Data model was changed between versions 0.6 and 0.7.
+                # The parsing and dumping of card data here ensures any old data
+                # is migrated to the new format.
+                "cards": [CardData(**c).model_dump() for c in self.cards],
                 "displayName": self.display_name,
                 "disableNumbering": self.disable_numbering,
             },

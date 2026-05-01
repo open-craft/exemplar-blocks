@@ -2,7 +2,6 @@ import Button from '@openedx/paragon/dist/Button';
 import Form from '@openedx/paragon/dist/Form';
 import Stack from '@openedx/paragon/dist/Stack';
 import { useFormikContext } from 'formik';
-import { Orientation } from '../../types';
 import type { InitData } from '../../types';
 
 export default function CreateCarouselForm() {
@@ -32,11 +31,11 @@ export default function CreateCarouselForm() {
           <Button
             className="flex flex-column mt-4 p-4"
             variant={
-              values.orientation === Orientation.VERTICAL
+              values.orientation === 'VERTICAL'
                 ? 'outline-success'
                 : 'outline-secondary'
             }
-            onClick={() => setFieldValue('orientation', Orientation.VERTICAL)}
+            onClick={() => setFieldValue('orientation', 'VERTICAL')}
           >
             <p>
               <span className="material-icons">splitscreen</span>
@@ -49,11 +48,11 @@ export default function CreateCarouselForm() {
           <Button
             className="flex flex-column mt-4 p-4"
             variant={
-              values.orientation === Orientation.HORIZONTAL
+              values.orientation === 'HORIZONTAL'
                 ? 'outline-success'
                 : 'outline-secondary'
             }
-            onClick={() => setFieldValue('orientation', Orientation.HORIZONTAL)}
+            onClick={() => setFieldValue('orientation', 'HORIZONTAL')}
           >
             <p>
               <span className="material-icons">vertical_split</span>
