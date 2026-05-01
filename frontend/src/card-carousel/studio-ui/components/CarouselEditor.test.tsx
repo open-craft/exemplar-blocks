@@ -2,13 +2,13 @@ import { render, screen } from '../tests-utils';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
 import { Formik } from 'formik';
-import { Orientation, CardType, type InitData } from '../../types';
+import { type InitData } from '../../types';
 import CarouselEditor from './CarouselEditor';
 
 const makeInitData = (overrides: Partial<InitData> = {}): InitData => ({
   cards: [],
   displayName: 'Test Carousel',
-  orientation: Orientation.HORIZONTAL,
+  orientation: 'HORIZONTAL',
   ...overrides,
 });
 
@@ -34,14 +34,12 @@ describe('CarouselEditor sidebar', () => {
           id: 1,
           name: 'Intro Card',
           title: '',
-          cardType: CardType.UNKNOWN,
           secondaryContent: null,
         },
         {
           id: 2,
           name: 'Summary Card',
           title: '',
-          cardType: CardType.UNKNOWN,
           secondaryContent: null,
         },
       ],
@@ -74,7 +72,6 @@ describe('CarouselEditor sidebar', () => {
           id: 1,
           name: 'Only Card',
           title: '',
-          cardType: CardType.UNKNOWN,
           secondaryContent: null,
         },
       ],
@@ -92,14 +89,12 @@ describe('CarouselEditor sidebar', () => {
           id: 1,
           name: 'Card One',
           title: '',
-          cardType: CardType.UNKNOWN,
           secondaryContent: null,
         },
         {
           id: 2,
           name: 'Card Two',
           title: '',
-          cardType: CardType.UNKNOWN,
           secondaryContent: null,
         },
       ],

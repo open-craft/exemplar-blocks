@@ -2,20 +2,20 @@ import { render, screen } from '../../tests-utils';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
 import { Formik } from 'formik';
-import { CardType, Orientation, type InitData } from '../../../types';
+import { type InitData } from '../../../types';
 import ImageForm from './ImageForm';
 
 const makeInitData = (location = '', altText = ''): InitData => ({
   cards: [
     {
       id: 1,
+      name: '',
       title: '',
-      cardType: CardType.IMAGE,
-      secondaryContent: { location, altText },
+      secondaryContent: { kind: 'IMAGE', location, altText },
     },
   ],
   displayName: 'Test',
-  orientation: Orientation.HORIZONTAL,
+  orientation: 'HORIZONTAL',
 });
 
 const ImageFormWithContext = ({ location = '', altText = '' } = {}) => (

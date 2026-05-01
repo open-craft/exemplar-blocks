@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import type { HoverListData } from '../../types';
+import type { HoverListItem } from '../../types';
 import './HoverList.css';
 import MaterialIcon from './MaterialIcon';
 
-export function HoverList({ items }: HoverListData) {
+export function HoverList({ items }: { items: HoverListItem[] }) {
   const [activeItem, setActiveItem] = useState<number | null>(null);
 
   return (

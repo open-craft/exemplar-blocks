@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { IntlProvider } from 'react-intl';
 import StudioUI from './StudioUI';
 import type { XBlockRuntime } from '../../types.ts';
-import { Orientation, type InitData } from '../types.ts';
+import { type InitData } from '../types.ts';
 import { newCard } from './utils.ts';
 
 const mockRuntime: XBlockRuntime = {
@@ -12,7 +12,7 @@ const mockRuntime: XBlockRuntime = {
 };
 const initData: InitData = {
   displayName: 'Demo Carousel',
-  orientation: Orientation.HORIZONTAL,
+  orientation: 'HORIZONTAL',
   cards: [newCard()],
 };
 

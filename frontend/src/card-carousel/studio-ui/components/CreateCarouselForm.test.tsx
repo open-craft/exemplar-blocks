@@ -2,13 +2,13 @@ import { render, screen } from '../tests-utils';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
 import { Formik } from 'formik';
-import { Orientation, type InitData } from '../../types';
+import { type InitData } from '../../types';
 import CreateCarouselForm from './CreateCarouselForm';
 
 const makeInitData = (overrides: Partial<InitData> = {}): InitData => ({
   cards: [],
   displayName: 'My Carousel',
-  orientation: Orientation.HORIZONTAL,
+  orientation: 'HORIZONTAL',
   ...overrides,
 });
 
@@ -45,7 +45,7 @@ describe('CreateCarouselForm', () => {
       const user = userEvent.setup();
       render(
         <CreateCarouselFormWithContext
-          initData={makeInitData({ orientation: Orientation.HORIZONTAL })}
+          initData={makeInitData({ orientation: 'HORIZONTAL' })}
         />,
       );
       await user.click(screen.getByRole('button', { name: /Vertical Cards/ }));
@@ -61,7 +61,7 @@ describe('CreateCarouselForm', () => {
       const user = userEvent.setup();
       render(
         <CreateCarouselFormWithContext
-          initData={makeInitData({ orientation: Orientation.VERTICAL })}
+          initData={makeInitData({ orientation: 'VERTICAL' })}
         />,
       );
       await user.click(

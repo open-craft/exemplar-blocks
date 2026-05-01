@@ -1,8 +1,8 @@
 import Stack from '@openedx/paragon/dist/Stack';
-import type { RichListData } from '../../types';
+import type { RichListItem } from '../../types';
 import MaterialIcon from './MaterialIcon';
 
-export function RichList({ items }: RichListData) {
+export function RichList({ items }: { items: RichListItem[] }) {
   return (
     <div className="p-4">
       {items.map((item, i) => (

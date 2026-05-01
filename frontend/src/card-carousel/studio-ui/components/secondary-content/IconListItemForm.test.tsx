@@ -2,22 +2,23 @@ import { render, screen } from '../../tests-utils';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
 import { Formik } from 'formik';
-import { CardType, Orientation, type InitData } from '../../../types';
+import { type InitData } from '../../../types';
 import IconListItemForm from './IconListItemForm';
 
 const makeInitData = (): InitData => ({
   cards: [
     {
       id: 1,
+      name: '',
       title: '',
-      cardType: CardType.RICH_LIST,
       secondaryContent: {
+        kind: 'RICH_LIST',
         items: [{ icon: '', title: '', description: '' }],
       },
     },
   ],
   displayName: 'Test',
-  orientation: Orientation.HORIZONTAL,
+  orientation: 'HORIZONTAL',
 });
 
 const IconListFormWithContext = () => (

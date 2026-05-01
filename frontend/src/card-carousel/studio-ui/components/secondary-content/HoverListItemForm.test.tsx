@@ -2,22 +2,23 @@ import { render, screen } from '../../tests-utils';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
 import { Formik } from 'formik';
-import { CardType, Orientation, type InitData } from '../../../types';
+import { type InitData } from '../../../types';
 import HoverListItemForm from './HoverListItemForm';
 
 const makeInitData = (): InitData => ({
   cards: [
     {
       id: 1,
+      name: '',
       title: '',
-      cardType: CardType.HOVER_LIST,
       secondaryContent: {
+        kind: 'HOVER_LIST',
         items: [{ description: '', hoverContent: '', icon: '' }],
       },
     },
   ],
   displayName: 'Test',
-  orientation: Orientation.HORIZONTAL,
+  orientation: 'HORIZONTAL',
 });
 
 const HoverListFormWithContext = () => (
