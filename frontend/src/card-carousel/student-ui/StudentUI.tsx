@@ -17,24 +17,27 @@ function StudentUI({
   const horizontalCardSizes = { sm: 12, md: 10, lg: 10, xl: 11 };
 
   return (
-    <CardCarousel
-      ariaLabel={displayName}
-      title={displayName ? <h3>{displayName}</h3> : ''}
-      canScrollHorizontal={true}
-      disableOpacityMasks={true}
-      columnSizes={
-        orientation === 'HORIZONTAL' ? horizontalCardSizes : verticalCardSizes
-      }
-    >
-      {cards.map((c, i) => (
-        <ComplexCard
-          orientation={orientation}
-          data={c}
-          position={disableNumbering ? '' : `${i + 1} / ${cards.length}`}
-          key={i}
-        />
-      ))}
-    </CardCarousel>
+    <div className="card-carousel-xblock">
+      <CardCarousel
+        ariaLabel={displayName}
+        title={displayName ? <h3>{displayName}</h3> : ''}
+        canScrollHorizontal={true}
+        disableOpacityMasks={true}
+        columnSizes={
+          orientation === 'HORIZONTAL' ? horizontalCardSizes : verticalCardSizes
+        }
+        className="card_carousel_block"
+      >
+        {cards.map((c, i) => (
+          <ComplexCard
+            orientation={orientation}
+            data={c}
+            position={disableNumbering ? '' : `${i + 1} / ${cards.length}`}
+            key={i}
+          />
+        ))}
+      </CardCarousel>
+    </div>
   );
 }
 

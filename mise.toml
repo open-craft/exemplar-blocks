@@ -19,7 +19,7 @@ run = [
     # requirements. We can't use 'pip' here because it doesn't exist in a uv
     # environment. It is, however, handled by the uv pip subcommand.
     "uv pip install -r xblock-sdk/requirements/dev.txt",
-    "uv pip install -r xblock-sdk/requirements/local.txt",
+    "uv pip install -e ./xblock-sdk",
     "cd xblock-sdk && uv run ./manage.py migrate",
 ]
 
@@ -66,3 +66,4 @@ depends = ["quality", "test-python"]
 
 [tools]
 pnpm = "latest"
+python = "3.11"

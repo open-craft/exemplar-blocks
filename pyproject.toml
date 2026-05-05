@@ -4,18 +4,21 @@ version = "0.7.0"
 description = "A collection of XBlocks for managing and displaying aesthetically pleasing HTML content"
 readme = "README.md"
 license = "Apache-2.0"
-requires-python = ">=3.11.8"
+requires-python = ">=3.11.8,<3.12"
 dependencies = [
-    "xblock>=5.3.0",
+    "xblock>=4.0.1",
     "pydantic>=2.12.5,<3",
     "nh3>=0.3.4,<0.4.0",  # HTML sanitisation library
 ]
 
 [project.entry-points."xblock.v1"]
 card_carousel = "card_carousel:CardCarouselXBlock"
-cover = "cover_block:CoverBlock"
-keypoints = "keypoint_block:KeypointXBlock"
-two_column = "two_column_block:TwoColumnBlock"
+
+# The following xblock entry points have been commentd out as they
+# have not been tested to work with Redwood release of Open edX.
+# cover = "cover_block:CoverBlock"
+# keypoints = "keypoint_block:KeypointXBlock"
+# two_column = "two_column_block:TwoColumnBlock"
 
 [build-system]
 requires = ["uv_build>=0.10.3,<0.11.0"]
@@ -23,7 +26,9 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "django-stubs>=5.2.9",
+    "django>=4.2,<5",
+    "django-stubs==4.2",
+    "setuptools<81",
     "mypy>=1.19.1",
     "pytest>=9.0.2",
     "pytest-django>=4.12.0",

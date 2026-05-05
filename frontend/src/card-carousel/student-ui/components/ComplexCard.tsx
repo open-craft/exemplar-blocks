@@ -35,7 +35,7 @@ export const ContentLayout = ({
 }: PropsWithChildren<ContentLayoutProps>) => {
   let secondaryContentElement = null;
 
-  switch (secondaryContent.kind) {
+  switch (secondaryContent?.kind) {
     case 'IMAGE':
       return (
         <>

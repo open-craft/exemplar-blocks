@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { pathToFileURL } from 'url';
+// @ts-expect-error - no types for postcss-prefix-selector
+import postcssPrefixSelector from 'postcss-prefix-selector';
 
 interface AppConfig {
   entry: Record<string, string>;
@@ -115,6 +117,21 @@ export default defineConfig(({ mode }) => {
       lightningcss: {
         errorRecovery: true, // Otherwise lightningcss fails with var() usage in media queries.
       },
+      ...(xblock === 'card_carousel' && {
+        postcss: {
+          plugins: [
+            postcssPrefixSelector({
+              prefix: '.card-carousel-xblock',
+              exclude: [/^@keyframes/, /^html/, /^:root/],
+              transform: (prefix: string, selector: string) => {
+                if (selector.startsWith('.card-carousel-xblock'))
+                  return selector;
+                return `${prefix} ${selector}`;
+              },
+            }),
+          ],
+        },
+      }),
     },
     build: {
       cssMinify: 'lightningcss',

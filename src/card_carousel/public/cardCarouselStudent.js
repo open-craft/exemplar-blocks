@@ -1026,7 +1026,7 @@ function Le({ items: e }) {
 //#region src/card-carousel/student-ui/components/ComplexCard.tsx
 var Re = ({ orientation: e, secondaryContent: t, children: n }) => {
 	let r = null;
-	switch (t.kind) {
+	switch (t?.kind) {
 		case "IMAGE": return /* @__PURE__ */ (0, $.jsxs)($.Fragment, { children: [/* @__PURE__ */ (0, $.jsx)(Q.ImageCap, {
 			src: t.location,
 			srcAlt: t.altText
@@ -1086,27 +1086,31 @@ function ze({ orientation: e, data: t, position: n }) {
 //#endregion
 //#region src/card-carousel/student-ui/StudentUI.tsx
 function Be({ initData: { cards: e, displayName: t, orientation: n, disableNumbering: r } }) {
-	return /* @__PURE__ */ (0, $.jsx)(X, {
-		ariaLabel: t,
-		title: t ? /* @__PURE__ */ (0, $.jsx)("h3", { children: t }) : "",
-		canScrollHorizontal: !0,
-		disableOpacityMasks: !0,
-		columnSizes: n === "HORIZONTAL" ? {
-			sm: 12,
-			md: 10,
-			lg: 10,
-			xl: 11
-		} : {
-			sm: 12,
-			md: 8,
-			lg: 6,
-			xl: 6
-		},
-		children: e.map((t, i) => /* @__PURE__ */ (0, $.jsx)(ze, {
-			orientation: n,
-			data: t,
-			position: r ? "" : `${i + 1} / ${e.length}`
-		}, i))
+	return /* @__PURE__ */ (0, $.jsx)("div", {
+		className: "card-carousel-xblock",
+		children: /* @__PURE__ */ (0, $.jsx)(X, {
+			ariaLabel: t,
+			title: t ? /* @__PURE__ */ (0, $.jsx)("h3", { children: t }) : "",
+			canScrollHorizontal: !0,
+			disableOpacityMasks: !0,
+			columnSizes: n === "HORIZONTAL" ? {
+				sm: 12,
+				md: 10,
+				lg: 10,
+				xl: 11
+			} : {
+				sm: 12,
+				md: 8,
+				lg: 6,
+				xl: 6
+			},
+			className: "card_carousel_block",
+			children: e.map((t, i) => /* @__PURE__ */ (0, $.jsx)(ze, {
+				orientation: n,
+				data: t,
+				position: r ? "" : `${i + 1} / ${e.length}`
+			}, i))
+		})
 	});
 }
 //#endregion

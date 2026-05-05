@@ -34,7 +34,7 @@ function StudioUI({ runtime, saveUrl, initData }: StudioUIProps) {
       }}
     >
       <Form>
-        <div className="studio-ui d-flex flex-column justify-content-between">
+        <div className="card-carousel-xblock studio-ui d-flex flex-column justify-content-between">
           {showCardEditor ? <CarouselEditor /> : <CreateCarouselForm />}
           <ModalFooter
             runtime={runtime}

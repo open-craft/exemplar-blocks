@@ -6557,53 +6557,53 @@ function Du({ cardIndex: e }) {
 }
 function Ou({ cardIndex: e }) {
 	let { values: t, setFieldValue: n, handleChange: r, handleBlur: i } = yc(), a = t.cards[e], o = `cards[${e}]`;
-	return /* @__PURE__ */ (0, L.jsxs)("div", { children: [
-		/* @__PURE__ */ (0, L.jsxs)(M.Group, { children: [
-			/* @__PURE__ */ (0, L.jsx)(M.Label, { children: "Card Name" }),
-			/* @__PURE__ */ (0, L.jsx)(M.Text, {
-				className: "micro",
-				children: "Name of the card in Studio"
-			}),
-			/* @__PURE__ */ (0, L.jsx)(M.Control, {
-				name: `${o}.name`,
-				value: a.name,
-				onChange: r,
-				onBlur: i
-			})
-		] }),
-		/* @__PURE__ */ (0, L.jsxs)(M.Group, { children: [/* @__PURE__ */ (0, L.jsx)(M.Label, { children: "Supporting Content" }), /* @__PURE__ */ (0, L.jsxs)(M.Control, {
-			as: "select",
-			name: `${o}.cardType`,
-			value: a.secondaryContent?.kind ?? "UNKNOWN",
-			onChange: (e) => {
-				n(`${o}.cardType`, e.currentTarget.value), n(`${o}.secondaryContent`, Tu(e.currentTarget.value));
-			},
-			onBlur: i,
-			children: [
-				/* @__PURE__ */ (0, L.jsx)("option", {
-					value: "UNKNOWN",
-					children: "Choose Content Type"
-				}),
-				/* @__PURE__ */ (0, L.jsx)("option", {
-					value: "IMAGE",
-					children: "Image"
-				}),
-				/* @__PURE__ */ (0, L.jsx)("option", {
-					value: "CONTENT_HIGHLIGHT",
-					children: "Highlighted Text"
-				}),
-				/* @__PURE__ */ (0, L.jsx)("option", {
-					value: "RICH_LIST",
-					children: "Icon List"
-				}),
-				/* @__PURE__ */ (0, L.jsx)("option", {
-					value: "HOVER_LIST",
-					children: "Interactive List"
+	return /* @__PURE__ */ (0, L.jsxs)("div", {
+		style: { minHeight: "400px" },
+		children: [
+			/* @__PURE__ */ (0, L.jsxs)(M.Group, { children: [
+				/* @__PURE__ */ (0, L.jsx)(M.Label, { children: "Card Name" }),
+				/* @__PURE__ */ (0, L.jsx)(M.Text, { children: "Name of the card in Studio" }),
+				/* @__PURE__ */ (0, L.jsx)(M.Control, {
+					name: `${o}.name`,
+					value: a.name,
+					onChange: r,
+					onBlur: i
 				})
-			]
-		})] }),
-		a.secondaryContent?.kind && /* @__PURE__ */ (0, L.jsx)(Du, { cardIndex: e })
-	] });
+			] }),
+			/* @__PURE__ */ (0, L.jsxs)(M.Group, { children: [/* @__PURE__ */ (0, L.jsx)(M.Label, { children: "Supporting Content" }), /* @__PURE__ */ (0, L.jsxs)(M.Control, {
+				as: "select",
+				name: `${o}.cardType`,
+				value: a.secondaryContent?.kind ?? "UNKNOWN",
+				onChange: (e) => {
+					n(`${o}.cardType`, e.currentTarget.value), n(`${o}.secondaryContent`, Tu(e.currentTarget.value));
+				},
+				onBlur: i,
+				children: [
+					/* @__PURE__ */ (0, L.jsx)("option", {
+						value: "UNKNOWN",
+						children: "Choose Content Type"
+					}),
+					/* @__PURE__ */ (0, L.jsx)("option", {
+						value: "IMAGE",
+						children: "Image"
+					}),
+					/* @__PURE__ */ (0, L.jsx)("option", {
+						value: "CONTENT_HIGHLIGHT",
+						children: "Highlighted Text"
+					}),
+					/* @__PURE__ */ (0, L.jsx)("option", {
+						value: "RICH_LIST",
+						children: "Icon List"
+					}),
+					/* @__PURE__ */ (0, L.jsx)("option", {
+						value: "HOVER_LIST",
+						children: "Interactive List"
+					})
+				]
+			})] }),
+			a.secondaryContent?.kind && /* @__PURE__ */ (0, L.jsx)(Du, { cardIndex: e })
+		]
+	});
 }
 //#endregion
 //#region node_modules/.pnpm/@preact+signals-core@1.14.1/node_modules/@preact/signals-core/dist/signals-core.module.js
@@ -10888,12 +10888,15 @@ function TS({ id: e, cardName: t, index: n, active: r, canDelete: i, onSelect: a
 		children: [/* @__PURE__ */ (0, L.jsx)("div", { children: t }), /* @__PURE__ */ (0, L.jsxs)("div", {
 			className: "d-flex align-items-center",
 			children: [i && /* @__PURE__ */ (0, L.jsx)("button", {
-				className: "material-icons btn btn-link p-0 text-danger",
+				className: "btn btn-link p-0 text-danger",
 				"aria-label": "Delete card",
 				onClick: (e) => {
 					e.stopPropagation(), o();
 				},
-				children: "delete_outline"
+				children: /* @__PURE__ */ (0, L.jsx)("span", {
+					className: "material-icons",
+					children: "delete_outline"
+				})
 			}), /* @__PURE__ */ (0, L.jsx)("span", {
 				className: "material-icons text-light-600",
 				children: "drag_indicator"
@@ -10989,7 +10992,7 @@ function OS({ runtime: e, saveUrl: t, initData: n }) {
 			});
 		},
 		children: /* @__PURE__ */ (0, L.jsx)(Hc, { children: /* @__PURE__ */ (0, L.jsxs)("div", {
-			className: "studio-ui d-flex flex-column justify-content-between",
+			className: "card-carousel-xblock studio-ui d-flex flex-column justify-content-between",
 			children: [r ? /* @__PURE__ */ (0, L.jsx)(ES, {}) : /* @__PURE__ */ (0, L.jsx)(Qc, {}), /* @__PURE__ */ (0, L.jsx)(DS, {
 				runtime: e,
 				showingEditor: r,
@@ -11006,7 +11009,7 @@ var kS = (e, t, r) => {
 	let i = e && "jquery" in e ? e[0] : e, a = t.handlerUrl(e, "studio_save");
 	(!r.cards || !r.cards.length) && (r.cards = [wS()]);
 	let o = i.parentElement?.parentElement;
-	o && (o.style.minHeight = "635px"), (0, te.createRoot)(i).render(/* @__PURE__ */ (0, L.jsx)(w.StrictMode, { children: /* @__PURE__ */ (0, L.jsx)(n, {
+	o && (o.style.minHeight = "500px"), (0, te.createRoot)(i).render(/* @__PURE__ */ (0, L.jsx)(w.StrictMode, { children: /* @__PURE__ */ (0, L.jsx)(n, {
 		locale: "en",
 		children: /* @__PURE__ */ (0, L.jsx)(OS, {
 			saveUrl: a,
