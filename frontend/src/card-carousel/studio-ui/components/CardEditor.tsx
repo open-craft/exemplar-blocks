@@ -155,10 +155,10 @@ export default function CardEditor({ cardIndex }: CardEditorProps) {
   };
 
   return (
-    <div>
+    <div style={{ minHeight: '400px' }}>
       <Form.Group>
         <Form.Label>Card Name</Form.Label>
-        <Form.Text className="micro">Name of the card in Studio</Form.Text>
+        <Form.Text>Name of the card in Studio</Form.Text>
         <Form.Control
           name={`${prefix}.name`}
           value={card.name}

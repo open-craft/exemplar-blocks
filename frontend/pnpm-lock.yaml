@@ -26,6 +26,9 @@ importers:
       fuse.js:
         specifier: ^7.1.0
         version: 7.1.0
+      postcss-prefix-selector:
+        specifier: ^2.1.1
+        version: 2.1.1(postcss@8.5.8)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -2391,6 +2394,11 @@ packages:
     resolution: {integrity: sha512-Cvyz+hW5eBG0okSSOGDeussQy4v9mZHRhMevP2jwADqDS1v2gfoLo94+g4fCeVYtESZKqr+ViMPv3yPkWZFmFQ==}
     peerDependencies:
       postcss: ^8.0
+
+  postcss-prefix-selector@2.1.1:
+    resolution: {integrity: sha512-ZBgf427Et6+XnrnJ9VXtJEKCjJwTvn2wn/qMg+wvvlRhIeFIAxdbrlZZ0CSsWYMJfcyPLBh8ogj5O1kb/Mcx3g==}
+    peerDependencies:
+      postcss: ^8.0.0
 
   postcss-selector-parser@6.1.2:
     resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
@@ -5495,6 +5503,10 @@ snapshots:
       postcss: 8.5.8
       postcss-selector-parser: 7.1.1
       postcss-value-parser: 4.2.0
+
+  postcss-prefix-selector@2.1.1(postcss@8.5.8):
+    dependencies:
+      postcss: 8.5.8
 
   postcss-selector-parser@6.1.2:
     dependencies:

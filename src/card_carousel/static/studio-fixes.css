@@ -1,8 +1,23 @@
 /*
 * The base styles of cms set html { font-size: 62.5% } to get the base font size of 1rem = 10px.
 * But the Paragons CSS Variables define the text sizes in "rem" units with the expectation of 1rem = 16px.
-* To fix this, we set html { font-size: 100% } to make 1rem = 16px, matching the Paragons CSS Variables.
+* The following overrides the default font size to match the Paragons CSS Variables.
 */
-html {
-    font-size: 100%;
+
+:root {
+    --pgn-typography-font-size-base: 160%;
+    --pgn-typography-form-input-font-size-base: 100%;
+    --pgn-typography-btn-font-size-base: 100%;
+    --pgn-typography-font-size-h3-base: 100%;
+}
+
+.pgn__form-control-decorator-group > input.form-control {
+  font-size: 1.4rem;
+}
+.pgn__form-group {
+    margin-bottom: 1.6rem;
+}
+
+.studio-ui h3 {
+    margin-bottom: 1.6rem;
 }

@@ -24,7 +24,7 @@ export const renderBlock = (
   // This effect updates that height to match make sure the full content is visible.
   const modalBody = container.parentElement?.parentElement;
   if (modalBody) {
-    modalBody.style.minHeight = '635px';
+    modalBody.style.minHeight = '500px';
   }
 
   createRoot(container!).render(
