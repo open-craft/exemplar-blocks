@@ -1,12 +1,9 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { IntlProvider } from 'react-intl';
 import { App } from './App.tsx';
 import type { XBlockRuntime } from '../../types.ts';
 import type { Data } from '../apiTypes.ts';
 
 import './main.scss';
-import { getRoot } from '../../lib/utils.ts';
+import { createXBlockRoot, getRoot } from '../../lib/utils.tsx';
 
 export const renderBlock = (
   runtime: XBlockRuntime,
@@ -33,11 +30,8 @@ export const renderBlock = (
 
   const cancel = () => runtime.notify('cancel', {});
 
-  createRoot(container).render(
-    <StrictMode>
-      <IntlProvider locale="en">
-        <App initialData={initialData} onSave={save} onCancel={cancel} />
-      </IntlProvider>
-    </StrictMode>,
-  );
+  createXBlockRoot(
+    runtime,
+    element,
+  )(<App initialData={initialData} onSave={save} onCancel={cancel} />);
 };

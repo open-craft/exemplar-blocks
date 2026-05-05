@@ -2,11 +2,11 @@
 @import '../../studio';
 
 .xblock-keypoints .keypoint-entry {
-  border: 1px solid $gray-200;
-  border-radius: $border-radius;
-  padding: $spacer;
+  border: 1px solid var(--pgn-color-gray-200);
+  border-radius: var(--pgn-size-border-radius-base);
+  padding: var(--pgn-spacing-spacer-base);
   margin-bottom: 0.75rem;
-  background-color: $gray-100;
+  background-color: var(--pgn-color-gray-100);
 }
 
 // Action bar sits outside .xblock-keypoints so that the platform rule
@@ -16,8 +16,8 @@
   justify-content: flex-end;
   gap: 0.5em;
   padding: 0.75em 1em;
-  border-top: 1px solid $gray-200;
-  background: $white;
+  border-top: 1px solid var(--pgn-color-gray-200);
+  background: var(--pgn-color-white);
   position: sticky;
   bottom: 0;
   z-index: 1;

@@ -3,6 +3,9 @@ python.uv_venv_auto = true
 experimental = true
 env_shell_expand = true
 
+[settings.node]
+compile = false
+
 [env]
 _.python.venv = { path = ".venv" }
 
@@ -103,7 +106,7 @@ depends = "test:*"
 
 [tasks.compile]
 description = "Compile frontend TypeScript"
-run = "npm run build:typescript"
+run = "pnpm run build:typescript"
 dir = "./frontend"
 hide = true
 
@@ -144,7 +147,5 @@ description = "Preview all blocks"
 depends =  ["preview card_carousel", "preview keypoint_block", "preview cover_block", "preview two_column_block"]
 
 
-
 [tools]
-node = "24"
 "npm:pnpm" = "latest"
