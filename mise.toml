@@ -1,6 +1,7 @@
 [settings]
 python.uv_venv_auto = true
 experimental = true
+env_shell_expand = true
 
 [env]
 _.python.venv = { path = ".venv" }
@@ -9,11 +10,21 @@ _.python.venv = { path = ".venv" }
 #       After running this, run `mise run init_sdk` if you wish to use the xblock-sdk.
 [tasks.install]
 description = "Install project dependencies"
+depends = "install:*"
+
+[tasks."install:frontend"]
+description = "Install project frontend dependencies"
+run = "pnpm install"
+dir = "./frontend"
+
+[tasks."install:backend"]
+description = "Install project backend dependencies"
 run = "uv sync"
 
 [tasks.init_sdk]
 description = "Init the xblock-sdk in the python environment"
 run = [
+    "git submodule update --init",
     "uv pip install -e ./xblock-sdk",
     # This may need to be updated if upstream changes how they organize their
     # requirements. We can't use 'pip' here because it doesn't exist in a uv
@@ -31,20 +42,35 @@ run = [
     "pydantic2ts --module ./src/cover_block/types.py --output ./frontend/src/cover-block/apiTypes.ts  --json2ts-cmd \"./frontend/node_modules/.bin/json2ts --inferStringEnumKeysFromValues\""
 ]
 
+[tasks."format:backend"]
+description = "Apply standard formatting to backend code files"
+run = ["uv run ruff check --fix src", "uv run ruff format src"]
+
+[tasks."format:frontend"]
+description = "Apply standard formatting to fontend code files"
+run = "pnpm run format"
+dir = "./frontend"
+
 [tasks.format]
 description = "Apply standard formatting to code files"
-run = [
-    "uv run ruff check --fix src",
-    "uv run ruff format src",
-]
+depends = "format:*"
 
-[tasks.quality]
-description = "Run quality checks on the code"
+[tasks."quality:backend"]
+description = "Run quality checks on the backend code"
 run = [
     "uv run ruff check src",
     "uv run ruff format --check src",
     "uv run mypy src",
 ]
+
+[tasks."quality:frontend"]
+description = "Run quality checks on the frontend code"
+run = "pnpm run lint"
+dir = "./frontend"
+
+[tasks.quality]
+description = "Run quality checks on the code"
+depends = "quality:*"
 
 [tasks.dev]
 description = "Run a dev server"
@@ -52,17 +78,71 @@ run = "uv run ./manage.py runserver"
 dir = "./xblock-sdk"
 
 
-[tasks.test-python]
+[tasks."test:backend:unit"]
 description = "Run Python unit tests"
 env = { DJANGO_SETTINGS_MODULE = "workbench.settings" }
-run = [
-    "uv run pytest --cov=src src",
-    "uv run coverage html",
-]
+run = ["uv run pytest --cov=src src", "uv run coverage html"]
+
+[tasks."test:backend"]
+description = "Run all backend Python tests"
+depends = ["quality:backend", "test:backend:unit"]
+
+
+[tasks."test:frontend:unit"]
+description = "Run all frontend TypeScript unit tests"
+run = "pnpm run test"
+dir = "./frontend"
+
+[tasks."test:frontend"]
+description = "Run all frontend TypeScript tests"
+depends = ["quality:frontend", "test:frontend:unit"]
 
 [tasks.test]
-description = "Run all backend Python tests"
-depends = ["quality", "test-python"]
+description = "Run all tests"
+depends = "test:*"
+
+[tasks.compile]
+description = "Compile frontend TypeScript"
+run = "npm run build:typescript"
+dir = "./frontend"
+hide = true
+
+[tasks.build]
+description = "Build Block"
+usage = '''
+arg "<xblock>" help="XBlock to build"
+'''
+run = "XBLOCK=${usage_xblock} pnpm run build:vite"
+dir = "./frontend"
+depends = ["compile"]
+
+[tasks."build:watch"]
+description = "Build Block"
+usage = '''
+arg "<xblock>" help="XBlock to build"
+'''
+run = "XBLOCK=${usage_xblock} pnpm run build:watch"
+dir = "./frontend"
+depends = ["compile"]
+
+[tasks."build:all"]
+description = "Build all blocks"
+depends = ["build card_carousel", "build keypoint_block", "build cover_block", "build two_column_block"]
+
+[tasks.preview]
+description = "Preview Block"
+usage = '''
+arg <xblock> help="XBlock to preview"
+'''
+run = '''
+XBLOCK=${usage_xblock?} pnpm run preview
+'''
+dir = "./frontend"
+
+[tasks."preview:all"]
+description = "Preview all blocks"
+depends =  ["preview card_carousel", "preview keypoint_block", "preview cover_block", "preview two_column_block"]
+
 
 
 [tools]
