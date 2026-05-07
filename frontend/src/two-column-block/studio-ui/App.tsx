@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactElement } from 'react';
 import type { ChangeEvent } from 'react';
 import { type ColumnOrder, type Data, type Ratio } from '../apiTypes.ts';
 import { type LayoutData, LayoutType, defaultLayout } from '../types.ts';
@@ -15,6 +15,7 @@ import { TextLayoutEditor } from './components/TextLayoutEditor.tsx';
 import { ImageGridLayoutEditor } from './components/ImageGridLayoutEditor.tsx';
 import { LessonIntroLayoutEditor } from './components/LessonIntroLayoutEditor.tsx';
 import { LessonListLayoutEditor } from './components/LessonListLayoutEditor.tsx';
+import { EmbedLayoutEditor } from './components/EmbedLayoutEditor.tsx';
 
 type AppProps = {
   initialData: Data;
@@ -186,7 +187,7 @@ type LayoutEditorProps = {
   onUpdate: (layoutData: LayoutData) => void;
 };
 
-const LayoutEditor = ({ data, onUpdate }: LayoutEditorProps) => {
+const LayoutEditor = ({ data, onUpdate }: LayoutEditorProps): ReactElement => {
   switch (data.kind) {
     case 'text':
       return <TextLayoutEditor data={data} onUpdate={onUpdate} />;
@@ -196,6 +197,8 @@ const LayoutEditor = ({ data, onUpdate }: LayoutEditorProps) => {
       return <LessonIntroLayoutEditor data={data} onUpdate={onUpdate} />;
     case 'imageGrid':
       return <ImageGridLayoutEditor data={data} onUpdate={onUpdate} />;
+    case 'embed':
+      return <EmbedLayoutEditor data={data} onUpdate={onUpdate} />;
   }
 };
 
@@ -219,6 +222,7 @@ const LayoutSwitcher = ({ layoutType, onUpdate }: LayoutSwitcherProps) => {
         <option value={LayoutType.LessonList}>Bulleted Lesson List</option>
         <option value={LayoutType.LessonIntro}>Lesson Intro</option>
         <option value={LayoutType.ImageGrid}>Image and Text Grid</option>
+        <option value={LayoutType.Embed}>Embed Code</option>
       </Form.Control>
     </Form.Group>
   );

@@ -124,6 +124,15 @@ class ImageGridLayoutData(BaseModel):
     bottomRowOrder: BottomRowOrder
 
 
+class EmbedLayoutData(BaseModel):
+    model_config = ConfigDict(use_enum_values=True, extra="forbid")
+
+    kind: Literal["embed"]
+    # Raw HTML; not sanitised, because it's expected to be embed codes.
+    # Users are expected to take care to avoid entering unsafe code.
+    html: str
+
+
 class ColumnData(BaseModel):
     model_config = ConfigDict(use_enum_values=True, extra="forbid")
 
@@ -132,12 +141,14 @@ class ColumnData(BaseModel):
         | LessonListLayoutData
         | LessonIntroLayoutData
         | ImageGridLayoutData
+        | EmbedLayoutData
     ) = Field(discriminator="kind")
     right: (
         TextLayoutData
         | LessonListLayoutData
         | LessonIntroLayoutData
         | ImageGridLayoutData
+        | EmbedLayoutData
     ) = Field(discriminator="kind")
     ratio: Ratio
     order: ColumnOrder

@@ -1,4 +1,4 @@
-import { C as e, D as t, T as n, _ as r, a as i, c as a, d as o, f as s, g as c, h as l, i as u, l as d, m as f, p, s as m, t as h, u as g, v as _ } from "./jsx-runtime-R_ESMcKn.js";
+import { C as e, D as t, T as n, _ as r, a as i, c as a, d as o, f as s, g as c, h as l, i as u, l as d, m as f, p, s as m, t as h, u as g, v as _ } from "./jsx-runtime-ggv8YFDF.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Image.js
 var v = /* @__PURE__ */ t(f()), y = /* @__PURE__ */ t(n()), b = /* @__PURE__ */ t(d()), x = [
 	"bsPrefix",
@@ -95,6 +95,7 @@ var D = e(), O = h(), k = ({ data: e }) => {
 		case "lessonList": return /* @__PURE__ */ (0, O.jsx)(M, { data: e });
 		case "lessonIntro": return /* @__PURE__ */ (0, O.jsx)(N, { data: e });
 		case "imageGrid": return /* @__PURE__ */ (0, O.jsx)(P, { data: e });
+		case "embed": return /* @__PURE__ */ (0, O.jsx)(F, { data: e });
 	}
 }, j = ({ data: e }) => /* @__PURE__ */ (0, O.jsx)("div", {
 	style: {
@@ -187,11 +188,14 @@ var D = e(), O = h(), k = ({ data: e }) => {
 			alt: e.featuredImage.alt
 		})
 	}), r] }) });
-}, F = (e, t, n) => {
+}, F = ({ data: e }) => /* @__PURE__ */ (0, O.jsx)("div", {
+	style: { minHeight: "100%" },
+	dangerouslySetInnerHTML: { __html: e.html }
+}), I = (e, t, n) => {
 	(0, D.createRoot)(l(t)).render(/* @__PURE__ */ (0, O.jsx)(y.StrictMode, { children: /* @__PURE__ */ (0, O.jsx)(r, {
 		locale: "en",
 		children: /* @__PURE__ */ (0, O.jsx)(k, { data: n })
 	}) }));
 };
 //#endregion
-export { F as renderBlock };
+export { I as renderBlock };

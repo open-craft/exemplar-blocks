@@ -8,6 +8,7 @@ import {
 } from '@openedx/paragon';
 import {
   type Data,
+  type EmbedLayoutData,
   type ImageGridLayoutData,
   type LessonIntroLayoutData,
   type LessonListLayoutData,
@@ -56,6 +57,8 @@ const ColumnView = ({ data }: ColumnViewProps): ReactElement => {
       return <LessonIntroColumnView data={data} />;
     case 'imageGrid':
       return <ImageGridColumnView data={data} />;
+    case 'embed':
+      return <EmbedColumnView data={data} />;
   }
 };
 
@@ -202,5 +205,20 @@ const ImageGridColumnView = ({ data }: ImageGridColumnViewProps) => {
         {bottomRow}
       </Row>
     </>
+  );
+};
+
+type EmbedColumnViewProps = {
+  data: EmbedLayoutData;
+};
+
+const EmbedColumnView = ({ data }: EmbedColumnViewProps) => {
+  return (
+    <div
+      style={{
+        minHeight: '100%',
+      }}
+      dangerouslySetInnerHTML={{ __html: data.html }}
+    />
   );
 };
