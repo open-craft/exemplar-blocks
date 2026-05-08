@@ -11,7 +11,20 @@ from xblock.fields import Dict, Scope, String
 from xblock.utils.resources import ResourceLoader
 from xblock.utils.studio_editable import StudioEditableXBlockMixin
 
-from .types import ColumnData, Data, WorkbenchScenario
+from .types import (
+    Alignment,
+    BottomRowOrder,
+    ColumnData,
+    ColumnOrder,
+    Data,
+    FontSize,
+    ImageGridLayoutData,
+    ImageInfo,
+    ImageGridText,
+    Ratio,
+    WorkbenchScenario,
+    TextLayoutData,
+)
 from .utils import generate_attrs
 
 log = logging.getLogger(__name__)
@@ -19,41 +32,43 @@ log = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
 
 DEFAULT_COLUMN_DATA = ColumnData(
-    left={
-        "kind": "text",
-        "content": '<h1>Paths through nature</h1>\n<p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <span style="color: #169179;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id <em>est laborum</em>.</p>',
-        "verticalAlignment": "center",
-    },
-    right={
-        "kind": "imageGrid",
-        "featuredImage": {
-            "url": "https://picsum.photos/id/993/800/400",
-            "decorative": True,
-            "alt": "",
-            "onClickUrl": "",
-        },
-        "bottomImage": {
-            "url": "https://picsum.photos/id/767/400",
-            "decorative": False,
-            "alt": "A road extending into the distance, lined by tall trees.",
-            "onClickUrl": "https://example.com/",
-        },
-        "text": {
-            "content": "Which path will you take?",
-            "alignment": "center",
-            "fontSize": "large",
-            "backgroundColor": "#FFFAF0",
-            "color": "#045e2e",
-        },
-        "bottomRowOrder": "textImage",
-    },
-    ratio="6:6",
-    order="rightAboveLeft",
+    left=TextLayoutData(
+        kind="text",
+        content='<h1>Paths through nature</h1>\n<p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <span style="color: #169179;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id <em>est laborum</em>.</p>',
+        verticalAlignment=Alignment.Center,
+    ),
+    right=ImageGridLayoutData(
+        kind="imageGrid",
+        featuredImage=ImageInfo(
+            url="https://picsum.photos/id/993/800/400",
+            decorative=True,
+            alt="",
+            onClickUrl="",
+        ),
+        bottomImage=ImageInfo(
+            url="https://picsum.photos/id/767/400",
+            decorative=False,
+            alt="A road extending into the distance, lined by tall trees.",
+            onClickUrl="https://example.com/",
+        ),
+        text=ImageGridText(
+            content="Which path will you take?",
+            alignment=Alignment.Center,
+            fontSize=FontSize.Large,
+            backgroundColor="#FFFAF0",
+            color="#045e2e",
+        ),
+        bottomRowOrder=BottomRowOrder.TextImage,
+    ),
+    ratio=Ratio.SixSix,
+    order=ColumnOrder.rightAboveLeft,
 )
 
 
 class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
     """Provides an aesthetically pleasing two column block for displaying content."""
+
+    has_author_view = True
 
     display_name = String(
         display_name="Display name",
@@ -67,20 +82,26 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
         scope=Scope.settings,
         help="",
     )
+    background_color = String(
+        display_name="Background Color",
+        default="#FFFFFF",
+        scope=Scope.settings,
+    )
     editable_fields: tuple[str, ...] = (  # type: ignore
         "display_name",
         "column_data",
+        "backgroundColor",
     )
 
-    def student_view(self, context=None):
-        """The primary view of this block, shown to students
-        when viewing courses.
-        """
+    def _render_preview(self, is_studio=False):
         html = resource_loader.load_unicode("static/html/two_column_block.html")
         frag = Fragment(html)
 
         frag.add_css(resource_loader.load_unicode("public/frontend.css"))
         frag.add_javascript(resource_loader.load_unicode("static/js/entrypoint.js"))
+        if is_studio:
+            frag.add_css(resource_loader.load_unicode("static/studio-reset.css"))
+
         frag.initialize_js(
             "TwoColumnXBlock",
             {
@@ -90,10 +111,19 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
                 ),
                 "displayName": self.display_name,
                 "columns": self.column_data,
+                "backgroundColor": self.background_color,
             },
         )
-
         return frag
+
+    def student_view(self, context=None):
+        """The primary view of this block, shown to students
+        when viewing courses.
+        """
+        return self._render_preview()
+
+    def author_view(self, context=None):
+        return self._render_preview(is_studio=True)
 
     def studio_view(self, context=None):
         """Studio edit view."""
@@ -101,12 +131,14 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
         frag = Fragment(html)
 
         frag.add_css(resource_loader.load_unicode("public/frontend.css"))
+        frag.add_css(resource_loader.load_unicode("static/studio-reset.css"))
         frag.add_javascript(resource_loader.load_unicode("static/js/entrypoint.js"))
 
         try:
             validated_data = Data(
                 displayName=self.display_name,
                 columns=self.column_data,
+                backgroundColor=self.background_color,
             )
         except ValidationError as e:
             log.error(
@@ -125,6 +157,7 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
                 ),
                 "displayName": validated_data.displayName,
                 "columns": validated_data.columns.model_dump(),
+                "backgroundColor": validated_data.backgroundColor,
             },
         )
 
@@ -140,6 +173,7 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
 
         self.display_name = validated_data.displayName
         self.column_data = validated_data.columns.model_dump()
+        self.background_color = validated_data.backgroundColor
         # TODO: clean/delete empty values - eg. empty lessons in a lesson list
         return {"result": "success"}
 

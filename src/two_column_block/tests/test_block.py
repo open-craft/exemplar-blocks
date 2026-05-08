@@ -105,6 +105,8 @@ def test_block_update_data():
     )
 
     assert block.column_data["ratio"] == "4:8"
+    # check the default is set
+    assert block.background_color == "#FFFFFF"
 
     response = block.handle(
         "studio_save",
@@ -126,6 +128,7 @@ def test_block_update_data():
                     "ratio": "7:5",
                     "order": "leftAboveRight",
                 },
+                "backgroundColor": "#AABBCC",
             },
         ),
     )
@@ -135,6 +138,7 @@ def test_block_update_data():
 
     assert block.column_data["ratio"] == "7:5"
     assert block.column_data["left"]["verticalAlignment"] == "end"
+    assert block.background_color == "#AABBCC"
 
 
 def test_block_update_data_reject_invalid():
@@ -179,6 +183,7 @@ def test_block_update_data_reject_invalid():
                     "ratio": "7:5",
                     "order": "WRONGORDER",
                 },
+                "backgroundColor": "#AABBCC",
             },
         ),
     )

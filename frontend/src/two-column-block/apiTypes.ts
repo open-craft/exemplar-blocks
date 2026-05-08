@@ -68,4 +68,5 @@ export interface ImageGridText {
 export interface Data {
   displayName: string;
   columns: ColumnData;
+  backgroundColor: string;
 }

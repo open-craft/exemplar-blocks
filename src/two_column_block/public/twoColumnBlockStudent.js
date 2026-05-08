@@ -77,7 +77,8 @@ E.displayName = "Hyperlink";
 var D = e(), O = h(), k = ({ data: e }) => {
 	let [t, n] = e.columns.ratio.split(":").map((e) => parseInt(e, 10));
 	return /* @__PURE__ */ (0, O.jsxs)(m, {
-		className: `xblock-two-column ${e.columns.order == "rightAboveLeft" ? "two-column-reverse" : ""}`,
+		className: `xblock-two-column p-3 ${e.columns.order == "rightAboveLeft" ? "two-column-reverse" : ""}`,
+		style: { backgroundColor: e.backgroundColor },
 		children: [/* @__PURE__ */ (0, O.jsx)(a, {
 			xs: 12,
 			sm: t,

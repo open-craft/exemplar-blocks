@@ -15,6 +15,7 @@ const defaultData: Data = {
     ratio: '9:3',
     order: 'leftAboveRight',
   },
+  backgroundColor: '#FFFFFF',
 };
 
 const specRender = (initialData: Data = defaultData) => {
@@ -58,6 +59,7 @@ describe('App.tsx', () => {
         ratio: '5:7',
         order: 'rightAboveLeft',
       },
+      backgroundColor: '#FFFFFF',
     };
     const { screen } = specRender(initialData);
 
@@ -92,6 +94,7 @@ describe('App.tsx', () => {
         ratio: '6:6',
         order: 'rightAboveLeft',
       },
+      backgroundColor: '#FFFFFF',
     };
 
     const { screen, mockOnCancel, mockOnSave, user } = specRender();
@@ -138,12 +141,14 @@ describe('App.tsx', () => {
         ratio: '9:3',
         order: 'leftAboveRight',
       },
+      backgroundColor: '#FFFFFF',
     };
 
     const { screen, mockOnSave, user } = specRender();
 
     const leftColumn = screen.getByText(/Left Column/).parentElement!;
-    const rightColumn = screen.getByText(/Right Column/).parentElement!;
+    const rightColumn =
+      screen.getByText(/Right Column/).parentElement!.parentElement!;
 
     // check the current order of columns
     within(leftColumn).getByDisplayValue('Text');
@@ -202,6 +207,7 @@ describe('App.tsx', () => {
         ratio: '9:3',
         order: 'leftAboveRight',
       },
+      backgroundColor: '#FFFFFF',
     };
 
     const expectedData: Data = {
@@ -234,6 +240,7 @@ describe('App.tsx', () => {
         ratio: '9:3',
         order: 'leftAboveRight',
       },
+      backgroundColor: '#FFFFFF',
     };
 
     const { screen, mockOnSave, user } = specRender(initialData);

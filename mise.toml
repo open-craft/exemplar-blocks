@@ -64,5 +64,7 @@ run = [
 description = "Run all backend Python tests"
 depends = ["quality", "test-python"]
 
+
 [tools]
-pnpm = "latest"
+node = "24"
+"npm:pnpm" = "latest"
