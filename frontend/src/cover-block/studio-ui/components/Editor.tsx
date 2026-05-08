@@ -10,25 +10,24 @@ const Editor = () => {
   return (
     <div className="react-studio-block">
       <Container className="editor-with-buttons">
-        <div className="studio-editor-scroll">
+        <div className="wrapper-comp-settings is-active">
           <CoverForm />
         </div>
+        <div className="xblock-actions">
+          <ActionRow>
+            <ActionRow.Spacer />
+            <Button
+              variant="tertiary"
+              onClick={() => runtime.notify('cancel', {})}
+            >
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={form.submitForm}>
+              Save
+            </Button>
+          </ActionRow>
+        </div>
       </Container>
-      <div className="xblock-actions">
-        <ActionRow>
-          <ActionRow.Spacer />
-          <Button
-            variant="tertiary"
-            size="lg"
-            onClick={() => runtime.notify('cancel', {})}
-          >
-            Cancel
-          </Button>
-          <Button variant="primary" size="lg" onClick={form.submitForm}>
-            Save
-          </Button>
-        </ActionRow>
-      </div>
     </div>
   );
 };
