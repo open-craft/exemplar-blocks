@@ -24,6 +24,7 @@ describe('App.tsx', () => {
         ratio: '9:3',
         order: 'leftAboveRight',
       },
+      backgroundColor: '#FFFFFF',
     };
     const screen = specRender(<App data={data} />);
     screen.getByText('Overview');
@@ -38,6 +39,7 @@ describe('App.tsx', () => {
         ratio: '6:6',
         order: 'rightAboveLeft',
       },
+      backgroundColor: '#FFFFFF',
     };
     const screen = specRender(<App data={data} />);
     screen.getByText('Up Next');
@@ -74,6 +76,7 @@ describe('App.tsx', () => {
         ratio: '9:3',
         order: 'leftAboveRight',
       },
+      backgroundColor: '#FFFFFF',
     };
 
     const screen = specRender(<App data={data} />);

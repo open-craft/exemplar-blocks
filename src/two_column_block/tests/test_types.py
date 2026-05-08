@@ -24,6 +24,7 @@ def test_data_validation():
             "ratio": "4:8",
             "order": "leftAboveRight",
         },
+        "backgroundColor": "#AABBCC",
     }
 
     # If this succeeds, then validation succeeded.
@@ -59,6 +60,7 @@ def test_data_validation_fail():
                 "ratio": "4:8",
                 "order": "leftAboveRight",
             },
+            backgroundColor="#AABBCC",
         )
 
 
@@ -67,7 +69,7 @@ def test_data_validation_fail_enum_value():
     with pytest.raises(
         ValidationError,
         match=re.compile(
-            r"^1 validation error for Data.*verticalAlignment.*Input should be.*'left'.*$",
+            r"^1 validation error for Data.*verticalAlignment.*Input should be.*'aarrgh'.*$",
             re.DOTALL,
         ),
     ):
@@ -77,7 +79,7 @@ def test_data_validation_fail_enum_value():
                 "left": {
                     "kind": "text",
                     "content": "<h1>Test</h1>",
-                    "verticalAlignment": "left",
+                    "verticalAlignment": "aarrgh",
                 },
                 "right": {
                     "kind": "text",
@@ -87,6 +89,7 @@ def test_data_validation_fail_enum_value():
                 "ratio": "4:8",
                 "order": "leftAboveRight",
             },
+            backgroundColor="#AABBCC",
         )
 
 
@@ -108,6 +111,7 @@ def test_data_validation_and_html_sanitation():
             "ratio": "4:8",
             "order": "leftAboveRight",
         },
+        "backgroundColor": "#AABBCC",
     }
 
     # If this succeeds, then validation succeeded.
@@ -134,4 +138,5 @@ def test_data_validation_and_html_sanitation():
             "ratio": "4:8",
             "order": "leftAboveRight",
         },
+        "backgroundColor": "#AABBCC",
     }

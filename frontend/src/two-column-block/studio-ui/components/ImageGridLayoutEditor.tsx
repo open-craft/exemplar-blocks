@@ -21,7 +21,7 @@ export const ImageGridLayoutEditor = ({
 }: ImageGridLayoutEditorProps) => {
   return (
     <>
-      <h3>Featured Image</h3>
+      <h5>Featured Image</h5>
 
       <Form.Group>
         <Form.Label>Image Source URL</Form.Label>
@@ -88,7 +88,7 @@ export const ImageGridLayoutEditor = ({
         />
       </Form.Group>
 
-      <h3>Bottom row</h3>
+      <h5>Bottom row</h5>
 
       <SelectableBox.Set
         value={data.bottomRowOrder}

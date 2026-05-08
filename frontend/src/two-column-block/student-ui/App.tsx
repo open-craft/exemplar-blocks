@@ -29,7 +29,8 @@ export const App = ({ data }: AppProps) => {
 
   return (
     <Row
-      className={`xblock-two-column ${data.columns.order == 'rightAboveLeft' ? 'two-column-reverse' : ''}`}
+      className={`xblock-two-column p-3 ${data.columns.order == 'rightAboveLeft' ? 'two-column-reverse' : ''}`}
+      style={{ backgroundColor: data.backgroundColor }}
     >
       <Col xs={12} sm={firstColumnSize}>
         <ColumnView data={data.columns.left} />

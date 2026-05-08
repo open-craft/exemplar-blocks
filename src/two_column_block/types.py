@@ -148,3 +148,4 @@ class Data(BaseModel):
 
     displayName: str
     columns: ColumnData
+    backgroundColor: str
