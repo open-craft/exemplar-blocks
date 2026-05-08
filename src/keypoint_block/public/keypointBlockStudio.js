@@ -6064,7 +6064,7 @@ function Lo({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 		children: [/* @__PURE__ */ (0, Q.jsx)(c, {
 			className: "xblock-keypoints editor-with-buttons",
 			children: /* @__PURE__ */ (0, Q.jsx)("div", {
-				className: "studio-editor-scroll",
+				className: "wrapper-comp-settings is-active",
 				children: /* @__PURE__ */ (0, Q.jsxs)(Po, {
 					direction: "vertical",
 					gap: 3,
@@ -6087,7 +6087,6 @@ function Lo({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 									/* @__PURE__ */ (0, Q.jsx)(d, {
 										iconBefore: ki,
 										onClick: v,
-										size: "lg",
 										children: "Add Key Term"
 									})
 								]
@@ -6110,7 +6109,6 @@ function Lo({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 											/* @__PURE__ */ (0, Q.jsx)(d, {
 												variant: "outline-danger",
 												iconBefore: Pi,
-												size: "lg",
 												onClick: () => b(t),
 												children: "Remove"
 											})
@@ -6168,7 +6166,6 @@ function Lo({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 				/* @__PURE__ */ (0, Q.jsx)(_.Spacer, {}),
 				/* @__PURE__ */ (0, Q.jsx)(d, {
 					variant: "tertiary",
-					size: "lg",
 					onClick: () => i.notify("cancel", {}),
 					children: "Cancel"
 				}),
@@ -6189,7 +6186,6 @@ function Lo({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 							});
 						});
 					},
-					size: "lg",
 					children: "Save"
 				})
 			] })

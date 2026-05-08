@@ -7620,190 +7620,191 @@ var Q = m(), Vf = () => {
 		sm: r ? 8 : 12,
 		lg: r ? 10 : 12
 	};
-	return /* @__PURE__ */ (0, Q.jsxs)(t, { children: [
-		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-display-name",
-			xs: 12,
-			children: [
-				/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Display Name" }),
-				/* @__PURE__ */ (0, Q.jsx)(Mf, {
-					as: K.Control,
-					name: "display_name"
-				}),
-				/* @__PURE__ */ (0, Q.jsx)(K.Text, {
-					muted: !0,
-					children: "The label for this block, shown only in studio."
-				})
-			]
-		}),
-		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-variant",
-			xs: 12,
-			sm: 6,
-			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Variant" }), /* @__PURE__ */ (0, Q.jsxs)(K.Control, {
-				as: "select",
-				...e,
+	return /* @__PURE__ */ (0, Q.jsx)("div", {
+		className: "p-3",
+		children: /* @__PURE__ */ (0, Q.jsxs)(t, { children: [
+			/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-display-name",
+				xs: 12,
 				children: [
-					/* @__PURE__ */ (0, Q.jsx)("option", {
-						value: "section",
-						children: "Section Cover"
+					/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Display Name" }),
+					/* @__PURE__ */ (0, Q.jsx)(Mf, {
+						as: K.Control,
+						name: "display_name"
 					}),
-					/* @__PURE__ */ (0, Q.jsx)("option", {
-						value: "course",
-						children: "Course Cover"
-					}),
-					/* @__PURE__ */ (0, Q.jsx)("option", {
-						value: "separator",
-						children: "Separator"
+					/* @__PURE__ */ (0, Q.jsx)(K.Text, {
+						muted: !0,
+						children: "The label for this block, shown only in studio."
 					})
 				]
-			})]
-		}),
-		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-media-url",
-			xs: 12,
-			sm: 6,
-			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Image URL" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
-				as: K.Control,
-				name: "media_url"
-			})]
-		}),
-		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-media-alt-text",
-			xs: 12,
-			children: [
-				/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Image Alt Text" }),
-				/* @__PURE__ */ (0, Q.jsx)(Mf, {
+			}),
+			/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-variant",
+				xs: 12,
+				sm: 6,
+				children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Variant" }), /* @__PURE__ */ (0, Q.jsxs)(K.Control, {
+					as: "select",
+					...e,
+					children: [
+						/* @__PURE__ */ (0, Q.jsx)("option", {
+							value: "section",
+							children: "Section Cover"
+						}),
+						/* @__PURE__ */ (0, Q.jsx)("option", {
+							value: "course",
+							children: "Course Cover"
+						}),
+						/* @__PURE__ */ (0, Q.jsx)("option", {
+							value: "separator",
+							children: "Separator"
+						})
+					]
+				})]
+			}),
+			/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-media-url",
+				xs: 12,
+				sm: 6,
+				children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Image URL" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
 					as: K.Control,
-					name: "media_alt_text"
-				}),
-				/* @__PURE__ */ (0, Q.jsx)(K.Text, {
-					muted: !0,
-					children: "Provide a description of your image for use with screen readers."
-				})
-			]
-		}),
-		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-top-header",
-			...i,
-			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Top Header" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
-				as: K.Control,
-				name: "top_header"
-			})]
-		}),
-		r && /* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-top-header-color",
-			xs: 12,
-			sm: 4,
-			lg: 2,
-			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
-				as: K.Control,
-				name: "top_header_color",
-				type: "color",
-				"aria-label": "Top header color"
-			})]
-		}),
-		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-main-header",
-			...i,
-			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Main Header" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
-				as: K.Control,
-				name: "main_header"
-			})]
-		}),
-		r && /* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-main-header-color",
-			xs: 12,
-			sm: 4,
-			lg: 2,
-			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
-				as: K.Control,
-				name: "main_header_color",
-				type: "color",
-				"aria-label": "Main header color"
-			})]
-		}),
-		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-subheader",
-			...i,
-			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Subheader" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
-				as: K.Control,
-				name: "subheader"
-			})]
-		}),
-		r && /* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-subheader-color",
-			xs: 12,
-			sm: 4,
-			lg: 2,
-			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
-				as: K.Control,
-				name: "subheader_color",
-				type: "color",
-				"aria-label": "Subheader color"
-			})]
-		}),
-		/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-description",
-			...i,
-			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Description" }), /* @__PURE__ */ (0, Q.jsx)(K.Control, {
-				as: "textarea",
-				...n
-			})]
-		}),
-		r && /* @__PURE__ */ (0, Q.jsxs)(K.Group, {
-			as: u,
-			controlId: "cover-form-description-color",
-			xs: 12,
-			sm: 4,
-			lg: 2,
-			children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
-				as: K.Control,
-				name: "description_color",
-				type: "color",
-				"aria-label": "Description color"
-			})]
-		})
-	] });
+					name: "media_url"
+				})]
+			}),
+			/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-media-alt-text",
+				xs: 12,
+				children: [
+					/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Image Alt Text" }),
+					/* @__PURE__ */ (0, Q.jsx)(Mf, {
+						as: K.Control,
+						name: "media_alt_text"
+					}),
+					/* @__PURE__ */ (0, Q.jsx)(K.Text, {
+						muted: !0,
+						children: "Provide a description of your image for use with screen readers."
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-top-header",
+				...i,
+				children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Top Header" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
+					as: K.Control,
+					name: "top_header"
+				})]
+			}),
+			r && /* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-top-header-color",
+				xs: 12,
+				sm: 4,
+				lg: 2,
+				children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
+					as: K.Control,
+					name: "top_header_color",
+					type: "color",
+					"aria-label": "Top header color"
+				})]
+			}),
+			/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-main-header",
+				...i,
+				children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Main Header" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
+					as: K.Control,
+					name: "main_header"
+				})]
+			}),
+			r && /* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-main-header-color",
+				xs: 12,
+				sm: 4,
+				lg: 2,
+				children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
+					as: K.Control,
+					name: "main_header_color",
+					type: "color",
+					"aria-label": "Main header color"
+				})]
+			}),
+			/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-subheader",
+				...i,
+				children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Subheader" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
+					as: K.Control,
+					name: "subheader"
+				})]
+			}),
+			r && /* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-subheader-color",
+				xs: 12,
+				sm: 4,
+				lg: 2,
+				children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
+					as: K.Control,
+					name: "subheader_color",
+					type: "color",
+					"aria-label": "Subheader color"
+				})]
+			}),
+			/* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-description",
+				...i,
+				children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Description" }), /* @__PURE__ */ (0, Q.jsx)(K.Control, {
+					as: "textarea",
+					...n
+				})]
+			}),
+			r && /* @__PURE__ */ (0, Q.jsxs)(K.Group, {
+				as: u,
+				controlId: "cover-form-description-color",
+				xs: 12,
+				sm: 4,
+				lg: 2,
+				children: [/* @__PURE__ */ (0, Q.jsx)(K.Label, { children: "Color" }), /* @__PURE__ */ (0, Q.jsx)(Mf, {
+					as: K.Control,
+					name: "description_color",
+					type: "color",
+					"aria-label": "Description color"
+				})]
+			})
+		] })
+	});
 }, Hf = () => {
 	let { runtime: e } = (0, v.useContext)(Oo), t = lf();
-	return /* @__PURE__ */ (0, Q.jsxs)("div", {
+	return /* @__PURE__ */ (0, Q.jsx)("div", {
 		className: "react-studio-block",
-		children: [/* @__PURE__ */ (0, Q.jsx)(s, {
+		children: /* @__PURE__ */ (0, Q.jsxs)(s, {
 			className: "editor-with-buttons",
-			children: /* @__PURE__ */ (0, Q.jsx)("div", {
-				className: "studio-editor-scroll",
+			children: [/* @__PURE__ */ (0, Q.jsx)("div", {
+				className: "wrapper-comp-settings is-active",
 				children: /* @__PURE__ */ (0, Q.jsx)(Vf, {})
-			})
-		}), /* @__PURE__ */ (0, Q.jsx)("div", {
-			className: "xblock-actions",
-			children: /* @__PURE__ */ (0, Q.jsxs)(b, { children: [
-				/* @__PURE__ */ (0, Q.jsx)(b.Spacer, {}),
-				/* @__PURE__ */ (0, Q.jsx)(bi, {
-					variant: "tertiary",
-					size: "lg",
-					onClick: () => e.notify("cancel", {}),
-					children: "Cancel"
-				}),
-				/* @__PURE__ */ (0, Q.jsx)(bi, {
-					variant: "primary",
-					size: "lg",
-					onClick: t.submitForm,
-					children: "Save"
-				})
-			] })
-		})]
+			}), /* @__PURE__ */ (0, Q.jsx)("div", {
+				className: "xblock-actions",
+				children: /* @__PURE__ */ (0, Q.jsxs)(b, { children: [
+					/* @__PURE__ */ (0, Q.jsx)(b.Spacer, {}),
+					/* @__PURE__ */ (0, Q.jsx)(bi, {
+						variant: "tertiary",
+						onClick: () => e.notify("cancel", {}),
+						children: "Cancel"
+					}),
+					/* @__PURE__ */ (0, Q.jsx)(bi, {
+						variant: "primary",
+						onClick: t.submitForm,
+						children: "Save"
+					})
+				] })
+			})]
+		})
 	});
 }, Uf = (e) => {
 	let { runtime: t } = (0, v.useContext)(Oo), n = ko("studio_save");

@@ -66,7 +66,7 @@ export default function StudioUi({
   return (
     <div className="react-studio-block">
       <Container className="xblock-keypoints editor-with-buttons">
-        <div className="studio-editor-scroll">
+        <div className="wrapper-comp-settings is-active">
           <Stack direction="vertical" gap={3} className="p-2">
             {/* Block Header */}
             <Form.Group>
@@ -85,7 +85,7 @@ export default function StudioUi({
               <ActionRow className="mb-2">
                 <h4 className="m-0">Key Terms</h4>
                 <ActionRow.Spacer />
-                <Button iconBefore={Add} onClick={addKeypoint} size="lg">
+                <Button iconBefore={Add} onClick={addKeypoint}>
                   Add Key Term
                 </Button>
               </ActionRow>
@@ -105,7 +105,6 @@ export default function StudioUi({
                     <Button
                       variant="outline-danger"
                       iconBefore={DeleteOutline}
-                      size="lg"
                       onClick={() => removeKeypoint(idx)}
                     >
                       Remove
@@ -171,12 +170,11 @@ export default function StudioUi({
           <ActionRow.Spacer />
           <Button
             variant="tertiary"
-            size="lg"
             onClick={() => runtime.notify('cancel', {})}
           >
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleSave} size="lg">
+          <Button variant="primary" onClick={handleSave}>
             Save
           </Button>
         </ActionRow>

@@ -16,21 +16,16 @@
     font-weight: 600;
   }
 
-  .studio-editor-scroll {
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
+  .wrapper-comp-settings {
+    overflow-y: scroll;
+    // This is full screen height, with removal of 60px for the header, and 69px for the footer.
+    max-height: calc(100vh - 129px);
   }
+
+  margin-bottom: 0 !important;
 }
 
-.react-studio-block .xblock-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.5em;
-  padding: 0.75em 1em;
-  border-top: 1px solid $gray-200;
-  background: $white;
-  position: sticky;
-  bottom: 0;
-  z-index: 1;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+.modal-lg .react-studio-block .wrapper-comp-settings {
+  // studio-v1.css sets .modal-content height to 435px and the action buttons footer uses 69px
+  max-height: 366px;
 }
