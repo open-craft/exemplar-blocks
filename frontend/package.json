@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build:typescript": "tsc -b",
+    "build:vite": "vite build",
+    "build": "pnpm run build:typescript && pnpm run build:vite",
     "build:watch": "vite build --watch",
     "lint": "oxfmt --check && eslint .",
     "format": "oxfmt",

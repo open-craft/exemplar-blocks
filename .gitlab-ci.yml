@@ -2,54 +2,53 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 stages:
+  - quality
   - test
+  - build
 
-quality:
-  stage: test
+python quality:
+  stage: quality
   image: astral/uv:python3.11-alpine
   script:
     - apk add mise git pnpm
     - (cd frontend && pnpm install)
     # The tools are already installed with apk
-    - export MISE_AUTO_INSTALL=false 
-    - mise run install
+    - export MISE_AUTO_INSTALL=false
+    - mise run install:backend
     - mise run init_sdk
-    - mise run quality
+    - mise run quality:backend
     - mise run sync-types
     # If the types were out of sync, there will be a git diff here.
     - git diff --exit-code
 
-test:
+python test:
   stage: test
   image: astral/uv:python3.11-alpine
+  needs: [python quality]
   script:
-    - apk add mise
+    - apk add mise git
     # The tools are already installed with apk
-    - export MISE_AUTO_INSTALL=false 
-    - mise run install
+    - export MISE_AUTO_INSTALL=false
+    - mise run install:backend
     - mise run init_sdk
-    - mise run test-python
+    - mise run test:backend
 
 frontend quality:
-  stage: test
+  stage: quality
   image: node:24-alpine
   script:
-    - apk add pnpm
-    - cd frontend
-    - pnpm install
-    - pnpm run lint
+    - apk add mise git pnpm
+    - mise run install:frontend
+    - mise run quality:frontend
 
 frontend build:
-  stage: test
+  stage: build
   image: node:24-alpine
+  needs: [frontend quality]
   script:
-    - apk add pnpm git
-    - cd frontend
-    - pnpm install
-    - XBLOCK=card_carousel pnpm run build
-    - XBLOCK=keypoint_block pnpm run build
-    - XBLOCK=cover_block pnpm run build
-    - XBLOCK=two_column_block pnpm run build
+    - apk add mise pnpm git
+    - mise run install:frontend
+    - mise run build:all
     # Check build artefacts are up to date.
     # The frontend build artefacts are committed to the repo.
     # If there are changes in the repo after the build commands above, then the build artefacts aren't up to date.
@@ -58,8 +57,8 @@ frontend build:
 frontend test:
   stage: test
   image: node:24-alpine
+  needs: [frontend quality]
   script:
-    - apk add pnpm git
-    - cd frontend
-    - pnpm install
-    - pnpm run test
+    - apk add mise pnpm git
+    - mise run install:frontend
+    - mise run test:frontend

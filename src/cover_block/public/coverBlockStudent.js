@@ -1,54 +1,54 @@
-import { _ as e, a as t, f as n, h as r, i, n as a, o, r as s, t as c, y as l } from "./jsx-runtime-14-nx7qZ.js";
-//#region src/cover-block/lib/utils.ts
-var u = r(), d = /* @__PURE__ */ l(e(), 1), f = (e) => ({
-	top_header: a("top_header", e.top_header_color),
-	description: a("description", e.description_color),
-	main_header: a("main_header", e.main_header_color),
-	subheader: a("subheader", e.subheader_color)
-}), p = c(), m = {
-	course: (e) => {
-		let n = f(e);
-		return /* @__PURE__ */ (0, p.jsxs)(i, {
+import { a as e, g as t, l as n, n as r, r as i, t as a, u as o } from "./utils-DMbtIBNi.js";
+t();
+var s = (e) => ({
+	top_header: r("top_header", e.top_header_color),
+	description: r("description", e.description_color),
+	main_header: r("main_header", e.main_header_color),
+	subheader: r("subheader", e.subheader_color)
+}), c = i(), l = {
+	course: (t) => {
+		let r = s(t);
+		return /* @__PURE__ */ (0, c.jsxs)(e, {
 			fluid: !0,
 			className: "course-cover px-0",
 			"data-testid": "course-cover",
-			children: [/* @__PURE__ */ (0, p.jsx)("div", {
+			children: [/* @__PURE__ */ (0, c.jsx)("div", {
 				className: "course-cover-image-container",
-				children: /* @__PURE__ */ (0, p.jsx)("img", {
+				children: /* @__PURE__ */ (0, c.jsx)("img", {
 					className: "course-cover-image",
-					src: e.media_url,
-					alt: e.media_alt_text
+					src: t.media_url,
+					alt: t.media_alt_text
 				})
-			}), /* @__PURE__ */ (0, p.jsx)(t, {
+			}), /* @__PURE__ */ (0, c.jsx)(n, {
 				className: "full-height",
-				children: /* @__PURE__ */ (0, p.jsx)(o, {
+				children: /* @__PURE__ */ (0, c.jsx)(o, {
 					xs: 12,
 					lg: 6,
 					className: "align-content-center order-lg-2 px-4",
-					children: /* @__PURE__ */ (0, p.jsx)("div", {
+					children: /* @__PURE__ */ (0, c.jsx)("div", {
 						className: "text-container",
-						children: /* @__PURE__ */ (0, p.jsxs)("div", {
+						children: /* @__PURE__ */ (0, c.jsxs)("div", {
 							className: "text-content mx-0 me-sm-2 me-md-0 ms-lg-4 ms-lg-5",
 							children: [
-								/* @__PURE__ */ (0, p.jsx)("div", {
+								/* @__PURE__ */ (0, c.jsx)("div", {
 									className: "lead",
-									style: n.top_header,
-									children: e.top_header
+									style: r.top_header,
+									children: t.top_header
 								}),
-								/* @__PURE__ */ (0, p.jsx)("h1", {
+								/* @__PURE__ */ (0, c.jsx)("h1", {
 									className: "display-1",
-									style: n.main_header,
-									children: e.main_header
+									style: r.main_header,
+									children: t.main_header
 								}),
-								/* @__PURE__ */ (0, p.jsx)("p", {
+								/* @__PURE__ */ (0, c.jsx)("p", {
 									className: "subtitle my-3",
-									style: n.subheader,
-									children: e.subheader
+									style: r.subheader,
+									children: t.subheader
 								}),
-								/* @__PURE__ */ (0, p.jsx)("p", {
+								/* @__PURE__ */ (0, c.jsx)("p", {
 									className: "body",
-									style: n.description,
-									children: e.description
+									style: r.description,
+									children: t.description
 								})
 							]
 						})
@@ -57,89 +57,89 @@ var u = r(), d = /* @__PURE__ */ l(e(), 1), f = (e) => ({
 			})]
 		});
 	},
-	section: (e) => /* @__PURE__ */ (0, p.jsx)(i, {
+	section: (t) => /* @__PURE__ */ (0, c.jsx)(e, {
 		fluid: !0,
 		className: "section-cover px-0",
 		"data-testid": "section-cover",
-		children: /* @__PURE__ */ (0, p.jsxs)(t, {
+		children: /* @__PURE__ */ (0, c.jsxs)(n, {
 			className: "g-0",
-			children: [/* @__PURE__ */ (0, p.jsx)(o, {
+			children: [/* @__PURE__ */ (0, c.jsx)(o, {
 				xs: 12,
 				lg: 6,
 				className: "order-lg-2",
-				children: /* @__PURE__ */ (0, p.jsx)("img", {
+				children: /* @__PURE__ */ (0, c.jsx)("img", {
 					className: "section-block-image",
-					src: e.media_url,
-					alt: e.media_alt_text
+					src: t.media_url,
+					alt: t.media_alt_text
 				})
-			}), /* @__PURE__ */ (0, p.jsx)(o, {
+			}), /* @__PURE__ */ (0, c.jsx)(o, {
 				xs: 12,
 				lg: 6,
 				className: "align-content-center px-4 pt-5 order-lg-1",
-				children: /* @__PURE__ */ (0, p.jsxs)("div", {
+				children: /* @__PURE__ */ (0, c.jsxs)("div", {
 					className: "text-content mx-0 me-sm-2 me-md-0 ms-lg-4 ms-lg-5",
 					children: [
-						/* @__PURE__ */ (0, p.jsx)("div", {
+						/* @__PURE__ */ (0, c.jsx)("div", {
 							className: "lead",
-							children: e.top_header
+							children: t.top_header
 						}),
-						/* @__PURE__ */ (0, p.jsx)("h1", {
+						/* @__PURE__ */ (0, c.jsx)("h1", {
 							className: "display-1",
-							children: e.main_header
+							children: t.main_header
 						}),
-						/* @__PURE__ */ (0, p.jsx)("p", {
+						/* @__PURE__ */ (0, c.jsx)("p", {
 							className: "subtitle my-3",
-							children: e.subheader
+							children: t.subheader
 						}),
-						/* @__PURE__ */ (0, p.jsx)("p", {
+						/* @__PURE__ */ (0, c.jsx)("p", {
 							className: "body",
-							children: e.description
+							children: t.description
 						})
 					]
 				})
 			})]
 		})
 	}),
-	separator: (e) => {
-		let n = f(e);
-		return /* @__PURE__ */ (0, p.jsxs)(i, {
+	separator: (t) => {
+		let r = s(t);
+		return /* @__PURE__ */ (0, c.jsxs)(e, {
 			fluid: !0,
 			className: "separator-cover px-0",
 			"data-testid": "separator",
-			children: [/* @__PURE__ */ (0, p.jsx)("div", {
+			children: [/* @__PURE__ */ (0, c.jsx)("div", {
 				className: "separator-cover-image-container",
-				children: /* @__PURE__ */ (0, p.jsx)("img", {
+				children: /* @__PURE__ */ (0, c.jsx)("img", {
 					className: "separator-cover-image",
-					src: e.media_url,
-					alt: e.media_alt_text
+					src: t.media_url,
+					alt: t.media_alt_text
 				})
-			}), /* @__PURE__ */ (0, p.jsx)(t, {
+			}), /* @__PURE__ */ (0, c.jsx)(n, {
 				className: "text-container",
-				children: /* @__PURE__ */ (0, p.jsx)(o, {
+				children: /* @__PURE__ */ (0, c.jsx)(o, {
 					xs: 12,
 					className: "order-lg-2 align-content-center text-center",
-					children: /* @__PURE__ */ (0, p.jsxs)("div", {
+					children: /* @__PURE__ */ (0, c.jsxs)("div", {
 						className: "text-content mx-0 me-sm-2 me-md-0 ms-lg-4 ms-lg-5",
 						children: [
-							/* @__PURE__ */ (0, p.jsx)("div", {
+							/* @__PURE__ */ (0, c.jsx)("div", {
 								className: "lead",
-								style: n.top_header,
-								children: e.top_header
+								style: r.top_header,
+								children: t.top_header
 							}),
-							/* @__PURE__ */ (0, p.jsx)("h1", {
+							/* @__PURE__ */ (0, c.jsx)("h1", {
 								className: "display-1 d-inline-block text-center",
-								style: n.main_header,
-								children: e.main_header
+								style: r.main_header,
+								children: t.main_header
 							}),
-							/* @__PURE__ */ (0, p.jsx)("p", {
+							/* @__PURE__ */ (0, c.jsx)("p", {
 								className: "subtitle my-3 text-center",
-								style: n.subheader,
-								children: e.subheader
+								style: r.subheader,
+								children: t.subheader
 							}),
-							/* @__PURE__ */ (0, p.jsx)("p", {
+							/* @__PURE__ */ (0, c.jsx)("p", {
 								className: "body",
-								style: n.description,
-								children: e.description
+								style: r.description,
+								children: t.description
 							})
 						]
 					})
@@ -147,14 +147,11 @@ var u = r(), d = /* @__PURE__ */ l(e(), 1), f = (e) => ({
 			})]
 		});
 	}
-}, h = (e) => {
-	let t = m[e.variant];
-	return /* @__PURE__ */ (0, p.jsx)(t, { ...e });
-}, g = (e, t, r) => {
-	(0, u.createRoot)(s(e)).render(/* @__PURE__ */ (0, p.jsx)(d.StrictMode, { children: /* @__PURE__ */ (0, p.jsx)(n, {
-		locale: "en",
-		children: /* @__PURE__ */ (0, p.jsx)(h, { ...r })
-	}) }));
+}, u = (e) => {
+	let t = l[e.variant];
+	return /* @__PURE__ */ (0, c.jsx)(t, { ...e });
+}, d = (e, t, n) => {
+	a(t, e)(/* @__PURE__ */ (0, c.jsx)(u, { ...n }));
 };
 //#endregion
-export { g as renderBlock };
+export { d as renderBlock };

@@ -11,3 +11,4 @@ frontend/dist
 # vitest generates a node_modules directory inside src for caching
 frontend/src/node_modules
 .DS_Store
+.gitlab-ci-local

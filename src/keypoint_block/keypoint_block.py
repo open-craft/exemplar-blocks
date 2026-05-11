@@ -56,7 +56,11 @@ class KeypointXBlock(XBlock):
         html = self.resource_string("static/html/keypoint.html")
         frag = Fragment(html)
         frag.add_javascript(self.resource_string("static/js/student.js"))
-        frag.add_css(self.resource_string("public/frontend.css"))
+        # This is how you'd usually add a css file to the block.
+        # However for the Shadow DOM, we need to include this CSS inside the component
+        # instead of in the head of the document. We are doing this for this block but
+        # not for all blocks yet.
+        # frag.add_css(self.resource_string("public/frontend.css"))
         frag.initialize_js(
             "KeyPointXBlock",
             {
