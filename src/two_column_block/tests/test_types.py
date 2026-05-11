@@ -152,11 +152,11 @@ def test_embed_data():
         "displayName": "test",
         "columns": {
             "left": {
-                "kind": "embed",
+                "kind": "rawHTML",
                 "html": "<h1>Test</h1><script>arbitrary_interactive_content();</script>",
             },
             "right": {
-                "kind": "embed",
+                "kind": "rawHTML",
                 "html": '<embed src="https://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf" type="application/pdf" />',
             },
             "ratio": "4:8",
@@ -183,11 +183,11 @@ def test_embed_data():
         "displayName": "test",
         "columns": {
             "left": {
-                "kind": "embed",
+                "kind": "rawHTML",
                 "html": "<h1>Test</h1><script>arbitrary_interactive_content();</script>",
             },
             "right": {
-                "kind": "embed",
+                "kind": "rawHTML",
                 "html": '<embed src="https://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf" type="application/pdf" />',
             },
             "ratio": "4:8",
