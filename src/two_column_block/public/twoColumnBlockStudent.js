@@ -1,4 +1,4 @@
-import { C as e, D as t, T as n, _ as r, a as i, c as a, d as o, f as s, g as c, h as l, i as u, l as d, m as f, p, s as m, t as h, u as g, v as _ } from "./jsx-runtime-ggv8YFDF.js";
+import { C as e, D as t, T as n, _ as r, a as i, c as a, d as o, f as s, g as c, h as l, i as u, l as d, m as f, p, s as m, t as h, u as g, v as _ } from "./jsx-runtime-v2Skt2s5.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Image.js
 var v = /* @__PURE__ */ t(f()), y = /* @__PURE__ */ t(n()), b = /* @__PURE__ */ t(d()), x = [
 	"bsPrefix",
@@ -95,7 +95,7 @@ var D = e(), O = h(), k = ({ data: e }) => {
 		case "lessonList": return /* @__PURE__ */ (0, O.jsx)(M, { data: e });
 		case "lessonIntro": return /* @__PURE__ */ (0, O.jsx)(N, { data: e });
 		case "imageGrid": return /* @__PURE__ */ (0, O.jsx)(P, { data: e });
-		case "embed": return /* @__PURE__ */ (0, O.jsx)(F, { data: e });
+		case "rawHTML": return /* @__PURE__ */ (0, O.jsx)(F, { data: e });
 	}
 }, j = ({ data: e }) => /* @__PURE__ */ (0, O.jsx)("div", {
 	style: {

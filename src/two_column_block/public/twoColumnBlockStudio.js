@@ -1,4 +1,4 @@
-import { C as e, D as t, E as n, S as r, T as i, _ as a, a as o, b as s, c, d as l, f as u, g as d, h as f, i as p, l as m, m as h, n as g, o as _, p as v, r as y, s as b, t as x, u as S, v as C, w, x as ee, y as T } from "./jsx-runtime-ggv8YFDF.js";
+import { C as e, D as t, E as n, S as r, T as i, _ as a, a as o, b as s, c, d as l, f as u, g as d, h as f, i as p, l as m, m as h, n as g, o as _, p as v, r as y, s as b, t as x, u as S, v as C, w, x as ee, y as T } from "./jsx-runtime-v2Skt2s5.js";
 (/* @__PURE__ */ n(((e, t) => {
 	t.exports = function(e, t, n, r, i, a, o, s) {
 		if (!e) {
@@ -48454,7 +48454,7 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 			})
 		})
 	]
-}), rf = ({ data: e, onUpdate: t }) => /* @__PURE__ */ (0, K.jsx)(K.Fragment, { children: /* @__PURE__ */ (0, K.jsxs)(H.Group, { children: [/* @__PURE__ */ (0, K.jsx)(H.Label, { children: "Embed code (raw HTML)" }), /* @__PURE__ */ (0, K.jsx)(H.Control, {
+}), rf = ({ data: e, onUpdate: t }) => /* @__PURE__ */ (0, K.jsx)(K.Fragment, { children: /* @__PURE__ */ (0, K.jsxs)(H.Group, { children: [/* @__PURE__ */ (0, K.jsx)(H.Label, { children: "Raw HTML (e.g. an embed code or interactive activity)" }), /* @__PURE__ */ (0, K.jsx)(H.Control, {
 	value: e.html,
 	onChange: (n) => t({
 		...e,
@@ -48462,7 +48462,7 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 	}),
 	placeholder: "",
 	as: "textarea",
-	autoResize: !0
+	style: { height: "7lh" }
 })] }) }), af = ({ initialData: e, onSave: t, onCancel: n }) => {
 	let [r, i] = (0, E.useState)(e);
 	return /* @__PURE__ */ (0, K.jsxs)("div", {
@@ -48656,7 +48656,7 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 			data: e,
 			onUpdate: t
 		});
-		case "embed": return /* @__PURE__ */ (0, K.jsx)(rf, {
+		case "rawHTML": return /* @__PURE__ */ (0, K.jsx)(rf, {
 			data: e,
 			onUpdate: t
 		});
@@ -48683,8 +48683,8 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 			children: "Image and Text Grid"
 		}),
 		/* @__PURE__ */ (0, K.jsx)("option", {
-			value: g.Embed,
-			children: "Embed Code"
+			value: g.RawHTML,
+			children: "Raw HTML"
 		})
 	]
 })] }), sf = (e, t, n) => {

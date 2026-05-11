@@ -15,7 +15,7 @@ import { TextLayoutEditor } from './components/TextLayoutEditor.tsx';
 import { ImageGridLayoutEditor } from './components/ImageGridLayoutEditor.tsx';
 import { LessonIntroLayoutEditor } from './components/LessonIntroLayoutEditor.tsx';
 import { LessonListLayoutEditor } from './components/LessonListLayoutEditor.tsx';
-import { EmbedLayoutEditor } from './components/EmbedLayoutEditor.tsx';
+import { RawHTMLLayoutEditor } from './components/RawHTMLLayoutEditor.tsx';
 
 type AppProps = {
   initialData: Data;
@@ -197,8 +197,8 @@ const LayoutEditor = ({ data, onUpdate }: LayoutEditorProps): ReactElement => {
       return <LessonIntroLayoutEditor data={data} onUpdate={onUpdate} />;
     case 'imageGrid':
       return <ImageGridLayoutEditor data={data} onUpdate={onUpdate} />;
-    case 'embed':
-      return <EmbedLayoutEditor data={data} onUpdate={onUpdate} />;
+    case 'rawHTML':
+      return <RawHTMLLayoutEditor data={data} onUpdate={onUpdate} />;
   }
 };
 
@@ -222,7 +222,7 @@ const LayoutSwitcher = ({ layoutType, onUpdate }: LayoutSwitcherProps) => {
         <option value={LayoutType.LessonList}>Bulleted Lesson List</option>
         <option value={LayoutType.LessonIntro}>Lesson Intro</option>
         <option value={LayoutType.ImageGrid}>Image and Text Grid</option>
-        <option value={LayoutType.Embed}>Embed Code</option>
+        <option value={LayoutType.RawHTML}>Raw HTML</option>
       </Form.Control>
     </Form.Group>
   );

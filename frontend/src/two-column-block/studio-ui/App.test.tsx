@@ -277,7 +277,7 @@ describe('App.tsx', () => {
       columns: {
         left: defaultLayout('lessonList'),
         right: {
-          kind: 'embed',
+          kind: 'rawHTML',
           html: '<marquee>AHAHA!</marquee>',
         },
         ratio: '5:7',
@@ -291,7 +291,7 @@ describe('App.tsx', () => {
       columns: {
         left: defaultLayout('lessonList'),
         right: {
-          kind: 'embed',
+          kind: 'rawHTML',
           html: '<embed src="https://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf" type="application/pdf" />',
         },
         ratio: '5:7',
@@ -302,10 +302,10 @@ describe('App.tsx', () => {
     const { screen, mockOnSave, user } = specRender(initialData);
 
     screen.getByDisplayValue('Bulleted Lesson List');
-    screen.getByDisplayValue('Embed Code');
+    screen.getByDisplayValue('Raw HTML');
     screen.getByDisplayValue('<marquee>AHAHA!</marquee>');
 
-    const displayNameInput = screen.getByLabelText(/Embed code/, {
+    const displayNameInput = screen.getByLabelText(/Raw HTML/, {
       selector: 'textarea',
     });
     await user.clear(displayNameInput);

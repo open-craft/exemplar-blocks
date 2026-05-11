@@ -1,20 +1,22 @@
 import { Form } from '@openedx/paragon';
 import type { ChangeEvent } from 'react';
-import type { EmbedLayoutData } from '../../apiTypes';
+import type { RawHTMLLayoutData } from '../../apiTypes';
 
-type EmbedLayoutEditorProps = {
-  data: EmbedLayoutData;
-  onUpdate: (layoutData: EmbedLayoutData) => void;
+type RawHTMLLayoutEditorProps = {
+  data: RawHTMLLayoutData;
+  onUpdate: (layoutData: RawHTMLLayoutData) => void;
 };
 
-export const EmbedLayoutEditor = ({
+export const RawHTMLLayoutEditor = ({
   data,
   onUpdate,
-}: EmbedLayoutEditorProps) => {
+}: RawHTMLLayoutEditorProps) => {
   return (
     <>
       <Form.Group>
-        <Form.Label>Embed code (raw HTML)</Form.Label>
+        <Form.Label>
+          Raw HTML (e.g. an embed code or interactive activity)
+        </Form.Label>
         <Form.Control
           value={data.html}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -25,7 +27,7 @@ export const EmbedLayoutEditor = ({
           }
           placeholder=""
           as="textarea"
-          autoResize={true}
+          style={{ height: '7lh' }}
         />
       </Form.Group>
     </>

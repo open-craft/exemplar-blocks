@@ -3,7 +3,7 @@ import type {
   LessonIntroLayoutData,
   LessonListLayoutData,
   TextLayoutData,
-  EmbedLayoutData,
+  RawHTMLLayoutData,
 } from './apiTypes';
 
 // Some helper types to complement ./apiTypes.ts , to address some missing features.
@@ -13,7 +13,7 @@ export const enum LayoutType {
   LessonList = 'lessonList',
   LessonIntro = 'lessonIntro',
   ImageGrid = 'imageGrid',
-  Embed = 'embed',
+  RawHTML = 'rawHTML',
 }
 
 export type LayoutData =
@@ -21,7 +21,7 @@ export type LayoutData =
   | LessonListLayoutData
   | LessonIntroLayoutData
   | ImageGridLayoutData
-  | EmbedLayoutData;
+  | RawHTMLLayoutData;
 
 export const defaultLayout = (kind: LayoutData['kind']): LayoutData => {
   switch (kind) {
@@ -66,7 +66,7 @@ export const defaultLayout = (kind: LayoutData['kind']): LayoutData => {
         },
         bottomRowOrder: 'imageText',
       };
-    case 'embed':
+    case 'rawHTML':
       return {
         kind,
         html: '',

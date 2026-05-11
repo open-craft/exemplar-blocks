@@ -9361,7 +9361,7 @@ var dr = cr(ur, "Icon", { className: {
 	size: r,
 	src: t
 }))), pr = /* @__PURE__ */ function(e) {
-	return e.Text = "text", e.LessonList = "lessonList", e.LessonIntro = "lessonIntro", e.ImageGrid = "imageGrid", e.Embed = "embed", e;
+	return e.Text = "text", e.LessonList = "lessonList", e.LessonIntro = "lessonIntro", e.ImageGrid = "imageGrid", e.RawHTML = "rawHTML", e;
 }({}), mr = (e) => {
 	switch (e) {
 		case "text": return {
@@ -9410,7 +9410,7 @@ var dr = cr(ur, "Icon", { className: {
 			},
 			bottomRowOrder: "imageText"
 		};
-		case "embed": return {
+		case "rawHTML": return {
 			kind: e,
 			html: ""
 		};
