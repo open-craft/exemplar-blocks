@@ -128,7 +128,7 @@ class RawHTMLLayoutData(BaseModel):
     model_config = ConfigDict(use_enum_values=True, extra="forbid")
 
     kind: Literal["rawHTML"]
-    # Raw HTML; not sanitised, because it's expected to be embed codes.
+    # Raw HTML; not sanitised, because it's expected to be embed codes or interactive content.
     # Users are expected to take care to avoid entering unsafe code.
     html: str
 
