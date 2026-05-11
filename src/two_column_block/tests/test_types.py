@@ -140,3 +140,58 @@ def test_data_validation_and_html_sanitation():
         },
         "backgroundColor": "#AABBCC",
     }
+
+
+def test_embed_data():
+    """
+    Test that input embed html is _not_ sanitised when it goes through the data validation.
+
+    The embed codes must be retained as is otherwise the content will not be successfully embedded.
+    """
+    input_data = {
+        "displayName": "test",
+        "columns": {
+            "left": {
+                "kind": "rawHTML",
+                "html": "<h1>Test</h1><script>arbitrary_interactive_content();</script>",
+            },
+            "right": {
+                "kind": "rawHTML",
+                "html": '<embed src="https://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf" type="application/pdf" />',
+            },
+            "ratio": "4:8",
+            "order": "leftAboveRight",
+        },
+        "backgroundColor": "#AABBCC",
+    }
+
+    # If this succeeds, then validation succeeded.
+    validated_data = Data(**input_data)
+
+    assert (
+        validated_data.columns.left.html
+        == "<h1>Test</h1><script>arbitrary_interactive_content();</script>"
+    )
+    assert (
+        validated_data.columns.right.html
+        == '<embed src="https://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf" type="application/pdf" />'
+    )
+
+    # Test the round trip from dictionary -> model -> dictionary.
+    # This must not sanitise the html for embed types
+    assert validated_data.model_dump() == {
+        "displayName": "test",
+        "columns": {
+            "left": {
+                "kind": "rawHTML",
+                "html": "<h1>Test</h1><script>arbitrary_interactive_content();</script>",
+            },
+            "right": {
+                "kind": "rawHTML",
+                "html": '<embed src="https://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf" type="application/pdf" />',
+            },
+            "ratio": "4:8",
+            "order": "leftAboveRight",
+        },
+        "backgroundColor": "#AABBCC",
+    }

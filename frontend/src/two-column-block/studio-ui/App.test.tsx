@@ -50,7 +50,7 @@ describe('App.tsx', () => {
     screen.getByLabelText(/Display Name/);
   });
 
-  it('renders with all column types', () => {
+  it('renders with other column types', () => {
     const initialData: Data = {
       displayName: '',
       columns: {
@@ -67,6 +67,7 @@ describe('App.tsx', () => {
     screen.getByDisplayValue('Bulleted Lesson List');
     screen.getByLabelText(/Display Name/);
   });
+
   it('calls the save handler when the save button is clicked', () => {
     const { screen, mockOnCancel, mockOnSave, initialData } = specRender();
 
@@ -267,6 +268,54 @@ describe('App.tsx', () => {
     screen.getByText('Save').click();
 
     // assert the data was updated
+    expect(mockOnSave).toHaveBeenCalledExactlyOnceWith(expectedData);
+  });
+
+  it('renders with embedded html column', async () => {
+    const initialData: Data = {
+      displayName: '',
+      columns: {
+        left: defaultLayout('lessonList'),
+        right: {
+          kind: 'rawHTML',
+          html: '<marquee>AHAHA!</marquee>',
+        },
+        ratio: '5:7',
+        order: 'rightAboveLeft',
+      },
+      backgroundColor: '#FFFFFF',
+    };
+
+    const expectedData: Data = {
+      displayName: '',
+      columns: {
+        left: defaultLayout('lessonList'),
+        right: {
+          kind: 'rawHTML',
+          html: '<embed src="https://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf" type="application/pdf" />',
+        },
+        ratio: '5:7',
+        order: 'rightAboveLeft',
+      },
+      backgroundColor: '#FFFFFF',
+    };
+    const { screen, mockOnSave, user } = specRender(initialData);
+
+    screen.getByDisplayValue('Bulleted Lesson List');
+    screen.getByDisplayValue('Raw HTML');
+    screen.getByDisplayValue('<marquee>AHAHA!</marquee>');
+
+    const displayNameInput = screen.getByLabelText(/Raw HTML/, {
+      selector: 'textarea',
+    });
+    await user.clear(displayNameInput);
+    await user.type(
+      displayNameInput,
+      '<embed src="https://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf" type="application/pdf" />',
+    );
+
+    screen.getByText('Save').click();
+
     expect(mockOnSave).toHaveBeenCalledExactlyOnceWith(expectedData);
   });
 });

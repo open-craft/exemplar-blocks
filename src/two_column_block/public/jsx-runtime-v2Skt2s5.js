@@ -9361,7 +9361,7 @@ var dr = cr(ur, "Icon", { className: {
 	size: r,
 	src: t
 }))), pr = /* @__PURE__ */ function(e) {
-	return e.Text = "text", e.LessonList = "lessonList", e.LessonIntro = "lessonIntro", e.ImageGrid = "imageGrid", e;
+	return e.Text = "text", e.LessonList = "lessonList", e.LessonIntro = "lessonIntro", e.ImageGrid = "imageGrid", e.RawHTML = "rawHTML", e;
 }({}), mr = (e) => {
 	switch (e) {
 		case "text": return {
@@ -9409,6 +9409,10 @@ var dr = cr(ur, "Icon", { className: {
 				color: "#2F4F4F"
 			},
 			bottomRowOrder: "imageText"
+		};
+		case "rawHTML": return {
+			kind: e,
+			html: ""
 		};
 	}
 }, hr = /* @__PURE__ */ o(((e) => {

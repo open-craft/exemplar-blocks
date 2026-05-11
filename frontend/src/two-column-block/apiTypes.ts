@@ -12,8 +12,8 @@ export type Ratio = "9:3" | "8:4" | "7:5" | "6:6" | "5:7" | "4:8" | "3:9";
 export type ColumnOrder = "leftAboveRight" | "rightAboveLeft";
 
 export interface ColumnData {
-  left: TextLayoutData | LessonListLayoutData | LessonIntroLayoutData | ImageGridLayoutData;
-  right: TextLayoutData | LessonListLayoutData | LessonIntroLayoutData | ImageGridLayoutData;
+  left: TextLayoutData | LessonListLayoutData | LessonIntroLayoutData | ImageGridLayoutData | RawHTMLLayoutData;
+  right: TextLayoutData | LessonListLayoutData | LessonIntroLayoutData | ImageGridLayoutData | RawHTMLLayoutData;
   ratio: Ratio;
   order: ColumnOrder;
 }
@@ -64,6 +64,10 @@ export interface ImageGridText {
   fontSize: FontSize;
   backgroundColor: string;
   color: string;
+}
+export interface RawHTMLLayoutData {
+  kind: "rawHTML";
+  html: string;
 }
 export interface Data {
   displayName: string;

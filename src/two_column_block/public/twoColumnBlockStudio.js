@@ -1,4 +1,4 @@
-import { C as e, D as t, E as n, S as r, T as i, _ as a, a as o, b as s, c, d as l, f as u, g as d, h as f, i as p, l as m, m as h, n as g, o as _, p as v, r as y, s as b, t as x, u as S, v as C, w, x as ee, y as T } from "./jsx-runtime-R_ESMcKn.js";
+import { C as e, D as t, E as n, S as r, T as i, _ as a, a as o, b as s, c, d as l, f as u, g as d, h as f, i as p, l as m, m as h, n as g, o as _, p as v, r as y, s as b, t as x, u as S, v as C, w, x as ee, y as T } from "./jsx-runtime-v2Skt2s5.js";
 (/* @__PURE__ */ n(((e, t) => {
 	t.exports = function(e, t, n, r, i, a, o, s) {
 		if (!e) {
@@ -48454,7 +48454,16 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 			})
 		})
 	]
-}), rf = ({ initialData: e, onSave: t, onCancel: n }) => {
+}), rf = ({ data: e, onUpdate: t }) => /* @__PURE__ */ (0, K.jsx)(K.Fragment, { children: /* @__PURE__ */ (0, K.jsxs)(H.Group, { children: [/* @__PURE__ */ (0, K.jsx)(H.Label, { children: "Raw HTML (e.g. an embed code or interactive activity)" }), /* @__PURE__ */ (0, K.jsx)(H.Control, {
+	value: e.html,
+	onChange: (n) => t({
+		...e,
+		html: n.target.value
+	}),
+	placeholder: "",
+	as: "textarea",
+	style: { height: "7lh" }
+})] }) }), af = ({ initialData: e, onSave: t, onCancel: n }) => {
 	let [r, i] = (0, E.useState)(e);
 	return /* @__PURE__ */ (0, K.jsxs)("div", {
 		className: "two-column-block-editor editor-with-buttons d-flex flex-columns justify-content-between",
@@ -48480,7 +48489,7 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 							children: "Left Column"
 						}), /* @__PURE__ */ (0, K.jsxs)("div", {
 							className: "border rounded flex-grow-1 p-4",
-							children: [/* @__PURE__ */ (0, K.jsx)(of, {
+							children: [/* @__PURE__ */ (0, K.jsx)(q, {
 								layoutType: r.columns.left.kind,
 								onUpdate: (e) => i({
 									...r,
@@ -48489,7 +48498,7 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 										left: y(e)
 									}
 								})
-							}), /* @__PURE__ */ (0, K.jsx)(af, {
+							}), /* @__PURE__ */ (0, K.jsx)(of, {
 								data: r.columns.left,
 								onUpdate: (e) => i({
 									...r,
@@ -48522,7 +48531,7 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 							})]
 						}), /* @__PURE__ */ (0, K.jsxs)("div", {
 							className: "border rounded flex-grow-1 p-4",
-							children: [/* @__PURE__ */ (0, K.jsx)(of, {
+							children: [/* @__PURE__ */ (0, K.jsx)(q, {
 								layoutType: r.columns.right.kind,
 								onUpdate: (e) => i({
 									...r,
@@ -48531,7 +48540,7 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 										right: y(e)
 									}
 								})
-							}), /* @__PURE__ */ (0, K.jsx)(af, {
+							}), /* @__PURE__ */ (0, K.jsx)(of, {
 								data: r.columns.right,
 								onUpdate: (e) => i({
 									...r,
@@ -48629,7 +48638,7 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 			})] })
 		})]
 	});
-}, af = ({ data: e, onUpdate: t }) => {
+}, of = ({ data: e, onUpdate: t }) => {
 	switch (e.kind) {
 		case "text": return /* @__PURE__ */ (0, K.jsx)(Yd, {
 			data: e,
@@ -48647,8 +48656,12 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 			data: e,
 			onUpdate: t
 		});
+		case "rawHTML": return /* @__PURE__ */ (0, K.jsx)(rf, {
+			data: e,
+			onUpdate: t
+		});
 	}
-}, of = ({ layoutType: e, onUpdate: t }) => /* @__PURE__ */ (0, K.jsxs)(H.Group, { children: [/* @__PURE__ */ (0, K.jsx)(H.Label, { children: "Template" }), /* @__PURE__ */ (0, K.jsxs)(H.Control, {
+}, q = ({ layoutType: e, onUpdate: t }) => /* @__PURE__ */ (0, K.jsxs)(H.Group, { children: [/* @__PURE__ */ (0, K.jsx)(H.Label, { children: "Template" }), /* @__PURE__ */ (0, K.jsxs)(H.Control, {
 	value: e,
 	onChange: (e) => t(e.target.value),
 	as: "select",
@@ -48668,13 +48681,17 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 		/* @__PURE__ */ (0, K.jsx)("option", {
 			value: g.ImageGrid,
 			children: "Image and Text Grid"
+		}),
+		/* @__PURE__ */ (0, K.jsx)("option", {
+			value: g.RawHTML,
+			children: "Raw HTML"
 		})
 	]
-})] }), q = (e, t, n) => {
+})] }), sf = (e, t, n) => {
 	let r = f(t), i = e.handlerUrl(r, "studio_save");
 	(0, bd.createRoot)(r).render(/* @__PURE__ */ (0, K.jsx)(E.StrictMode, { children: /* @__PURE__ */ (0, K.jsx)(a, {
 		locale: "en",
-		children: /* @__PURE__ */ (0, K.jsx)(rf, {
+		children: /* @__PURE__ */ (0, K.jsx)(af, {
 			initialData: n,
 			onSave: (t) => {
 				e.notify("save", { state: "start" }), $.post(i, JSON.stringify(t)).done(() => {
@@ -48691,4 +48708,4 @@ var K = x(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 	}) }));
 };
 //#endregion
-export { q as renderBlock };
+export { sf as renderBlock };
