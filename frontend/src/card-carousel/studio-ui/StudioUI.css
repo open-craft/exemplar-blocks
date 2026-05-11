@@ -4,4 +4,16 @@
 * */
 .studio-ui {
   min-height: 635px;
+  flex-grow: 1;
+}
+
+.xmodule_CardCarouselXBlock,
+.xblock-studio_view-card_carousel {
+  display: flex;
+}
+
+.xmodule_CardCarouselXBlock form,
+.xblock-studio_view-card_carousel form {
+  display: flex;
+  flex-grow: 1;
 }
