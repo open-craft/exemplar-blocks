@@ -37,6 +37,11 @@
   width: 100%;
 }
 
+.course-cover-image {
+  min-width: 100%;
+  object-fit: cover;
+}
+
 /* Can't use CSS variables in media queries, for some reason. We use the standard numbers for bootstrap. */
 @media (max-width: 575px) {
   .separator-cover-image,
