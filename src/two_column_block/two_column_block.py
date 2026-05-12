@@ -94,7 +94,7 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
         "backgroundColor",
     )
 
-    def _render_preview(self, is_studio=False):
+    def _render_preview(self, *, is_studio: bool):
         html = resource_loader.load_unicode("static/html/two_column_block.html")
         frag = Fragment(html)
 
@@ -125,7 +125,7 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
         """The primary view of this block, shown to students
         when viewing courses.
         """
-        return self._render_preview()
+        return self._render_preview(is_studio=False)
 
     def author_view(self, context=None):
         return self._render_preview(is_studio=True)

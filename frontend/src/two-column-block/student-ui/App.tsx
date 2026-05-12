@@ -92,11 +92,11 @@ type LessonListColumnViewProps = {
 const LessonListColumnView = ({ data }: LessonListColumnViewProps) => {
   return (
     <>
-      <h2>{data.title}</h2>
+      <h5>{data.title}</h5>
       <p>{data.text}</p>
       {data.lessons.map((lesson) => (
-        <Row className="lesson-list-item py-2">
-          <Col xs={2} className="text-brand-600">
+        <Row className="lesson-list-item py-4">
+          <Col xs={2} className="text-secondary font-weight-bold">
             {lesson.id}
           </Col>
           <Col xs={10}>{lesson.title}</Col>
@@ -113,25 +113,33 @@ type LessonIntroColumnViewProps = {
 const LessonIntroColumnView = ({ data }: LessonIntroColumnViewProps) => {
   return (
     <>
-      <h2>{data.title}</h2>
-      <h3>
-        <span className="text-brand-600">
+      <h4 className="mb-4.5">{data.title}</h4>
+      <h5 className="lh-lg">
+        <span className="text-secondary">
           {data.lesson.id ? data.lesson.id : null}
         </span>
         <br />
         <span>{data.lesson.title}</span>
-      </h3>
+      </h5>
       <p>{data.summary}</p>
 
       {(data.previousLesson || data.showStartLessonButton) && (
         <ActionRow>
           {data.previousLesson && (
-            <Button variant="outline-brand" href={data.previousLesson.url}>
+            <Button
+              className="rounded-pill"
+              variant="outline-brand"
+              href={data.previousLesson.url}
+            >
               Previous {data.previousLesson.id}
             </Button>
           )}
           {data.showStartLessonButton && (
-            <Button variant="brand" href={data.lesson.url}>
+            <Button
+              className="rounded-pill"
+              variant="brand"
+              href={data.lesson.url}
+            >
               Start {data.lesson.id}
             </Button>
           )}
@@ -146,39 +154,44 @@ type ImageGridColumnViewProps = {
 };
 
 const ImageGridColumnView = ({ data }: ImageGridColumnViewProps) => {
-  const bottomImage = (
-    <Col xs={6}>
-      {data.bottomImage.onClickUrl ? (
-        <Hyperlink
-          showLaunchIcon={false}
-          target="_blank"
-          destination={data.bottomImage.onClickUrl}
-        >
-          <Image fluid src={data.bottomImage.url} alt={data.bottomImage.alt} />
-        </Hyperlink>
-      ) : (
-        <Image fluid src={data.bottomImage.url} alt={data.bottomImage.alt} />
-      )}
-    </Col>
+  const bottomImage = data.bottomImage.onClickUrl ? (
+    <Hyperlink
+      className="d-block w-100 bottom-image-grid-item overflow-hidden"
+      showLaunchIcon={false}
+      target="_blank"
+      destination={data.bottomImage.onClickUrl}
+    >
+      <Image
+        className="w-100"
+        fluid
+        src={data.bottomImage.url}
+        alt={data.bottomImage.alt}
+      />
+    </Hyperlink>
+  ) : (
+    <Image
+      className="w-100 bottom-image-grid-item overflow-hidden"
+      fluid
+      src={data.bottomImage.url}
+      alt={data.bottomImage.alt}
+    />
   );
 
   const bottomText = (
-    <Col xs={6}>
+    <div
+      className={`d-flex align-items-center justify-content-${data.text.alignment} p-3 bottom-image-grid-item`}
+      style={{ backgroundColor: data.text.backgroundColor, height: '100%' }}
+    >
       <div
-        className={`d-flex align-items-center justify-content-${data.text.alignment} p-3`}
-        style={{ backgroundColor: data.text.backgroundColor, height: '100%' }}
+        className={data.text.fontSize == 'large' ? 'lead' : ''}
+        style={{ color: data.text.color }}
       >
-        <div
-          className={data.text.fontSize == 'large' ? 'lead' : ''}
-          style={{ color: data.text.color }}
-        >
-          {data.text.content}
-        </div>
+        {data.text.content}
       </div>
-    </Col>
+    </div>
   );
 
-  const bottomRow =
+  const [bottomLeft, bottomRight] =
     data.bottomRowOrder == 'imageText'
       ? [bottomImage, bottomText]
       : [bottomText, bottomImage];
@@ -186,15 +199,17 @@ const ImageGridColumnView = ({ data }: ImageGridColumnViewProps) => {
   return (
     <>
       <Row>
-        <Col xs={12} className="pb-3">
+        <Col xs={12} className="pb-1">
           {data.featuredImage.onClickUrl ? (
             <Hyperlink
               target="_blank"
+              className="d-block w-100 top-image-grid-item overflow-hidden"
               showLaunchIcon={false}
               destination={data.featuredImage.onClickUrl}
             >
               <Image
                 fluid
+                className="w-100"
                 src={data.featuredImage.url}
                 alt={data.featuredImage.alt}
               />
@@ -202,12 +217,18 @@ const ImageGridColumnView = ({ data }: ImageGridColumnViewProps) => {
           ) : (
             <Image
               fluid
+              className="w-100 top-image-grid-item"
               src={data.featuredImage.url}
               alt={data.featuredImage.alt}
             />
           )}
         </Col>
-        {bottomRow}
+        <Col xs={6} className="pr-1">
+          {bottomLeft}
+        </Col>
+        <Col xs={6} className="pl-1">
+          {bottomRight}
+        </Col>
       </Row>
     </>
   );

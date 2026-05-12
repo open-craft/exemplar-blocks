@@ -132,13 +132,13 @@ var A = a(), j = ({ data: e }) => {
 	},
 	children: /* @__PURE__ */ (0, A.jsx)("div", { dangerouslySetInnerHTML: { __html: e.content } })
 }), P = ({ data: e }) => /* @__PURE__ */ (0, A.jsxs)(A.Fragment, { children: [
-	/* @__PURE__ */ (0, A.jsx)("h2", { children: e.title }),
+	/* @__PURE__ */ (0, A.jsx)("h5", { children: e.title }),
 	/* @__PURE__ */ (0, A.jsx)("p", { children: e.text }),
 	e.lessons.map((e) => /* @__PURE__ */ (0, A.jsxs)(l, {
-		className: "lesson-list-item py-2",
+		className: "lesson-list-item py-4",
 		children: [/* @__PURE__ */ (0, A.jsx)(f, {
 			xs: 2,
-			className: "text-brand-600",
+			className: "text-secondary font-weight-bold",
 			children: e.id
 		}), /* @__PURE__ */ (0, A.jsx)(f, {
 			xs: 10,
@@ -146,79 +146,99 @@ var A = a(), j = ({ data: e }) => {
 		})]
 	}))
 ] }), F = ({ data: e }) => /* @__PURE__ */ (0, A.jsxs)(A.Fragment, { children: [
-	/* @__PURE__ */ (0, A.jsx)("h2", { children: e.title }),
-	/* @__PURE__ */ (0, A.jsxs)("h3", { children: [
-		/* @__PURE__ */ (0, A.jsx)("span", {
-			className: "text-brand-600",
-			children: e.lesson.id ? e.lesson.id : null
-		}),
-		/* @__PURE__ */ (0, A.jsx)("br", {}),
-		/* @__PURE__ */ (0, A.jsx)("span", { children: e.lesson.title })
-	] }),
+	/* @__PURE__ */ (0, A.jsx)("h4", {
+		className: "mb-4.5",
+		children: e.title
+	}),
+	/* @__PURE__ */ (0, A.jsxs)("h5", {
+		className: "lh-lg",
+		children: [
+			/* @__PURE__ */ (0, A.jsx)("span", {
+				className: "text-secondary",
+				children: e.lesson.id ? e.lesson.id : null
+			}),
+			/* @__PURE__ */ (0, A.jsx)("br", {}),
+			/* @__PURE__ */ (0, A.jsx)("span", { children: e.lesson.title })
+		]
+	}),
 	/* @__PURE__ */ (0, A.jsx)("p", { children: e.summary }),
 	(e.previousLesson || e.showStartLessonButton) && /* @__PURE__ */ (0, A.jsxs)(i, { children: [e.previousLesson && /* @__PURE__ */ (0, A.jsxs)(d, {
+		className: "rounded-pill",
 		variant: "outline-brand",
 		href: e.previousLesson.url,
 		children: ["Previous ", e.previousLesson.id]
 	}), e.showStartLessonButton && /* @__PURE__ */ (0, A.jsxs)(d, {
+		className: "rounded-pill",
 		variant: "brand",
 		href: e.lesson.url,
 		children: ["Start ", e.lesson.id]
 	})] })
 ] }), I = ({ data: e }) => {
-	let t = /* @__PURE__ */ (0, A.jsx)(f, {
-		xs: 6,
-		children: e.bottomImage.onClickUrl ? /* @__PURE__ */ (0, A.jsx)(k, {
-			showLaunchIcon: !1,
-			target: "_blank",
-			destination: e.bottomImage.onClickUrl,
-			children: /* @__PURE__ */ (0, A.jsx)(w, {
-				fluid: !0,
-				src: e.bottomImage.url,
-				alt: e.bottomImage.alt
-			})
-		}) : /* @__PURE__ */ (0, A.jsx)(w, {
+	let t = e.bottomImage.onClickUrl ? /* @__PURE__ */ (0, A.jsx)(k, {
+		className: "d-block w-100 bottom-image-grid-item overflow-hidden",
+		showLaunchIcon: !1,
+		target: "_blank",
+		destination: e.bottomImage.onClickUrl,
+		children: /* @__PURE__ */ (0, A.jsx)(w, {
+			className: "w-100",
 			fluid: !0,
 			src: e.bottomImage.url,
 			alt: e.bottomImage.alt
 		})
-	}), n = /* @__PURE__ */ (0, A.jsx)(f, {
-		xs: 6,
+	}) : /* @__PURE__ */ (0, A.jsx)(w, {
+		className: "w-100 bottom-image-grid-item overflow-hidden",
+		fluid: !0,
+		src: e.bottomImage.url,
+		alt: e.bottomImage.alt
+	}), n = /* @__PURE__ */ (0, A.jsx)("div", {
+		className: `d-flex align-items-center justify-content-${e.text.alignment} p-3 bottom-image-grid-item`,
+		style: {
+			backgroundColor: e.text.backgroundColor,
+			height: "100%"
+		},
 		children: /* @__PURE__ */ (0, A.jsx)("div", {
-			className: `d-flex align-items-center justify-content-${e.text.alignment} p-3`,
-			style: {
-				backgroundColor: e.text.backgroundColor,
-				height: "100%"
-			},
-			children: /* @__PURE__ */ (0, A.jsx)("div", {
-				className: e.text.fontSize == "large" ? "lead" : "",
-				style: { color: e.text.color },
-				children: e.text.content
-			})
+			className: e.text.fontSize == "large" ? "lead" : "",
+			style: { color: e.text.color },
+			children: e.text.content
 		})
-	}), r = e.bottomRowOrder == "imageText" ? [t, n] : [n, t];
-	return /* @__PURE__ */ (0, A.jsx)(A.Fragment, { children: /* @__PURE__ */ (0, A.jsxs)(l, { children: [/* @__PURE__ */ (0, A.jsx)(f, {
-		xs: 12,
-		className: "pb-3",
-		children: e.featuredImage.onClickUrl ? /* @__PURE__ */ (0, A.jsx)(k, {
-			target: "_blank",
-			showLaunchIcon: !1,
-			destination: e.featuredImage.onClickUrl,
-			children: /* @__PURE__ */ (0, A.jsx)(w, {
+	}), [r, i] = e.bottomRowOrder == "imageText" ? [t, n] : [n, t];
+	return /* @__PURE__ */ (0, A.jsx)(A.Fragment, { children: /* @__PURE__ */ (0, A.jsxs)(l, { children: [
+		/* @__PURE__ */ (0, A.jsx)(f, {
+			xs: 12,
+			className: "pb-1",
+			children: e.featuredImage.onClickUrl ? /* @__PURE__ */ (0, A.jsx)(k, {
+				target: "_blank",
+				className: "d-block w-100 top-image-grid-item overflow-hidden",
+				showLaunchIcon: !1,
+				destination: e.featuredImage.onClickUrl,
+				children: /* @__PURE__ */ (0, A.jsx)(w, {
+					fluid: !0,
+					className: "w-100",
+					src: e.featuredImage.url,
+					alt: e.featuredImage.alt
+				})
+			}) : /* @__PURE__ */ (0, A.jsx)(w, {
 				fluid: !0,
+				className: "w-100 top-image-grid-item",
 				src: e.featuredImage.url,
 				alt: e.featuredImage.alt
 			})
-		}) : /* @__PURE__ */ (0, A.jsx)(w, {
-			fluid: !0,
-			src: e.featuredImage.url,
-			alt: e.featuredImage.alt
+		}),
+		/* @__PURE__ */ (0, A.jsx)(f, {
+			xs: 6,
+			className: "pr-1",
+			children: r
+		}),
+		/* @__PURE__ */ (0, A.jsx)(f, {
+			xs: 6,
+			className: "pl-1",
+			children: i
 		})
-	}), r] }) });
+	] }) });
 }, L = ({ data: e }) => /* @__PURE__ */ (0, A.jsx)("div", {
 	style: { minHeight: "100%" },
 	dangerouslySetInnerHTML: { __html: e.html }
-}), R = ".xblock-two-column .lesson-list-item+.lesson-list-item:before{content:\"\";width:100%;margin:0 calc(var(--pgn-spacing-grid-gutter-width) * .5);background-color:var(--pgn-color-gray-200);height:1px;margin-bottom:calc(var(--pgn-spacing-spacer-base) * .5)}.xblock-two-column.two-column-reverse{flex-direction:column-reverse}@media (width>=576px){.xblock-two-column.two-column-reverse{flex-direction:row}}", z = (e, t, n) => {
+}), R = ".xblock-two-column .lesson-list-item+.lesson-list-item{border-top:1px solid var(--pgn-color-gray-200)}.xblock-two-column.two-column-reverse{flex-direction:column-reverse}@media (width>=576px){.xblock-two-column.two-column-reverse{flex-direction:row}}.xblock-two-column .pgn__action-row{justify-content:flex-start}.xblock-two-column .lh-lg{line-height:2em!important}.xblock-two-column .top-image-grid-item{border-top-left-radius:var(--pgn-two-column-block-image-size-border-radius-lg);border-top-right-radius:var(--pgn-two-column-block-image-size-border-radius-lg);border-bottom-left-radius:var(--pgn-two-column-block-image-size-border-radius-sm);border-bottom-right-radius:var(--pgn-two-column-block-image-size-border-radius-sm)}.xblock-two-column .bottom-image-grid-item{border-top-left-radius:var(--pgn-two-column-block-image-size-border-radius-sm);border-top-right-radius:var(--pgn-two-column-block-image-size-border-radius-sm);border-bottom-left-radius:var(--pgn-two-column-block-image-size-border-radius-lg);border-bottom-right-radius:var(--pgn-two-column-block-image-size-border-radius-lg)}", z = (e, t, n) => {
 	c({
 		runtime: e,
 		element: t,
