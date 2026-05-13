@@ -7,7 +7,7 @@ from typing import Callable, Union
 
 from django.conf import settings
 from django.template import Template, Context
-from pydantic import ValidationError, HttpUrl
+from pydantic import ValidationError
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
 from xblock.exceptions import JsonHandlerError
@@ -20,27 +20,25 @@ logger = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
 
 
-def default_media_url() -> HttpUrl:
+def default_media_url() -> str:
     """
     Get the default media URL if set in the Django settings. Otherwise, use
     picsum photo.
     """
-    return HttpUrl(
-        getattr(
-            settings,
-            "COVERBLOCK_DEFAULT_MEDIA_URL",
-            "https://picsum.photos/2000/2000",
-        )
+    return getattr(
+        settings,
+        "COVERBLOCK_DEFAULT_MEDIA_URL",
+        "https://picsum.photos/2000/2000",
     )
 
 
-def call_or_string(target: Union[str, Callable[[], HttpUrl]]) -> HttpUrl:
+def call_or_string(target: Union[str, Callable[[], str]]) -> str:
     """
     Used for handling the default value in the media URL field, since the default
     is a function.
     """
     if isinstance(target, str):
-        return HttpUrl(target)
+        return target
     return target()
 
 
