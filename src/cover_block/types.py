@@ -6,7 +6,7 @@ import re
 from enum import StrEnum
 from typing import Annotated
 
-from pydantic import BaseModel, AfterValidator, HttpUrl
+from pydantic import BaseModel, AfterValidator
 
 WorkbenchScenario = tuple[str, str]
 
@@ -49,5 +49,5 @@ class CoverBlockFields(BaseModel, extra="forbid", use_enum_values=True):
     subheader_color: Color
     description: str
     description_color: Color
-    media_url: HttpUrl
+    media_url: str
     media_alt_text: str
