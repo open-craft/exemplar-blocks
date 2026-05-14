@@ -4,6 +4,21 @@ import { IntlProvider } from 'react-intl';
 import type { XBlockRuntime } from '../types.ts';
 import { RuntimeContext } from './context.ts';
 
+type JsrtFields = Record<`_jsrt${string}`, unknown>;
+
+const copyJsrtFields = (target: Element, source: unknown): void => {
+  if (source === null || source === undefined) return;
+  if (typeof source !== 'object' && typeof source !== 'function') return;
+  for (const key of Object.getOwnPropertyNames(source)) {
+    if (key.startsWith('_jsrt')) {
+      const jsrtKey = key as `_jsrt${string}`;
+      (target as Element & JsrtFields)[jsrtKey] = (source as JsrtFields)[
+        jsrtKey
+      ];
+    }
+  }
+};
+
 export const deriveColor = (name: string, value: string): CSSProperties => {
   if (!value) {
     return {};
@@ -17,16 +32,19 @@ export const deriveColor = (name: string, value: string): CSSProperties => {
   return {};
 };
 
-export const getRoot = (element: Element | Element[] | null): Element => {
-  const container =
-    element && 'jquery' in element
-      ? (element as unknown as Element[])[0]
-      : element;
+export const getRoot = (element: Element | JQuery<Element> | null): Element => {
+  const container: Element | null =
+    element && 'jquery' in element ? (element as JQuery<Element>)[0] : element;
 
   if (!container || !(container instanceof Element)) {
     console.error('Invalid DOM element provided to renderBlock:', element);
     throw new Error('Invalid DOM Element. See previously logged details.');
   }
+  // xblock runtime in iframe injects runtime fields (prefixed with _jsrt) into
+  // DOM elements. Copy all such fields from source(s) to container so they're
+  // available on the extracted raw element.
+  // https://raw.githubusercontent.com/openedx/edx-platform/4ba769509c957503c3b78f25a64cc2cf9646e157/common/templates/xblock_v2/xblock_iframe.html
+  copyJsrtFields(container, element);
   return container;
 };
 
@@ -90,7 +108,7 @@ const ENABLE_SHADOW_ROOT = false;
 export const createXBlockRoot =
   (
     runtime: XBlockRuntime,
-    element: Element | Element[] | null,
+    element: Element | JQuery<Element> | null,
     styles?: string,
   ) =>
   async (children: React.ReactNode) => {

@@ -1,6 +1,14 @@
 @import '../../base';
 @import '../../studio';
 
+.wrapper.xblock-iframe-content {
+  .xblock-v1-studio_view {
+    display: flex;
+    // Keypoint adds a scroll due to footer size in library
+    max-height: calc(100% - 69px);
+  }
+}
+
 .xblock-keypoints .keypoint-entry {
   border: 1px solid var(--pgn-color-gray-200);
   border-radius: var(--pgn-size-border-radius-base);
@@ -22,4 +30,8 @@
   bottom: 0;
   z-index: 1;
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.modal-lg .edit-xblock-modal .modal-content {
+  overflow-y: hidden !important;
 }

@@ -1,4 +1,4 @@
-import { C as e, E as t, S as n, T as r, _ as i, a, b as o, c as s, d as c, f as l, g as u, h as d, i as f, l as p, m, n as h, o as g, p as _, r as v, s as y, t as b, u as x, v as S, w as C, x as w, y as ee } from "./types-Cw9WQEQ6.js";
+import { C as e, E as t, S as n, T as r, _ as i, a, b as o, c as s, d as c, f as l, g as u, h as d, i as f, l as p, m, n as h, o as g, p as _, r as v, s as y, t as b, u as x, v as S, w as C, x as w, y as ee } from "./types-54JIFa6a.js";
 (/* @__PURE__ */ r(((e, t) => {
 	t.exports = function(e, t, n, r, i, a, o, s) {
 		if (!e) {
@@ -48468,7 +48468,7 @@ var K = u(), Kd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 	return /* @__PURE__ */ (0, K.jsxs)("div", {
 		className: "two-column-block-editor editor-with-buttons d-flex flex-columns justify-content-between",
 		children: [/* @__PURE__ */ (0, K.jsxs)("div", {
-			className: "wrapper-comp-settings is-active container",
+			className: "wrapper-comp-settings is-active container-fluid",
 			children: [
 				/* @__PURE__ */ (0, K.jsxs)(H.Group, { children: [/* @__PURE__ */ (0, K.jsx)(H.Label, { children: "Display Name (shown in Studio only)" }), /* @__PURE__ */ (0, K.jsx)(H.Control, {
 					controlClassName: "w-auto",

@@ -9169,11 +9169,18 @@ var Jn = /* @__PURE__ */ function(e) {
 	e.jsx = o, e.jsxs = o;
 })), $n = /* @__PURE__ */ o(((e, t) => {
 	t.exports = Qn();
-})), er = Xn(), tr = $n(), nr = (e, t) => t ? t.match(/^#([0-9]|[a-f]){6}$/i) ? { color: t } : (console.error(`Bogus color found for ${e}: ${t}`), {}) : {}, rr = (e) => {
+})), er = Xn(), tr = $n(), nr = (e, t) => {
+	if (t != null && !(typeof t != "object" && typeof t != "function")) {
+		for (let n of Object.getOwnPropertyNames(t)) if (n.startsWith("_jsrt")) {
+			let r = n;
+			e[r] = t[r];
+		}
+	}
+}, rr = (e, t) => t ? t.match(/^#([0-9]|[a-f]){6}$/i) ? { color: t } : (console.error(`Bogus color found for ${e}: ${t}`), {}) : {}, ir = (e) => {
 	let t = e && "jquery" in e ? e[0] : e;
 	if (!t || !(t instanceof Element)) throw console.error("Invalid DOM element provided to renderBlock:", e), Error("Invalid DOM Element. See previously logged details.");
-	return t;
-}, ir = async () => {
+	return nr(t, e), t;
+}, ar = async () => {
 	let e = {};
 	try {
 		e = (await (await fetch("/api/mfe_config/v1")).json()).PARAGON_THEME_URLS;
@@ -9185,8 +9192,8 @@ var Jn = /* @__PURE__ */ function(e) {
 		core: ["https://cdn.jsdelivr.net/npm/@openedx/paragon@23/dist/core.min.css", e?.core?.urls?.brandOverride].filter(Boolean),
 		theme: n
 	};
-}, ar = (e, t, n) => async (r) => {
-	let { core: i, theme: a } = await ir(), o = rr(t), s = o;
+}, or = (e, t, n) => async (r) => {
+	let { core: i, theme: a } = await ar(), o = ir(t), s = o;
 	if (n) {
 		let e = document.createElement("style");
 		e.textContent = n, document.head.appendChild(e);
@@ -9209,4 +9216,4 @@ var Jn = /* @__PURE__ */ function(e) {
 	}) }));
 };
 //#endregion
-export { o as _, Yn as a, Mn as c, b as d, g as f, u as g, d as h, Zn as i, ce as l, f as m, nr as n, qn as o, p, $n as r, In as s, ar as t, te as u, c as v };
+export { o as _, Yn as a, Mn as c, b as d, g as f, u as g, d as h, Zn as i, ce as l, f as m, rr as n, qn as o, p, $n as r, In as s, or as t, te as u, c as v };

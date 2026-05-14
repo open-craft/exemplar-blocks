@@ -1,4 +1,11 @@
+.wrapper.xblock-iframe-content {
+  .xblock-v1-studio_view {
+    display: flex;
+  }
+}
+
 .react-studio-block {
+  flex-grow: 1;
   // Bootstrap grid requires border-box sizing. Since we don't import
   // the full reboot (to avoid affecting LMS global styles), scope it here.
   *,
@@ -19,7 +26,7 @@
   .wrapper-comp-settings {
     overflow-y: scroll;
     // This is full screen height, with removal of 60px for the header, and 69px for the footer.
-    max-height: calc(100vh - 129px);
+    max-height: calc(100vh - 69px);
   }
 
   margin-bottom: 0 !important;

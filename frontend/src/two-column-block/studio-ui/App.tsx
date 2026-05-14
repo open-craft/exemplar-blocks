@@ -38,7 +38,7 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
 
   return (
     <div className="two-column-block-editor editor-with-buttons d-flex flex-columns justify-content-between">
-      <div className="wrapper-comp-settings is-active container">
+      <div className="wrapper-comp-settings is-active container-fluid">
         <Form.Group>
           <Form.Label>Display Name (shown in Studio only)</Form.Label>
           <Form.Control
