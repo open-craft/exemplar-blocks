@@ -9,6 +9,7 @@ import {
   ColorPicker,
   Form,
   Row,
+  Sticky,
 } from '@openedx/paragon';
 import { CompareArrows } from '@openedx/paragon/icons';
 import { TextLayoutEditor } from './components/TextLayoutEditor.tsx';
@@ -37,7 +38,7 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
     });
 
   return (
-    <div className="two-column-block-editor editor-with-buttons d-flex flex-columns justify-content-between">
+    <div className="two-column-block-editor editor-with-buttons d-flex flex-column justify-content-between">
       <div className="wrapper-comp-settings is-active container-fluid">
         <Form.Group>
           <Form.Label>Display Name (shown in Studio only)</Form.Label>
@@ -168,7 +169,7 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
         </Form.Label>
       </div>
 
-      <div className="xblock-actions">
+      <Sticky position="bottom" className="xblock-actions p-2 border-top">
         <ActionRow>
           <Button variant="primary" onClick={() => onSave(data)}>
             Save
@@ -177,7 +178,7 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
             Cancel
           </Button>
         </ActionRow>
-      </div>
+      </Sticky>
     </div>
   );
 };

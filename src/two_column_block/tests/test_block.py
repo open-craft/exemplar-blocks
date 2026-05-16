@@ -74,7 +74,7 @@ def test_block_html_studio():
     """
     block = make_block()
     content = get_studio_content(block)
-    assert "two-column-block" in content
+    assert "editor-with-buttons" in content
 
 
 def test_block_html_studio_broken_data():

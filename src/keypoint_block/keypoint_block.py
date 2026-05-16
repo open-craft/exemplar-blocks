@@ -4,6 +4,7 @@ An XBlock for key point glossary.
 
 from importlib.resources import files
 
+from django.conf import settings
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
 from xblock.fields import List, Scope, String
@@ -62,10 +63,6 @@ class KeypointXBlock(XBlock):
         html = self.resource_string("static/html/keypoint.html")
         frag = Fragment(html)
         frag.add_javascript(self.resource_string("static/js/student.js"))
-        # Normally, you would add a css file to the block.
-        # However for the Shadow DOM, we need to include this CSS inside the component
-        # instead of in the head of the document. We are doing this for this block but
-        # not for all blocks yet.
         frag.initialize_js(
             "KeyPointXBlock",
             {
@@ -77,6 +74,7 @@ class KeypointXBlock(XBlock):
                 "button_text": self.button_text,
                 "button_link": self.button_link,
                 "background_color": self.background_color,
+                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
             },
         )
         return frag
@@ -111,6 +109,7 @@ class KeypointXBlock(XBlock):
                 "button_text": self.button_text,
                 "button_link": self.button_link,
                 "background_color": self.background_color,
+                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
             },
         )
         return frag

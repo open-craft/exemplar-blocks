@@ -141,7 +141,6 @@ class CoverBlock(XBlock):
         frag = Fragment(Template(html).render(Context({"self": self})))
         if self.dev_mode:
             frag.add_css(resource_loader.load_unicode("static/css/workbench.css"))
-        frag.add_css(resource_loader.load_unicode("public/frontend.css"))
         frag.add_javascript(resource_loader.load_unicode("static/js/src/student.js"))
         frag.initialize_js(
             "CoverBlock",
@@ -150,6 +149,7 @@ class CoverBlock(XBlock):
                     self, "public/coverBlockStudent.js"
                 ),
                 **self.field_data(),
+                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
             },
         )
         return frag
@@ -180,7 +180,6 @@ class CoverBlock(XBlock):
         html = resource_loader.load_unicode("static/html/cover_edit.html")
         frag = Fragment(html)
         frag.add_javascript(resource_loader.load_unicode("static/js/src/studio.js"))
-        frag.add_css(resource_loader.load_unicode("public/frontend.css"))
         frag.add_css(resource_loader.load_unicode("static/css/studio-reset.css"))
         frag.initialize_js(
             "CoverEditor",
@@ -189,6 +188,7 @@ class CoverBlock(XBlock):
                     self, "public/coverBlockStudio.js"
                 ),
                 **self.field_data(),
+                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
             },
         )
         return frag

@@ -15,7 +15,6 @@ import {
 import { ContentHighlight } from './ContentHighlight';
 import { RichList } from './RichList';
 import { HoverList } from './HoverList';
-import './ComplexCard.css';
 
 interface ComplexCardProps {
   orientation: Orientation;

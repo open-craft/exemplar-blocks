@@ -1,13 +1,14 @@
-import type { XBlockRuntime } from '../../types.ts';
+import type { XBlockConfig, XBlockRuntime } from '../../types.ts';
 import type { Data } from '../apiTypes.ts';
 import { createXBlockRoot } from '../../lib/utils.tsx';
 
 import { App } from './App.tsx';
+import styles from './main.scss?inline';
 
 export const renderBlock = (
-  _runtime: XBlockRuntime,
+  runtime: XBlockRuntime,
   element: Element,
-  data: Data,
+  data: Data & XBlockConfig,
 ) => {
-  createXBlockRoot(_runtime, element)(<App data={data} />);
+  createXBlockRoot(runtime, element, data, styles)(<App data={data} />);
 };

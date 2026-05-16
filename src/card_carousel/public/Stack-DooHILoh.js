@@ -9047,38 +9047,38 @@ var Dn = (0, V.createContext)({
 	let t = e && "jquery" in e ? e[0] : e;
 	if (!t || !(t instanceof Element)) throw console.error("Invalid DOM element provided to renderBlock:", e), Error("Invalid DOM Element. See previously logged details.");
 	return Mn(t, e), t;
-}, Pn = async () => {
-	let e = {};
+}, Pn = async (e) => {
+	let t = {};
 	try {
-		e = (await (await fetch("/api/mfe_config/v1")).json()).PARAGON_THEME_URLS;
+		t = (await (await fetch(e)).json()).PARAGON_THEME_URLS;
 	} catch (e) {
 		console.error("Failed to fetch theme URLs:", e);
 	}
-	let t = e?.default?.light, n = ["https://cdn.jsdelivr.net/npm/@openedx/paragon@23/dist/light.min.css", e?.variants?.[t]?.urls?.brandOverride].filter(Boolean);
+	let n = t?.default?.light, r = ["https://cdn.jsdelivr.net/npm/@openedx/paragon@23/dist/light.min.css", t?.variants?.[n]?.urls?.brandOverride].filter(Boolean);
 	return {
-		core: ["https://cdn.jsdelivr.net/npm/@openedx/paragon@23/dist/core.min.css", e?.core?.urls?.brandOverride].filter(Boolean),
-		theme: n
+		core: ["https://cdn.jsdelivr.net/npm/@openedx/paragon@23/dist/core.min.css", t?.core?.urls?.brandOverride].filter(Boolean),
+		theme: r
 	};
-}, Fn = (e, t, n) => async (r) => {
-	let { core: i, theme: a } = await Pn(), o = Nn(t), s = o;
-	if (n) {
+}, Fn = (e, t, n, r) => async (i) => {
+	let { core: a, theme: o } = await Pn(n.mfe_config_api), s = Nn(t), c = null, l = s;
+	if (c = s.attachShadow({ mode: "open" }), l = document.createElement("div"), c.appendChild(l), r) {
 		let e = document.createElement("style");
-		e.textContent = n, document.head.appendChild(e);
+		e.textContent = r, c ? c.appendChild(e) : document.head.appendChild(e);
 	}
-	i.forEach((e) => {
+	a.forEach((e) => {
 		let t = document.createElement("link");
-		t.rel = "stylesheet", t.href = e, null?.appendChild(t), document.head.querySelector(`link[href="${e}"]`) || document.head.appendChild(t.cloneNode());
-	}), a.forEach((e) => {
+		t.rel = "stylesheet", t.href = e, c?.appendChild(t), document.head.querySelector(`link[href="${e}"]`) || document.head.appendChild(t.cloneNode());
+	}), o.forEach((e) => {
 		let t = document.createElement("link");
-		t.rel = "stylesheet", t.href = e, null?.appendChild(t), document.head.querySelector(`link[href="${e}"]`) || document.head.appendChild(t.cloneNode());
-	}), (0, An.createRoot)(s).render(/* @__PURE__ */ (0, jn.jsx)(V.StrictMode, { children: /* @__PURE__ */ (0, jn.jsx)(Dn.Provider, {
+		t.rel = "stylesheet", t.href = e, c?.appendChild(t), document.head.querySelector(`link[href="${e}"]`) || document.head.appendChild(t.cloneNode());
+	}), (0, An.createRoot)(l).render(/* @__PURE__ */ (0, jn.jsx)(V.StrictMode, { children: /* @__PURE__ */ (0, jn.jsx)(Dn.Provider, {
 		value: {
 			runtime: e,
-			element: o
+			element: s
 		},
 		children: /* @__PURE__ */ (0, jn.jsx)(Tn, {
 			locale: "en",
-			children: r
+			children: i
 		})
 	}) }));
 }, In = /* @__PURE__ */ o(((e, t) => {

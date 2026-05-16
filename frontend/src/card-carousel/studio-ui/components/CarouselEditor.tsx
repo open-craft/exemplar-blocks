@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from '@openedx/paragon/dist/Button';
+import { Add as AddIcon } from '@openedx/paragon/icons';
 import CardEditor from './CardEditor';
 import { useSortable } from '@dnd-kit/react/sortable';
 import { DragDropProvider } from '@dnd-kit/react';
@@ -7,7 +8,6 @@ import { move } from '@dnd-kit/helpers';
 import { useFormikContext, FieldArray } from 'formik';
 import { type InitData } from '../../types';
 import { newCard } from '../utils';
-import './CarouselEditor.css';
 
 interface CardItemProps {
   id: number;
@@ -73,12 +73,13 @@ export default function CarouselEditor() {
             <div className="col-3 p-2 border-right">
               <Button
                 variant="primary"
+                iconBefore={AddIcon}
                 onClick={() => {
                   push(newCard(values.cards));
                   setActiveCard(values.cards.length);
                 }}
               >
-                <span className="material-icons">add</span> Add Card
+                Add Card
               </Button>
               <div className="mt-4">
                 {values.cards.map((card, index) => (

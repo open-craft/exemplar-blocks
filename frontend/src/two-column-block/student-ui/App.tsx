@@ -18,8 +18,6 @@ import {
 import { type LayoutData } from '../types';
 import type { ReactElement } from 'react';
 
-import './main.scss';
-
 type AppProps = {
   data: Data;
 };

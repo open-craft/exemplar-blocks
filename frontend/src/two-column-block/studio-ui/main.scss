@@ -1,21 +1,9 @@
+@import '../../studio';
+
 // Hide the "close" button at the bottom of the editor modal.
 // We want our own save and cancel buttons.
 .edit-xblock-modal > .modal-actions {
   display: none !important;
-}
-
-.two-column-block-editor {
-  // the bottom action bar with save and close buttons
-  .xblock-actions {
-    border-top: 1px solid var(--pgn-color-gray-200);
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
-  }
-
-  .wrapper-comp-settings {
-    overflow-y: scroll;
-    // This is full screen height, with removal of 60px for the header, and 69px for the footer.
-    max-height: calc(100vh - 129px);
-  }
 }
 
 .modal-lg .two-column-block-editor .wrapper-comp-settings {

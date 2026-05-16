@@ -1,3 +1,8 @@
+@import './components/secondary-content/IconSelector/index.css';
+@import './components/CarouselEditor.css';
+@import './components/ModalFooter.css';
+@import '../../studio.scss';
+
 /*
 * The CMS hardcodes the height of the "Edit" modal to be 435px in cms/static/sass/elements/_modal-window.scss
 * This is insufficient for this UI. So bumping it up to 635px.

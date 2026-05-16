@@ -3,8 +3,6 @@ import type { XBlockRuntime } from '../../types';
 import { type InitData } from '../types';
 import ComplexCard from './components/ComplexCard';
 
-import './StudentUI.css';
-
 interface StudentUIProps {
   runtime: XBlockRuntime;
   initData: InitData;

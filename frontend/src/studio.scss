@@ -14,15 +14,6 @@
     box-sizing: border-box;
   }
 
-  label {
-    font-size: 1.6rem;
-  }
-
-  h4 {
-    font-size: 1.8rem;
-    font-weight: 600;
-  }
-
   .wrapper-comp-settings {
     overflow-y: scroll;
     // This is full screen height, with removal of 60px for the header, and 69px for the footer.
@@ -35,4 +26,19 @@
 .modal-lg .react-studio-block .wrapper-comp-settings {
   // studio-v1.css sets .modal-content height to 435px and the action buttons footer uses 69px
   max-height: 366px;
+}
+
+// Action bar sits outside .xblock-keypoints so that the platform rule
+// `.modal-window .editor-with-buttons .xblock-actions` does NOT match.
+.xblock-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+  padding: 0.75em 1em;
+  border-top: 1px solid var(--pgn-color-gray-200);
+  background: var(--pgn-color-white);
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
 }

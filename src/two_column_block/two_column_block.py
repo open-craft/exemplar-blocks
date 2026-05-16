@@ -3,6 +3,7 @@
 import json
 import logging
 
+from django.conf import settings
 from pydantic import ValidationError
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
@@ -97,7 +98,6 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
         html = resource_loader.load_unicode("static/html/two_column_block.html")
         frag = Fragment(html)
 
-        frag.add_css(resource_loader.load_unicode("public/frontend.css"))
         frag.add_javascript(resource_loader.load_unicode("static/js/entrypoint.js"))
         if is_studio:
             frag.add_css(resource_loader.load_unicode("static/studio-reset.css"))
@@ -112,6 +112,7 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
                 "displayName": self.display_name,
                 "columns": self.column_data,
                 "backgroundColor": self.background_color,
+                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
             },
         )
         return frag
@@ -127,10 +128,9 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
 
     def studio_view(self, context=None):
         """Studio edit view."""
-        html = resource_loader.load_unicode("static/html/two_column_block.html")
+        html = resource_loader.load_unicode("static/html/two_column_block_editor.html")
         frag = Fragment(html)
 
-        frag.add_css(resource_loader.load_unicode("public/frontend.css"))
         frag.add_css(resource_loader.load_unicode("static/studio-reset.css"))
         frag.add_javascript(resource_loader.load_unicode("static/js/entrypoint.js"))
 
@@ -158,6 +158,7 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
                 "displayName": validated_data.displayName,
                 "columns": validated_data.columns.model_dump(),
                 "backgroundColor": validated_data.backgroundColor,
+                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
             },
         )
 

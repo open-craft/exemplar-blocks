@@ -1,17 +1,20 @@
 import { createXBlockRoot } from '../../lib/utils.tsx';
 import StudentUi from './student-ui';
-import { type XBlockRuntime } from '../../types';
+import { type XBlockConfig, type XBlockRuntime } from '../../types';
 import { type XBlockData } from '../type';
 import styles from './style.scss?inline';
 
 export const renderBlock = (
   runtime: XBlockRuntime,
   element: Element | null,
-  { header, keypoints, button_text, button_link, background_color }: XBlockData,
+  initData: XBlockData & XBlockConfig,
 ) => {
+  const { header, keypoints, button_text, button_link, background_color } =
+    initData;
   createXBlockRoot(
     runtime,
     element,
+    initData,
     styles,
   )(
     <StudentUi

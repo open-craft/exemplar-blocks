@@ -6,6 +6,7 @@ import {
   Container,
   Form,
   Stack,
+  Sticky,
 } from '@openedx/paragon';
 import { Add, DeleteOutline } from '@openedx/paragon/icons';
 import { type KeyPoint } from '../type';
@@ -188,7 +189,7 @@ export default function StudioUi({
       </Container>
 
       {/* Save / Cancel action bar — outside editor-with-buttons to avoid platform's position:absolute */}
-      <div className="xblock-actions">
+      <Sticky position="bottom" className="xblock-actions p-2 border-top">
         <ActionRow>
           <ActionRow.Spacer />
           <Button
@@ -201,7 +202,7 @@ export default function StudioUi({
             Save
           </Button>
         </ActionRow>
-      </div>
+      </Sticky>
     </div>
   );
 }

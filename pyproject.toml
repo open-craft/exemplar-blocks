@@ -38,7 +38,7 @@ dev = [
 plugins = ["pydantic.mypy"]
 
 [[tool.mypy.overrides]]
-module = ["xblock.*", "web_fragments.*"]
+module = ["xblock.*", "web_fragments.*", "workbench.settings"]
 # Attempt to infer types as best as possible.
 follow_untyped_imports = true
 
