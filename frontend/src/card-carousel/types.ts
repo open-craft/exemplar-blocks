@@ -85,6 +85,7 @@ export interface InitData {
   displayName: string;
   orientation: Orientation;
   disableNumbering?: boolean;
+  backgroundColor?: string;
 }
 /**
  * This models is neither required nor used anywhere. But this helps in preserving

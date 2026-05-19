@@ -145,3 +145,6 @@ class InitData(BaseModel):
 
     # Flag to disable the pagination numbers on the cards
     disableNumbering: bool = False
+
+    # Background color for the block
+    backgroundColor: str = "#FFFFFF"

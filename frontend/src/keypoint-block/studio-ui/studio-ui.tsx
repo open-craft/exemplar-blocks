@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { ActionRow, Button, Container, Form, Stack } from '@openedx/paragon';
+import {
+  ActionRow,
+  Button,
+  ColorPicker,
+  Container,
+  Form,
+  Stack,
+} from '@openedx/paragon';
 import { Add, DeleteOutline } from '@openedx/paragon/icons';
 import { type KeyPoint } from '../type';
 import { useContext } from 'react';
@@ -11,6 +18,7 @@ interface StudioUiProps {
   initialKeypoints: KeyPoint[];
   initialButtonText: string;
   initialButtonLink: string;
+  initialBackgroundColor: string;
 }
 
 export default function StudioUi({
@@ -18,6 +26,7 @@ export default function StudioUi({
   initialKeypoints,
   initialButtonText,
   initialButtonLink,
+  initialBackgroundColor,
 }: StudioUiProps) {
   const { runtime } = useContext(RuntimeContext);
   const studioSaveUrl = useHandlerUrl('studio_save');
@@ -26,6 +35,9 @@ export default function StudioUi({
     React.useState<KeyPoint[]>(initialKeypoints);
   const [buttonText, setButtonText] = React.useState(initialButtonText);
   const [buttonLink, setButtonLink] = React.useState(initialButtonLink);
+  const [backgroundColor, setBackgroundColor] = React.useState(
+    initialBackgroundColor,
+  );
 
   const addKeypoint = () => {
     setKeypoints([...keypoints, { keypoint: '', description: '' }]);
@@ -50,6 +62,7 @@ export default function StudioUi({
         keypoints,
         button_text: buttonText,
         button_link: buttonLink,
+        background_color: backgroundColor,
       }),
     )
       .done(() => {
@@ -157,6 +170,16 @@ export default function StudioUi({
                     setButtonLink(e.target.value)
                   }
                   placeholder="e.g. https://example.com/glossary"
+                />
+              </Form.Group>
+            </div>
+
+            <div className="my-3">
+              <Form.Group>
+                <Form.Label>Background Color</Form.Label>
+                <ColorPicker
+                  color={backgroundColor}
+                  setColor={setBackgroundColor}
                 />
               </Form.Group>
             </div>

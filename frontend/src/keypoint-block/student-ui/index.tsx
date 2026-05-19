@@ -7,7 +7,7 @@ import styles from './style.scss?inline';
 export const renderBlock = (
   runtime: XBlockRuntime,
   element: Element | null,
-  { header, keypoints, button_text, button_link }: XBlockData,
+  { header, keypoints, button_text, button_link, background_color }: XBlockData,
 ) => {
   createXBlockRoot(
     runtime,
@@ -19,6 +19,7 @@ export const renderBlock = (
       keypoints={keypoints || []}
       buttonText={button_text || ''}
       buttonLink={button_link || ''}
+      backgroundColor={background_color || ''}
     />,
   );
 };

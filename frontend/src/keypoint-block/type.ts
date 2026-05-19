@@ -11,4 +11,5 @@ export interface XBlockData extends KeyPoints {
   header: string;
   button_link: string;
   button_text: string;
+  background_color: string;
 }

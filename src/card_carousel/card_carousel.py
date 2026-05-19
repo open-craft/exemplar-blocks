@@ -68,8 +68,15 @@ class CardCarouselXBlock(XBlock):
         help="List of Cards", default=[DEFAULT_CARD.model_dump()], scope=Scope.content
     )
     disable_numbering = Boolean(
+        display_name="Disable Numbering",
         help="Disable position labels (eg., 1/3) on the cards",
         default=False,
+        scope=Scope.content,
+    )
+    background_color = String(
+        display_name="Background Color",
+        help="HTML hex-code to be used as the background color.",
+        default="#FFFFFF",
         scope=Scope.content,
     )
 
@@ -103,6 +110,7 @@ class CardCarouselXBlock(XBlock):
                 "cards": [CardData(**c).model_dump() for c in self.cards],
                 "displayName": self.display_name,
                 "disableNumbering": self.disable_numbering,
+                "backgroundColor": self.background_color,
             },
         )
         return frag
@@ -135,6 +143,7 @@ class CardCarouselXBlock(XBlock):
                 "cards": [CardData(**c).model_dump() for c in self.cards],
                 "displayName": self.display_name,
                 "disableNumbering": self.disable_numbering,
+                "backgroundColor": self.background_color,
             },
         )
         return frag
@@ -157,6 +166,7 @@ class CardCarouselXBlock(XBlock):
         self.orientation = carousel.orientation
         self.cards = [c.model_dump() for c in carousel.cards]
         self.disable_numbering = carousel.disableNumbering
+        self.background_color = carousel.backgroundColor
         logger.info("Successfully saved Card Carousel data.")
         return {"result": "success"}
 

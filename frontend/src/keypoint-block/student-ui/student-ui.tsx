@@ -6,6 +6,7 @@ interface StudentUiProps {
   keypoints: KeyPoint[];
   buttonText: string;
   buttonLink: string;
+  backgroundColor: string;
 }
 
 function StudentUi({
@@ -13,9 +14,13 @@ function StudentUi({
   keypoints,
   buttonText,
   buttonLink,
+  backgroundColor,
 }: StudentUiProps) {
   return (
-    <Container className="xblock-keypoints py-4 px-3">
+    <Container
+      className="xblock-keypoints py-4 px-3"
+      style={{ backgroundColor }}
+    >
       {header && <h2 className="font-weight-bold mb-4">{header}</h2>}
 
       <Row>

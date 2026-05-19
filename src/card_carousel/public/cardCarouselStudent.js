@@ -1,19 +1,19 @@
-import { S as e, _ as t, a as n, d as r, f as i, h as a, i as o, l as s, m as c, n as l, o as u, p as d, r as f, t as p, u as m, v as h, w as g, y as _ } from "./Stack-B7dleyUO.js";
+import { B as e, C as t, D as n, E as r, H as i, M as a, N as o, O as s, S as c, a as l, c as u, j as d, k as f, n as p, o as m, s as h, t as g, w as _ } from "./Stack-DmMgeAWj.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Badge.js
-var v = /* @__PURE__ */ g(c()), y = /* @__PURE__ */ g(e()), b = [
+var v = /* @__PURE__ */ i(s()), y = /* @__PURE__ */ i(e()), b = [
 	"bsPrefix",
 	"variant",
 	"pill",
 	"className",
 	"as"
 ], x = { pill: !1 }, S = /* @__PURE__ */ y.forwardRef(function(e, t) {
-	var n = e.bsPrefix, a = e.variant, o = e.pill, s = e.className, c = e.as, l = c === void 0 ? "span" : c, u = i(e, b), f = r(n, "badge");
-	return /* @__PURE__ */ y.createElement(l, d({ ref: t }, u, { className: (0, v.default)(s, f, o && f + "-pill", a && f + "-" + a) }));
+	var i = e.bsPrefix, a = e.variant, o = e.pill, s = e.className, c = e.as, l = c === void 0 ? "span" : c, u = r(e, b), d = _(i, "badge");
+	return /* @__PURE__ */ y.createElement(l, n({ ref: t }, u, { className: (0, v.default)(s, d, o && d + "-pill", a && d + "-" + a) }));
 });
 S.displayName = "Badge", S.defaultProps = x;
 //#endregion
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Row.js
-var C = /* @__PURE__ */ g(m()), w = [
+var C = /* @__PURE__ */ i(t()), w = [
 	"bsPrefix",
 	"className",
 	"noGutters",
@@ -25,17 +25,17 @@ var C = /* @__PURE__ */ g(m()), w = [
 	"sm",
 	"xs"
 ], E = { noGutters: !1 }, D = /* @__PURE__ */ y.forwardRef(function(e, t) {
-	var n = e.bsPrefix, a = e.className, o = e.noGutters, s = e.as, c = s === void 0 ? "div" : s, l = i(e, w), u = r(n, "row"), f = u + "-cols", p = [];
+	var i = e.bsPrefix, a = e.className, o = e.noGutters, s = e.as, c = s === void 0 ? "div" : s, l = r(e, w), u = _(i, "row"), d = u + "-cols", f = [];
 	return T.forEach(function(e) {
 		var t = l[e];
 		delete l[e];
 		var n = typeof t == "object" && t ? t.cols : t, r = e === "xs" ? "" : "-" + e;
-		n != null && p.push("" + f + r + "-" + n);
-	}), /* @__PURE__ */ y.createElement(c, d({ ref: t }, l, { className: v.default.apply(void 0, [
+		n != null && f.push("" + d + r + "-" + n);
+	}), /* @__PURE__ */ y.createElement(c, n({ ref: t }, l, { className: v.default.apply(void 0, [
 		a,
 		u,
 		o && "no-gutters"
-	].concat(p)) }));
+	].concat(f)) }));
 });
 D.displayName = "Row", D.defaultProps = E;
 //#endregion
@@ -621,17 +621,17 @@ U.propTypes = {
 };
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardStatus.js
-var W = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, variant: n, icon: r, title: i, actions: a, ...s }, c) => {
-	let { isLoading: l } = (0, y.useContext)(R);
-	return l ? /* @__PURE__ */ y.createElement("div", {
+var W = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, variant: n, icon: r, title: i, actions: a, ...o }, s) => {
+	let { isLoading: c } = (0, y.useContext)(R);
+	return c ? /* @__PURE__ */ y.createElement("div", {
 		className: (0, v.default)("pgn__card-status", e),
 		"data-testid": "card-status-skeleton",
-		ref: c
+		ref: s
 	}, /* @__PURE__ */ y.createElement(z, null)) : /* @__PURE__ */ y.createElement("div", {
 		className: (0, v.default)("pgn__card-status", `pgn__card-status__${n}`, e),
-		ref: c,
-		...s
-	}, /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__content" }, r && /* @__PURE__ */ y.createElement(o, {
+		ref: s,
+		...o
+	}, /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__content" }, r && /* @__PURE__ */ y.createElement(m, {
 		className: "pgn__card-status__content-icon",
 		src: r
 	}), /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__message-content" }, i && /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__heading" }, i), t)), !!a && /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__actions" }, a));
@@ -657,8 +657,8 @@ W.propTypes = {
 };
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardDeck.js
-var G = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, columnSizes: n, hasInteractiveChildren: r, canScrollHorizontal: i, hasOverflowScrollItems: a, hasEqualColumnHeights: o }, c) => {
-	let l = (0, y.useMemo)(() => y.Children.map(t, (e) => /* @__PURE__ */ y.createElement(s, {
+var G = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, columnSizes: n, hasInteractiveChildren: r, canScrollHorizontal: i, hasOverflowScrollItems: a, hasEqualColumnHeights: o }, s) => {
+	let l = (0, y.useMemo)(() => y.Children.map(t, (e) => /* @__PURE__ */ y.createElement(c, {
 		...n,
 		className: (0, v.default)("pgn__card-deck__card-item", { "pgn__card__disable-equal-column-heights": !o })
 	}, e)), [
@@ -673,7 +673,7 @@ var G = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, columnSizes: 
 	return /* @__PURE__ */ y.createElement("div", { className: (0, v.default)("pgn__card-deck", { "pgn__card-deck-has-horizontal-scroll": i }, e) }, /* @__PURE__ */ y.createElement(D, {
 		className: "pgn__card-deck-row",
 		tabIndex: r ? -1 : 0,
-		ref: c
+		ref: s
 	}, d));
 });
 G.propTypes = {
@@ -767,7 +767,7 @@ function Ee({ children: e, as: t, className: n }) {
 }
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/messages.js
-var De = h({
+var De = a({
 	scrollToPrevious: {
 		id: "pgn.CardCarousel.scrollToPrevious",
 		defaultMessage: "Scroll to previous",
@@ -782,20 +782,20 @@ var De = h({
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselControls.js
 function Oe() {
-	let { isScrolledToStart: e, isScrolledToEnd: t, scrollToPrevious: n, scrollToNext: r } = (0, y.useContext)(K), i = _();
-	return e && t ? null : /* @__PURE__ */ y.createElement("div", { className: "pgn__card-carousel-controls" }, /* @__PURE__ */ y.createElement(p, {
+	let { isScrolledToStart: e, isScrolledToEnd: t, scrollToPrevious: n, scrollToNext: r } = (0, y.useContext)(K), i = o();
+	return e && t ? null : /* @__PURE__ */ y.createElement("div", { className: "pgn__card-carousel-controls" }, /* @__PURE__ */ y.createElement(g, {
 		direction: "horizontal",
 		gap: 1
-	}, /* @__PURE__ */ y.createElement(l, {
+	}, /* @__PURE__ */ y.createElement(p, {
 		disabled: e,
 		src: te,
-		iconAs: o,
+		iconAs: m,
 		alt: i.formatMessage(De.scrollToPrevious),
 		onClick: n
-	}), /* @__PURE__ */ y.createElement(l, {
+	}), /* @__PURE__ */ y.createElement(p, {
 		disabled: t,
 		src: ne,
-		iconAs: o,
+		iconAs: m,
 		alt: i.formatMessage(De.scrollToNext),
 		onClick: r
 	})));
@@ -919,13 +919,13 @@ X.propTypes = {
 	isLoading: !1
 };
 var Z = u(X, "Card", { muted: {
-	deprType: n.REMOVED,
+	deprType: h.REMOVED,
 	message: "Use \"variant\" prop instead, i.e. variant=\"muted\""
 } });
 Z.Status = W, Z.Header = B, Z.Divider = ye, Z.Section = V, Z.Footer = H, Z.ImageCap = U, Z.Context = R, Z.Body = P;
 //#endregion
 //#region src/card-carousel/student-ui/components/ContentHighlight.tsx
-var Q = t();
+var Q = d();
 function Ne({ title: e, subtitle: t, description: n, orientation: r }) {
 	return /* @__PURE__ */ (0, Q.jsxs)("div", {
 		className: "p-4 bg-primary-500 h-100",
@@ -973,7 +973,7 @@ function $({ name: e, bg: t, fg: n, size: r }) {
 function Pe({ items: e }) {
 	return /* @__PURE__ */ (0, Q.jsx)("div", {
 		className: "p-4",
-		children: e.map((t, n) => /* @__PURE__ */ (0, Q.jsxs)("div", { children: [/* @__PURE__ */ (0, Q.jsxs)(p, {
+		children: e.map((t, n) => /* @__PURE__ */ (0, Q.jsxs)("div", { children: [/* @__PURE__ */ (0, Q.jsxs)(g, {
 			direction: "horizontal",
 			children: [/* @__PURE__ */ (0, Q.jsx)($, { name: t.icon }), /* @__PURE__ */ (0, Q.jsxs)("div", {
 				className: "ml-4",
@@ -1074,7 +1074,7 @@ function Le({ orientation: e, data: t, position: n }) {
 					subtitle: t.subtitle
 				}),
 				t.description && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: t.description }),
-				t.ctaLabel && t.ctaLink && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: /* @__PURE__ */ (0, Q.jsx)(f, {
+				t.ctaLabel && t.ctaLink && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: /* @__PURE__ */ (0, Q.jsx)(l, {
 					variant: "primary",
 					children: t.ctaLabel
 				}) }),
@@ -1085,34 +1085,38 @@ function Le({ orientation: e, data: t, position: n }) {
 }
 //#endregion
 //#region src/card-carousel/student-ui/StudentUI.tsx
-function Re({ initData: { cards: e, displayName: t, orientation: n, disableNumbering: r } }) {
-	return /* @__PURE__ */ (0, Q.jsx)(Y, {
-		ariaLabel: t,
-		title: t ? /* @__PURE__ */ (0, Q.jsx)("h3", { children: t }) : "",
-		canScrollHorizontal: !0,
-		disableOpacityMasks: !0,
-		columnSizes: n === "HORIZONTAL" ? {
-			sm: 12,
-			md: 10,
-			lg: 10,
-			xl: 11
-		} : {
-			sm: 12,
-			md: 8,
-			lg: 6,
-			xl: 6
-		},
-		children: e.map((t, i) => /* @__PURE__ */ (0, Q.jsx)(Le, {
-			orientation: n,
-			data: t,
-			position: r ? "" : `${i + 1} / ${e.length}`
-		}, i))
+function Re({ initData: { cards: e, displayName: t, orientation: n, disableNumbering: r, backgroundColor: i } }) {
+	return /* @__PURE__ */ (0, Q.jsx)("div", {
+		style: { backgroundColor: i },
+		className: "w-100",
+		children: /* @__PURE__ */ (0, Q.jsx)(Y, {
+			ariaLabel: t,
+			title: t ? /* @__PURE__ */ (0, Q.jsx)("h3", { children: t }) : "",
+			canScrollHorizontal: !0,
+			disableOpacityMasks: !0,
+			columnSizes: n === "HORIZONTAL" ? {
+				sm: 12,
+				md: 10,
+				lg: 10,
+				xl: 11
+			} : {
+				sm: 12,
+				md: 8,
+				lg: 6,
+				xl: 6
+			},
+			children: e.map((t, i) => /* @__PURE__ */ (0, Q.jsx)(Le, {
+				orientation: n,
+				data: t,
+				position: r ? "" : `${i + 1} / ${e.length}`
+			}, i))
+		})
 	});
 }
 //#endregion
 //#region src/card-carousel/student-ui/main.tsx
 var ze = (e, t, n) => {
-	a(t, e)(/* @__PURE__ */ (0, Q.jsx)(Re, {
+	f(t, e)(/* @__PURE__ */ (0, Q.jsx)(Re, {
 		runtime: t,
 		initData: n
 	}));

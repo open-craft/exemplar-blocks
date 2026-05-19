@@ -1,5 +1,10 @@
 /* This is copied from the CMS's runtime styles to match the UI expectations */
 .carousel-editor {
-  max-height: 540px;
   overflow-y: scroll;
+}
+.modal-lg .carousel-editor {
+  max-height: 540px;
+}
+.modal-fullscreen .carousel-editor {
+  height: calc(100vh - 140px);
 }
