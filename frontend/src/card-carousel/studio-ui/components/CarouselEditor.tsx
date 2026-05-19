@@ -43,14 +43,14 @@ function CardItem({
       <div className="d-flex align-items-center">
         {canDelete && (
           <button
-            className="material-icons btn btn-link p-0 text-danger"
+            className="btn btn-link p-0 text-danger"
             aria-label="Delete card"
             onClick={(e) => {
               e.stopPropagation();
               onDelete();
             }}
           >
-            delete_outline
+            <span className="material-icons">delete_outline</span>
           </button>
         )}
         <span className="material-icons text-light-600">drag_indicator</span>

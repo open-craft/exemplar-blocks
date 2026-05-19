@@ -14,6 +14,7 @@ const initData: InitData = {
   displayName: 'Demo Carousel',
   orientation: 'HORIZONTAL',
   cards: [newCard()],
+  backgroundColor: '#ccc',
 };
 
 const saveUrl = 'save-data';

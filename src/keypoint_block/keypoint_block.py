@@ -44,6 +44,12 @@ class KeypointXBlock(XBlock):
         scope=Scope.content,
         help="The link that bottom button points to.",
     )
+    background_color = String(
+        display_name="Background Color",
+        default="#FFFFFF",
+        scope=Scope.content,
+        help="HTML hex-code to be used as the background color.",
+    )
 
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
@@ -70,6 +76,7 @@ class KeypointXBlock(XBlock):
                 "keypoints": self.keypoints,
                 "button_text": self.button_text,
                 "button_link": self.button_link,
+                "background_color": self.background_color,
             },
         )
         return frag
@@ -77,18 +84,11 @@ class KeypointXBlock(XBlock):
     @XBlock.json_handler
     def studio_save(self, data, suffix=""):
         """Save configuration data from the studio editor."""
-        header = data.get("header", None)
-        keypoints = data.get("keypoints", None)
-        button_text = data.get("button_text", None)
-        button_link = data.get("button_link", None)
-        if header is not None:
-            self.header = header
-        if keypoints is not None:
-            self.keypoints = keypoints
-        if button_text is not None:
-            self.button_text = button_text
-        if button_link is not None:
-            self.button_link = button_link
+        self.header = data.get("header", self.header)
+        self.keypoints = data.get("keypoints", self.keypoints)
+        self.button_text = data.get("button_text", self.button_text)
+        self.button_link = data.get("button_link", self.button_link)
+        self.background_color = data.get("background_color", self.background_color)
         return {"result": "success"}
 
     def studio_view(self, context=None):
@@ -110,6 +110,7 @@ class KeypointXBlock(XBlock):
                 "keypoints": self.keypoints,
                 "button_text": self.button_text,
                 "button_link": self.button_link,
+                "background_color": self.background_color,
             },
         )
         return frag
@@ -130,6 +131,7 @@ class KeypointXBlock(XBlock):
                     ]'
                     button_text="Glossary"
                     button_link="https://example.com/glossary"
+                    background_color="#CCCCCC"
                 />
                 """,
             ),

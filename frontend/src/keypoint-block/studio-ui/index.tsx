@@ -7,7 +7,7 @@ import { createXBlockRoot } from '../../lib/utils.tsx';
 export const renderBlock = (
   runtime: XBlockRuntime,
   element: Element | null,
-  { header, keypoints, button_text, button_link }: XBlockData,
+  { header, keypoints, button_text, button_link, background_color }: XBlockData,
 ) => {
   createXBlockRoot(
     runtime,
@@ -19,6 +19,7 @@ export const renderBlock = (
       initialKeypoints={keypoints || []}
       initialButtonText={button_text || ''}
       initialButtonLink={button_link || ''}
+      initialBackgroundColor={background_color || ''}
     />,
   );
 };

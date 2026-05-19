@@ -107,4 +107,19 @@ describe('CreateCarouselForm', () => {
       expect(checkbox).toBeChecked();
     });
   });
+
+  describe('Background color', () => {
+    it('shows the color from the init data', () => {
+      const { container } = render(
+        <CreateCarouselFormWithContext
+          initData={makeInitData({ backgroundColor: '#12FF23' })}
+        />,
+      );
+      const colorPicker =
+        container.getElementsByClassName('pgn__color-picker')[0];
+      expect(colorPicker).toHaveStyle('background-color: rgb(18, 255, 35);');
+    });
+    // The color-picker is a complex element with a floating div acting as the picking area.
+    // It would be out of the scope of this test - to test for interactivity.
+  });
 });

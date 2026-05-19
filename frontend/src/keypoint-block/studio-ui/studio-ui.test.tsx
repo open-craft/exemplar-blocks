@@ -22,6 +22,7 @@ function renderStudio(
     initialKeypoints: sampleKeypoints,
     initialButtonText: 'Glossary',
     initialButtonLink: 'https://example.com/glossary',
+    initialBackgroundColor: '#CCCCCC',
     ...overrides,
   };
   const runtime = mockRuntime();
@@ -274,6 +275,7 @@ describe('StudioUi', () => {
           keypoints: sampleKeypoints,
           button_text: 'Glossary',
           button_link: 'https://example.com/glossary',
+          background_color: '#CCCCCC',
         }),
       );
     });
@@ -348,6 +350,7 @@ describe('StudioUi', () => {
           keypoints: [{ keypoint: 'New term', description: 'New description' }],
           button_text: 'Glossary',
           button_link: 'https://example.com/glossary',
+          background_color: '#CCCCCC',
         }),
       );
     });
@@ -369,6 +372,7 @@ describe('StudioUi', () => {
           keypoints: [sampleKeypoints[1]],
           button_text: 'Glossary',
           button_link: 'https://example.com/glossary',
+          background_color: '#CCCCCC',
         }),
       );
     });
@@ -402,6 +406,7 @@ describe('StudioUi', () => {
           keypoints: [],
           button_text: 'Resources',
           button_link: 'https://new.com',
+          background_color: '#CCCCCC',
         }),
       );
     });

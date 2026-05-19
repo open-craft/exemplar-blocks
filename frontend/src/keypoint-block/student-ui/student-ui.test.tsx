@@ -27,6 +27,7 @@ describe('StudentUi', () => {
           keypoints={sampleKeypoints}
           buttonText="Glossary"
           buttonLink="https://example.com/glossary"
+          backgroundColor="#FFF"
         />,
       );
       expect(screen.getByText('Key Concepts')).toBeInTheDocument();
@@ -39,6 +40,7 @@ describe('StudentUi', () => {
           keypoints={sampleKeypoints}
           buttonText="Glossary"
           buttonLink="https://example.com/glossary"
+          backgroundColor="#FFF"
         />,
       );
       sampleKeypoints.forEach((kp) => {
@@ -54,6 +56,7 @@ describe('StudentUi', () => {
           keypoints={sampleKeypoints}
           buttonText="Glossary"
           buttonLink="https://example.com/glossary"
+          backgroundColor="#FFF"
         />,
       );
       const items = screen.getAllByRole('heading', { level: 4 });
@@ -67,6 +70,7 @@ describe('StudentUi', () => {
           keypoints={sampleKeypoints}
           buttonText="Glossary"
           buttonLink="https://example.com/glossary"
+          backgroundColor="#FFF"
         />,
       );
       const link = screen.getByText('Glossary');
@@ -83,6 +87,7 @@ describe('StudentUi', () => {
           keypoints={sampleKeypoints}
           buttonText="Glossary"
           buttonLink="https://example.com/glossary"
+          backgroundColor="#FFF"
         />,
       );
       expect(
@@ -97,6 +102,7 @@ describe('StudentUi', () => {
           keypoints={sampleKeypoints}
           buttonText=""
           buttonLink="https://example.com/glossary"
+          backgroundColor="#FFF"
         />,
       );
       expect(screen.queryByRole('link')).not.toBeInTheDocument();
@@ -109,6 +115,7 @@ describe('StudentUi', () => {
           keypoints={sampleKeypoints}
           buttonText="Glossary"
           buttonLink=""
+          backgroundColor="#FFF"
         />,
       );
       expect(screen.queryByRole('link')).not.toBeInTheDocument();
@@ -121,6 +128,7 @@ describe('StudentUi', () => {
           keypoints={[]}
           buttonText="Glossary"
           buttonLink="https://example.com/glossary"
+          backgroundColor="#FFF"
         />,
       );
       const row = container.querySelector('.row');

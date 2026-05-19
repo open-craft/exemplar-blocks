@@ -1,6 +1,7 @@
 import Button from '@openedx/paragon/dist/Button';
 import Form from '@openedx/paragon/dist/Form';
 import Stack from '@openedx/paragon/dist/Stack';
+import ColorPicker from '@openedx/paragon/dist/ColorPicker';
 import { useFormikContext } from 'formik';
 import type { InitData } from '../../types';
 
@@ -64,7 +65,7 @@ export default function CreateCarouselForm() {
           </Button>
         </Stack>
       </Form.Group>
-      <Form.Group className="mt-4">
+      <Form.Group className="my-3">
         <Form.Checkbox
           name="disableNumbering"
           checked={!values.disableNumbering}
@@ -77,6 +78,14 @@ export default function CreateCarouselForm() {
         <Form.Text className="small">
           Displays progress. For e.g., (2/4)
         </Form.Text>
+      </Form.Group>
+
+      <Form.Group className="my-3">
+        <Form.Label>Background Color</Form.Label>
+        <ColorPicker
+          color={values.backgroundColor}
+          setColor={(color: string) => setFieldValue('backgroundColor', color)}
+        />
       </Form.Group>
     </div>
   );
