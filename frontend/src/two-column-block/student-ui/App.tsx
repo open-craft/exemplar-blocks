@@ -5,6 +5,7 @@ import {
   Row,
   Hyperlink,
   ActionRow,
+  Container,
 } from '@openedx/paragon';
 import {
   type Data,
@@ -29,17 +30,23 @@ export const App = ({ data }: AppProps) => {
     .map((s) => parseInt(s, 10));
 
   return (
-    <Row
-      className={`xblock-two-column p-3 ${data.columns.order == 'rightAboveLeft' ? 'two-column-reverse' : ''}`}
+    <Container
+      className="p-0"
       style={{ backgroundColor: data.backgroundColor }}
     >
-      <Col xs={12} sm={firstColumnSize}>
-        <ColumnView data={data.columns.left} />
-      </Col>
-      <Col xs={12} sm={secondColumnSize}>
-        <ColumnView data={data.columns.right} />
-      </Col>
-    </Row>
+      <Container size="lg">
+        <Row
+          className={`xblock-two-column p-3 ${data.columns.order == 'rightAboveLeft' ? 'two-column-reverse' : ''}`}
+        >
+          <Col xs={12} sm={firstColumnSize}>
+            <ColumnView data={data.columns.left} />
+          </Col>
+          <Col xs={12} sm={secondColumnSize}>
+            <ColumnView data={data.columns.right} />
+          </Col>
+        </Row>
+      </Container>
+    </Container>
   );
 };
 
