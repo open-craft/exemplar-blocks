@@ -1,4 +1,4 @@
-import { a as e, g as t, l as n, n as r, r as i, t as a, u as o } from "./utils-D5QqvBEh.js";
+import { a as e, g as t, l as n, n as r, r as i, t as a, u as o } from "./utils-BGTVQbpS.js";
 t();
 var s = (e) => ({
 	top_header: r("top_header", e.top_header_color),
@@ -150,8 +150,8 @@ var s = (e) => ({
 }, u = (e) => {
 	let t = l[e.variant];
 	return /* @__PURE__ */ (0, c.jsx)(t, { ...e });
-}, d = (e, t, n) => {
-	a(t, e)(/* @__PURE__ */ (0, c.jsx)(u, { ...n }));
+}, d = ".section-block-image{object-fit:cover;width:100%;max-width:100%;height:208px;max-height:80lvh}.separator-cover,.course-cover{position:relative}.separator-cover-image-container,.course-cover-image-container{z-index:0;min-width:100%;height:100%;position:absolute;top:0;left:0;overflow:clip}.full-height,.separator-cover .text-container,.course-cover .text-content{height:100%}.separator-cover .text-container .text-content{width:100%}.course-cover-image{object-fit:cover;min-width:100%}@media (width<=575px){.separator-cover-image,.course-cover-image,.course-cover{object-fit:cover;min-width:100%}}@media (width>=576px){.section-block-image,.separator-cover,.course-cover{height:320px}}@media (width>=768px){.section-block-image,.separator-cover,.course-cover{height:400px}.section-cover .text-content{max-width:80%}}@media (width>=992px){.section-block-image,.separator-cover,.course-cover{height:760px}}@media (width>=1200px){.section-block-image,.separator-cover,.course-cover{height:760px}.section-cover .text-content{max-width:56%}}@media (width>=1400px){.section-block-image,.separator-cover,.course-cover{height:760px}.section-cover .text-content{max-width:60%}}.section-cover .display-1,.separator-cover .display-1,.course-cover .display-1{font-optical-sizing:auto;letter-spacing:0;font-variation-settings:\"wdth\" 100;font-family:Noto Serif,serif;font-style:normal;font-weight:bolder}@media (width>=576px){.section-cover .display-1,.separator-cover .display-1,.course-cover .display-1{line-height:5.3125rem}}.section-cover strong,.separator-cover,.course-cover strong{font-weight:700}.section-cover,.separator-cover,.course-cover{font-family:Lato,sans-serif}.section-cover .lead,.separator-cover .lead,.course-cover .lead{font-size:1.875rem;font-weight:lighter}.section-cover .subtitle,.separator-cover .lead,.course-cover .lead{letter-spacing:0;font-size:1.125rem;font-weight:700;line-height:1.5625rem}.section-cover .body,.separator-cover .body,.course-cover .body{letter-spacing:0;font-size:1rem;font-weight:400;line-height:1.5625rem}", f = (e, t, n) => {
+	a(t, e, n, d)(/* @__PURE__ */ (0, c.jsx)(u, { ...n }));
 };
 //#endregion
-export { d as renderBlock };
+export { f as renderBlock };

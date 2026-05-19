@@ -1,4 +1,4 @@
-import { E as e, _ as t, c as n, d as r, f as i, g as a, i as o, l as s, m as c, o as l, p as u, r as d, s as f, u as p, v as m, w as h } from "./types-54JIFa6a.js";
+import { E as e, _ as t, c as n, d as r, f as i, g as a, i as o, l as s, m as c, o as l, p as u, r as d, s as f, u as p, v as m, w as h } from "./types-CJ1EadfO.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Container.js
 var g = /* @__PURE__ */ e(u()), _ = /* @__PURE__ */ e(h()), v = [
 	"bsPrefix",
@@ -218,8 +218,8 @@ var A = a(), j = ({ data: e }) => {
 }, L = ({ data: e }) => /* @__PURE__ */ (0, A.jsx)("div", {
 	style: { minHeight: "100%" },
 	dangerouslySetInnerHTML: { __html: e.html }
-}), R = (e, t, n) => {
-	c(e, t)(/* @__PURE__ */ (0, A.jsx)(j, { data: n }));
+}), R = ".xblock-two-column .lesson-list-item+.lesson-list-item:before{content:\"\";width:100%;margin:0 calc(var(--pgn-spacing-grid-gutter-width) * .5);background-color:var(--pgn-color-gray-200);height:1px;margin-bottom:calc(var(--pgn-spacing-spacer-base) * .5)}.xblock-two-column.two-column-reverse{flex-direction:column-reverse}@media (width>=576px){.xblock-two-column.two-column-reverse{flex-direction:row}}", z = (e, t, n) => {
+	c(e, t, n, R)(/* @__PURE__ */ (0, A.jsx)(j, { data: n }));
 };
 //#endregion
-export { R as renderBlock };
+export { z as renderBlock };

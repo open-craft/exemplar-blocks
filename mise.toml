@@ -77,13 +77,14 @@ depends = "quality:*"
 
 [tasks.dev]
 description = "Run a dev server"
+env = { EXCLUDE_SAMPLE_XBLOCKS = "yes", DJANGO_SETTINGS_MODULE = "test_settings" }
 run = "uv run ./manage.py runserver"
 dir = "./xblock-sdk"
 
 
 [tasks."test:backend:unit"]
 description = "Run Python unit tests"
-env = { DJANGO_SETTINGS_MODULE = "workbench.settings" }
+env = { DJANGO_SETTINGS_MODULE = "test_settings" }
 run = ["uv run pytest --cov=src src", "uv run coverage html"]
 
 [tasks."test:backend"]

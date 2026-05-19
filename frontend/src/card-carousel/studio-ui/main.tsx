@@ -1,13 +1,14 @@
 import { createXBlockRoot, getRoot } from '../../lib/utils.tsx';
 import StudioUI from './StudioUI';
-import type { XBlockRuntime } from '../../types.ts';
+import type { XBlockConfig, XBlockRuntime } from '../../types.ts';
 import type { InitData } from '../types.ts';
 import { newCard } from './utils';
+import styles from './StudioUI.css?inline';
 
 export const renderBlock = (
   element: Element,
   runtime: XBlockRuntime,
-  initData: InitData,
+  initData: InitData & XBlockConfig,
 ) => {
   const container = getRoot(element);
   const saveUrl = runtime.handlerUrl(element, 'studio_save');
@@ -25,5 +26,7 @@ export const renderBlock = (
   createXBlockRoot(
     runtime,
     element,
+    initData,
+    styles,
   )(<StudioUI saveUrl={saveUrl} runtime={runtime} initData={initData} />);
 };

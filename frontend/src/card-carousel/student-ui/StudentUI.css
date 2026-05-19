@@ -1,3 +1,6 @@
+@import './components/ComplexCard.css';
+@import './components/HoverList.css';
+
 :root {
   --pgn-size-card-image-horizontal-width-max: 50%;
   --pgn-size-card-image-vertical-max-height: 100%; /* full height offered by the div. i.e., anything not used by the body content. */

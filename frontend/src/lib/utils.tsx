@@ -1,7 +1,7 @@
 import React, { type CSSProperties, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { IntlProvider } from 'react-intl';
-import type { XBlockRuntime } from '../types.ts';
+import type { XBlockConfig, XBlockRuntime } from '../types.ts';
 import { RuntimeContext } from './context.ts';
 
 type JsrtFields = Record<`_jsrt${string}`, unknown>;
@@ -68,10 +68,10 @@ interface ThemeUrls {
   };
 }
 
-const getThemes = async () => {
+const getThemes = async (mfe_config_api_url: string) => {
   let themeUrls: ThemeUrls | Record<string, never> = {};
   try {
-    const response = await fetch('/api/mfe_config/v1');
+    const response = await fetch(mfe_config_api_url);
     const mfeConfig = await response.json();
     themeUrls = mfeConfig.PARAGON_THEME_URLS;
   } catch (error) {
@@ -90,7 +90,7 @@ const getThemes = async () => {
   return { core, theme };
 };
 
-const ENABLE_SHADOW_ROOT = false;
+const ENABLE_SHADOW_ROOT = true;
 // Re: The Shadow DOM
 // The Shadow DOM allows us to isolate the XBlock from the rest of the page. Any
 // Stylesheets we attach inside it will not affect outside content, and any outside
@@ -106,13 +106,14 @@ const ENABLE_SHADOW_ROOT = false;
 // So we temporarily need to load the Paragon CSS both inside and outside the Shadow DOM.
 
 export const createXBlockRoot =
-  (
+  <T extends XBlockConfig>(
     runtime: XBlockRuntime,
     element: Element | JQuery<Element> | null,
+    initData: T,
     styles?: string,
   ) =>
   async (children: React.ReactNode) => {
-    const { core, theme } = await getThemes();
+    const { core, theme } = await getThemes(initData.mfe_config_api);
     const rootElement = getRoot(element);
     let shadowRoot = null;
     let root = rootElement;

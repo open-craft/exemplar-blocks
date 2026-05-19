@@ -1,14 +1,14 @@
 import { App } from './App.tsx';
-import type { XBlockRuntime } from '../../types.ts';
+import type { XBlockConfig, XBlockRuntime } from '../../types.ts';
 import type { Data } from '../apiTypes.ts';
 
-import './main.scss';
+import styles from './main.scss?inline';
 import { createXBlockRoot, getRoot } from '../../lib/utils.tsx';
 
 export const renderBlock = (
   runtime: XBlockRuntime,
   element: Element,
-  initialData: Data,
+  initialData: Data & XBlockConfig,
 ) => {
   const container = getRoot(element);
 
@@ -33,5 +33,7 @@ export const renderBlock = (
   createXBlockRoot(
     runtime,
     element,
+    initialData,
+    styles,
   )(<App initialData={initialData} onSave={save} onCancel={cancel} />);
 };

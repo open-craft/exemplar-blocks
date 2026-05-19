@@ -17,21 +17,6 @@
   background-color: var(--pgn-color-gray-100);
 }
 
-// Action bar sits outside .xblock-keypoints so that the platform rule
-// `.modal-window .editor-with-buttons .xblock-actions` does NOT match.
-.xblock-keypoints + .xblock-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.5em;
-  padding: 0.75em 1em;
-  border-top: 1px solid var(--pgn-color-gray-200);
-  background: var(--pgn-color-white);
-  position: sticky;
-  bottom: 0;
-  z-index: 1;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
-}
-
 .modal-lg .edit-xblock-modal .modal-content {
   overflow-y: hidden !important;
 }

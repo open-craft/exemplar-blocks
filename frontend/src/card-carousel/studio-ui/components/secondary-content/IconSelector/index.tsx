@@ -1,6 +1,5 @@
 import Button from '@openedx/paragon/dist/Button';
 import Form from '@openedx/paragon/dist/Form';
-import './index.css';
 import { useEffect, useRef, useState } from 'react';
 import { ICONS } from './icons';
 import Fuse from 'fuse.js';

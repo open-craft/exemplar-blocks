@@ -1,4 +1,4 @@
-import { _ as e, a as t, c as n, d as r, f as i, g as a, h as o, i as s, l as c, m as l, o as u, p as d, r as f, s as p, t as m, u as h, v as g } from "./utils-D5QqvBEh.js";
+import { _ as e, a as t, c as n, d as r, f as i, g as a, h as o, i as s, l as c, m as l, o as u, p as d, r as f, s as p, t as m, u as h, v as g } from "./utils-BGTVQbpS.js";
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/ActionRow/index.js
 var _ = /* @__PURE__ */ g(a()), v = /* @__PURE__ */ g(o());
 function y({ as: e = "div", isStacked: t = !1, children: n, ...r }) {
@@ -7816,8 +7816,8 @@ var Q = f(), zf = () => {
 		},
 		children: /* @__PURE__ */ (0, Q.jsx)(Bf, {})
 	});
-}, Hf = (e, t, n) => {
-	m(e, t)(/* @__PURE__ */ (0, Q.jsx)(Vf, { ...n }));
+}, Hf = ".wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block .wrapper-comp-settings{max-height:calc(100vh - 69px);overflow-y:scroll}.react-studio-block{margin-bottom:0!important}.modal-lg .react-studio-block .wrapper-comp-settings{max-height:366px}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}", Uf = (e, t, n) => {
+	m(e, t, n, Hf)(/* @__PURE__ */ (0, Q.jsx)(Vf, { ...n }));
 };
 //#endregion
-export { Hf as renderBlock };
+export { Uf as renderBlock };

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Form, Formik } from 'formik';
-import './StudioUI.css';
 import { type InitData } from '../types';
 import type { XBlockRuntime } from '../../types';
 import CreateCarouselForm from './components/CreateCarouselForm';

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import type { HoverListItem } from '../../types';
-import './HoverList.css';
 import MaterialIcon from './MaterialIcon';
 
 export function HoverList({ items }: { items: HoverListItem[] }) {

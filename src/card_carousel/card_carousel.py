@@ -7,6 +7,7 @@ import json
 
 from pathlib import Path
 
+from django.conf import settings
 from pydantic import ValidationError
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
@@ -90,7 +91,6 @@ class CardCarouselXBlock(XBlock):
         when viewing courses.
         """
         frag = Fragment()
-        frag.add_css(self.resource_string("public/frontend.css"))
         frag.add_resource_url(
             "https://fonts.googleapis.com/icon?family=Material+Icons",
             "text/css",
@@ -111,6 +111,7 @@ class CardCarouselXBlock(XBlock):
                 "displayName": self.display_name,
                 "disableNumbering": self.disable_numbering,
                 "backgroundColor": self.background_color,
+                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
             },
         )
         return frag
@@ -121,12 +122,6 @@ class CardCarouselXBlock(XBlock):
         """
         html = self.resource_string("static/html/card_carousel_editor.html")
         frag = Fragment(html)
-        frag.add_css(self.resource_string("public/frontend.css"))
-        frag.add_resource_url(
-            "https://fonts.googleapis.com/icon?family=Material+Icons",
-            "text/css",
-            "head",
-        )
 
         frag.add_javascript(self.resource_string("static/studio.js"))
         frag.add_css(self.resource_string("static/studio-fixes.css"))
@@ -144,6 +139,7 @@ class CardCarouselXBlock(XBlock):
                 "displayName": self.display_name,
                 "disableNumbering": self.disable_numbering,
                 "backgroundColor": self.background_color,
+                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
             },
         )
         return frag

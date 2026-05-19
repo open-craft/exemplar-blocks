@@ -1,13 +1,13 @@
 import App from './App.tsx';
-import type { XBlockRuntime } from '../../types.ts';
+import type { XBlockConfig, XBlockRuntime } from '../../types.ts';
 import type { CoverBlockFields } from '../apiTypes.ts';
-import './style.scss';
+import styles from './style.scss?inline';
 import { createXBlockRoot } from '../../lib/utils.tsx';
 
 export const renderBlock = (
   element: Element,
   runtime: XBlockRuntime,
-  initData: CoverBlockFields,
+  initData: CoverBlockFields & XBlockConfig,
 ) => {
-  createXBlockRoot(runtime, element)(<App {...initData} />);
+  createXBlockRoot(runtime, element, initData, styles)(<App {...initData} />);
 };
