@@ -8,12 +8,12 @@ import styles from './StudioUI.css?inline';
 export const renderBlock = (
   element: Element,
   runtime: XBlockRuntime,
-  initData: InitData & XBlockConfig,
+  context: { data: InitData; config: XBlockConfig },
 ) => {
   const container = getRoot(element);
   const saveUrl = runtime.handlerUrl(element, 'studio_save');
-  if (!initData.cards || !initData.cards.length) {
-    initData.cards = [newCard()];
+  if (!context.data.cards || !context.data.cards.length) {
+    context.data.cards = [newCard()];
   }
 
   // The Modal Body has a hardcoded value of 435px in studio-main-v1.css
@@ -23,10 +23,7 @@ export const renderBlock = (
     modalBody.style.minHeight = '635px';
   }
 
-  createXBlockRoot(
-    runtime,
-    element,
-    initData,
-    styles,
-  )(<StudioUI saveUrl={saveUrl} runtime={runtime} initData={initData} />);
+  createXBlockRoot({ runtime, element, config: context.config, styles })(
+    <StudioUI saveUrl={saveUrl} runtime={runtime} initData={context.data} />,
+  );
 };

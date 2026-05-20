@@ -109,10 +109,14 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
                     self,
                     "public/twoColumnBlockStudent.js",
                 ),
-                "displayName": self.display_name,
-                "columns": self.column_data,
-                "backgroundColor": self.background_color,
-                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                "data": {
+                    "displayName": self.display_name,
+                    "columns": self.column_data,
+                    "backgroundColor": self.background_color,
+                },
+                "config": {
+                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                },
             },
         )
         return frag
@@ -155,10 +159,14 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
                     self,
                     "public/twoColumnBlockStudio.js",
                 ),
-                "displayName": validated_data.displayName,
-                "columns": validated_data.columns.model_dump(),
-                "backgroundColor": validated_data.backgroundColor,
-                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                "data": {
+                    "displayName": validated_data.displayName,
+                    "columns": validated_data.columns.model_dump(),
+                    "backgroundColor": validated_data.backgroundColor,
+                },
+                "config": {
+                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                },
             },
         )
 

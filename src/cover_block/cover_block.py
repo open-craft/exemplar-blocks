@@ -150,8 +150,10 @@ class CoverBlock(XBlock):
                 "url": self.runtime.local_resource_url(
                     self, "public/coverBlockStudent.js"
                 ),
-                **self.field_data(),
-                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                "data": self.field_data(),
+                "config": {
+                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning"
+                },
             },
         )
         return frag
@@ -189,8 +191,10 @@ class CoverBlock(XBlock):
                 "url": self.runtime.local_resource_url(
                     self, "public/coverBlockStudio.js"
                 ),
-                **self.field_data(),
-                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                "data": self.field_data(),
+                "config": {
+                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning"
+                },
             },
         )
         return frag

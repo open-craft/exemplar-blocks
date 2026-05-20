@@ -1,4 +1,4 @@
-import { C as e, a as t, c as n, d as r, f as i, l as a, n as o, s, t as c, u as l, x as u } from "./Container-BV656H3C.js";
+import { C as e, a as t, c as n, d as r, f as i, l as a, n as o, s, t as c, u as l, x as u } from "./Container-Dv0cq8sR.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Row.js
 var d = /* @__PURE__ */ e(l()), f = /* @__PURE__ */ e(u()), p = [
 	"bsPrefix",
@@ -66,8 +66,13 @@ function v({ header: e, keypoints: n, buttonText: r, buttonLink: i, backgroundCo
 //#endregion
 //#region src/keypoint-block/student-ui/style.scss?inline
 var y = ".xblock-keypoints *,.xblock-keypoints :before,.xblock-keypoints :after{box-sizing:border-box}.xblock-keypoints .keypoint-label{color:var(--pgn-color-primary-base);font-size:1.1rem}.xblock-keypoints .text-gray-700{line-height:1.6}", b = (e, t, n) => {
-	let { header: i, keypoints: a, button_text: o, button_link: s, background_color: c } = n;
-	r(e, t, n, y)(/* @__PURE__ */ (0, _.jsx)(v, {
+	let { header: i, keypoints: a, button_text: o, button_link: s, background_color: c } = n.data;
+	r({
+		runtime: e,
+		element: t,
+		config: n.config,
+		styles: y
+	})(/* @__PURE__ */ (0, _.jsx)(v, {
 		header: i || "",
 		keypoints: a || [],
 		buttonText: o || "",

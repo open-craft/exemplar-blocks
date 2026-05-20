@@ -8,7 +8,9 @@ import styles from './main.scss?inline';
 export const renderBlock = (
   runtime: XBlockRuntime,
   element: Element,
-  data: Data & XBlockConfig,
+  context: { data: Data; config: XBlockConfig },
 ) => {
-  createXBlockRoot(runtime, element, data, styles)(<App data={data} />);
+  createXBlockRoot({ runtime, element, config: context.config, styles })(
+    <App data={context.data} />,
+  );
 };
