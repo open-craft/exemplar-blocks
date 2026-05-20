@@ -384,7 +384,7 @@ wheels = [
 
 [[package]]
 name = "exemplar-blocks"
-version = "0.8.3"
+version = "0.8.5"
 source = { editable = "." }
 dependencies = [
     { name = "nh3" },
