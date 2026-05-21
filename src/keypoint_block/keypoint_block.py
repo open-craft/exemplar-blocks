@@ -101,7 +101,7 @@ class KeypointXBlock(XBlock):
         html = self.resource_string("static/html/keypoint_edit.html")
         frag = Fragment(html)
         frag.add_javascript(self.resource_string("static/js/studio.js"))
-        frag.add_css(self.resource_string("static/css/studio-reset.css"))
+        frag.add_css(self.resource_string("static/css/studio.css"))
         frag.initialize_js(
             "KeyPointEditor",
             {

@@ -3,7 +3,15 @@
     display: flex;
   }
 }
-
+.xblock-root {
+  height: 100%;
+  .react-studio-block {
+    height: 100%;
+    .container-fluid {
+      height: 100%;
+    }
+  }
+}
 .react-studio-block {
   flex-grow: 1;
   // Bootstrap grid requires border-box sizing. Since we don't import
@@ -17,15 +25,11 @@
   .wrapper-comp-settings {
     overflow-y: scroll;
     // This is full screen height, with removal of 60px for the header, and 69px for the footer.
-    max-height: calc(100vh - 69px);
+    max-height: var(--exemplar-block-studio-ui-max-height, calc(100vh - 69px));
+    height: 100%;
   }
 
   margin-bottom: 0 !important;
-}
-
-.modal-lg .react-studio-block .wrapper-comp-settings {
-  // studio-v1.css sets .modal-content height to 435px and the action buttons footer uses 69px
-  max-height: 366px;
 }
 
 // Action bar sits outside .xblock-keypoints so that the platform rule

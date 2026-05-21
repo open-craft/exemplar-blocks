@@ -100,7 +100,7 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
 
         frag.add_javascript(resource_loader.load_unicode("static/js/entrypoint.js"))
         if is_studio:
-            frag.add_css(resource_loader.load_unicode("static/studio-reset.css"))
+            frag.add_css(resource_loader.load_unicode("static/css/studio.css"))
 
         frag.initialize_js(
             "TwoColumnXBlock",
@@ -134,8 +134,7 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
         """Studio edit view."""
         html = resource_loader.load_unicode("static/html/two_column_block_editor.html")
         frag = Fragment(html)
-
-        frag.add_css(resource_loader.load_unicode("static/studio-reset.css"))
+        frag.add_css(resource_loader.load_unicode("static/css/studio.css"))
         frag.add_javascript(resource_loader.load_unicode("static/js/entrypoint.js"))
 
         try:

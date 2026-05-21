@@ -1,4 +1,4 @@
-import { B as e, C as t, D as n, E as r, H as i, M as a, N as o, O as s, S as c, a as l, c as u, j as d, k as f, n as p, o as m, s as h, t as g, w as _ } from "./Stack--j1gtifv.js";
+import { B as e, C as t, D as n, E as r, H as i, M as a, N as o, O as s, S as c, a as l, c as u, j as d, k as f, n as p, o as m, s as h, t as g, w as _ } from "./Stack-De3vXDAm.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Badge.js
 var v = /* @__PURE__ */ i(s()), y = /* @__PURE__ */ i(e()), b = [
 	"bsPrefix",

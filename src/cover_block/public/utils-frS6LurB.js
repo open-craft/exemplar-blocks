@@ -9194,7 +9194,7 @@ var Jn = /* @__PURE__ */ function(e) {
 	};
 }, or = ({ runtime: e, element: t, config: n, styles: r }) => async (i) => {
 	let { core: a, theme: o } = await ar(n.mfe_config_api), s = ir(t), c = null, l = s;
-	if (c = s.attachShadow({ mode: "open" }), l = document.createElement("div"), c.appendChild(l), r) {
+	if (c = s.attachShadow({ mode: "open" }), l = document.createElement("div"), l.classList.add("xblock-root"), c.appendChild(l), r) {
 		let e = document.createElement("style");
 		e.textContent = r, c ? c.appendChild(e) : document.head.appendChild(e);
 	}

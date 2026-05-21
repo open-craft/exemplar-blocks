@@ -9061,7 +9061,7 @@ var Dn = (0, V.createContext)({
 	};
 }, Fn = ({ runtime: e, element: t, config: n, styles: r }) => async (i) => {
 	let { core: a, theme: o } = await Pn(n.mfe_config_api), s = Nn(t), c = null, l = s;
-	if (c = s.attachShadow({ mode: "open" }), l = document.createElement("div"), c.appendChild(l), r) {
+	if (c = s.attachShadow({ mode: "open" }), l = document.createElement("div"), l.classList.add("xblock-root"), c.appendChild(l), r) {
 		let e = document.createElement("style");
 		e.textContent = r, c ? c.appendChild(e) : document.head.appendChild(e);
 	}
