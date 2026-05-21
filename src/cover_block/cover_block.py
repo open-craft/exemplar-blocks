@@ -184,7 +184,7 @@ class CoverBlock(XBlock):
         html = resource_loader.load_unicode("static/html/cover_edit.html")
         frag = Fragment(html)
         frag.add_javascript(resource_loader.load_unicode("static/js/src/studio.js"))
-        frag.add_css(resource_loader.load_unicode("static/css/studio-reset.css"))
+        frag.add_css(resource_loader.load_unicode("static/css/studio.css"))
         frag.initialize_js(
             "CoverEditor",
             {

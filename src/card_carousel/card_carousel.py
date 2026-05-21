@@ -128,7 +128,7 @@ class CardCarouselXBlock(XBlock):
         frag = Fragment(html)
 
         frag.add_javascript(self.resource_string("static/studio.js"))
-        frag.add_css(self.resource_string("static/studio-fixes.css"))
+        frag.add_css(self.resource_string("static/css/studio.css"))
         frag.initialize_js(
             "CardCarouselEditor",
             {

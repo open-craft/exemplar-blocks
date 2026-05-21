@@ -122,6 +122,7 @@ export const createXBlockRoot =
     if (ENABLE_SHADOW_ROOT) {
       shadowRoot = rootElement.attachShadow({ mode: 'open' });
       root = document.createElement('div');
+      root.classList.add('xblock-root');
       shadowRoot.appendChild(root);
     }
     if (styles) {
