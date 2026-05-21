@@ -9059,7 +9059,7 @@ var Dn = (0, V.createContext)({
 		core: ["https://cdn.jsdelivr.net/npm/@openedx/paragon@23/dist/core.min.css", t?.core?.urls?.brandOverride].filter(Boolean),
 		theme: r
 	};
-}, Fn = (e, t, n, r) => async (i) => {
+}, Fn = ({ runtime: e, element: t, config: n, styles: r }) => async (i) => {
 	let { core: a, theme: o } = await Pn(n.mfe_config_api), s = Nn(t), c = null, l = s;
 	if (c = s.attachShadow({ mode: "open" }), l = document.createElement("div"), c.appendChild(l), r) {
 		let e = document.createElement("style");

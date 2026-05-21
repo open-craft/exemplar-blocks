@@ -7,12 +7,12 @@ import styles from './StudentUI.css?inline';
 export const renderBlock = (
   element: Element,
   runtime: XBlockRuntime,
-  initData: InitData & XBlockConfig,
+  context: { data: InitData; config: XBlockConfig },
 ) => {
-  createXBlockRoot(
+  createXBlockRoot({
     runtime,
     element,
-    initData,
-    styles,
-  )(<StudentUI runtime={runtime} initData={initData} />);
+    config: context.config,
+    styles: styles,
+  })(<StudentUI runtime={runtime} initData={context.data} />);
 };

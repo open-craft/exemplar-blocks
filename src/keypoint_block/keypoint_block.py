@@ -69,12 +69,16 @@ class KeypointXBlock(XBlock):
                 "url": self.runtime.local_resource_url(
                     self, "public/keypointBlockStudent.js"
                 ),
-                "header": self.header,
-                "keypoints": self.keypoints,
-                "button_text": self.button_text,
-                "button_link": self.button_link,
-                "background_color": self.background_color,
-                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                "data": {
+                    "header": self.header,
+                    "keypoints": self.keypoints,
+                    "button_text": self.button_text,
+                    "button_link": self.button_link,
+                    "background_color": self.background_color,
+                },
+                "config": {
+                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                },
             },
         )
         return frag
@@ -104,12 +108,16 @@ class KeypointXBlock(XBlock):
                 "url": self.runtime.local_resource_url(
                     self, "public/keypointBlockStudio.js"
                 ),
-                "header": self.header,
-                "keypoints": self.keypoints,
-                "button_text": self.button_text,
-                "button_link": self.button_link,
-                "background_color": self.background_color,
-                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                "data": {
+                    "header": self.header,
+                    "keypoints": self.keypoints,
+                    "button_text": self.button_text,
+                    "button_link": self.button_link,
+                    "background_color": self.background_color,
+                },
+                "config": {
+                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                },
             },
         )
         return frag

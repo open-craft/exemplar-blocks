@@ -7,7 +7,9 @@ import type { CoverBlockFields } from '../apiTypes.ts';
 export const renderBlock = (
   runtime: XBlockRuntime,
   element: Element | null,
-  initData: CoverBlockFields & XBlockConfig,
+  context: { data: CoverBlockFields; config: XBlockConfig },
 ) => {
-  createXBlockRoot(runtime, element, initData, styles)(<App {...initData} />);
+  createXBlockRoot({ runtime, element, config: context.config, styles })(
+    <App {...context.data} />,
+  );
 };

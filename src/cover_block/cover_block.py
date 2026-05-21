@@ -3,7 +3,6 @@ Main Cover Block code module. Provides the XBlock for import by the studio.
 """
 
 import logging
-from typing import Callable, Union
 
 from django.conf import settings
 from django.template import Template, Context
@@ -20,6 +19,9 @@ logger = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
 
 
+UNSET_SENTINEL_VALUE = "__UNSET__"
+
+
 def default_media_url() -> str:
     """
     Get the default media URL if set in the Django settings. Otherwise, use
@@ -32,14 +34,14 @@ def default_media_url() -> str:
     )
 
 
-def call_or_string(target: Union[str, Callable[[], str]]) -> str:
+def media_with_fallback(target: str) -> str:
     """
     Used for handling the default value in the media URL field, since the default
     is a function.
     """
-    if isinstance(target, str):
-        return target
-    return target()
+    if target == UNSET_SENTINEL_VALUE:
+        return default_media_url()
+    return target
 
 
 class CoverBlock(XBlock):
@@ -110,7 +112,7 @@ class CoverBlock(XBlock):
     )
     media_url = String(
         display_name="Cover image URL",
-        default=default_media_url,
+        default=UNSET_SENTINEL_VALUE,
         scope=Scope.content,
         help="Cover image URL for the block.",
     )
@@ -148,8 +150,10 @@ class CoverBlock(XBlock):
                 "url": self.runtime.local_resource_url(
                     self, "public/coverBlockStudent.js"
                 ),
-                **self.field_data(),
-                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                "data": self.field_data(),
+                "config": {
+                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning"
+                },
             },
         )
         return frag
@@ -169,7 +173,7 @@ class CoverBlock(XBlock):
             subheader_color=self.subheader_color,
             description=self.description,
             description_color=self.description_color,
-            media_url=call_or_string(self.media_url),
+            media_url=media_with_fallback(self.media_url),
             media_alt_text=self.media_alt_text,
         ).model_dump(mode="json")
 
@@ -187,8 +191,10 @@ class CoverBlock(XBlock):
                 "url": self.runtime.local_resource_url(
                     self, "public/coverBlockStudio.js"
                 ),
-                **self.field_data(),
-                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                "data": self.field_data(),
+                "config": {
+                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning"
+                },
             },
         )
         return frag

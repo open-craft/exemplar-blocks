@@ -7,16 +7,11 @@ import styles from './style.scss?inline';
 export const renderBlock = (
   runtime: XBlockRuntime,
   element: Element | null,
-  initData: XBlockData & XBlockConfig,
+  context: { data: XBlockData; config: XBlockConfig },
 ) => {
   const { header, keypoints, button_text, button_link, background_color } =
-    initData;
-  createXBlockRoot(
-    runtime,
-    element,
-    initData,
-    styles,
-  )(
+    context.data;
+  createXBlockRoot({ runtime, element, config: context.config, styles })(
     <StudentUi
       header={header || ''}
       keypoints={keypoints || []}

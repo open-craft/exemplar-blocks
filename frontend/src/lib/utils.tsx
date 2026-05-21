@@ -105,15 +105,17 @@ const ENABLE_SHADOW_ROOT = true;
 //   is loaded inside the Shadow DOM. PR here: https://github.com/openedx/paragon/pull/4282
 // So we temporarily need to load the Paragon CSS both inside and outside the Shadow DOM.
 
+interface XBlockRootParams {
+  runtime: XBlockRuntime;
+  element: Element | JQuery<Element> | null;
+  config: XBlockConfig;
+  styles?: string;
+}
+
 export const createXBlockRoot =
-  <T extends XBlockConfig>(
-    runtime: XBlockRuntime,
-    element: Element | JQuery<Element> | null,
-    initData: T,
-    styles?: string,
-  ) =>
+  ({ runtime, element, config, styles }: XBlockRootParams) =>
   async (children: React.ReactNode) => {
-    const { core, theme } = await getThemes(initData.mfe_config_api);
+    const { core, theme } = await getThemes(config.mfe_config_api);
     const rootElement = getRoot(element);
     let shadowRoot = null;
     let root = rootElement;

@@ -103,15 +103,19 @@ class CardCarouselXBlock(XBlock):
                 "url": self.runtime.local_resource_url(
                     self, "public/cardCarouselStudent.js"
                 ),
-                "orientation": self.orientation,
-                # Data model was changed between versions 0.6 and 0.7.
-                # The parsing and dumping of card data here ensures any old data
-                # is migrated to the new format.
-                "cards": [CardData(**c).model_dump() for c in self.cards],
-                "displayName": self.display_name,
-                "disableNumbering": self.disable_numbering,
-                "backgroundColor": self.background_color,
-                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                "data": {
+                    "orientation": self.orientation,
+                    # Data model was changed between versions 0.6 and 0.7.
+                    # The parsing and dumping of card data here ensures any old data
+                    # is migrated to the new format.
+                    "cards": [CardData(**c).model_dump() for c in self.cards],
+                    "displayName": self.display_name,
+                    "disableNumbering": self.disable_numbering,
+                    "backgroundColor": self.background_color,
+                },
+                "config": {
+                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                },
             },
         )
         return frag
@@ -131,15 +135,19 @@ class CardCarouselXBlock(XBlock):
                 "url": self.runtime.local_resource_url(
                     self, "public/cardCarouselStudio.js"
                 ),
-                "orientation": self.orientation,
-                # Data model was changed between versions 0.6 and 0.7.
-                # The parsing and dumping of card data here ensures any old data
-                # is migrated to the new format.
-                "cards": [CardData(**c).model_dump() for c in self.cards],
-                "displayName": self.display_name,
-                "disableNumbering": self.disable_numbering,
-                "backgroundColor": self.background_color,
-                "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                "data": {
+                    "orientation": self.orientation,
+                    # Data model was changed between versions 0.6 and 0.7.
+                    # The parsing and dumping of card data here ensures any old data
+                    # is migrated to the new format.
+                    "cards": [CardData(**c).model_dump() for c in self.cards],
+                    "displayName": self.display_name,
+                    "disableNumbering": self.disable_numbering,
+                    "backgroundColor": self.background_color,
+                },
+                "config": {
+                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
+                },
             },
         )
         return frag

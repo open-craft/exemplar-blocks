@@ -8,7 +8,7 @@ import { createXBlockRoot, getRoot } from '../../lib/utils.tsx';
 export const renderBlock = (
   runtime: XBlockRuntime,
   element: Element,
-  initialData: Data & XBlockConfig,
+  context: { data: Data; config: XBlockConfig },
 ) => {
   const container = getRoot(element);
 
@@ -30,10 +30,7 @@ export const renderBlock = (
 
   const cancel = () => runtime.notify('cancel', {});
 
-  createXBlockRoot(
-    runtime,
-    element,
-    initialData,
-    styles,
-  )(<App initialData={initialData} onSave={save} onCancel={cancel} />);
+  createXBlockRoot({ runtime, element, config: context.config, styles })(
+    <App initialData={context.data} onSave={save} onCancel={cancel} />,
+  );
 };

@@ -1,4 +1,4 @@
-import { B as e, C as t, D as n, E as r, H as i, M as a, N as o, O as s, S as c, a as l, c as u, j as d, k as f, n as p, o as m, s as h, t as g, w as _ } from "./Stack-DooHILoh.js";
+import { B as e, C as t, D as n, E as r, H as i, M as a, N as o, O as s, S as c, a as l, c as u, j as d, k as f, n as p, o as m, s as h, t as g, w as _ } from "./Stack--j1gtifv.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Badge.js
 var v = /* @__PURE__ */ i(s()), y = /* @__PURE__ */ i(e()), b = [
 	"bsPrefix",
@@ -1116,9 +1116,14 @@ function Re({ initData: { cards: e, displayName: t, orientation: n, disableNumbe
 //#endregion
 //#region src/card-carousel/student-ui/StudentUI.css?inline
 var ze = ".card-badge{margin:var(--pgn-spacing-card-spacer-x);margin-bottom:0;font-size:x-large!important}.card-badge .badge{padding:var(--pgn-spacing-card-spacer-y) var(--pgn-spacing-card-spacer-x)}.horizontal .hover-list{column-count:2;column-gap:calc(var(--pgn-spacing-spacer-base) * 2)!important}.hover-list-description,.hover-content{padding:calc(var(--pgn-spacing-spacer-base))}.hover-list-content-wrapper{min-height:calc(( var(--pgn-spacing-spacer-base) + var(--pgn-typography-font-size-base) * var(--pgn-typography-line-height-base) ) * 2);position:relative}.hover-list-description{opacity:1;visibility:visible;z-index:0}.hover-content{background-color:var(--pgn-color-primary-500);width:100%;color:var(--pgn-color-light-100);border-radius:var(--pgn-size-border-radius-base);opacity:0;visibility:hidden;z-index:10;align-items:center;display:flex;position:absolute;top:0;left:0}.hover-list-item:has(.hover-content){cursor:pointer}:is(.hover-list-item:has(.hover-content):hover,.hover-list-item:has(.hover-content).is-active){list-style:none;margin-left:calc(var(--pgn-spacing-spacer-base) * -2.5)!important}.hover-list-item:has(.hover-content):hover .hover-list-description{opacity:0;visibility:hidden}.hover-list-item:has(.hover-content):hover .hover-content{opacity:1;visibility:visible}.hover-content-icon-wrapper{color:var(--pgn-color-light-100);margin-right:var(--pgn-spacing-spacer-base)}:root{--pgn-size-card-image-horizontal-width-max:50%;--pgn-size-card-image-vertical-max-height:100%}.pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap{max-width:unset}", Be = (e, t, n) => {
-	f(t, e, n, ze)(/* @__PURE__ */ (0, Q.jsx)(Re, {
+	f({
 		runtime: t,
-		initData: n
+		element: e,
+		config: n.config,
+		styles: ze
+	})(/* @__PURE__ */ (0, Q.jsx)(Re, {
+		runtime: t,
+		initData: n.data
 	}));
 };
 //#endregion

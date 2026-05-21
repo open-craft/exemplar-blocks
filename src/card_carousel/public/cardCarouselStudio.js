@@ -1,4 +1,4 @@
-import { A as e, B as t, C as n, D as r, E as i, F as a, H as o, I as s, L as c, M as l, N as u, O as d, P as f, R as p, S as m, T as h, V as g, _, a as v, b as y, d as b, f as x, g as S, h as C, i as ee, j as w, k as te, l as ne, m as T, n as re, o as ie, p as ae, r as oe, t as se, u as ce, v as le, w as E, x as D, y as ue, z as de } from "./Stack-DooHILoh.js";
+import { A as e, B as t, C as n, D as r, E as i, F as a, H as o, I as s, L as c, M as l, N as u, O as d, P as f, R as p, S as m, T as h, V as g, _, a as v, b as y, d as b, f as x, g as S, h as C, i as ee, j as w, k as te, l as ne, m as T, n as re, o as ie, p as ae, r as oe, t as se, u as ce, v as le, w as E, x as D, y as ue, z as de } from "./Stack--j1gtifv.js";
 //#region node_modules/.pnpm/dom-helpers@5.2.1/node_modules/dom-helpers/esm/camelize.js
 var O = /* @__PURE__ */ o(n()), k = /* @__PURE__ */ o(d()), fe = /* @__PURE__ */ o(f()), A = /* @__PURE__ */ o(t()), pe = /-(.)/g;
 function me(e) {
@@ -13089,12 +13089,17 @@ function ID({ runtime: e, saveUrl: t, initData: n }) {
 //#region src/card-carousel/studio-ui/StudioUI.css?inline
 var LD = ".icon-selector{position:relative}.icon-list-popup{z-index:100;background-color:var(--pgn-color-body-bg);width:242px;min-height:242px;max-height:300px;position:absolute;top:0;left:0;overflow:scroll}.icon-symbol{background-color:var(--pgn-color-body-bg);color:var(--pgn-color-body-base);border:0}.icon-symbol:hover{background-color:var(--pgn-color-light)}.icon-symbol:focus{background-color:var(--pgn-color-light);border:0}.carousel-editor{overflow-y:scroll}.modal-lg .carousel-editor{max-height:540px}.modal-fullscreen .carousel-editor{height:calc(100vh - 140px)}.card-carousel-editor-modal-footer{background-color:var(--pgn-color-card-bg-base)}.wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block .wrapper-comp-settings{max-height:calc(100vh - 69px);overflow-y:scroll}.react-studio-block{margin-bottom:0!important}.modal-lg .react-studio-block .wrapper-comp-settings{max-height:366px}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.studio-ui{flex-grow:1;min-height:635px}.xmodule_CardCarouselXBlock,.xblock-studio_view-card_carousel{display:flex}.xmodule_CardCarouselXBlock form,.xblock-studio_view-card_carousel form{flex-grow:1;display:flex}", RD = (t, n, r) => {
 	let i = e(t), a = n.handlerUrl(t, "studio_save");
-	(!r.cards || !r.cards.length) && (r.cards = [MD()]);
+	(!r.data.cards || !r.data.cards.length) && (r.data.cards = [MD()]);
 	let o = i.parentElement?.parentElement;
-	o && (o.style.minHeight = "635px"), te(n, t, r, LD)(/* @__PURE__ */ (0, F.jsx)(ID, {
+	o && (o.style.minHeight = "635px"), te({
+		runtime: n,
+		element: t,
+		config: r.config,
+		styles: LD
+	})(/* @__PURE__ */ (0, F.jsx)(ID, {
 		saveUrl: a,
 		runtime: n,
-		initData: r
+		initData: r.data
 	}));
 };
 //#endregion
