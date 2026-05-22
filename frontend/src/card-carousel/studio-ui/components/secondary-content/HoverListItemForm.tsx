@@ -27,6 +27,8 @@ function HoverItemForm({ cardIndex, itemIndex, onRemove }: HoverItemFormProps) {
         <Form.Group>
           <Form.Label className="x-small">Main Text</Form.Label>
           <Form.Control
+            as="textarea"
+            autoResize
             name={`${prefix}.description`}
             value={item.description}
             onChange={handleChange}
@@ -43,7 +45,8 @@ function HoverItemForm({ cardIndex, itemIndex, onRemove }: HoverItemFormProps) {
           <Form.Group className="flex-grow-1 ml-2">
             <Form.Label className="x-small">Hover Text</Form.Label>
             <Form.Control
-              type="text"
+              as="textarea"
+              autoResize
               name={`${prefix}.hoverContent`}
               value={item.hoverContent}
               onChange={handleChange}

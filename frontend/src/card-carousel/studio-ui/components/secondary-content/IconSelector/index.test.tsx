@@ -12,7 +12,7 @@ describe('IconSelector', () => {
     );
     // The trigger button's icon has an extra 'mb-0' class; icon-grid spans do not
     const triggerIcon = document.querySelector(
-      '.material-icons.mb-0',
+      '.material-icons-outlined.mb-0',
     ) as HTMLElement;
     expect(triggerIcon).not.toBeNull();
     expect(triggerIcon.textContent).toBe(DEFAULT_ICON);

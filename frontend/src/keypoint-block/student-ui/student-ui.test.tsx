@@ -131,9 +131,9 @@ describe('StudentUi', () => {
           backgroundColor="#FFF"
         />,
       );
-      const row = container.querySelector('.row');
-      expect(row).toBeInTheDocument();
-      expect(row!.children).toHaveLength(0);
+      const grid = container.querySelector('.keypoints-card-grid');
+      expect(grid).toBeInTheDocument();
+      expect(grid!.children).toHaveLength(0);
     });
   });
 });

@@ -86,7 +86,9 @@ export default function IconSelector({
       className="d-block icon-selector pb-1"
       onClick={() => setShowSelector(true)}
     >
-      <span className="material-icons mb-0">{currentIcon || 'add'}</span>
+      <span className="material-icons-outlined mb-0">
+        {currentIcon || 'add'}
+      </span>
       <div
         className="icon-list-popup border rounded-sm shadow"
         style={{ display: showSelector ? 'block' : 'none' }}
@@ -97,7 +99,7 @@ export default function IconSelector({
             className="m-0"
             placeholder="Search icons"
             trailingElement={
-              <span className="material-icons medium text-gray-500">
+              <span className="material-icons-outlined medium text-gray-500">
                 search
               </span>
             }
@@ -112,7 +114,7 @@ export default function IconSelector({
               className="icon-symbol p-2"
               onClick={(e) => selectIcon(e, icon)}
             >
-              <span key={icon} className="material-icons">
+              <span key={icon} className="material-icons-outlined">
                 {icon}
               </span>
             </Button>

@@ -3,11 +3,11 @@ import { describe, it, expect } from 'vitest';
 import MaterialIcon from './MaterialIcon';
 
 describe('MaterialIcon', () => {
-  it('renders the icon name in a material-icons span', () => {
+  it('renders the icon name in a material-icons-outlined span', () => {
     render(<MaterialIcon name="home" />);
     const span = screen.getByText('home');
     expect(span).toBeInTheDocument();
-    expect(span.className).toBe('material-icons');
+    expect(span.className).toBe('material-icons-outlined');
   });
 
   it('renders with default size when no size is provided', () => {

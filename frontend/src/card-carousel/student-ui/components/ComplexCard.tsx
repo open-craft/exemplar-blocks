@@ -90,10 +90,18 @@ export default function ComplexCard({
         orientation={orientation}
         secondaryContent={data.secondaryContent}
       >
-        <Card.Body>
+        <Card.Body
+          className={
+            data.secondaryContent?.kind === 'IMAGE' ? 'w-50 p-3' : 'p-3'
+          }
+        >
           {position && (
-            <div className="card-badge rounded-pill">
-              <Badge variant="primary" aria-label={position}>
+            <div className="card-badge">
+              <Badge
+                variant="primary"
+                aria-label={position}
+                className="rounded-pill"
+              >
                 {position}
               </Badge>
             </div>
@@ -101,8 +109,10 @@ export default function ComplexCard({
           <Card.Header title={data.title} subtitle={data.subtitle} />
           {data.description && <Card.Section>{data.description}</Card.Section>}
           {data.ctaLabel && data.ctaLink && (
-            <Card.Section>
-              <Button variant="primary">{data.ctaLabel}</Button>
+            <Card.Section className="d-flex justify-content-end">
+              <Button variant="accent" className="rounded-pill px-6">
+                <strong>{data.ctaLabel}</strong>
+              </Button>
             </Card.Section>
           )}
           {data.secondaryContent?.kind === 'HOVER_LIST' && (

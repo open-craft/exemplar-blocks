@@ -1,24 +1,28 @@
 @import './components/secondary-content/IconSelector/index.css';
-@import './components/CarouselEditor.css';
 @import './components/ModalFooter.css';
 @import '../../studio.scss';
 
 /*
-* The CMS hardcodes the height of the "Edit" modal to be 435px in cms/static/sass/elements/_modal-window.scss
-* This is insufficient for this UI. So bumping it up to 635px.
-* */
-.studio-ui {
-  min-height: 635px;
-  flex-grow: 1;
-}
+The Material Icons styles are supposed to be loaded directly using the injects <link> element.
+While the font loads as expected, the CSS doesn't reach the UI due to the shadow dom boundary.
+They are redefined here explicitly to make sure they are available inside the shadow DOM.
 
-.xmodule_CardCarouselXBlock,
-.xblock-studio_view-card_carousel {
-  display: flex;
-}
-
-.xmodule_CardCarouselXBlock form,
-.xblock-studio_view-card_carousel form {
-  display: flex;
-  flex-grow: 1;
+The following is copied verbatime from the Google Fonts guide: https://developers.google.com/fonts/docs/material_icons
+*/
+.material-icons-outlined {
+  font-family: 'Material Icons Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
 }

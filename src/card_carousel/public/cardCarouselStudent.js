@@ -928,7 +928,7 @@ Z.Status = W, Z.Header = B, Z.Divider = ye, Z.Section = V, Z.Footer = H, Z.Image
 var Q = d();
 function Ne({ title: e, subtitle: t, description: n, orientation: r }) {
 	return /* @__PURE__ */ (0, Q.jsxs)("div", {
-		className: "p-4 bg-primary-500 h-100",
+		className: "p-5 bg-primary-500 h-100",
 		style: r === "HORIZONTAL" ? {
 			borderTopRightRadius: "var(--pgn-size-border-radius-lg)",
 			borderBottomRightRadius: "var(--pgn-size-border-radius-lg)"
@@ -938,11 +938,11 @@ function Ne({ title: e, subtitle: t, description: n, orientation: r }) {
 		},
 		children: [
 			/* @__PURE__ */ (0, Q.jsx)("h4", {
-				className: "text-brand-400 h3 mb-4",
+				className: "text-accent",
 				children: t
 			}),
 			/* @__PURE__ */ (0, Q.jsx)("h3", {
-				className: "text-light-100",
+				className: "text-light-100 mb-3",
 				children: e
 			}),
 			/* @__PURE__ */ (0, Q.jsx)("p", {
@@ -963,7 +963,7 @@ function $({ name: e, bg: t, fg: n, size: r }) {
 			height: a
 		},
 		children: /* @__PURE__ */ (0, Q.jsx)("span", {
-			className: "material-icons",
+			className: "material-icons-outlined",
 			children: e
 		})
 	});
@@ -972,7 +972,7 @@ function $({ name: e, bg: t, fg: n, size: r }) {
 //#region src/card-carousel/student-ui/components/RichList.tsx
 function Pe({ items: e }) {
 	return /* @__PURE__ */ (0, Q.jsx)("div", {
-		className: "p-4",
+		className: "p-4 pt-5",
 		children: e.map((t, n) => /* @__PURE__ */ (0, Q.jsxs)("div", { children: [/* @__PURE__ */ (0, Q.jsxs)(g, {
 			direction: "horizontal",
 			children: [/* @__PURE__ */ (0, Q.jsx)($, { name: t.icon }), /* @__PURE__ */ (0, Q.jsxs)("div", {
@@ -1060,62 +1060,77 @@ function Le({ orientation: e, data: t, position: n }) {
 		children: /* @__PURE__ */ (0, Q.jsx)(Ie, {
 			orientation: e,
 			secondaryContent: t.secondaryContent,
-			children: /* @__PURE__ */ (0, Q.jsxs)(Z.Body, { children: [
-				n && /* @__PURE__ */ (0, Q.jsx)("div", {
-					className: "card-badge rounded-pill",
-					children: /* @__PURE__ */ (0, Q.jsx)(ee, {
-						variant: "primary",
-						"aria-label": n,
-						children: n
-					})
-				}),
-				/* @__PURE__ */ (0, Q.jsx)(Z.Header, {
-					title: t.title,
-					subtitle: t.subtitle
-				}),
-				t.description && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: t.description }),
-				t.ctaLabel && t.ctaLink && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: /* @__PURE__ */ (0, Q.jsx)(l, {
-					variant: "primary",
-					children: t.ctaLabel
-				}) }),
-				t.secondaryContent?.kind === "HOVER_LIST" && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: /* @__PURE__ */ (0, Q.jsx)(Fe, { ...t.secondaryContent }) })
-			] })
+			children: /* @__PURE__ */ (0, Q.jsxs)(Z.Body, {
+				className: t.secondaryContent?.kind === "IMAGE" ? "w-50 p-3" : "p-3",
+				children: [
+					n && /* @__PURE__ */ (0, Q.jsx)("div", {
+						className: "card-badge",
+						children: /* @__PURE__ */ (0, Q.jsx)(ee, {
+							variant: "primary",
+							"aria-label": n,
+							className: "rounded-pill",
+							children: n
+						})
+					}),
+					/* @__PURE__ */ (0, Q.jsx)(Z.Header, {
+						title: t.title,
+						subtitle: t.subtitle
+					}),
+					t.description && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: t.description }),
+					t.ctaLabel && t.ctaLink && /* @__PURE__ */ (0, Q.jsx)(Z.Section, {
+						className: "d-flex justify-content-end",
+						children: /* @__PURE__ */ (0, Q.jsx)(l, {
+							variant: "accent",
+							className: "rounded-pill px-6",
+							children: /* @__PURE__ */ (0, Q.jsx)("strong", { children: t.ctaLabel })
+						})
+					}),
+					t.secondaryContent?.kind === "HOVER_LIST" && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: /* @__PURE__ */ (0, Q.jsx)(Fe, { ...t.secondaryContent }) })
+				]
+			})
 		})
 	});
 }
 //#endregion
 //#region src/card-carousel/student-ui/StudentUI.tsx
 function Re({ initData: { cards: e, displayName: t, orientation: n, disableNumbering: r, backgroundColor: i } }) {
-	return /* @__PURE__ */ (0, Q.jsx)("div", {
+	let a = {
+		sm: 12,
+		md: 8,
+		lg: 6,
+		xl: 6
+	}, o = {
+		sm: 12,
+		md: 10,
+		lg: 10,
+		xl: 11
+	}, s = { sm: 12 };
+	return e.length > 1 && (s = n === "HORIZONTAL" ? o : a), /* @__PURE__ */ (0, Q.jsx)("div", {
 		style: { backgroundColor: i },
-		className: "w-100",
-		children: /* @__PURE__ */ (0, Q.jsx)(Y, {
-			ariaLabel: t,
-			title: t ? /* @__PURE__ */ (0, Q.jsx)("h3", { children: t }) : "",
-			canScrollHorizontal: !0,
-			disableOpacityMasks: !0,
-			columnSizes: n === "HORIZONTAL" ? {
-				sm: 12,
-				md: 10,
-				lg: 10,
-				xl: 11
-			} : {
-				sm: 12,
-				md: 8,
-				lg: 6,
-				xl: 6
+		className: "card-carousel-xblock py-6",
+		children: /* @__PURE__ */ (0, Q.jsx)("div", {
+			style: {
+				maxWidth: "1200px",
+				margin: "0 auto"
 			},
-			children: e.map((t, i) => /* @__PURE__ */ (0, Q.jsx)(Le, {
-				orientation: n,
-				data: t,
-				position: r ? "" : `${i + 1} / ${e.length}`
-			}, i))
+			children: /* @__PURE__ */ (0, Q.jsx)(Y, {
+				ariaLabel: t,
+				title: t ? /* @__PURE__ */ (0, Q.jsx)("h3", { children: t }) : "",
+				canScrollHorizontal: !0,
+				disableOpacityMasks: !0,
+				columnSizes: s,
+				children: e.map((t, i) => /* @__PURE__ */ (0, Q.jsx)(Le, {
+					orientation: n,
+					data: t,
+					position: r ? "" : `${i + 1} / ${e.length}`
+				}, i))
+			})
 		})
 	});
 }
 //#endregion
 //#region src/card-carousel/student-ui/StudentUI.css?inline
-var ze = ".card-badge{margin:var(--pgn-spacing-card-spacer-x);margin-bottom:0;font-size:x-large!important}.card-badge .badge{padding:var(--pgn-spacing-card-spacer-y) var(--pgn-spacing-card-spacer-x)}.horizontal .hover-list{column-count:2;column-gap:calc(var(--pgn-spacing-spacer-base) * 2)!important}.hover-list-description,.hover-content{padding:calc(var(--pgn-spacing-spacer-base))}.hover-list-content-wrapper{min-height:calc(( var(--pgn-spacing-spacer-base) + var(--pgn-typography-font-size-base) * var(--pgn-typography-line-height-base) ) * 2);position:relative}.hover-list-description{opacity:1;visibility:visible;z-index:0}.hover-content{background-color:var(--pgn-color-primary-500);width:100%;color:var(--pgn-color-light-100);border-radius:var(--pgn-size-border-radius-base);opacity:0;visibility:hidden;z-index:10;align-items:center;display:flex;position:absolute;top:0;left:0}.hover-list-item:has(.hover-content){cursor:pointer}:is(.hover-list-item:has(.hover-content):hover,.hover-list-item:has(.hover-content).is-active){list-style:none;margin-left:calc(var(--pgn-spacing-spacer-base) * -2.5)!important}.hover-list-item:has(.hover-content):hover .hover-list-description{opacity:0;visibility:hidden}.hover-list-item:has(.hover-content):hover .hover-content{opacity:1;visibility:visible}.hover-content-icon-wrapper{color:var(--pgn-color-light-100);margin-right:var(--pgn-spacing-spacer-base)}:root{--pgn-size-card-image-horizontal-width-max:50%;--pgn-size-card-image-vertical-max-height:100%}.pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap{max-width:unset}", Be = (e, t, n) => {
+var ze = ".card-carousel-xblock{--pgn-color-headings-base:var(--ccblk-typography-headings-color);--ccblk-spacing-badge-spacer-x:var(--pgn-spacing-card-spacer-x);--ccblk-spacing-badge-spacer-y:var(--pgn-spacing-card-spacer-y);--ccblk-typography-headings-color:var(--pgn-color-headings-base)}.card-carousel-xblock .text-accent{color:var(--pgn-color-accent-a)}.card-carousel-xblock .btn-accent{background-color:var(--pgn-color-accent-a);color:var(--pgn-color-light-100);background-image:unset}.card-carousel-xblock .card-badge{margin:var(--pgn-spacing-card-spacer-x);margin-bottom:0}.card-carousel-xblock .card-badge .badge{padding:var(--ccblk-spacing-badge-spacer-y) var(--ccblk-spacing-badge-spacer-x);font-family:var(--pgn-typography-headings-font-family);font-size:var(--pgn-typography-font-size-h5-base);font-weight:var(--pgn-typography-headings-font-weight)}.card-carousel-xblock .pgn__card .pgn__card-wrapper-image-cap.horizontal{max-width:50%!important}.card-carousel-xblock .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap{max-width:100%!important}.card-carousel-xblock .pgn__card .pgn__card-header .pgn__card-header-content{margin-top:var(--pgn-spacing-card-spacer-x)}.card-carousel-xblock .pgn__card .pgn__card-header .pgn__card-header-title-md{font-family:var(--pgn-typography-headings-font-family);color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-h4-base)}.card-carousel-xblock .pgn__card .pgn__card-header .pgn__card-header-subtitle-md{color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-base);font-weight:700;font-family:var(--pgn-typography-headings-font-family)}.horizontal .hover-list{column-count:2;column-gap:calc(var(--pgn-spacing-spacer-base) * 2)!important}.hover-list-description,.hover-content{padding:calc(var(--pgn-spacing-spacer-base))}.hover-list-content-wrapper{min-height:calc(( var(--pgn-spacing-spacer-base) + var(--pgn-typography-font-size-base) * var(--pgn-typography-line-height-base) ) * 2);position:relative}.hover-list-description{opacity:1;visibility:visible;z-index:0}.hover-content{background-color:var(--pgn-color-primary-500);width:100%;color:var(--pgn-color-light-100);border-radius:var(--pgn-size-border-radius-base);opacity:0;visibility:hidden;z-index:10;align-items:center;display:flex;position:absolute;top:0;left:0}.hover-list-item:has(.hover-content){cursor:pointer}:is(.hover-list-item:has(.hover-content):hover,.hover-list-item:has(.hover-content).is-active){list-style:none;margin-left:calc(var(--pgn-spacing-spacer-base) * -2.5)!important}.hover-list-item:has(.hover-content):hover .hover-list-description{opacity:0;visibility:hidden}.hover-list-item:has(.hover-content):hover .hover-content{opacity:1;visibility:visible}.hover-content-icon-wrapper{color:var(--pgn-color-light-100);margin-right:var(--pgn-spacing-spacer-base)}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", Be = (e, t, n) => {
 	f({
 		runtime: t,
 		element: e,

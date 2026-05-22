@@ -121,7 +121,7 @@ dir = "./frontend"
 depends = ["compile"]
 
 [tasks."build:watch"]
-description = "Build Block"
+description = "Build a specific block in watch mode"
 usage = '''
 arg "<xblock>" help="XBlock to build"
 '''

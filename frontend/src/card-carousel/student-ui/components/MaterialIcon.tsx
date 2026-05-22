@@ -14,7 +14,7 @@ export default function MaterialIcon({
   const dimension = size === 'sm' ? '2.5rem' : '3.5rem';
   return (
     <div className={classes} style={{ width: dimension, height: dimension }}>
-      <span className="material-icons">{name}</span>
+      <span className="material-icons-outlined">{name}</span>
     </div>
   );
 }

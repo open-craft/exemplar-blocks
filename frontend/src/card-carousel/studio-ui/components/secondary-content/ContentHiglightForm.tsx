@@ -34,6 +34,7 @@ export default function ContentHighlightForm({
         <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
+          autoResize
           name={`${prefix}.description`}
           value={content.description}
           onChange={handleChange}

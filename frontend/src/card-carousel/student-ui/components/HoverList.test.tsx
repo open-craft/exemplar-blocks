@@ -37,7 +37,7 @@ describe('HoverList', () => {
         items={[{ description: 'Item', hoverContent: 'Hover', icon: 'star' }]}
       />,
     );
-    // MaterialIcon renders the name inside a .material-icons span
+    // MaterialIcon renders the name inside a .material-icons-outlined span
     expect(screen.getByText('star')).toBeInTheDocument();
   });
 
@@ -45,7 +45,9 @@ describe('HoverList', () => {
     render(
       <HoverList items={[{ description: 'Item', hoverContent: 'Hover' }]} />,
     );
-    expect(document.querySelector('.material-icons')).not.toBeInTheDocument();
+    expect(
+      document.querySelector('.material-icons-outlined'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders empty list when items array is empty', () => {

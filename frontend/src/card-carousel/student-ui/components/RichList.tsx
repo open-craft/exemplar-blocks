@@ -4,7 +4,7 @@ import MaterialIcon from './MaterialIcon';
 
 export function RichList({ items }: { items: RichListItem[] }) {
   return (
-    <div className="p-4">
+    <div className="p-4 pt-5">
       {items.map((item, i) => (
         <div key={i}>
           <Stack direction="horizontal">

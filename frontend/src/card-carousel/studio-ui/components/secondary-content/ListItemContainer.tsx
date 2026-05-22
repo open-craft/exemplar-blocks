@@ -23,7 +23,9 @@ export default function ListItemContainer({
             className="d-flex align-items-center"
             onClick={() => onRemoveItem(index)}
           >
-            <span className="material-icons text-danger">delete_outline</span>{' '}
+            <span className="material-icons-outlined text-danger">
+              delete_outline
+            </span>{' '}
             Delete
           </Button>
         </div>

@@ -21,6 +21,9 @@ export const renderBlock = (
   const modalBody = container.parentElement?.parentElement;
   if (modalBody) {
     modalBody.style.minHeight = '635px';
+    // This allows the contents to scroll when modal is made full screen
+    modalBody.style.maxHeight = 'calc(100vh - 51px)'; // 43px header + 8px margin removed.
+    modalBody.style.overflowY = 'scroll';
   }
 
   createXBlockRoot({ runtime, element, config: context.config, styles })(

@@ -7332,7 +7332,7 @@ function om() {
 						onClick: () => t("orientation", "VERTICAL"),
 						children: [
 							/* @__PURE__ */ (0, F.jsx)("p", { children: /* @__PURE__ */ (0, F.jsx)("span", {
-								className: "material-icons",
+								className: "material-icons-outlined",
 								children: "splitscreen"
 							}) }),
 							/* @__PURE__ */ (0, F.jsx)("p", {
@@ -7350,7 +7350,7 @@ function om() {
 						onClick: () => t("orientation", "HORIZONTAL"),
 						children: [
 							/* @__PURE__ */ (0, F.jsx)("p", { children: /* @__PURE__ */ (0, F.jsx)("span", {
-								className: "material-icons",
+								className: "material-icons-outlined",
 								children: "vertical_split"
 							}) }),
 							/* @__PURE__ */ (0, F.jsx)("p", {
@@ -7406,7 +7406,7 @@ function sm({ heading: e, index: t, onRemoveItem: n, children: r }) {
 					onClick: () => n(t),
 					children: [
 						/* @__PURE__ */ (0, F.jsx)("span", {
-							className: "material-icons text-danger",
+							className: "material-icons-outlined text-danger",
 							children: "delete_outline"
 						}),
 						" ",
@@ -8329,7 +8329,7 @@ function Eh({ currentIcon: e, onIconSelected: t }) {
 		className: "d-block icon-selector pb-1",
 		onClick: () => o(!0),
 		children: [/* @__PURE__ */ (0, F.jsx)("span", {
-			className: "material-icons mb-0",
+			className: "material-icons-outlined mb-0",
 			children: e || "add"
 		}), /* @__PURE__ */ (0, F.jsxs)("div", {
 			className: "icon-list-popup border rounded-sm shadow",
@@ -8341,7 +8341,7 @@ function Eh({ currentIcon: e, onIconSelected: t }) {
 					className: "m-0",
 					placeholder: "Search icons",
 					trailingElement: /* @__PURE__ */ (0, F.jsx)("span", {
-						className: "material-icons medium text-gray-500",
+						className: "material-icons-outlined medium text-gray-500",
 						children: "search"
 					}),
 					onChange: l
@@ -8353,7 +8353,7 @@ function Eh({ currentIcon: e, onIconSelected: t }) {
 					className: "icon-symbol p-2",
 					onClick: (t) => u(t, e),
 					children: /* @__PURE__ */ (0, F.jsx)("span", {
-						className: "material-icons",
+						className: "material-icons-outlined",
 						children: e
 					}, e)
 				}, e))
@@ -8375,6 +8375,8 @@ function Dh({ cardIndex: e, itemIndex: t, onRemove: n }) {
 				className: "x-small",
 				children: "Main Text"
 			}), /* @__PURE__ */ (0, F.jsx)(P.Control, {
+				as: "textarea",
+				autoResize: !0,
 				name: `${o}.description`,
 				value: s.description,
 				onChange: i
@@ -8395,7 +8397,8 @@ function Dh({ cardIndex: e, itemIndex: t, onRemove: n }) {
 						className: "x-small",
 						children: "Hover Text"
 					}), /* @__PURE__ */ (0, F.jsx)(P.Control, {
-						type: "text",
+						as: "textarea",
+						autoResize: !0,
 						name: `${o}.hoverContent`,
 						value: s.hoverContent,
 						onChange: i
@@ -8542,6 +8545,7 @@ function Mh({ cardIndex: e }) {
 		})] }),
 		/* @__PURE__ */ (0, F.jsxs)(P.Group, { children: [/* @__PURE__ */ (0, F.jsx)(P.Label, { children: "Description" }), /* @__PURE__ */ (0, F.jsx)(P.Control, {
 			as: "textarea",
+			autoResize: !0,
 			name: `${r}.description`,
 			value: i.description,
 			onChange: n
@@ -8610,6 +8614,7 @@ function Fh({ cardIndex: e }) {
 				s.secondaryContent?.kind !== "HOVER_LIST" && /* @__PURE__ */ (0, F.jsxs)(F.Fragment, { children: [
 					/* @__PURE__ */ (0, F.jsxs)(P.Group, { children: [/* @__PURE__ */ (0, F.jsx)(P.Label, { children: "Body Content" }), /* @__PURE__ */ (0, F.jsx)(P.Control, {
 						as: "textarea",
+						autoResize: !0,
 						name: `${c}.description`,
 						value: s?.description ?? "",
 						onChange: n,
@@ -12978,11 +12983,11 @@ function ND({ id: e, cardName: t, index: n, active: r, canDelete: i, onSelect: a
 					e.stopPropagation(), o();
 				},
 				children: /* @__PURE__ */ (0, F.jsx)("span", {
-					className: "material-icons",
+					className: "material-icons-outlined",
 					children: "delete_outline"
 				})
 			}), /* @__PURE__ */ (0, F.jsx)("span", {
-				className: "material-icons text-light-600",
+				className: "material-icons-outlined text-light-600",
 				children: "drag_indicator"
 			})]
 		})]
@@ -13032,11 +13037,17 @@ function PD() {
 function FD({ runtime: e, showingEditor: t, onContinue: n }) {
 	return /* @__PURE__ */ (0, F.jsx)(us, {
 		position: "bottom",
-		className: "p-4 border-top card-carousel-editor-modal-footer",
+		className: "p-4 border-top card-carousel-editor-modal-footer justify-content-end",
 		children: /* @__PURE__ */ (0, F.jsxs)(se, {
 			direction: "horizontal",
 			gap: 4,
-			children: [t ? /* @__PURE__ */ (0, F.jsx)(v, {
+			children: [/* @__PURE__ */ (0, F.jsx)(v, {
+				variant: "light",
+				className: "action-button",
+				onClick: () => e.notify("cancel", {}),
+				type: "button",
+				children: "Cancel"
+			}), t ? /* @__PURE__ */ (0, F.jsx)(v, {
 				variant: "primary",
 				type: "submit",
 				className: "save-button",
@@ -13047,12 +13058,6 @@ function FD({ runtime: e, showingEditor: t, onContinue: n }) {
 				className: "save-button",
 				onClick: n,
 				children: "Continue"
-			}), /* @__PURE__ */ (0, F.jsx)(v, {
-				variant: "secondary",
-				className: "action-button",
-				onClick: () => e.notify("cancel", {}),
-				type: "button",
-				children: "Cancel"
 			})]
 		})
 	});
@@ -13087,11 +13092,11 @@ function ID({ runtime: e, saveUrl: t, initData: n }) {
 }
 //#endregion
 //#region src/card-carousel/studio-ui/StudioUI.css?inline
-var LD = ".icon-selector{position:relative}.icon-list-popup{z-index:100;background-color:var(--pgn-color-body-bg);width:242px;min-height:242px;max-height:300px;position:absolute;top:0;left:0;overflow:scroll}.icon-symbol{background-color:var(--pgn-color-body-bg);color:var(--pgn-color-body-base);border:0}.icon-symbol:hover{background-color:var(--pgn-color-light)}.icon-symbol:focus{background-color:var(--pgn-color-light);border:0}.carousel-editor{overflow-y:scroll}.modal-lg .carousel-editor{max-height:540px}.modal-fullscreen .carousel-editor{height:calc(100vh - 140px)}.card-carousel-editor-modal-footer{background-color:var(--pgn-color-card-bg-base)}.wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block .wrapper-comp-settings{max-height:var(--exemplar-block-studio-ui-max-height,calc(100vh - 69px));height:100%;overflow-y:scroll}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.studio-ui{flex-grow:1;min-height:635px}.xmodule_CardCarouselXBlock,.xblock-studio_view-card_carousel{display:flex}.xmodule_CardCarouselXBlock form,.xblock-studio_view-card_carousel form{flex-grow:1;display:flex}", RD = (t, n, r) => {
+var LD = ".icon-selector{position:relative}.icon-list-popup{z-index:100;background-color:var(--pgn-color-body-bg);width:242px;min-height:242px;max-height:300px;position:absolute;top:0;left:0;overflow:scroll}button:not(:disabled).icon-symbol{background-color:var(--pgn-color-body-bg);color:var(--pgn-color-gray-600);border:0}button:not(:disabled).icon-symbol:hover{background-color:var(--pgn-color-light);color:var(--pgn-color-primary)}button:not(:disabled).icon-symbol:focus{background-color:var(--pgn-color-light);color:var(--pgn-color-primary);border:0}.card-carousel-editor-modal-footer{background-color:var(--pgn-color-card-bg-base)}.wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block .wrapper-comp-settings{max-height:var(--exemplar-block-studio-ui-max-height,calc(100vh - 69px));height:100%;overflow-y:scroll}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", RD = (t, n, r) => {
 	let i = e(t), a = n.handlerUrl(t, "studio_save");
 	(!r.data.cards || !r.data.cards.length) && (r.data.cards = [MD()]);
 	let o = i.parentElement?.parentElement;
-	o && (o.style.minHeight = "635px"), te({
+	o && (o.style.minHeight = "635px", o.style.maxHeight = "calc(100vh - 51px)", o.style.overflowY = "scroll"), te({
 		runtime: n,
 		element: t,
 		config: r.config,

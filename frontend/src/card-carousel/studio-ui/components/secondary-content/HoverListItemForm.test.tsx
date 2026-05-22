@@ -59,7 +59,7 @@ describe('HoverListItemForm', () => {
 
     // Initially the icon is empty, so the trigger shows 'add'
     const triggerIcon = document.querySelector(
-      '.material-icons.mb-0',
+      '.material-icons-outlined.mb-0',
     ) as HTMLElement;
     expect(triggerIcon.textContent).toBe('add');
 
