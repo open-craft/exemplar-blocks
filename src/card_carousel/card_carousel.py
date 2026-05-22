@@ -92,7 +92,7 @@ class CardCarouselXBlock(XBlock):
         """
         frag = Fragment()
         frag.add_resource_url(
-            "https://fonts.googleapis.com/icon?family=Material+Icons",
+            "https://fonts.googleapis.com/icon?family=Material+Icons+Outlined",
             "text/css",
             "head",
         )
@@ -126,6 +126,11 @@ class CardCarouselXBlock(XBlock):
         """
         html = self.resource_string("static/html/card_carousel_editor.html")
         frag = Fragment(html)
+        frag.add_resource_url(
+            "https://fonts.googleapis.com/icon?family=Material+Icons+Outlined",
+            "text/css",
+            "head",
+        )
 
         frag.add_javascript(self.resource_string("static/studio.js"))
         frag.add_css(self.resource_string("static/css/studio.css"))

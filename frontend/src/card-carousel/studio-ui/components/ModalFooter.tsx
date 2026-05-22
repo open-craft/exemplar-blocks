@@ -17,9 +17,17 @@ export default function ModalFooter({
   return (
     <Sticky
       position="bottom"
-      className="p-4 border-top card-carousel-editor-modal-footer"
+      className="p-4 border-top card-carousel-editor-modal-footer justify-content-end"
     >
       <Stack direction="horizontal" gap={4}>
+        <Button
+          variant="light"
+          className="action-button"
+          onClick={() => runtime.notify('cancel', {})}
+          type="button"
+        >
+          Cancel
+        </Button>
         {showingEditor ? (
           <Button variant="primary" type="submit" className="save-button">
             Save
@@ -34,14 +42,6 @@ export default function ModalFooter({
             Continue
           </Button>
         )}
-        <Button
-          variant="secondary"
-          className="action-button"
-          onClick={() => runtime.notify('cancel', {})}
-          type="button"
-        >
-          Cancel
-        </Button>
       </Stack>
     </Sticky>
   );

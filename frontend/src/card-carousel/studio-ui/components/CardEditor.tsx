@@ -85,6 +85,7 @@ function SecondayContentForm({ cardIndex }: { cardIndex: number }) {
               <Form.Label>Body Content</Form.Label>
               <Form.Control
                 as="textarea"
+                autoResize
                 name={`${prefix}.description`}
                 value={card?.description ?? ''}
                 onChange={handleChange}

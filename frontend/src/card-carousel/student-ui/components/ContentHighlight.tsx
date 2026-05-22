@@ -21,9 +21,9 @@ export function ContentHighlight({
           borderBottomLeftRadius: 'var(--pgn-size-border-radius-lg)',
         };
   return (
-    <div className="p-4 bg-primary-500 h-100" style={roundedCorners}>
-      <h4 className="text-brand-400 h3 mb-4">{subtitle}</h4>
-      <h3 className="text-light-100">{title}</h3>
+    <div className="p-5 bg-primary-500 h-100" style={roundedCorners}>
+      <h4 className="text-accent">{subtitle}</h4>
+      <h3 className="text-light-100 mb-3">{title}</h3>
       <p className="text-light-100">{description}</p>
     </div>
   );

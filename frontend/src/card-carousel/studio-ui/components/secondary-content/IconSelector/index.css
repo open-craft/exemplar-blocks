@@ -14,16 +14,18 @@
   background-color: var(--pgn-color-body-bg);
 }
 
-.icon-symbol {
+button:not(:disabled).icon-symbol {
   background-color: var(--pgn-color-body-bg);
-  color: var(--pgn-color-body-base);
+  color: var(--pgn-color-gray-600);
   border: 0;
 }
 
-.icon-symbol:hover {
+button:not(:disabled).icon-symbol:hover {
   background-color: var(--pgn-color-light);
+  color: var(--pgn-color-primary);
 }
-.icon-symbol:focus {
+button:not(:disabled).icon-symbol:focus {
   background-color: var(--pgn-color-light);
+  color: var(--pgn-color-primary);
   border: 0;
 }

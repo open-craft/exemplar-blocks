@@ -22,7 +22,7 @@ describe('RichList', () => {
 
   it('renders a MaterialIcon for each item', () => {
     render(<RichList items={items} />);
-    // MaterialIcon renders the icon name in a .material-icons span
+    // MaterialIcon renders the icon name in a .material-icons-outlined span
     expect(screen.getByText('star')).toBeInTheDocument();
     expect(screen.getByText('home')).toBeInTheDocument();
   });

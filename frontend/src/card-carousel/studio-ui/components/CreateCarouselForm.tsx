@@ -39,7 +39,7 @@ export default function CreateCarouselForm() {
             onClick={() => setFieldValue('orientation', 'VERTICAL')}
           >
             <p>
-              <span className="material-icons">splitscreen</span>
+              <span className="material-icons-outlined">splitscreen</span>
             </p>
             <p className="mt-0">
               <strong>Vertical Cards</strong>
@@ -56,7 +56,7 @@ export default function CreateCarouselForm() {
             onClick={() => setFieldValue('orientation', 'HORIZONTAL')}
           >
             <p>
-              <span className="material-icons">vertical_split</span>
+              <span className="material-icons-outlined">vertical_split</span>
             </p>
             <p className="mt-0">
               <strong>Horizontal Cards</strong>

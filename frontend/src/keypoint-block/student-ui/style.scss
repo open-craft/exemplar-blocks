@@ -9,6 +9,13 @@
     box-sizing: border-box;
   }
 
+  .keypoints-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--pgn-spacing-grid-gutter-width);
+    row-gap: var(--pgn-spacing-grid-gutter-width);
+  }
+
   .keypoint-label {
     color: var(--pgn-color-primary-base);
     font-size: 1.1rem;
@@ -16,5 +23,12 @@
 
   .text-gray-700 {
     line-height: 1.6;
+  }
+
+  .keypoint {
+    padding: var(--pgn-spacing-alert-padding-y)
+      var(--pgn-spacing-alert-padding-x);
+    background-color: var(--pgn-color-white);
+    border-radius: var(--pgn-size-card-border-radius-base);
   }
 }

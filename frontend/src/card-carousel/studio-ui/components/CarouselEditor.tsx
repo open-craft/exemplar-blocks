@@ -50,10 +50,12 @@ function CardItem({
               onDelete();
             }}
           >
-            <span className="material-icons">delete_outline</span>
+            <span className="material-icons-outlined">delete_outline</span>
           </button>
         )}
-        <span className="material-icons text-light-600">drag_indicator</span>
+        <span className="material-icons-outlined text-light-600">
+          drag_indicator
+        </span>
       </div>
     </div>
   );
