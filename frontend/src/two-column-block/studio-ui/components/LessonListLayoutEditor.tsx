@@ -98,7 +98,7 @@ type LessonEntryProps = {
 
 const LessonEntry = ({ lesson, onUpdate, onDelete }: LessonEntryProps) => {
   return (
-    <Row className="align-items-center">
+    <Row className="align-items-end">
       <Col xs={2}>
         <Form.Group>
           <Form.Label className="sm">Lesson No.</Form.Label>
@@ -124,9 +124,11 @@ const LessonEntry = ({ lesson, onUpdate, onDelete }: LessonEntryProps) => {
         </Form.Group>
       </Col>
       <Col xs={1}>
-        <Button size="lg" variant="danger" onClick={() => onDelete()}>
-          <Icon src={CrossMark} screenReaderText="delete" />
-        </Button>
+        <Form.Group>
+          <Button variant="danger" onClick={() => onDelete()}>
+            <Icon src={CrossMark} screenReaderText="delete" />
+          </Button>
+        </Form.Group>
       </Col>
     </Row>
   );

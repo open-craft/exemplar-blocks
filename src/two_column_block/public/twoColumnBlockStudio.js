@@ -48441,7 +48441,7 @@ var K = u(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 		children: "Add Lesson"
 	}) }) })
 ] }), nf = ({ lesson: e, onUpdate: t, onDelete: n }) => /* @__PURE__ */ (0, K.jsxs)(g, {
-	className: "align-items-center",
+	className: "align-items-end",
 	children: [
 		/* @__PURE__ */ (0, K.jsx)(y, {
 			xs: 2,
@@ -48473,15 +48473,14 @@ var K = u(), Jd = ({ value: e, onEditorChange: t }) => /* @__PURE__ */ (0, K.jsx
 		}),
 		/* @__PURE__ */ (0, K.jsx)(y, {
 			xs: 1,
-			children: /* @__PURE__ */ (0, K.jsx)(v, {
-				size: "lg",
+			children: /* @__PURE__ */ (0, K.jsx)(H.Group, { children: /* @__PURE__ */ (0, K.jsx)(v, {
 				variant: "danger",
 				onClick: () => n(),
 				children: /* @__PURE__ */ (0, K.jsx)(f, {
 					src: Qd,
 					screenReaderText: "delete"
 				})
-			})
+			}) })
 		})
 	]
 }), rf = ({ data: e, onUpdate: t }) => /* @__PURE__ */ (0, K.jsx)(K.Fragment, { children: /* @__PURE__ */ (0, K.jsxs)(H.Group, { children: [/* @__PURE__ */ (0, K.jsx)(H.Label, { children: "Raw HTML (e.g. an embed code or interactive activity)" }), /* @__PURE__ */ (0, K.jsx)(H.Control, {

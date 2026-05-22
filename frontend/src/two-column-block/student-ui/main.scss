@@ -1,11 +1,10 @@
+// The following CSS variables may be defined, in addition to the default paragon variables:
+//   --pgn-two-column-block-image-size-border-radius-lg
+//   --pgn-two-column-block-image-size-border-radius-sm
+
 .xblock-two-column {
-  .lesson-list-item + .lesson-list-item:before {
-    content: '';
-    width: 100%;
-    margin: 0 calc(var(--pgn-spacing-grid-gutter-width) * 0.5);
-    height: 1px;
-    background-color: var(--pgn-color-gray-200);
-    margin-bottom: calc(var(--pgn-spacing-spacer-base) * 0.5);
+  .lesson-list-item + .lesson-list-item {
+    border-top: 1px solid var(--pgn-color-gray-200);
   }
 
   // implement reversed order on small screens
@@ -16,5 +15,45 @@
     &.two-column-reverse {
       flex-direction: row;
     }
+  }
+
+  // override action row because the designs now hawe the buttons left-aligned for the lesson intro column
+  .pgn__action-row {
+    justify-content: flex-start;
+  }
+
+  // This can be dropped when we upgrade to Bootstrap 5 - https://getbootstrap.com/docs/5.0/utilities/text/#line-height
+  .lh-lg {
+    line-height: 2em !important;
+  }
+
+  .top-image-grid-item {
+    border-top-left-radius: var(
+      --pgn-two-column-block-image-size-border-radius-lg
+    );
+    border-top-right-radius: var(
+      --pgn-two-column-block-image-size-border-radius-lg
+    );
+    border-bottom-left-radius: var(
+      --pgn-two-column-block-image-size-border-radius-sm
+    );
+    border-bottom-right-radius: var(
+      --pgn-two-column-block-image-size-border-radius-sm
+    );
+  }
+
+  .bottom-image-grid-item {
+    border-top-left-radius: var(
+      --pgn-two-column-block-image-size-border-radius-sm
+    );
+    border-top-right-radius: var(
+      --pgn-two-column-block-image-size-border-radius-sm
+    );
+    border-bottom-left-radius: var(
+      --pgn-two-column-block-image-size-border-radius-lg
+    );
+    border-bottom-right-radius: var(
+      --pgn-two-column-block-image-size-border-radius-lg
+    );
   }
 }
