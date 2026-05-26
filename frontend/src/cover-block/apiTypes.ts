@@ -21,10 +21,15 @@ export interface CoverBlockFields {
   description_color: string;
   media_url: string;
   media_alt_text: string;
+  image_position?: ImagePosition;
 }
 
 export const enum Variant {
   section = "section",
   course = "course",
   separator = "separator"
+}
+export const enum ImagePosition {
+  left = "left",
+  right = "right"
 }

@@ -8,30 +8,42 @@ const CourseCover: React.FC<CoverBlockFields> = (props) => {
   return (
     <Container
       fluid={true}
-      className="course-cover px-0"
+      className="course-cover position-relative px-0"
       data-testid="course-cover"
     >
-      <div className="course-cover-image-container">
+      <div className="course-cover-image-container position-absolute w-100 h-100">
         <img
-          className="course-cover-image"
+          className="course-cover-image w-100 h-100"
           src={props.media_url}
           alt={props.media_alt_text}
         />
       </div>
-      <Row className="full-height">
-        <Col xs={12} lg={6} className="align-content-center order-lg-2 px-4">
-          <div className="text-container">
-            <div className="text-content mx-0 me-sm-2 me-md-0 ms-lg-4 ms-lg-5">
-              <div className="lead" style={styles.top_header}>
+      <Row className="h-100 mx-0">
+        <Col
+          xs={12}
+          md={10}
+          lg={6}
+          xl={5}
+          className="d-flex align-items-center order-lg-2 px-4 px-sm-5 px-lg-5 ml-lg-4"
+        >
+          <div className="text-container w-100 pl-5">
+            <div className="text-content w-100 mw-sm ml-lg-5">
+              <h2
+                className="lead font-weight-bold mb-3"
+                style={styles.top_header}
+              >
                 {props.top_header}
-              </div>
-              <h1 className="display-1" style={styles.main_header}>
+              </h2>
+              <h2 className="font-weight-bold mb-3" style={styles.main_header}>
                 {props.main_header}
-              </h1>
-              <p className="subtitle my-3" style={styles.subheader}>
+              </h2>
+              <h5
+                className="subtitle h5 font-weight-bold mb-3 w-100 mw-xs"
+                style={styles.subheader}
+              >
                 {props.subheader}
-              </p>
-              <p className="body" style={styles.description}>
+              </h5>
+              <p className="body mb-0 w-100 mw-xs" style={styles.description}>
                 {props.description}
               </p>
             </div>

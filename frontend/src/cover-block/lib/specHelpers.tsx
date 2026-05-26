@@ -1,7 +1,7 @@
 import { type ReactNode, StrictMode } from 'react';
 import { IntlProvider } from 'react-intl';
 import { render } from '@testing-library/react';
-import { type CoverBlockFields, Variant } from '../apiTypes.ts';
+import { type CoverBlockFields, Variant, ImagePosition } from '../apiTypes.ts';
 
 export const initDataFactory = (
   overrides?: Partial<CoverBlockFields>,
@@ -18,6 +18,7 @@ export const initDataFactory = (
     subheader_color: '#cccccc',
     top_header: 'Section N',
     top_header_color: '#dddddd',
+    image_position: ImagePosition.right,
     variant: Variant.course,
     ...overrides,
   };

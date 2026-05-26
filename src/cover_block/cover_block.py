@@ -5,15 +5,15 @@ Main Cover Block code module. Provides the XBlock for import by the studio.
 import logging
 
 from django.conf import settings
-from django.template import Template, Context
+from django.template import Context, Template
 from pydantic import ValidationError
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
 from xblock.exceptions import JsonHandlerError
-from xblock.fields import String, Scope
+from xblock.fields import Scope, String
 from xblock.utils.resources import ResourceLoader
 
-from .types import WorkbenchScenario, CoverBlockFields
+from .types import CoverBlockFields, ImagePosition, WorkbenchScenario
 
 logger = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
@@ -125,6 +125,12 @@ class CoverBlock(XBlock):
             "decorative to meet accessibility standards."
         ),
     )
+    image_position = String(
+        display_name="Image position",
+        default=ImagePosition.RIGHT.value,
+        scope=Scope.content,
+        help="Position of image relative to text for section covers.",
+    )
 
     @property
     def dev_mode(self) -> bool:
@@ -175,6 +181,7 @@ class CoverBlock(XBlock):
             description_color=self.description_color,
             media_url=media_with_fallback(self.media_url),
             media_alt_text=self.media_alt_text,
+            image_position=self.image_position,
         ).model_dump(mode="json")
 
     def studio_view(self, context=None) -> Fragment:
