@@ -9214,6 +9214,10 @@ var Jn = /* @__PURE__ */ function(e) {
 			children: i
 		})
 	}) }));
-};
+}, sr = /* @__PURE__ */ function(e) {
+	return e.section = "section", e.course = "course", e.separator = "separator", e;
+}({}), cr = /* @__PURE__ */ function(e) {
+	return e.left = "left", e.right = "right", e;
+}({});
 //#endregion
-export { o as _, Yn as a, Mn as c, b as d, g as f, u as g, d as h, Zn as i, ce as l, f as m, rr as n, qn as o, p, $n as r, In as s, or as t, te as u, c as v };
+export { d as _, $n as a, c as b, qn as c, ce as d, te as f, f as g, p as h, rr as i, In as l, g as m, sr as n, Zn as o, b as p, or as r, Yn as s, cr as t, Mn as u, u as v, o as y };

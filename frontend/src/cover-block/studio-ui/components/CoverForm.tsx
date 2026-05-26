@@ -1,11 +1,13 @@
 import { Col, Form, Row } from '@openedx/paragon';
 import { Field, useField } from 'formik';
-import type { Variant } from '../../apiTypes.ts';
+import { Variant, ImagePosition } from '../../apiTypes.ts';
 
 const CoverForm = () => {
   const [variant] = useField<Variant>('variant');
+  const [imagePosition] = useField<ImagePosition>('image_position');
   const [description] = useField<string>('description');
-  const colorsEnabled = variant.value !== 'section';
+  const colorsEnabled = variant.value !== Variant.section;
+  const sectionVariant = variant.value === Variant.section;
   const mainColumSizes = {
     xs: 12,
     sm: colorsEnabled ? 8 : 12,
@@ -26,9 +28,9 @@ const CoverForm = () => {
         <Form.Group as={Col} controlId="cover-form-variant" xs={12} sm={6}>
           <Form.Label>Variant</Form.Label>
           <Form.Control as="select" {...variant}>
-            <option value="section">Section Cover</option>
-            <option value="course">Course Cover</option>
-            <option value="separator">Separator</option>
+            <option value={Variant.section}>Section Cover</option>
+            <option value={Variant.course}>Course Cover</option>
+            <option value={Variant.separator}>Separator</option>
           </Form.Control>
         </Form.Group>
         <Form.Group as={Col} controlId="cover-form-media-url" xs={12} sm={6}>
@@ -42,6 +44,20 @@ const CoverForm = () => {
             Provide a description of your image for use with screen readers.
           </Form.Text>
         </Form.Group>
+        {sectionVariant && (
+          <Form.Group
+            as={Col}
+            controlId="cover-form-image-position"
+            xs={12}
+            sm={6}
+          >
+            <Form.Label>Image Position</Form.Label>
+            <Form.Control as="select" {...imagePosition}>
+              <option value={ImagePosition.right}>Image Right</option>
+              <option value={ImagePosition.left}>Image Left</option>
+            </Form.Control>
+          </Form.Group>
+        )}
         <Form.Group
           as={Col}
           controlId="cover-form-top-header"

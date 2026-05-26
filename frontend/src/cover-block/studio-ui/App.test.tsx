@@ -6,9 +6,9 @@ import * as React from 'react';
 import { IntlProvider } from 'react-intl';
 import { RuntimeContext } from '../../lib/context.ts';
 import { mockRuntime, stubJquery } from '../../lib/specHelpers.ts';
+import { Variant } from '../apiTypes.ts';
 import { initDataFactory } from '../lib/specHelpers.tsx';
 import App from './App.tsx';
-import { Variant } from '../apiTypes.ts';
 
 const specRender = (component: ReactNode) => {
   const runtime = mockRuntime();
@@ -38,7 +38,7 @@ describe('App.tsx', () => {
     // Section does not have any color pickers.
     await waitFor(() => expect(screen.queryAllByText(/color/i).length).toBe(0));
     const selector = screen.getByLabelText('Variant');
-    fireEvent.change(selector, { target: { value: 'course' } });
+    fireEvent.change(selector, { target: { value: Variant.course } });
     await waitFor(() =>
       expect(screen.queryAllByText(/color/i).length).toEqual(4),
     );
@@ -51,7 +51,7 @@ describe('App.tsx', () => {
       expect(screen.queryAllByText(/color/i).length).toEqual(4),
     );
     const selector = screen.getByLabelText('Variant');
-    fireEvent.change(selector, { target: { value: 'section' } });
+    fireEvent.change(selector, { target: { value: Variant.section } });
     await waitFor(() => expect(screen.queryAllByText(/color/i).length).toBe(0));
   });
   it('submits changes to the server', async () => {
@@ -63,7 +63,7 @@ describe('App.tsx', () => {
     await user.clear(displayName);
     await user.type(displayName, 'My new block');
     const selector = screen.getByLabelText('Variant');
-    fireEvent.change(selector, { target: { value: 'course' } });
+    fireEvent.change(selector, { target: { value: Variant.course } });
     const mainHeaderColor = screen.getByLabelText('Main header color');
     fireEvent.change(mainHeaderColor, { target: { value: '#abc123' } });
     await user.click(screen.getByText('Save'));
@@ -111,5 +111,21 @@ describe('App.tsx', () => {
     await user.click(screen.getByText('Cancel'));
     expect(runtime.notify).toHaveBeenCalledWith('cancel', {});
     expect(runtime.notify).toHaveBeenCalledOnce();
+  });
+  it('shows Image Position field for section variant only', async () => {
+    const { screen: sectionScreen } = specRender(
+      <App {...initDataFactory({ variant: Variant.section })} />,
+    );
+    await waitFor(() =>
+      expect(sectionScreen.getByLabelText('Image Position')).toBeTruthy(),
+    );
+  });
+  it('hides Image Position field for course variant', async () => {
+    const { screen: courseScreen } = specRender(
+      <App {...initDataFactory({ variant: Variant.course })} />,
+    );
+    await waitFor(() =>
+      expect(courseScreen.queryByLabelText('Image Position')).toBeNull(),
+    );
   });
 });

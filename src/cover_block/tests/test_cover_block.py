@@ -1,10 +1,10 @@
 import json
 
 from django.test import override_settings
+from webob import Request
 from xblock.field_data import DictFieldData
 from xblock.fields import ScopeIds
 from xblock.test.toy_runtime import ToyRuntime
-from webob import Request
 
 from cover_block import CoverBlock
 
@@ -71,6 +71,18 @@ def test_save_block_valid():
     result = block.handle("studio_save", make_post_request(revised))
     assert result.status_code == 200
     assert block.display_name == "Beep"
+
+
+def test_save_image_position():
+    """
+    Test that we can save image_position field.
+    """
+    block = make_block()
+    revised = block.field_data()
+    revised["image_position"] = "left"
+    result = block.handle("studio_save", make_post_request(revised))
+    assert result.status_code == 200
+    assert block.image_position == "left"
 
 
 @override_settings(COVERBLOCK_DEFAULT_MEDIA_URL="https://openedx.org/logo.png")

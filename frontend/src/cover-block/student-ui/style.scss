@@ -1,151 +1,116 @@
 @import '../../base';
 
-.section-block-image {
-  width: 100%;
-  max-width: 100%;
+.section-block-image,
+.separator-cover-image,
+.course-cover-image {
   object-fit: cover;
-  height: 208px;
-  max-height: 80lvh;
 }
 
+.section-cover {
+  --cover-height: 460px;
+}
 .separator-cover,
 .course-cover {
-  position: relative;
+  --cover-height: 550px;
 }
+
+.section-block-image {
+  height: var(--cover-height);
+  max-height: 80lvh;
+  border-radius: var(--pgn-size-card-image-border-radius);
+}
+
 /* Separator variant CSS */
 .separator-cover-image-container,
 .course-cover-image-container {
-  position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 0;
-  min-width: 100%;
-  height: 100%;
   overflow: clip;
 }
 
-.full-height {
-  height: 100%;
+.separator-cover,
+.course-cover {
+  height: var(--cover-height);
 }
-
-.separator-cover .text-container,
-.course-cover .text-content {
-  height: 100%;
-}
-
-.separator-cover .text-container .text-content {
-  width: 100%;
-}
-
-.course-cover-image {
-  min-width: 100%;
-  object-fit: cover;
-}
-
-/* Can't use CSS variables in media queries, for some reason. We use the standard numbers for bootstrap. */
-@media (max-width: 575px) {
-  .separator-cover-image,
-  .course-cover-image,
-  .course-cover {
-    min-width: 100%;
-    object-fit: cover;
-  }
-}
-@media (min-width: 576px) {
-  .section-block-image,
-  .separator-cover,
-  .course-cover {
-    height: 320px;
-  }
-}
+/* Cover height breakpoints using local variable */
 @media (min-width: 768px) {
-  .section-block-image,
+  .section-cover,
   .separator-cover,
   .course-cover {
-    height: 400px;
-  }
-  .section-cover .text-content {
-    max-width: 80%;
+    --cover-height: 680px;
   }
 }
 @media (min-width: 992px) {
-  .section-block-image,
+  .section-cover,
   .separator-cover,
   .course-cover {
-    height: 760px;
-  }
-}
-@media (min-width: 1200px) {
-  .section-block-image,
-  .separator-cover,
-  .course-cover {
-    height: 760px;
-  }
-  .section-cover .text-content {
-    max-width: 56%;
-  }
-}
-@media (min-width: 1400px) {
-  .section-block-image,
-  .separator-cover,
-  .course-cover {
-    height: 760px;
-  }
-  .section-cover .text-content {
-    max-width: 60%;
+    --cover-height: 800px;
   }
 }
 
-/*
-The following styles might be better placed in the theme, but are placed here until we can
-determine how to best handle that. Some of them may need to stay in this block anyway.
-*/
-.section-cover .display-1,
-.separator-cover .display-1,
-.course-cover .display-1 {
-  font-family: 'Noto Serif', serif;
-  font-optical-sizing: auto;
-  font-weight: bolder;
-  font-style: normal;
-  letter-spacing: 0;
-  font-variation-settings: 'wdth' 100;
-}
-@media (min-width: 576px) {
-  .section-cover .display-1,
-  .separator-cover .display-1,
-  .course-cover .display-1 {
-    line-height: 5.3125rem;
-  }
-}
-.section-cover strong,
-.separator-cover,
-.course-cover strong {
-  font-weight: bold;
-}
-.section-cover,
-.separator-cover,
-.course-cover {
-  font-family: 'Lato', sans-serif;
-}
 .section-cover .lead,
-.separator-cover .lead,
-.course-cover .lead {
-  font-weight: lighter;
-  font-size: 1.875rem;
-}
+.course-cover .lead,
 .section-cover .subtitle,
-.separator-cover .lead,
+.course-cover .subtitle {
+  font-weight: var(--pgn-typography-font-weight-bold);
+}
+
+.section-cover .lead,
+.course-cover .lead,
+.section-cover .subtitle,
+.course-cover .subtitle,
+.separator-cover .lead {
+  line-height: var(--pgn-typography-line-height-base);
+}
+
+.section-cover .lead {
+  font-size: var(--pgn-typography-font-size-h4-base);
+  color: var(--pgn-wgu-color-text-main-lake);
+}
+
 .course-cover .lead {
-  font-size: 1.125rem;
-  font-weight: bold;
-  line-height: 1.5625rem;
+  font-size: var(--pgn-typography-font-size-h3-base);
+}
+
+.course-cover .subtitle {
+  font-size: var(--pgn-typography-font-size-h5-base);
   letter-spacing: 0;
 }
+
 .section-cover .body,
-.separator-cover .body,
 .course-cover .body {
-  font-size: 1rem;
-  line-height: 1.5625rem;
+  font-size: var(--pgn-typography-font-size-base);
+  line-height: var(--pgn-typography-line-height-sm);
   letter-spacing: 0;
-  font-weight: 400;
+}
+
+/* Separator responsive typography — reduced on smaller cover heights */
+.separator-cover .lead {
+  font-size: var(--pgn-typography-font-size-h6-base);
+  font-weight: var(--pgn-typography-font-weight-semi-bold);
+}
+.separator-cover .display-1 {
+  font-size: var(--pgn-typography-font-size-display-mobile-1);
+}
+.separator-cover h4 {
+  font-size: var(--pgn-typography-font-size-h5-base);
+}
+.separator-cover .body {
+  font-size: var(--pgn-typography-font-size-base);
+  line-height: var(--pgn-typography-line-height-lg);
+}
+
+@media (min-width: 768px) {
+  .separator-cover .lead {
+    font-size: var(--pgn-typography-font-size-h5-base);
+  }
+  .separator-cover .display-1 {
+    font-size: var(--pgn-typography-font-size-display-1);
+  }
+  .separator-cover h4 {
+    font-size: var(--pgn-typography-font-size-h4-base);
+  }
+  .separator-cover .body {
+    font-size: var(--pgn-typography-font-size-lg);
+  }
 }

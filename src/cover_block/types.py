@@ -6,7 +6,7 @@ import re
 from enum import StrEnum
 from typing import Annotated
 
-from pydantic import BaseModel, AfterValidator
+from pydantic import AfterValidator, BaseModel
 
 WorkbenchScenario = tuple[str, str]
 
@@ -15,6 +15,11 @@ class Variant(StrEnum):
     SECTION_COVER = "section"
     COURSE_COVER = "course"
     SEPARATOR = "separator"
+
+
+class ImagePosition(StrEnum):
+    LEFT = "left"
+    RIGHT = "right"
 
 
 COLOR_REGEX = re.compile("^#[a-fA-F0-9]{6}$")
@@ -51,3 +56,4 @@ class CoverBlockFields(BaseModel, extra="forbid", use_enum_values=True):
     description_color: Color
     media_url: str
     media_alt_text: str
+    image_position: ImagePosition = ImagePosition.RIGHT

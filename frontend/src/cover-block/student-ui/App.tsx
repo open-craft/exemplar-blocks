@@ -5,9 +5,9 @@ import Separator from './components/Separator.tsx';
 import { type CoverBlockFields, Variant } from '../apiTypes.ts';
 
 const variants: Record<Variant, React.FC<CoverBlockFields>> = {
-  course: CourseCover,
-  section: SectionCover,
-  separator: Separator,
+  [Variant.course]: CourseCover,
+  [Variant.section]: SectionCover,
+  [Variant.separator]: Separator,
 };
 
 const App: React.FC<CoverBlockFields> = (props: CoverBlockFields) => {

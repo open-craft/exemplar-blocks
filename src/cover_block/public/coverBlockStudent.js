@@ -1,162 +1,170 @@
-import { a as e, g as t, l as n, n as r, r as i, t as a, u as o } from "./utils-frS6LurB.js";
-t();
-var s = (e) => ({
+import { a as e, d as t, f as n, i as r, n as i, r as a, s as o, t as s, v as c } from "./apiTypes-B0HiaksL.js";
+c();
+var l = (e) => ({
 	top_header: r("top_header", e.top_header_color),
 	description: r("description", e.description_color),
 	main_header: r("main_header", e.main_header_color),
 	subheader: r("subheader", e.subheader_color)
-}), c = i(), l = {
-	course: (t) => {
-		let r = s(t);
-		return /* @__PURE__ */ (0, c.jsxs)(e, {
-			fluid: !0,
-			className: "course-cover px-0",
-			"data-testid": "course-cover",
-			children: [/* @__PURE__ */ (0, c.jsx)("div", {
-				className: "course-cover-image-container",
-				children: /* @__PURE__ */ (0, c.jsx)("img", {
-					className: "course-cover-image",
-					src: t.media_url,
-					alt: t.media_alt_text
-				})
-			}), /* @__PURE__ */ (0, c.jsx)(n, {
-				className: "full-height",
-				children: /* @__PURE__ */ (0, c.jsx)(o, {
-					xs: 12,
-					lg: 6,
-					className: "align-content-center order-lg-2 px-4",
-					children: /* @__PURE__ */ (0, c.jsx)("div", {
-						className: "text-container",
-						children: /* @__PURE__ */ (0, c.jsxs)("div", {
-							className: "text-content mx-0 me-sm-2 me-md-0 ms-lg-4 ms-lg-5",
-							children: [
-								/* @__PURE__ */ (0, c.jsx)("div", {
-									className: "lead",
-									style: r.top_header,
-									children: t.top_header
-								}),
-								/* @__PURE__ */ (0, c.jsx)("h1", {
-									className: "display-1",
-									style: r.main_header,
-									children: t.main_header
-								}),
-								/* @__PURE__ */ (0, c.jsx)("p", {
-									className: "subtitle my-3",
-									style: r.subheader,
-									children: t.subheader
-								}),
-								/* @__PURE__ */ (0, c.jsx)("p", {
-									className: "body",
-									style: r.description,
-									children: t.description
-								})
-							]
-						})
+}), u = e(), d = (e) => {
+	let r = l(e);
+	return /* @__PURE__ */ (0, u.jsxs)(o, {
+		fluid: !0,
+		className: "course-cover position-relative px-0",
+		"data-testid": "course-cover",
+		children: [/* @__PURE__ */ (0, u.jsx)("div", {
+			className: "course-cover-image-container position-absolute w-100 h-100",
+			children: /* @__PURE__ */ (0, u.jsx)("img", {
+				className: "course-cover-image w-100 h-100",
+				src: e.media_url,
+				alt: e.media_alt_text
+			})
+		}), /* @__PURE__ */ (0, u.jsx)(t, {
+			className: "h-100 mx-0",
+			children: /* @__PURE__ */ (0, u.jsx)(n, {
+				xs: 12,
+				md: 10,
+				lg: 6,
+				xl: 5,
+				className: "d-flex align-items-center order-lg-2 px-4 px-sm-5 px-lg-5 ml-lg-4",
+				children: /* @__PURE__ */ (0, u.jsx)("div", {
+					className: "text-container w-100 pl-5",
+					children: /* @__PURE__ */ (0, u.jsxs)("div", {
+						className: "text-content w-100 mw-sm ml-lg-5",
+						children: [
+							/* @__PURE__ */ (0, u.jsx)("h2", {
+								className: "lead font-weight-bold mb-3",
+								style: r.top_header,
+								children: e.top_header
+							}),
+							/* @__PURE__ */ (0, u.jsx)("h2", {
+								className: "font-weight-bold mb-3",
+								style: r.main_header,
+								children: e.main_header
+							}),
+							/* @__PURE__ */ (0, u.jsx)("h5", {
+								className: "subtitle h5 font-weight-bold mb-3 w-100 mw-xs",
+								style: r.subheader,
+								children: e.subheader
+							}),
+							/* @__PURE__ */ (0, u.jsx)("p", {
+								className: "body mb-0 w-100 mw-xs",
+								style: r.description,
+								children: e.description
+							})
+						]
 					})
 				})
-			})]
-		});
-	},
-	section: (t) => /* @__PURE__ */ (0, c.jsx)(e, {
-		fluid: !0,
-		className: "section-cover px-0",
+			})
+		})]
+	});
+}, f = (e) => {
+	let r = e.image_position === s.left, i = r ? "order-lg-1" : "order-lg-2", a = r ? "order-lg-2" : "order-lg-1", c = r ? "pl-lg-5" : "pr-lg-5";
+	return /* @__PURE__ */ (0, u.jsx)(o, {
+		fluid: !1,
+		className: "section-cover px-md-0 px-2",
 		"data-testid": "section-cover",
-		children: /* @__PURE__ */ (0, c.jsxs)(n, {
-			className: "g-0",
-			children: [/* @__PURE__ */ (0, c.jsx)(o, {
+		children: /* @__PURE__ */ (0, u.jsxs)(t, {
+			className: "g-0 justify-content-center align-items-center",
+			children: [/* @__PURE__ */ (0, u.jsx)(n, {
 				xs: 12,
-				lg: 6,
-				className: "order-lg-2",
-				children: /* @__PURE__ */ (0, c.jsx)("img", {
-					className: "section-block-image",
-					src: t.media_url,
-					alt: t.media_alt_text
+				lg: 5,
+				className: `${i} d-flex justify-content-center px-3 px-sm-2 py-5`,
+				children: /* @__PURE__ */ (0, u.jsx)("img", {
+					className: "section-block-image w-100 mx-auto d-block",
+					src: e.media_url,
+					alt: e.media_alt_text
 				})
-			}), /* @__PURE__ */ (0, c.jsx)(o, {
+			}), /* @__PURE__ */ (0, u.jsx)(n, {
 				xs: 12,
-				lg: 6,
-				className: "align-content-center px-4 pt-5 order-lg-1",
-				children: /* @__PURE__ */ (0, c.jsxs)("div", {
-					className: "text-content mx-0 me-sm-2 me-md-0 ms-lg-4 ms-lg-5",
+				lg: 5,
+				className: `${a} d-flex align-items-center py-5 px-3 px-sm-5 px-lg-0`,
+				children: /* @__PURE__ */ (0, u.jsxs)("div", {
+					className: `text-content w-100 mw-xs ${c}`,
 					children: [
-						/* @__PURE__ */ (0, c.jsx)("div", {
-							className: "lead",
-							children: t.top_header
+						/* @__PURE__ */ (0, u.jsx)("div", {
+							className: "lead h4 font-weight-bold mb-3",
+							children: e.top_header
 						}),
-						/* @__PURE__ */ (0, c.jsx)("h1", {
-							className: "display-1",
-							children: t.main_header
+						/* @__PURE__ */ (0, u.jsx)("h2", {
+							className: "font-weight-bold mb-4",
+							children: e.main_header
 						}),
-						/* @__PURE__ */ (0, c.jsx)("p", {
-							className: "subtitle my-3",
-							children: t.subheader
+						/* @__PURE__ */ (0, u.jsx)("h5", {
+							className: "subtitle font-weight-bold mb-4 w-100 mw-xs",
+							children: e.subheader
 						}),
-						/* @__PURE__ */ (0, c.jsx)("p", {
-							className: "body",
-							children: t.description
+						/* @__PURE__ */ (0, u.jsx)("p", {
+							className: "body mb-0 w-100 mw-xs",
+							children: e.description
 						})
 					]
 				})
 			})]
 		})
-	}),
-	separator: (t) => {
-		let r = s(t);
-		return /* @__PURE__ */ (0, c.jsxs)(e, {
-			fluid: !0,
-			className: "separator-cover px-0",
-			"data-testid": "separator",
-			children: [/* @__PURE__ */ (0, c.jsx)("div", {
-				className: "separator-cover-image-container",
-				children: /* @__PURE__ */ (0, c.jsx)("img", {
-					className: "separator-cover-image",
-					src: t.media_url,
-					alt: t.media_alt_text
+	});
+}, p = (e) => {
+	let r = l(e);
+	return /* @__PURE__ */ (0, u.jsxs)(o, {
+		fluid: !0,
+		className: "separator-cover position-relative px-0",
+		"data-testid": "separator",
+		children: [/* @__PURE__ */ (0, u.jsx)("div", {
+			className: "separator-cover-image-container position-absolute w-100 h-100",
+			children: /* @__PURE__ */ (0, u.jsx)("img", {
+				className: "separator-cover-image w-100 h-100",
+				src: e.media_url,
+				alt: e.media_alt_text
+			})
+		}), /* @__PURE__ */ (0, u.jsx)(t, {
+			className: "text-container justify-content-center mx-0 h-100",
+			children: /* @__PURE__ */ (0, u.jsx)(n, {
+				xs: 12,
+				md: 10,
+				lg: 8,
+				xl: 6,
+				className: "order-lg-2 d-flex h-100 align-items-center justify-content-center text-center px-3 px-sm-4 px-lg-0",
+				children: /* @__PURE__ */ (0, u.jsxs)("div", {
+					className: "text-content w-100 mx-auto mw-sm",
+					children: [
+						/* @__PURE__ */ (0, u.jsx)("div", {
+							className: "lead mb-3",
+							style: r.top_header,
+							children: e.top_header
+						}),
+						/* @__PURE__ */ (0, u.jsx)("h1", {
+							className: "display-1 font-weight-bold text-center mb-0",
+							style: r.main_header,
+							children: e.main_header
+						}),
+						/* @__PURE__ */ (0, u.jsx)("h4", {
+							className: "mt-4 mb-4 text-center",
+							style: r.subheader,
+							children: e.subheader
+						}),
+						/* @__PURE__ */ (0, u.jsx)("p", {
+							className: "body mx-auto mb-0 font-weight-bold w-100 mw-sm",
+							style: r.description,
+							children: e.description
+						})
+					]
 				})
-			}), /* @__PURE__ */ (0, c.jsx)(n, {
-				className: "text-container",
-				children: /* @__PURE__ */ (0, c.jsx)(o, {
-					xs: 12,
-					className: "order-lg-2 align-content-center text-center",
-					children: /* @__PURE__ */ (0, c.jsxs)("div", {
-						className: "text-content mx-0 me-sm-2 me-md-0 ms-lg-4 ms-lg-5",
-						children: [
-							/* @__PURE__ */ (0, c.jsx)("div", {
-								className: "lead",
-								style: r.top_header,
-								children: t.top_header
-							}),
-							/* @__PURE__ */ (0, c.jsx)("h1", {
-								className: "display-1 d-inline-block text-center",
-								style: r.main_header,
-								children: t.main_header
-							}),
-							/* @__PURE__ */ (0, c.jsx)("p", {
-								className: "subtitle my-3 text-center",
-								style: r.subheader,
-								children: t.subheader
-							}),
-							/* @__PURE__ */ (0, c.jsx)("p", {
-								className: "body",
-								style: r.description,
-								children: t.description
-							})
-						]
-					})
-				})
-			})]
-		});
-	}
-}, u = (e) => {
-	let t = l[e.variant];
-	return /* @__PURE__ */ (0, c.jsx)(t, { ...e });
-}, d = ".section-block-image{object-fit:cover;width:100%;max-width:100%;height:208px;max-height:80lvh}.separator-cover,.course-cover{position:relative}.separator-cover-image-container,.course-cover-image-container{z-index:0;min-width:100%;height:100%;position:absolute;top:0;left:0;overflow:clip}.full-height,.separator-cover .text-container,.course-cover .text-content{height:100%}.separator-cover .text-container .text-content{width:100%}.course-cover-image{object-fit:cover;min-width:100%}@media (width<=575px){.separator-cover-image,.course-cover-image,.course-cover{object-fit:cover;min-width:100%}}@media (width>=576px){.section-block-image,.separator-cover,.course-cover{height:320px}}@media (width>=768px){.section-block-image,.separator-cover,.course-cover{height:400px}.section-cover .text-content{max-width:80%}}@media (width>=992px){.section-block-image,.separator-cover,.course-cover{height:760px}}@media (width>=1200px){.section-block-image,.separator-cover,.course-cover{height:760px}.section-cover .text-content{max-width:56%}}@media (width>=1400px){.section-block-image,.separator-cover,.course-cover{height:760px}.section-cover .text-content{max-width:60%}}.section-cover .display-1,.separator-cover .display-1,.course-cover .display-1{font-optical-sizing:auto;letter-spacing:0;font-variation-settings:\"wdth\" 100;font-family:Noto Serif,serif;font-style:normal;font-weight:bolder}@media (width>=576px){.section-cover .display-1,.separator-cover .display-1,.course-cover .display-1{line-height:5.3125rem}}.section-cover strong,.separator-cover,.course-cover strong{font-weight:700}.section-cover,.separator-cover,.course-cover{font-family:Lato,sans-serif}.section-cover .lead,.separator-cover .lead,.course-cover .lead{font-size:1.875rem;font-weight:lighter}.section-cover .subtitle,.separator-cover .lead,.course-cover .lead{letter-spacing:0;font-size:1.125rem;font-weight:700;line-height:1.5625rem}.section-cover .body,.separator-cover .body,.course-cover .body{letter-spacing:0;font-size:1rem;font-weight:400;line-height:1.5625rem}", f = (e, t, n) => {
+			})
+		})]
+	});
+}, m = {
+	[i.course]: d,
+	[i.section]: f,
+	[i.separator]: p
+}, h = (e) => {
+	let t = m[e.variant];
+	return /* @__PURE__ */ (0, u.jsx)(t, { ...e });
+}, g = ".section-block-image,.separator-cover-image,.course-cover-image{object-fit:cover}.section-cover{--cover-height:460px}.separator-cover,.course-cover{--cover-height:550px}.section-block-image{height:var(--cover-height);border-radius:var(--pgn-size-card-image-border-radius);max-height:80lvh}.separator-cover-image-container,.course-cover-image-container{z-index:0;inset:0;overflow:clip}.separator-cover,.course-cover{height:var(--cover-height)}@media (width>=768px){.section-cover,.separator-cover,.course-cover{--cover-height:680px}}@media (width>=992px){.section-cover,.separator-cover,.course-cover{--cover-height:800px}}.section-cover .lead,.course-cover .lead,.section-cover .subtitle,.course-cover .subtitle{font-weight:var(--pgn-typography-font-weight-bold)}.section-cover .lead,.course-cover .lead,.section-cover .subtitle,.course-cover .subtitle,.separator-cover .lead{line-height:var(--pgn-typography-line-height-base)}.section-cover .lead{font-size:var(--pgn-typography-font-size-h4-base);color:var(--pgn-wgu-color-text-main-lake)}.course-cover .lead{font-size:var(--pgn-typography-font-size-h3-base)}.course-cover .subtitle{font-size:var(--pgn-typography-font-size-h5-base);letter-spacing:0}.section-cover .body,.course-cover .body{font-size:var(--pgn-typography-font-size-base);line-height:var(--pgn-typography-line-height-sm);letter-spacing:0}.separator-cover .lead{font-size:var(--pgn-typography-font-size-h6-base);font-weight:var(--pgn-typography-font-weight-semi-bold)}.separator-cover .display-1{font-size:var(--pgn-typography-font-size-display-mobile-1)}.separator-cover h4{font-size:var(--pgn-typography-font-size-h5-base)}.separator-cover .body{font-size:var(--pgn-typography-font-size-base);line-height:var(--pgn-typography-line-height-lg)}@media (width>=768px){.separator-cover .lead{font-size:var(--pgn-typography-font-size-h5-base)}.separator-cover .display-1{font-size:var(--pgn-typography-font-size-display-1)}.separator-cover h4{font-size:var(--pgn-typography-font-size-h4-base)}.separator-cover .body{font-size:var(--pgn-typography-font-size-lg)}}", _ = (e, t, n) => {
 	a({
 		runtime: t,
 		element: e,
 		config: n.config,
-		styles: d
-	})(/* @__PURE__ */ (0, c.jsx)(u, { ...n.data }));
+		styles: g
+	})(/* @__PURE__ */ (0, u.jsx)(h, { ...n.data }));
 };
 //#endregion
-export { f as renderBlock };
+export { _ as renderBlock };
