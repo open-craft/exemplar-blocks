@@ -55,6 +55,8 @@ class CardCarouselXBlock(XBlock):
         4. CONTENT_HIGHLIGHT - Secondary content is just some content with title and description.
     """
 
+    has_author_view = True
+
     display_name = String(default="Card Carousel")
     orientation = String(
         display_name="Orientation of the Card Content",
@@ -85,11 +87,7 @@ class CardCarouselXBlock(XBlock):
         """Handy helper for getting resources from our kit."""
         return resource_loader.load_unicode(path)
 
-    def student_view(self, context=None):
-        """
-        The primary view of the CardCarouselXBlock, shown to students
-        when viewing courses.
-        """
+    def _render_student_view(self, is_author_view: bool = False):
         frag = Fragment()
         frag.add_resource_url(
             "https://fonts.googleapis.com/icon?family=Material+Icons+Outlined",
@@ -97,6 +95,8 @@ class CardCarouselXBlock(XBlock):
             "head",
         )
         frag.add_javascript(self.resource_string("static/student.js"))
+        if is_author_view:
+            frag.add_css(self.resource_string("static/css/studio.css"))
         frag.initialize_js(
             "CardCarouselXBlock",
             {
@@ -119,6 +119,19 @@ class CardCarouselXBlock(XBlock):
             },
         )
         return frag
+
+    def student_view(self, context=None):
+        """
+        The primary view of the CardCarouselXBlock, shown to students
+        when viewing courses.
+        """
+        return self._render_student_view()
+
+    def author_view(self, context=None):
+        """
+        Renders the student view in the Studio for Authors to preview the content.
+        """
+        return self._render_student_view(is_author_view=True)
 
     def studio_view(self, context=None):
         """
