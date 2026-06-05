@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '@opencraft/xblock-react-utils/testing';
 import { describe, it, expect } from 'vitest';
 import ComplexCard, { ContentLayout } from './ComplexCard';
 import type {

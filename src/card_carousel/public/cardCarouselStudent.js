@@ -1,19 +1,19 @@
-import { B as e, C as t, D as n, E as r, H as i, M as a, N as o, O as s, S as c, a as l, c as u, j as d, k as f, n as p, o as m, s as h, t as g, w as _ } from "./Stack-De3vXDAm.js";
+import { C as e, D as t, E as n, M as r, N as i, O as a, P as o, S as s, U as c, V as l, a as u, c as d, k as f, n as p, o as m, s as h, t as g, w as _ } from "./Stack-ByHpu8H7.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Badge.js
-var v = /* @__PURE__ */ i(s()), y = /* @__PURE__ */ i(e()), b = [
+var v = /* @__PURE__ */ c(a()), y = /* @__PURE__ */ c(l()), b = [
 	"bsPrefix",
 	"variant",
 	"pill",
 	"className",
 	"as"
-], x = { pill: !1 }, S = /* @__PURE__ */ y.forwardRef(function(e, t) {
-	var i = e.bsPrefix, a = e.variant, o = e.pill, s = e.className, c = e.as, l = c === void 0 ? "span" : c, u = r(e, b), d = _(i, "badge");
-	return /* @__PURE__ */ y.createElement(l, n({ ref: t }, u, { className: (0, v.default)(s, d, o && d + "-pill", a && d + "-" + a) }));
+], x = { pill: !1 }, S = /* @__PURE__ */ y.forwardRef(function(e, r) {
+	var i = e.bsPrefix, a = e.variant, o = e.pill, s = e.className, c = e.as, l = c === void 0 ? "span" : c, u = n(e, b), d = _(i, "badge");
+	return /* @__PURE__ */ y.createElement(l, t({ ref: r }, u, { className: (0, v.default)(s, d, o && d + "-pill", a && d + "-" + a) }));
 });
 S.displayName = "Badge", S.defaultProps = x;
 //#endregion
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Row.js
-var C = /* @__PURE__ */ i(t()), w = [
+var C = /* @__PURE__ */ c(e()), w = [
 	"bsPrefix",
 	"className",
 	"noGutters",
@@ -24,14 +24,14 @@ var C = /* @__PURE__ */ i(t()), w = [
 	"md",
 	"sm",
 	"xs"
-], E = { noGutters: !1 }, D = /* @__PURE__ */ y.forwardRef(function(e, t) {
-	var i = e.bsPrefix, a = e.className, o = e.noGutters, s = e.as, c = s === void 0 ? "div" : s, l = r(e, w), u = _(i, "row"), d = u + "-cols", f = [];
+], E = { noGutters: !1 }, D = /* @__PURE__ */ y.forwardRef(function(e, r) {
+	var i = e.bsPrefix, a = e.className, o = e.noGutters, s = e.as, c = s === void 0 ? "div" : s, l = n(e, w), u = _(i, "row"), d = u + "-cols", f = [];
 	return T.forEach(function(e) {
 		var t = l[e];
 		delete l[e];
 		var n = typeof t == "object" && t ? t.cols : t, r = e === "xs" ? "" : "-" + e;
 		n != null && f.push("" + d + r + "-" + n);
-	}), /* @__PURE__ */ y.createElement(c, n({ ref: t }, l, { className: v.default.apply(void 0, [
+	}), /* @__PURE__ */ y.createElement(c, t({ ref: r }, l, { className: v.default.apply(void 0, [
 		a,
 		u,
 		o && "no-gutters"
@@ -657,8 +657,8 @@ W.propTypes = {
 };
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardDeck.js
-var G = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, columnSizes: n, hasInteractiveChildren: r, canScrollHorizontal: i, hasOverflowScrollItems: a, hasEqualColumnHeights: o }, s) => {
-	let l = (0, y.useMemo)(() => y.Children.map(t, (e) => /* @__PURE__ */ y.createElement(c, {
+var G = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, columnSizes: n, hasInteractiveChildren: r, canScrollHorizontal: i, hasOverflowScrollItems: a, hasEqualColumnHeights: o }, c) => {
+	let l = (0, y.useMemo)(() => y.Children.map(t, (e) => /* @__PURE__ */ y.createElement(s, {
 		...n,
 		className: (0, v.default)("pgn__card-deck__card-item", { "pgn__card__disable-equal-column-heights": !o })
 	}, e)), [
@@ -673,7 +673,7 @@ var G = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, columnSizes: 
 	return /* @__PURE__ */ y.createElement("div", { className: (0, v.default)("pgn__card-deck", { "pgn__card-deck-has-horizontal-scroll": i }, e) }, /* @__PURE__ */ y.createElement(D, {
 		className: "pgn__card-deck-row",
 		tabIndex: r ? -1 : 0,
-		ref: s
+		ref: c
 	}, d));
 });
 G.propTypes = {
@@ -767,7 +767,7 @@ function Ee({ children: e, as: t, className: n }) {
 }
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/messages.js
-var De = a({
+var De = i({
 	scrollToPrevious: {
 		id: "pgn.CardCarousel.scrollToPrevious",
 		defaultMessage: "Scroll to previous",
@@ -918,14 +918,14 @@ X.propTypes = {
 	variant: "light",
 	isLoading: !1
 };
-var Z = u(X, "Card", { muted: {
+var Z = d(X, "Card", { muted: {
 	deprType: h.REMOVED,
 	message: "Use \"variant\" prop instead, i.e. variant=\"muted\""
 } });
 Z.Status = W, Z.Header = B, Z.Divider = ye, Z.Section = V, Z.Footer = H, Z.ImageCap = U, Z.Context = R, Z.Body = P;
 //#endregion
 //#region src/card-carousel/student-ui/components/ContentHighlight.tsx
-var Q = d();
+var Q = r();
 function Ne({ title: e, subtitle: t, description: n, orientation: r }) {
 	return /* @__PURE__ */ (0, Q.jsxs)("div", {
 		className: "p-5 bg-primary-500 h-100",
@@ -1079,7 +1079,7 @@ function Le({ orientation: e, data: t, position: n }) {
 					t.description && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: t.description }),
 					t.ctaLabel && t.ctaLink && /* @__PURE__ */ (0, Q.jsx)(Z.Section, {
 						className: "d-flex justify-content-end",
-						children: /* @__PURE__ */ (0, Q.jsx)(l, {
+						children: /* @__PURE__ */ (0, Q.jsx)(u, {
 							variant: "accent",
 							className: "rounded-pill px-6",
 							children: /* @__PURE__ */ (0, Q.jsx)("strong", { children: t.ctaLabel })

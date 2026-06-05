@@ -1,14 +1,8 @@
-import {
-  render as originalRender,
-  screen,
-  type RenderOptions,
-} from '@testing-library/react';
+import { render, screen } from '@opencraft/xblock-react-utils/testing';
+import type { XBlockRuntime } from '@opencraft/xblock-react-utils';
 import { describe, it, expect, vi } from 'vitest';
 import StudentUI from './StudentUI';
 import { type CardData } from '../types';
-import type { XBlockRuntime } from '../../types';
-import { IntlProvider } from 'react-intl';
-import type { ReactElement, ReactNode } from 'react';
 
 const mockRuntime: XBlockRuntime = { handlerUrl: vi.fn(), notify: vi.fn() };
 
@@ -46,15 +40,6 @@ const mockCards: Array<CardData> = [
     },
   },
 ];
-
-// redefine render with React.IntlProvider as Paragon's CardCarousel expects it.
-const render = (ui: ReactElement, options: RenderOptions = {}) => {
-  const Wrapper = ({ children }: { children: ReactNode }) => {
-    return <IntlProvider locale="en">{children}</IntlProvider>;
-  };
-
-  return originalRender(ui, { wrapper: Wrapper, ...options });
-};
 
 describe('StudentUI', () => {
   it('renders a CardCarousel with displayName as aria-label', () => {

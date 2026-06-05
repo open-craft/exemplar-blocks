@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { IntlProvider } from 'react-intl';
 import StudioUI from './StudioUI';
-import type { XBlockRuntime } from '../../types.ts';
+import type { XBlockRuntime } from '@opencraft/xblock-react-utils';
 import { type InitData } from '../types.ts';
 import { newCard } from './utils.ts';
 

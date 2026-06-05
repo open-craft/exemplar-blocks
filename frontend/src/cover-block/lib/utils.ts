@@ -1,5 +1,5 @@
+import { deriveColor } from '@opencraft/xblock-react-utils';
 import type { CoverStyleSet } from '../types.ts';
-import { deriveColor } from '../../lib/utils.tsx';
 import type { CoverBlockFields } from '../apiTypes.ts';
 
 export const deriveStyles = (data: CoverBlockFields): CoverStyleSet => {

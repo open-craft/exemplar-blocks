@@ -1,18 +1,18 @@
-import { E as e, _ as t, c as n, d as r, f as i, g as a, i as o, l as s, m as c, o as l, p as u, r as d, s as f, u as p, v as m, w as h } from "./types-BmkHHpdc.js";
+import { D as e, T as t, _ as n, c as r, d as i, f as a, i as o, l as s, m as c, o as l, p as u, r as d, s as f, u as p, v as m, y as h } from "./types-BibSO508.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Container.js
-var g = /* @__PURE__ */ e(u()), _ = /* @__PURE__ */ e(h()), v = [
+var g = /* @__PURE__ */ e(u()), _ = /* @__PURE__ */ e(t()), v = [
 	"bsPrefix",
 	"fluid",
 	"as",
 	"className"
 ], y = { fluid: !1 }, b = /* @__PURE__ */ _.forwardRef(function(e, t) {
-	var n = e.bsPrefix, i = e.fluid, a = e.as, o = a === void 0 ? "div" : a, c = e.className, l = p(e, v), u = s(n, "container"), d = typeof i == "string" ? "-" + i : "-fluid";
-	return /* @__PURE__ */ _.createElement(o, r({ ref: t }, l, { className: (0, g.default)(c, i ? "" + u + d : u) }));
+	var n = e.bsPrefix, r = e.fluid, a = e.as, o = a === void 0 ? "div" : a, c = e.className, l = p(e, v), u = s(n, "container"), d = typeof r == "string" ? "-" + r : "-fluid";
+	return /* @__PURE__ */ _.createElement(o, i({ ref: t }, l, { className: (0, g.default)(c, r ? "" + u + d : u) }));
 });
 b.displayName = "Container", b.defaultProps = y;
 //#endregion
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Image.js
-var x = /* @__PURE__ */ e(n()), S = [
+var x = /* @__PURE__ */ e(r()), S = [
 	"bsPrefix",
 	"className",
 	"fluid",
@@ -27,10 +27,10 @@ var C = {
 	roundedCircle: !1,
 	thumbnail: !1
 }, w = /* @__PURE__ */ _.forwardRef(function(e, t) {
-	var n = e.bsPrefix, i = e.className, a = e.fluid, o = e.rounded, c = e.roundedCircle, l = e.thumbnail, u = p(e, S);
+	var n = e.bsPrefix, r = e.className, a = e.fluid, o = e.rounded, c = e.roundedCircle, l = e.thumbnail, u = p(e, S);
 	n = s(n, "img");
 	var d = (0, g.default)(a && n + "-fluid", o && "rounded", c && "rounded-circle", l && n + "-thumbnail");
-	return /* @__PURE__ */ _.createElement("img", r({ ref: t }, u, { className: (0, g.default)(i, d) }));
+	return /* @__PURE__ */ _.createElement("img", i({ ref: t }, u, { className: (0, g.default)(r, d) }));
 });
 w.displayName = "Image", w.defaultProps = C;
 //#endregion
@@ -54,7 +54,7 @@ var T = (e) => /* @__PURE__ */ _.createElement("svg", {
 	fluid: i,
 	ref: o,
 	className: (0, g.default)(a.className, e && E[e])
-}, t)), O = t({
+}, t)), O = m({
 	externalLinkAltText: {
 		id: "Hyperlink.externalLinkAltText",
 		defaultMessage: "in a new tab"
@@ -64,16 +64,16 @@ var T = (e) => /* @__PURE__ */ _.createElement("svg", {
 		defaultMessage: "Opens in a new tab"
 	}
 }), k = /* @__PURE__ */ (0, _.forwardRef)(({ as: e = "a", className: t, destination: n, children: r, target: i = "_self", onClick: a, externalLinkAlternativeText: s, externalLinkTitle: c, variant: l = "default", isInline: u = !1, showLaunchIcon: d = !0, ...f }, p) => {
-	let h = m(), v;
+	let m = h(), v;
 	i === "_blank" && (f.rel = (() => {
 		let { rel: e } = f;
 		return e ? (e.includes("noopener") || (e += " noopener"), e.includes("noreferrer") || (e += " noreferrer"), e) : "noopener noreferrer";
 	})(), d && (v = /* @__PURE__ */ _.createElement("span", {
 		className: "pgn__hyperlink__external-icon",
-		title: c || h.formatMessage(O.externalLinkTitle)
+		title: c || m.formatMessage(O.externalLinkTitle)
 	}, /* @__PURE__ */ _.createElement(o, {
 		src: T,
-		screenReaderText: s || h.formatMessage(O.externalLinkAltText),
+		screenReaderText: s || m.formatMessage(O.externalLinkAltText),
 		style: {
 			height: "1em",
 			width: "1em"
@@ -95,7 +95,7 @@ var T = (e) => /* @__PURE__ */ _.createElement("svg", {
 k.displayName = "Hyperlink";
 //#endregion
 //#region src/two-column-block/student-ui/App.tsx
-var A = a(), j = ({ data: e }) => {
+var A = n(), j = ({ data: e }) => {
 	let [t, n] = e.columns.ratio.split(":").map((e) => parseInt(e, 10));
 	return /* @__PURE__ */ (0, A.jsx)(D, {
 		className: "p-0",
@@ -162,7 +162,7 @@ var A = a(), j = ({ data: e }) => {
 		]
 	}),
 	/* @__PURE__ */ (0, A.jsx)("p", { children: e.summary }),
-	(e.previousLesson || e.showStartLessonButton) && /* @__PURE__ */ (0, A.jsxs)(i, { children: [e.previousLesson && /* @__PURE__ */ (0, A.jsxs)(d, {
+	(e.previousLesson || e.showStartLessonButton) && /* @__PURE__ */ (0, A.jsxs)(a, { children: [e.previousLesson && /* @__PURE__ */ (0, A.jsxs)(d, {
 		className: "rounded-pill",
 		variant: "outline-brand",
 		href: e.previousLesson.url,

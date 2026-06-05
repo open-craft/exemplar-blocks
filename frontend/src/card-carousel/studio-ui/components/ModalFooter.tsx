@@ -1,7 +1,7 @@
 import Button from '@openedx/paragon/dist/Button';
 import Stack from '@openedx/paragon/dist/Stack';
 import Sticky from '@openedx/paragon/dist/Sticky';
-import type { XBlockRuntime } from '../../../types';
+import type { XBlockRuntime } from '@opencraft/xblock-react-utils';
 
 interface ModalFooterProps {
   runtime: XBlockRuntime;

@@ -1,4 +1,8 @@
-import { render, screen, fireEvent } from '../../../tests-utils';
+import {
+  render,
+  screen,
+  fireEvent,
+} from '@opencraft/xblock-react-utils/testing';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
 import IconSelector from './index';

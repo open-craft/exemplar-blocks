@@ -1,8 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
-import { render, within } from '@testing-library/react';
+import { render, within } from '@opencraft/xblock-react-utils/testing';
 import userEvent from '@testing-library/user-event';
-import * as React from 'react';
-import { IntlProvider } from 'react-intl';
 import { App } from './App.tsx';
 import type { Data } from '../apiTypes.ts';
 import { defaultLayout } from '../types.ts';
@@ -28,15 +26,11 @@ const specRender = (initialData: Data = defaultData) => {
     initialData,
     user: userEvent.setup(),
     screen: render(
-      <React.StrictMode>
-        <IntlProvider locale="en">
-          <App
-            initialData={initialData}
-            onSave={mockOnSave}
-            onCancel={mockOnCancel}
-          />
-        </IntlProvider>
-      </React.StrictMode>,
+      <App
+        initialData={initialData}
+        onSave={mockOnSave}
+        onCancel={mockOnCancel}
+      />,
     ),
   };
 };
@@ -171,7 +165,7 @@ describe('App.tsx', () => {
     ).toBeNull();
 
     // save the changes
-    screen.getByText('Save').click();
+    await user.click(screen.getByText('Save'));
 
     // assert the data was updated
     expect(mockOnSave).toHaveBeenCalledExactlyOnceWith(expectedData);
@@ -265,7 +259,7 @@ describe('App.tsx', () => {
     expect(screen.queryAllByPlaceholderText('Alt text')).toHaveLength(0);
 
     // save the changes
-    screen.getByText('Save').click();
+    await user.click(screen.getByText('Save'));
 
     // assert the data was updated
     expect(mockOnSave).toHaveBeenCalledExactlyOnceWith(expectedData);

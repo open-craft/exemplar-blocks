@@ -1,7 +1,7 @@
-import { render, screen } from '../tests-utils';
+import { render, screen } from '@opencraft/xblock-react-utils/testing';
+import type { XBlockRuntime } from '@opencraft/xblock-react-utils';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
-import type { XBlockRuntime } from '../../../types';
 import ModalFooter from './ModalFooter';
 
 const mockRuntime: XBlockRuntime = { handlerUrl: vi.fn(), notify: vi.fn() };

@@ -1,7 +1,9 @@
-import type { XBlockConfig, XBlockRuntime } from '../../types.ts';
+import {
+  createXBlockRoot,
+  type XBlockConfig,
+  type XBlockRuntime,
+} from '@opencraft/xblock-react-utils';
 import type { Data } from '../apiTypes.ts';
-import { createXBlockRoot } from '../../lib/utils.tsx';
-
 import { App } from './App.tsx';
 import styles from './main.scss?inline';
 

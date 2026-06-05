@@ -1,8 +1,11 @@
 import App from './App.tsx';
-import type { XBlockConfig, XBlockRuntime } from '../../types.ts';
+import {
+  createXBlockRoot,
+  type XBlockConfig,
+  type XBlockRuntime,
+} from '@opencraft/xblock-react-utils';
 import type { CoverBlockFields } from '../apiTypes.ts';
 import styles from './style.scss?inline';
-import { createXBlockRoot } from '../../lib/utils.tsx';
 
 export const renderBlock = (
   element: Element,

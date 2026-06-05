@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { Form, Formik } from 'formik';
 import { type InitData } from '../types';
-import type { XBlockRuntime } from '../../types';
+import {
+  saveStudioBlock,
+  type XBlockRuntime,
+} from '@opencraft/xblock-react-utils';
 import CreateCarouselForm from './components/CreateCarouselForm';
 import CarouselEditor from './components/CarouselEditor';
 import ModalFooter from './components/ModalFooter';
@@ -18,18 +21,13 @@ function StudioUI({ runtime, saveUrl, initData }: StudioUIProps) {
   return (
     <Formik
       initialValues={initData}
-      onSubmit={async (values) => {
-        runtime.notify('save', { state: 'start' });
-        $.post(saveUrl, JSON.stringify(values))
-          .done(() => {
-            runtime.notify('save', { state: 'end' });
-          })
-          .fail(() => {
-            runtime.notify('error', {
-              title: 'Save Error',
-              message: 'Failed to save the card carousel.',
-            });
-          });
+      onSubmit={(values) => {
+        saveStudioBlock<InitData>({
+          saveUrl,
+          data: values,
+          runtime,
+          errorMessage: 'Failed to save the card carousel.',
+        });
       }}
     >
       <Form>

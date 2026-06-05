@@ -1,18 +1,8 @@
 import { describe, it } from 'vitest';
-import { render } from '@testing-library/react';
-import type { ReactNode } from 'react';
-import * as React from 'react';
-import { IntlProvider } from 'react-intl';
+import { render } from '@opencraft/xblock-react-utils/testing';
 import { App } from './App.tsx';
 import type { Data } from '../apiTypes.ts';
 import { defaultLayout } from '../types.ts';
-
-const specRender = (component: ReactNode) =>
-  render(
-    <React.StrictMode>
-      <IntlProvider locale="en">{component}</IntlProvider>
-    </React.StrictMode>,
-  );
 
 describe('App.tsx', () => {
   it('renders', () => {
@@ -26,7 +16,7 @@ describe('App.tsx', () => {
       },
       backgroundColor: '#FFFFFF',
     };
-    const screen = specRender(<App data={data} />);
+    const screen = render(<App data={data} />);
     screen.getByText('Overview');
   });
 
@@ -41,7 +31,7 @@ describe('App.tsx', () => {
       },
       backgroundColor: '#FFFFFF',
     };
-    const screen = specRender(<App data={data} />);
+    const screen = render(<App data={data} />);
     screen.getByText('Up Next');
   });
 
@@ -79,7 +69,7 @@ describe('App.tsx', () => {
       backgroundColor: '#FFFFFF',
     };
 
-    const screen = specRender(<App data={data} />);
+    const screen = render(<App data={data} />);
     screen.getByAltText('this is featured image alttext');
     screen.getByAltText('and the bottom image alttext');
   });

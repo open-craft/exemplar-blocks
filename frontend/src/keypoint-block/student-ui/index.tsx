@@ -1,6 +1,9 @@
-import { createXBlockRoot } from '../../lib/utils.tsx';
+import {
+  createXBlockRoot,
+  type XBlockConfig,
+  type XBlockRuntime,
+} from '@opencraft/xblock-react-utils';
 import StudentUi from './student-ui';
-import { type XBlockConfig, type XBlockRuntime } from '../../types';
 import { type XBlockData } from '../type';
 import styles from './style.scss?inline';
 

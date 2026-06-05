@@ -1,6 +1,6 @@
 import { ActionRow, Button, Container } from '@openedx/paragon';
 import { useContext } from 'react';
-import { RuntimeContext } from '../../../lib/context.ts';
+import { RuntimeContext } from '@opencraft/xblock-react-utils';
 import CoverForm from './CoverForm.tsx';
 import { useFormikContext } from 'formik';
 

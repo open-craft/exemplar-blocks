@@ -1,11 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ReactNode } from 'react';
-import * as React from 'react';
-import { IntlProvider } from 'react-intl';
-import { RuntimeContext } from '../../lib/context.ts';
-import { mockRuntime, stubJquery } from '../../lib/specHelpers.ts';
+import { RuntimeContext } from '@opencraft/xblock-react-utils';
+import {
+  mockRuntime,
+  stubJquery,
+  fireEvent,
+  render,
+  waitFor,
+} from '@opencraft/xblock-react-utils/testing';
 import { Variant } from '../apiTypes.ts';
 import { initDataFactory } from '../lib/specHelpers.tsx';
 import App from './App.tsx';
@@ -14,13 +17,9 @@ const specRender = (component: ReactNode) => {
   const runtime = mockRuntime();
   const element = document.createElement('div');
   const screen = render(
-    <React.StrictMode>
-      <IntlProvider locale="en">
-        <RuntimeContext.Provider value={{ runtime, element }}>
-          {component}
-        </RuntimeContext.Provider>
-      </IntlProvider>
-    </React.StrictMode>,
+    <RuntimeContext.Provider value={{ runtime, element }}>
+      {component}
+    </RuntimeContext.Provider>,
   );
   return { screen, runtime, element };
 };
