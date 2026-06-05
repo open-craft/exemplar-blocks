@@ -1,6 +1,10 @@
-import { createXBlockRoot, getRoot } from '../../lib/utils.tsx';
+import {
+  createXBlockRoot,
+  getRoot,
+  type XBlockConfig,
+  type XBlockRuntime,
+} from '@opencraft/xblock-react-utils';
 import StudioUI from './StudioUI';
-import type { XBlockConfig, XBlockRuntime } from '../../types.ts';
 import type { InitData } from '../types.ts';
 import { newCard } from './utils';
 import styles from './StudioUI.css?inline';

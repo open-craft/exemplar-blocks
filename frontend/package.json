@@ -18,6 +18,7 @@
   "dependencies": {
     "@dnd-kit/helpers": "^0.3.2",
     "@dnd-kit/react": "^0.3.2",
+    "@opencraft/xblock-react-utils": "^0.1.1",
     "@openedx/paragon": "^23.19.1",
     "@tinymce/tinymce-react": "^6.3.0",
     "formik": "^2.4.9",

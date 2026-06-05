@@ -1,5 +1,5 @@
 import { CardCarousel } from '@openedx/paragon';
-import type { XBlockRuntime } from '../../types';
+import type { XBlockRuntime } from '@opencraft/xblock-react-utils';
 import { type InitData } from '../types';
 import ComplexCard from './components/ComplexCard';
 

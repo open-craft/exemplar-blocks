@@ -1,6 +1,3 @@
-import { type ReactNode, StrictMode } from 'react';
-import { IntlProvider } from 'react-intl';
-import { render } from '@testing-library/react';
 import { type CoverBlockFields, Variant, ImagePosition } from '../apiTypes.ts';
 
 export const initDataFactory = (
@@ -22,12 +19,4 @@ export const initDataFactory = (
     variant: Variant.course,
     ...overrides,
   };
-};
-
-export const specRender = (component: ReactNode) => {
-  return render(
-    <StrictMode>
-      <IntlProvider locale="en">{component}</IntlProvider>
-    </StrictMode>,
-  );
 };

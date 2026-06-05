@@ -11,8 +11,11 @@ import {
 import { Add, DeleteOutline } from '@openedx/paragon/icons';
 import { type KeyPoint } from '../type';
 import { useContext } from 'react';
-import { RuntimeContext } from '../../lib/context.ts';
-import { useHandlerUrl } from '../../lib/hooks.ts';
+import {
+  RuntimeContext,
+  useHandlerUrl,
+  saveStudioBlock,
+} from '@opencraft/xblock-react-utils';
 
 interface StudioUiProps {
   initialHeader: string;
@@ -20,6 +23,14 @@ interface StudioUiProps {
   initialButtonText: string;
   initialButtonLink: string;
   initialBackgroundColor: string;
+}
+
+interface SaveData {
+  header: string;
+  keypoints: KeyPoint[];
+  button_text: string;
+  button_link: string;
+  background_color: string;
 }
 
 export default function StudioUi({
@@ -55,26 +66,20 @@ export default function StudioUi({
   };
 
   const handleSave = () => {
-    runtime.notify('save', { state: 'start' });
-    $.post(
-      studioSaveUrl,
-      JSON.stringify({
-        header,
-        keypoints,
-        button_text: buttonText,
-        button_link: buttonLink,
-        background_color: backgroundColor,
-      }),
-    )
-      .done(() => {
-        runtime.notify('save', { state: 'end' });
-      })
-      .fail(() => {
-        runtime.notify('error', {
-          title: 'Save Error',
-          message: 'Failed to save keypoint configuration',
-        });
-      });
+    const data: SaveData = {
+      header,
+      keypoints,
+      button_text: buttonText,
+      button_link: buttonLink,
+      background_color: backgroundColor,
+    };
+
+    saveStudioBlock<SaveData>({
+      saveUrl: studioSaveUrl,
+      data,
+      runtime,
+      errorMessage: 'Failed to save keypoint configuration',
+    });
   };
 
   return (

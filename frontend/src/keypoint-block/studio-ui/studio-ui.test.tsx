@@ -1,11 +1,15 @@
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import {
+  render,
+  screen,
+  mockRuntime,
+  stubJquery,
+} from '@opencraft/xblock-react-utils/testing';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import StudioUi from './studio-ui';
 import { type KeyPoint } from '../type';
-import { RuntimeContext } from '../../lib/context.ts';
-import { mockRuntime, stubJquery } from '../../lib/specHelpers.ts';
+import { RuntimeContext } from '@opencraft/xblock-react-utils';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 

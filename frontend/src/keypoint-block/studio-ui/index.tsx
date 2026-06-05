@@ -1,8 +1,11 @@
 import StudioUi from './studio-ui';
 import { type XBlockData } from '../type';
-import { type XBlockConfig, type XBlockRuntime } from '../../types';
+import {
+  createXBlockRoot,
+  type XBlockConfig,
+  type XBlockRuntime,
+} from '@opencraft/xblock-react-utils';
 import styles from './style.scss?inline';
-import { createXBlockRoot } from '../../lib/utils.tsx';
 
 export const renderBlock = (
   runtime: XBlockRuntime,

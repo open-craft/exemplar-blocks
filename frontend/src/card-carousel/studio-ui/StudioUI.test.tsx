@@ -1,25 +1,11 @@
-import {
-  render as originalRender,
-  screen,
-  type RenderOptions,
-} from '@testing-library/react';
+import { render, screen } from '@opencraft/xblock-react-utils/testing';
+import type { XBlockRuntime } from '@opencraft/xblock-react-utils';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import type { XBlockRuntime } from '../../types';
-import { IntlProvider } from 'react-intl';
-import type { ReactElement, ReactNode } from 'react';
 import StudioUI from './StudioUI';
 import type { InitData } from '../types';
 
 const mockRuntime: XBlockRuntime = { handlerUrl: vi.fn(), notify: vi.fn() };
-
-const render = (ui: ReactElement, options: RenderOptions = {}) => {
-  const Wrapper = ({ children }: { children: ReactNode }) => {
-    return <IntlProvider locale="en">{children}</IntlProvider>;
-  };
-
-  return originalRender(ui, { wrapper: Wrapper, ...options });
-};
 
 const defaultInitData: InitData = {
   cards: [],

@@ -8,9 +8,9 @@ import {
   vi,
   afterAll,
 } from 'vitest';
+import { deriveColor } from '@opencraft/xblock-react-utils';
 import { deriveStyles } from './utils.ts';
 import { initDataFactory } from './specHelpers.tsx';
-import { deriveColor } from '../../lib/utils.tsx';
 
 describe('deriveColor', () => {
   let mockError: MockInstance;

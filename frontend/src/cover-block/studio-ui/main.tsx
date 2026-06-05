@@ -1,6 +1,9 @@
-import type { XBlockConfig, XBlockRuntime } from '../../types.ts';
+import {
+  createXBlockRoot,
+  type XBlockConfig,
+  type XBlockRuntime,
+} from '@opencraft/xblock-react-utils';
 import App from './App.tsx';
-import { createXBlockRoot } from '../../lib/utils.tsx';
 import styles from './style.scss?inline';
 import type { CoverBlockFields } from '../apiTypes.ts';
 

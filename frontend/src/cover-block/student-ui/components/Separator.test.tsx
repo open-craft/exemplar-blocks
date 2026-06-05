@@ -1,11 +1,12 @@
 import { describe, it } from 'vitest';
-import { initDataFactory, specRender } from '../../lib/specHelpers.tsx';
+import { render } from '@opencraft/xblock-react-utils/testing';
+import { initDataFactory } from '../../lib/specHelpers.tsx';
 import Separator from './Separator.tsx';
 
 describe('Separator.tsx', () => {
   it('renders', () => {
     const data = initDataFactory();
-    const screen = specRender(<Separator {...data} />);
+    const screen = render(<Separator {...data} />);
     screen.getByText('Section N');
   });
 });

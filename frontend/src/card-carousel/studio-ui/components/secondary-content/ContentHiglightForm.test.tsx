@@ -1,4 +1,4 @@
-import { render, screen } from '../../tests-utils';
+import { render, screen } from '@opencraft/xblock-react-utils/testing';
 import { describe, it, expect } from 'vitest';
 import { Formik } from 'formik';
 import { type InitData } from '../../../types';
