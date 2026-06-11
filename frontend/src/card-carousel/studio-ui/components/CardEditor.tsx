@@ -48,7 +48,7 @@ const SecondaryForm: Record<CardType, FC<{ cardIndex: number }>> = {
   HOVER_LIST: HoverListItemForm,
 };
 
-function SecondayContentForm({ cardIndex }: { cardIndex: number }) {
+function SecondaryContentForm({ cardIndex }: { cardIndex: number }) {
   const { values, handleChange, handleBlur, setFieldValue } =
     useFormikContext<InitData>();
   const [showButton, setShowButton] = useState(false);
@@ -184,7 +184,7 @@ export default function CardEditor({ cardIndex }: CardEditorProps) {
         </Form.Control>
       </Form.Group>
       {card.secondaryContent?.kind && (
-        <SecondayContentForm cardIndex={cardIndex} />
+        <SecondaryContentForm cardIndex={cardIndex} />
       )}
     </div>
   );
