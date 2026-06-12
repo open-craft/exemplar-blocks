@@ -1,9 +1,10 @@
 import {
   createXBlockRoot,
   getRoot,
-  type XBlockConfig,
   type XBlockRuntime,
 } from '@opencraft/xblock-react-utils';
+import { XBlockConfigContext } from '../../lib/context.ts';
+import type { XBlockConfig } from '../../types.ts';
 import StudioUI from './StudioUI';
 import type { InitData } from '../types.ts';
 import { newCard } from './utils';
@@ -30,7 +31,14 @@ export const renderBlock = (
     modalBody.style.overflowY = 'scroll';
   }
 
-  createXBlockRoot({ runtime, element, config: context.config, styles })(
-    <StudioUI saveUrl={saveUrl} runtime={runtime} initData={context.data} />,
+  createXBlockRoot({
+    runtime,
+    element,
+    config: context.config,
+    styles,
+  })(
+    <XBlockConfigContext.Provider value={context.config}>
+      <StudioUI saveUrl={saveUrl} runtime={runtime} initData={context.data} />
+    </XBlockConfigContext.Provider>,
   );
 };

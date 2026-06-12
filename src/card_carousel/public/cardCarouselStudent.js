@@ -1,19 +1,19 @@
-import { B as e, F as t, H as n, J as r, K as i, P as a, U as o, V as s, a as c, c as l, k as u, n as d, o as f, q as p, rt as m, s as h, t as g, tt as _ } from "./Stack-DFva22SX.js";
+import { B as e, F as t, H as n, J as r, P as i, V as a, W as o, Y as s, a as c, c as l, it as u, k as d, n as f, nt as p, o as m, q as h, s as g, t as _ } from "./Stack-CsmU_T-L.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Badge.js
-var v = /* @__PURE__ */ m(n()), y = /* @__PURE__ */ m(_()), b = [
+var v = /* @__PURE__ */ u(n()), y = /* @__PURE__ */ u(p()), b = [
 	"bsPrefix",
 	"variant",
 	"pill",
 	"className",
 	"as"
 ], x = { pill: !1 }, S = /* @__PURE__ */ y.forwardRef(function(n, r) {
-	var i = n.bsPrefix, a = n.variant, o = n.pill, c = n.className, l = n.as, u = l === void 0 ? "span" : l, d = e(n, b), f = t(i, "badge");
-	return /* @__PURE__ */ y.createElement(u, s({ ref: r }, d, { className: (0, v.default)(c, f, o && f + "-pill", a && f + "-" + a) }));
+	var i = n.bsPrefix, o = n.variant, s = n.pill, c = n.className, l = n.as, u = l === void 0 ? "span" : l, d = e(n, b), f = t(i, "badge");
+	return /* @__PURE__ */ y.createElement(u, a({ ref: r }, d, { className: (0, v.default)(c, f, s && f + "-pill", o && f + "-" + o) }));
 });
 S.displayName = "Badge", S.defaultProps = x;
 //#endregion
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Row.js
-var C = /* @__PURE__ */ m(a()), w = [
+var C = /* @__PURE__ */ u(i()), w = [
 	"bsPrefix",
 	"className",
 	"noGutters",
@@ -25,16 +25,16 @@ var C = /* @__PURE__ */ m(a()), w = [
 	"sm",
 	"xs"
 ], E = { noGutters: !1 }, D = /* @__PURE__ */ y.forwardRef(function(n, r) {
-	var i = n.bsPrefix, a = n.className, o = n.noGutters, c = n.as, l = c === void 0 ? "div" : c, u = e(n, w), d = t(i, "row"), f = d + "-cols", p = [];
+	var i = n.bsPrefix, o = n.className, s = n.noGutters, c = n.as, l = c === void 0 ? "div" : c, u = e(n, w), d = t(i, "row"), f = d + "-cols", p = [];
 	return T.forEach(function(e) {
 		var t = u[e];
 		delete u[e];
 		var n = typeof t == "object" && t ? t.cols : t, r = e === "xs" ? "" : "-" + e;
 		n != null && p.push("" + f + r + "-" + n);
-	}), /* @__PURE__ */ y.createElement(l, s({ ref: r }, u, { className: v.default.apply(void 0, [
-		a,
+	}), /* @__PURE__ */ y.createElement(l, a({ ref: r }, u, { className: v.default.apply(void 0, [
+		o,
 		d,
-		o && "no-gutters"
+		s && "no-gutters"
 	].concat(p)) }));
 });
 D.displayName = "Row", D.defaultProps = E;
@@ -631,7 +631,7 @@ var W = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, variant: n, i
 		className: (0, v.default)("pgn__card-status", `pgn__card-status__${n}`, e),
 		ref: s,
 		...o
-	}, /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__content" }, r && /* @__PURE__ */ y.createElement(f, {
+	}, /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__content" }, r && /* @__PURE__ */ y.createElement(m, {
 		className: "pgn__card-status__content-icon",
 		src: r
 	}), /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__message-content" }, i && /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__heading" }, i), t)), !!a && /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__actions" }, a));
@@ -658,14 +658,14 @@ W.propTypes = {
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardDeck.js
 var G = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, columnSizes: n, hasInteractiveChildren: r, canScrollHorizontal: i, hasOverflowScrollItems: a, hasEqualColumnHeights: o }, s) => {
-	let c = (0, y.useMemo)(() => y.Children.map(t, (e) => /* @__PURE__ */ y.createElement(u, {
+	let c = (0, y.useMemo)(() => y.Children.map(t, (e) => /* @__PURE__ */ y.createElement(d, {
 		...n,
 		className: (0, v.default)("pgn__card-deck__card-item", { "pgn__card__disable-equal-column-heights": !o })
 	}, e)), [
 		t,
 		n,
 		o
-	]), l = A(c), d = (0, y.useMemo)(() => a ? l : c, [
+	]), l = A(c), u = (0, y.useMemo)(() => a ? l : c, [
 		a,
 		l,
 		c
@@ -674,7 +674,7 @@ var G = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, columnSizes: 
 		className: "pgn__card-deck-row",
 		tabIndex: r ? -1 : 0,
 		ref: s
-	}, d));
+	}, u));
 });
 G.propTypes = {
 	className: C.default.string,
@@ -767,7 +767,7 @@ function Ee({ children: e, as: t, className: n }) {
 }
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/messages.js
-var De = p({
+var De = r({
 	scrollToPrevious: {
 		id: "pgn.CardCarousel.scrollToPrevious",
 		defaultMessage: "Scroll to previous",
@@ -782,22 +782,22 @@ var De = p({
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselControls.js
 function Oe() {
-	let { isScrolledToStart: e, isScrolledToEnd: t, scrollToPrevious: n, scrollToNext: i } = (0, y.useContext)(K), a = r();
-	return e && t ? null : /* @__PURE__ */ y.createElement("div", { className: "pgn__card-carousel-controls" }, /* @__PURE__ */ y.createElement(g, {
+	let { isScrolledToStart: e, isScrolledToEnd: t, scrollToPrevious: n, scrollToNext: r } = (0, y.useContext)(K), i = s();
+	return e && t ? null : /* @__PURE__ */ y.createElement("div", { className: "pgn__card-carousel-controls" }, /* @__PURE__ */ y.createElement(_, {
 		direction: "horizontal",
 		gap: 1
-	}, /* @__PURE__ */ y.createElement(d, {
+	}, /* @__PURE__ */ y.createElement(f, {
 		disabled: e,
 		src: te,
-		iconAs: f,
-		alt: a.formatMessage(De.scrollToPrevious),
+		iconAs: m,
+		alt: i.formatMessage(De.scrollToPrevious),
 		onClick: n
-	}), /* @__PURE__ */ y.createElement(d, {
+	}), /* @__PURE__ */ y.createElement(f, {
 		disabled: t,
 		src: ne,
-		iconAs: f,
-		alt: a.formatMessage(De.scrollToNext),
-		onClick: i
+		iconAs: m,
+		alt: i.formatMessage(De.scrollToNext),
+		onClick: r
 	})));
 }
 //#endregion
@@ -919,13 +919,13 @@ X.propTypes = {
 	isLoading: !1
 };
 var Z = l(X, "Card", { muted: {
-	deprType: h.REMOVED,
+	deprType: g.REMOVED,
 	message: "Use \"variant\" prop instead, i.e. variant=\"muted\""
 } });
 Z.Status = W, Z.Header = B, Z.Divider = ye, Z.Section = V, Z.Footer = H, Z.ImageCap = U, Z.Context = R, Z.Body = P;
 //#endregion
 //#region src/card-carousel/student-ui/components/ContentHighlight.tsx
-var Q = i();
+var Q = h();
 function Ne({ title: e, subtitle: t, description: n, orientation: r }) {
 	return /* @__PURE__ */ (0, Q.jsxs)("div", {
 		className: "p-5 bg-primary-500 h-100",
@@ -973,7 +973,7 @@ function $({ name: e, bg: t, fg: n, size: r }) {
 function Pe({ items: e }) {
 	return /* @__PURE__ */ (0, Q.jsx)("div", {
 		className: "p-4 pt-5",
-		children: e.map((t, n) => /* @__PURE__ */ (0, Q.jsxs)("div", { children: [/* @__PURE__ */ (0, Q.jsxs)(g, {
+		children: e.map((t, n) => /* @__PURE__ */ (0, Q.jsxs)("div", { children: [/* @__PURE__ */ (0, Q.jsxs)(_, {
 			direction: "horizontal",
 			children: [/* @__PURE__ */ (0, Q.jsx)($, { name: t.icon }), /* @__PURE__ */ (0, Q.jsxs)("div", {
 				className: "ml-4",

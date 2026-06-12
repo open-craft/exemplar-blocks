@@ -6,8 +6,10 @@ import {
   Row,
   SelectableBox,
 } from '@openedx/paragon';
+import { URLFilePickerWrapper } from '../../../shared/components/URLFilePickerWrapper.tsx';
+import type { XBlockConfig } from '../../../types.ts';
 import type { Alignment, FontSize, ImageGridLayoutData } from '../../apiTypes';
-import type { ChangeEvent } from 'react';
+import { type ChangeEvent, useCallback } from 'react';
 import { ImageText, TextImage } from '../../icons';
 
 type ImageGridLayoutEditorProps = {
@@ -19,22 +21,50 @@ export const ImageGridLayoutEditor = ({
   data,
   onUpdate,
 }: ImageGridLayoutEditorProps) => {
+  const handleFieldURLChange = useCallback(
+    async (field: 'featuredImage' | 'bottomImage', url: string) =>
+      onUpdate({
+        ...data,
+        [field]: { ...data[field], url },
+      }),
+    [data, onUpdate],
+  );
+  const handleSetFeaturedImageURL = useCallback(
+    async (url: string) => await handleFieldURLChange('featuredImage', url),
+    [handleFieldURLChange],
+  );
+  const handleFeaturedURLChange = useCallback(
+    async (e: ChangeEvent<HTMLInputElement>) =>
+      await handleSetFeaturedImageURL(e.target.value),
+    [handleSetFeaturedImageURL],
+  );
+
+  const handleSetBottomImageURL = useCallback(
+    async (url: string) => await handleFieldURLChange('bottomImage', url),
+    [handleFieldURLChange],
+  );
+  const handleBottomURLChange = useCallback(
+    async (e: ChangeEvent<HTMLInputElement>) =>
+      await handleSetBottomImageURL(e.target.value),
+    [handleSetBottomImageURL],
+  );
+
   return (
     <>
       <h5>Featured Image</h5>
 
       <Form.Group>
         <Form.Label>Image Source URL</Form.Label>
-        <Form.Control
-          value={data.featuredImage.url}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            onUpdate({
-              ...data,
-              featuredImage: { ...data.featuredImage, url: e.target.value },
-            })
-          }
-          placeholder=""
-        />
+        <URLFilePickerWrapper<XBlockConfig>
+          setValue={handleSetFeaturedImageURL}
+          fileTypes={['image']}
+        >
+          <Form.Control
+            value={data.featuredImage.url}
+            onChange={handleFeaturedURLChange}
+            placeholder=""
+          />
+        </URLFilePickerWrapper>
       </Form.Group>
 
       <Form.Group>
@@ -120,16 +150,16 @@ export const ImageGridLayoutEditor = ({
 
       <Form.Group>
         <Form.Label>Image Source URL</Form.Label>
-        <Form.Control
-          value={data.bottomImage.url}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            onUpdate({
-              ...data,
-              bottomImage: { ...data.bottomImage, url: e.target.value },
-            })
-          }
-          placeholder=""
-        />
+        <URLFilePickerWrapper
+          setValue={handleSetBottomImageURL}
+          fileTypes={['image']}
+        >
+          <Form.Control
+            value={data.bottomImage.url}
+            onChange={handleBottomURLChange}
+            placeholder=""
+          />
+        </URLFilePickerWrapper>
       </Form.Group>
 
       <Form.Group>

@@ -12,14 +12,17 @@ import {
 import { Variant } from '../apiTypes.ts';
 import { initDataFactory } from '../lib/specHelpers.tsx';
 import App from './App.tsx';
+import { XBlockConfigContext } from '../../lib/context.ts';
 
 const specRender = (component: ReactNode) => {
   const runtime = mockRuntime();
   const element = document.createElement('div');
   const screen = render(
-    <RuntimeContext.Provider value={{ runtime, element }}>
-      {component}
-    </RuntimeContext.Provider>,
+    <XBlockConfigContext.Provider value={null}>
+      <RuntimeContext.Provider value={{ runtime, element }}>
+        {component}
+      </RuntimeContext.Provider>
+    </XBlockConfigContext.Provider>,
   );
   return { screen, runtime, element };
 };

@@ -10,6 +10,7 @@ import { describe, expect, it } from 'vitest';
 import StudioUi from './studio-ui';
 import { type KeyPoint } from '../type';
 import { RuntimeContext } from '@opencraft/xblock-react-utils';
+import { XBlockConfigContext } from '../../lib/context';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -31,11 +32,13 @@ function renderStudio(
   };
   const runtime = mockRuntime();
   const result = render(
-    <RuntimeContext.Provider
-      value={{ runtime, element: document.createElement('div') }}
-    >
-      <StudioUi {...props} />
-    </RuntimeContext.Provider>,
+    <XBlockConfigContext.Provider value={null}>
+      <RuntimeContext.Provider
+        value={{ runtime, element: document.createElement('div') }}
+      >
+        <StudioUi {...props} />
+      </RuntimeContext.Provider>
+    </XBlockConfigContext.Provider>,
   );
   return { ...result, runtime };
 }
