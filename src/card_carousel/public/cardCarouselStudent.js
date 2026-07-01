@@ -1,19 +1,19 @@
-import { C as e, D as t, E as n, M as r, N as i, O as a, P as o, S as s, U as c, V as l, a as u, c as d, k as f, n as p, o as m, s as h, t as g, w as _ } from "./Stack-ByHpu8H7.js";
+import { B as e, F as t, H as n, J as r, K as i, P as a, U as o, V as s, a as c, c as l, k as u, n as d, o as f, q as p, rt as m, s as h, t as g, tt as _ } from "./Stack-DFva22SX.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Badge.js
-var v = /* @__PURE__ */ c(a()), y = /* @__PURE__ */ c(l()), b = [
+var v = /* @__PURE__ */ m(n()), y = /* @__PURE__ */ m(_()), b = [
 	"bsPrefix",
 	"variant",
 	"pill",
 	"className",
 	"as"
-], x = { pill: !1 }, S = /* @__PURE__ */ y.forwardRef(function(e, r) {
-	var i = e.bsPrefix, a = e.variant, o = e.pill, s = e.className, c = e.as, l = c === void 0 ? "span" : c, u = n(e, b), d = _(i, "badge");
-	return /* @__PURE__ */ y.createElement(l, t({ ref: r }, u, { className: (0, v.default)(s, d, o && d + "-pill", a && d + "-" + a) }));
+], x = { pill: !1 }, S = /* @__PURE__ */ y.forwardRef(function(n, r) {
+	var i = n.bsPrefix, a = n.variant, o = n.pill, c = n.className, l = n.as, u = l === void 0 ? "span" : l, d = e(n, b), f = t(i, "badge");
+	return /* @__PURE__ */ y.createElement(u, s({ ref: r }, d, { className: (0, v.default)(c, f, o && f + "-pill", a && f + "-" + a) }));
 });
 S.displayName = "Badge", S.defaultProps = x;
 //#endregion
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Row.js
-var C = /* @__PURE__ */ c(e()), w = [
+var C = /* @__PURE__ */ m(a()), w = [
 	"bsPrefix",
 	"className",
 	"noGutters",
@@ -24,18 +24,18 @@ var C = /* @__PURE__ */ c(e()), w = [
 	"md",
 	"sm",
 	"xs"
-], E = { noGutters: !1 }, D = /* @__PURE__ */ y.forwardRef(function(e, r) {
-	var i = e.bsPrefix, a = e.className, o = e.noGutters, s = e.as, c = s === void 0 ? "div" : s, l = n(e, w), u = _(i, "row"), d = u + "-cols", f = [];
+], E = { noGutters: !1 }, D = /* @__PURE__ */ y.forwardRef(function(n, r) {
+	var i = n.bsPrefix, a = n.className, o = n.noGutters, c = n.as, l = c === void 0 ? "div" : c, u = e(n, w), d = t(i, "row"), f = d + "-cols", p = [];
 	return T.forEach(function(e) {
-		var t = l[e];
-		delete l[e];
+		var t = u[e];
+		delete u[e];
 		var n = typeof t == "object" && t ? t.cols : t, r = e === "xs" ? "" : "-" + e;
-		n != null && f.push("" + d + r + "-" + n);
-	}), /* @__PURE__ */ y.createElement(c, t({ ref: r }, l, { className: v.default.apply(void 0, [
+		n != null && p.push("" + f + r + "-" + n);
+	}), /* @__PURE__ */ y.createElement(l, s({ ref: r }, u, { className: v.default.apply(void 0, [
 		a,
-		u,
+		d,
 		o && "no-gutters"
-	].concat(f)) }));
+	].concat(p)) }));
 });
 D.displayName = "Row", D.defaultProps = E;
 //#endregion
@@ -631,7 +631,7 @@ var W = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, variant: n, i
 		className: (0, v.default)("pgn__card-status", `pgn__card-status__${n}`, e),
 		ref: s,
 		...o
-	}, /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__content" }, r && /* @__PURE__ */ y.createElement(m, {
+	}, /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__content" }, r && /* @__PURE__ */ y.createElement(f, {
 		className: "pgn__card-status__content-icon",
 		src: r
 	}), /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__message-content" }, i && /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__heading" }, i), t)), !!a && /* @__PURE__ */ y.createElement("div", { className: "pgn__card-status__actions" }, a));
@@ -657,23 +657,23 @@ W.propTypes = {
 };
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardDeck.js
-var G = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, columnSizes: n, hasInteractiveChildren: r, canScrollHorizontal: i, hasOverflowScrollItems: a, hasEqualColumnHeights: o }, c) => {
-	let l = (0, y.useMemo)(() => y.Children.map(t, (e) => /* @__PURE__ */ y.createElement(s, {
+var G = /* @__PURE__ */ y.forwardRef(({ className: e, children: t, columnSizes: n, hasInteractiveChildren: r, canScrollHorizontal: i, hasOverflowScrollItems: a, hasEqualColumnHeights: o }, s) => {
+	let c = (0, y.useMemo)(() => y.Children.map(t, (e) => /* @__PURE__ */ y.createElement(u, {
 		...n,
 		className: (0, v.default)("pgn__card-deck__card-item", { "pgn__card__disable-equal-column-heights": !o })
 	}, e)), [
 		t,
 		n,
 		o
-	]), u = A(l), d = (0, y.useMemo)(() => a ? u : l, [
+	]), l = A(c), d = (0, y.useMemo)(() => a ? l : c, [
 		a,
-		u,
-		l
+		l,
+		c
 	]);
 	return /* @__PURE__ */ y.createElement("div", { className: (0, v.default)("pgn__card-deck", { "pgn__card-deck-has-horizontal-scroll": i }, e) }, /* @__PURE__ */ y.createElement(D, {
 		className: "pgn__card-deck-row",
 		tabIndex: r ? -1 : 0,
-		ref: c
+		ref: s
 	}, d));
 });
 G.propTypes = {
@@ -767,7 +767,7 @@ function Ee({ children: e, as: t, className: n }) {
 }
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/messages.js
-var De = i({
+var De = p({
 	scrollToPrevious: {
 		id: "pgn.CardCarousel.scrollToPrevious",
 		defaultMessage: "Scroll to previous",
@@ -782,22 +782,22 @@ var De = i({
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardCarousel/CardCarouselControls.js
 function Oe() {
-	let { isScrolledToStart: e, isScrolledToEnd: t, scrollToPrevious: n, scrollToNext: r } = (0, y.useContext)(K), i = o();
+	let { isScrolledToStart: e, isScrolledToEnd: t, scrollToPrevious: n, scrollToNext: i } = (0, y.useContext)(K), a = r();
 	return e && t ? null : /* @__PURE__ */ y.createElement("div", { className: "pgn__card-carousel-controls" }, /* @__PURE__ */ y.createElement(g, {
 		direction: "horizontal",
 		gap: 1
-	}, /* @__PURE__ */ y.createElement(p, {
+	}, /* @__PURE__ */ y.createElement(d, {
 		disabled: e,
 		src: te,
-		iconAs: m,
-		alt: i.formatMessage(De.scrollToPrevious),
+		iconAs: f,
+		alt: a.formatMessage(De.scrollToPrevious),
 		onClick: n
-	}), /* @__PURE__ */ y.createElement(p, {
+	}), /* @__PURE__ */ y.createElement(d, {
 		disabled: t,
 		src: ne,
-		iconAs: m,
-		alt: i.formatMessage(De.scrollToNext),
-		onClick: r
+		iconAs: f,
+		alt: a.formatMessage(De.scrollToNext),
+		onClick: i
 	})));
 }
 //#endregion
@@ -918,14 +918,14 @@ X.propTypes = {
 	variant: "light",
 	isLoading: !1
 };
-var Z = d(X, "Card", { muted: {
+var Z = l(X, "Card", { muted: {
 	deprType: h.REMOVED,
 	message: "Use \"variant\" prop instead, i.e. variant=\"muted\""
 } });
 Z.Status = W, Z.Header = B, Z.Divider = ye, Z.Section = V, Z.Footer = H, Z.ImageCap = U, Z.Context = R, Z.Body = P;
 //#endregion
 //#region src/card-carousel/student-ui/components/ContentHighlight.tsx
-var Q = r();
+var Q = i();
 function Ne({ title: e, subtitle: t, description: n, orientation: r }) {
 	return /* @__PURE__ */ (0, Q.jsxs)("div", {
 		className: "p-5 bg-primary-500 h-100",
@@ -1079,7 +1079,7 @@ function Le({ orientation: e, data: t, position: n }) {
 					t.description && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: t.description }),
 					t.ctaLabel && t.ctaLink && /* @__PURE__ */ (0, Q.jsx)(Z.Section, {
 						className: "d-flex justify-content-end",
-						children: /* @__PURE__ */ (0, Q.jsx)(u, {
+						children: /* @__PURE__ */ (0, Q.jsx)(c, {
 							variant: "accent",
 							className: "rounded-pill px-6",
 							children: /* @__PURE__ */ (0, Q.jsx)("strong", { children: t.ctaLabel })
@@ -1131,7 +1131,7 @@ function Re({ initData: { cards: e, displayName: t, orientation: n, disableNumbe
 //#endregion
 //#region src/card-carousel/student-ui/StudentUI.css?inline
 var ze = ".card-carousel-xblock{--pgn-color-headings-base:var(--ccblk-typography-headings-color);--ccblk-spacing-badge-spacer-x:var(--pgn-spacing-card-spacer-x);--ccblk-spacing-badge-spacer-y:var(--pgn-spacing-card-spacer-y);--ccblk-typography-headings-color:var(--pgn-color-headings-base)}.card-carousel-xblock .text-accent{color:var(--pgn-color-accent-a)}.card-carousel-xblock .btn-accent{background-color:var(--pgn-color-accent-a);color:var(--pgn-color-light-100);background-image:unset}.card-carousel-xblock .card-badge{margin:var(--pgn-spacing-card-spacer-x);margin-bottom:0}.card-carousel-xblock .card-badge .badge{padding:var(--ccblk-spacing-badge-spacer-y) var(--ccblk-spacing-badge-spacer-x);font-family:var(--pgn-typography-headings-font-family);font-size:var(--pgn-typography-font-size-h5-base);font-weight:var(--pgn-typography-headings-font-weight)}.card-carousel-xblock .pgn__card .pgn__card-wrapper-image-cap.horizontal{max-width:50%!important}.card-carousel-xblock .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap{max-width:100%!important}.card-carousel-xblock .pgn__card .pgn__card-header .pgn__card-header-content{margin-top:var(--pgn-spacing-card-spacer-x)}.card-carousel-xblock .pgn__card .pgn__card-header .pgn__card-header-title-md{font-family:var(--pgn-typography-headings-font-family);color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-h4-base)}.card-carousel-xblock .pgn__card .pgn__card-header .pgn__card-header-subtitle-md{color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-base);font-weight:700;font-family:var(--pgn-typography-headings-font-family)}.horizontal .hover-list{column-count:2;column-gap:calc(var(--pgn-spacing-spacer-base) * 2)!important}.hover-list-description,.hover-content{padding:calc(var(--pgn-spacing-spacer-base))}.hover-list-content-wrapper{min-height:calc(( var(--pgn-spacing-spacer-base) + var(--pgn-typography-font-size-base) * var(--pgn-typography-line-height-base) ) * 2);position:relative}.hover-list-description{opacity:1;visibility:visible;z-index:0}.hover-content{background-color:var(--pgn-color-primary-500);width:100%;color:var(--pgn-color-light-100);border-radius:var(--pgn-size-border-radius-base);opacity:0;visibility:hidden;z-index:10;align-items:center;display:flex;position:absolute;top:0;left:0}.hover-list-item:has(.hover-content){cursor:pointer}:is(.hover-list-item:has(.hover-content):hover,.hover-list-item:has(.hover-content).is-active){list-style:none;margin-left:calc(var(--pgn-spacing-spacer-base) * -2.5)!important}.hover-list-item:has(.hover-content):hover .hover-list-description{opacity:0;visibility:hidden}.hover-list-item:has(.hover-content):hover .hover-content{opacity:1;visibility:visible}.hover-content-icon-wrapper{color:var(--pgn-color-light-100);margin-right:var(--pgn-spacing-spacer-base)}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", Be = (e, t, n) => {
-	f({
+	o({
 		runtime: t,
 		element: e,
 		config: n.config,

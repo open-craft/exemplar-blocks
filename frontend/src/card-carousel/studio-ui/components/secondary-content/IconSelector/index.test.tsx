@@ -30,13 +30,12 @@ describe('IconSelector', () => {
   it('shows the icon list popup only when the button is clicked', async () => {
     const user = userEvent.setup();
     render(<IconSelector currentIcon="" onIconSelected={() => {}} />);
-    const popup = document.querySelector('.icon-list-popup') as HTMLElement;
 
-    expect(popup.style.display).toBe('none');
+    expect(document.querySelector('.dropdown-menu.show')).toBeNull();
 
     await user.click(screen.getByRole('button'));
 
-    expect(popup.style.display).toBe('block');
+    expect(document.querySelector('.dropdown-menu.show')).not.toBeNull();
   });
 
   it('renders the default set of icons when popup is open', async () => {
@@ -58,11 +57,12 @@ describe('IconSelector', () => {
 
     // Click the first icon in the grid
     const firstIconDiv = document.querySelector('.icon-symbol') as HTMLElement;
+    const expectedIcon = firstIconDiv.textContent!.trim();
     fireEvent.click(firstIconDiv);
 
     expect(onIconSelected).toHaveBeenCalledTimes(1);
-    const popup = document.querySelector('.icon-list-popup') as HTMLElement;
-    expect(popup.style.display).toBe('none');
+    expect(onIconSelected).toHaveBeenCalledWith(expectedIcon);
+    expect(document.querySelector('.dropdown-menu.show')).toBeNull();
   });
 
   it('filters icons based on search input', async () => {
@@ -116,10 +116,9 @@ describe('IconSelector', () => {
     );
 
     await user.click(screen.getByRole('button'));
-    const popup = document.querySelector('.icon-list-popup') as HTMLElement;
-    expect(popup.style.display).toBe('block');
+    expect(document.querySelector('.dropdown-menu.show')).not.toBeNull();
 
-    fireEvent.mouseDown(screen.getByTestId('outside'));
-    expect(popup.style.display).toBe('none');
+    await user.click(screen.getByTestId('outside'));
+    expect(document.querySelector('.dropdown-menu.show')).toBeNull();
   });
 });
