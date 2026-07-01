@@ -1,20 +1,17 @@
-.icon-selector {
-  position: relative;
+.icon-selector.dropdown-toggle::after {
+  display: none;
 }
 
 .icon-list-popup {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 242px;
+  width: 292px;
   min-height: 242px;
   max-height: 300px;
   overflow: scroll;
-  z-index: 100;
   background-color: var(--pgn-color-body-bg);
 }
 
 button:not(:disabled).icon-symbol {
+  width: auto;
   background-color: var(--pgn-color-body-bg);
   color: var(--pgn-color-gray-600);
   border: 0;
