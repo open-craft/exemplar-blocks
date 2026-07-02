@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Form from '@openedx/paragon/dist/Form';
 import { useFormikContext } from 'formik';
+import { URLFilePickerWrapper } from '../../../../shared/components/URLFilePickerWrapper.tsx';
+import type { XBlockConfig } from '../../../../types.ts';
 import type { InitData, ImageData } from '../../../types';
 
 export default function ImageForm({ cardIndex }: { cardIndex: number }) {
@@ -20,12 +22,16 @@ export default function ImageForm({ cardIndex }: { cardIndex: number }) {
     <>
       <Form.Group>
         <Form.Label>Image Source URL</Form.Label>
-        <Form.Control
-          name={`${prefix}.location`}
-          value={image.location}
-          onChange={handleChange}
-          placeholder="URL"
-        />
+        <URLFilePickerWrapper<XBlockConfig>
+          setValue={(value) => setFieldValue(`${prefix}.location`, value)}
+          fileTypes={['image']}
+        >
+          <Form.Control
+            name={`${prefix}.location`}
+            value={image.location}
+            placeholder="URL"
+          />
+        </URLFilePickerWrapper>
       </Form.Group>
 
       <Form.Group>

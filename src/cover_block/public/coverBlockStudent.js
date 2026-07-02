@@ -1,12 +1,12 @@
-import { a as e, b as t, c as n, i as r, l as i, m as a, n as o, p as s, t as c } from "./apiTypes-DMXXkwh0.js";
-t();
-var l = (t) => ({
-	top_header: e("top_header", t.top_header_color),
-	description: e("description", t.description_color),
-	main_header: e("main_header", t.main_header_color),
-	subheader: e("subheader", t.subheader_color)
-}), u = n(), d = (e) => {
-	let t = l(e);
+import { _ as e, a as t, c as n, i as r, l as i, n as a, t as o, v as s, w as c } from "./apiTypes-CCMVIwg9.js";
+c();
+var l = (e) => ({
+	top_header: t("top_header", e.top_header_color),
+	description: t("description", e.description_color),
+	main_header: t("main_header", e.main_header_color),
+	subheader: t("subheader", e.subheader_color)
+}), u = n(), d = (t) => {
+	let n = l(t);
 	return /* @__PURE__ */ (0, u.jsxs)(i, {
 		fluid: !0,
 		className: "course-cover position-relative px-0",
@@ -15,12 +15,12 @@ var l = (t) => ({
 			className: "course-cover-image-container position-absolute w-100 h-100",
 			children: /* @__PURE__ */ (0, u.jsx)("img", {
 				className: "course-cover-image w-100 h-100",
-				src: e.media_url,
-				alt: e.media_alt_text
+				src: t.media_url,
+				alt: t.media_alt_text
 			})
-		}), /* @__PURE__ */ (0, u.jsx)(s, {
+		}), /* @__PURE__ */ (0, u.jsx)(e, {
 			className: "h-100 mx-0",
-			children: /* @__PURE__ */ (0, u.jsx)(a, {
+			children: /* @__PURE__ */ (0, u.jsx)(s, {
 				xs: 12,
 				md: 10,
 				lg: 6,
@@ -33,23 +33,23 @@ var l = (t) => ({
 						children: [
 							/* @__PURE__ */ (0, u.jsx)("h2", {
 								className: "lead font-weight-bold mb-3",
-								style: t.top_header,
-								children: e.top_header
+								style: n.top_header,
+								children: t.top_header
 							}),
 							/* @__PURE__ */ (0, u.jsx)("h2", {
 								className: "font-weight-bold mb-3",
-								style: t.main_header,
-								children: e.main_header
+								style: n.main_header,
+								children: t.main_header
 							}),
 							/* @__PURE__ */ (0, u.jsx)("h5", {
 								className: "subtitle h5 font-weight-bold mb-3 w-100 mw-xs",
-								style: t.subheader,
-								children: e.subheader
+								style: n.subheader,
+								children: t.subheader
 							}),
 							/* @__PURE__ */ (0, u.jsx)("p", {
 								className: "body mb-0 w-100 mw-xs",
-								style: t.description,
-								children: e.description
+								style: n.description,
+								children: t.description
 							})
 						]
 					})
@@ -57,53 +57,53 @@ var l = (t) => ({
 			})
 		})]
 	});
-}, f = (e) => {
-	let t = e.image_position === c.left, n = t ? "order-lg-1" : "order-lg-2", r = t ? "order-lg-2" : "order-lg-1", o = t ? "pl-lg-5" : "pr-lg-5";
+}, f = (t) => {
+	let n = t.image_position === o.left, r = n ? "order-lg-1" : "order-lg-2", a = n ? "order-lg-2" : "order-lg-1", c = n ? "pl-lg-5" : "pr-lg-5";
 	return /* @__PURE__ */ (0, u.jsx)(i, {
 		fluid: !1,
 		className: "section-cover px-md-0 px-2",
 		"data-testid": "section-cover",
-		children: /* @__PURE__ */ (0, u.jsxs)(s, {
+		children: /* @__PURE__ */ (0, u.jsxs)(e, {
 			className: "g-0 justify-content-center align-items-center",
-			children: [/* @__PURE__ */ (0, u.jsx)(a, {
+			children: [/* @__PURE__ */ (0, u.jsx)(s, {
 				xs: 12,
 				lg: 5,
-				className: `${n} d-flex justify-content-center px-3 px-sm-2 py-5`,
+				className: `${r} d-flex justify-content-center px-3 px-sm-2 py-5`,
 				children: /* @__PURE__ */ (0, u.jsx)("img", {
 					className: "section-block-image w-100 mx-auto d-block",
-					src: e.media_url,
-					alt: e.media_alt_text
+					src: t.media_url,
+					alt: t.media_alt_text
 				})
-			}), /* @__PURE__ */ (0, u.jsx)(a, {
+			}), /* @__PURE__ */ (0, u.jsx)(s, {
 				xs: 12,
 				lg: 5,
-				className: `${r} d-flex align-items-center py-5 px-3 px-sm-5 px-lg-0`,
+				className: `${a} d-flex align-items-center py-5 px-3 px-sm-5 px-lg-0`,
 				children: /* @__PURE__ */ (0, u.jsxs)("div", {
-					className: `text-content w-100 mw-xs ${o}`,
+					className: `text-content w-100 mw-xs ${c}`,
 					children: [
 						/* @__PURE__ */ (0, u.jsx)("div", {
 							className: "lead h4 font-weight-bold mb-3",
-							children: e.top_header
+							children: t.top_header
 						}),
 						/* @__PURE__ */ (0, u.jsx)("h2", {
 							className: "font-weight-bold mb-4",
-							children: e.main_header
+							children: t.main_header
 						}),
 						/* @__PURE__ */ (0, u.jsx)("h5", {
 							className: "subtitle font-weight-bold mb-4 w-100 mw-xs",
-							children: e.subheader
+							children: t.subheader
 						}),
 						/* @__PURE__ */ (0, u.jsx)("p", {
 							className: "body mb-0 w-100 mw-xs",
-							children: e.description
+							children: t.description
 						})
 					]
 				})
 			})]
 		})
 	});
-}, p = (e) => {
-	let t = l(e);
+}, p = (t) => {
+	let n = l(t);
 	return /* @__PURE__ */ (0, u.jsxs)(i, {
 		fluid: !0,
 		className: "separator-cover position-relative px-0",
@@ -112,12 +112,12 @@ var l = (t) => ({
 			className: "separator-cover-image-container position-absolute w-100 h-100",
 			children: /* @__PURE__ */ (0, u.jsx)("img", {
 				className: "separator-cover-image w-100 h-100",
-				src: e.media_url,
-				alt: e.media_alt_text
+				src: t.media_url,
+				alt: t.media_alt_text
 			})
-		}), /* @__PURE__ */ (0, u.jsx)(s, {
+		}), /* @__PURE__ */ (0, u.jsx)(e, {
 			className: "text-container justify-content-center mx-0 h-100",
-			children: /* @__PURE__ */ (0, u.jsx)(a, {
+			children: /* @__PURE__ */ (0, u.jsx)(s, {
 				xs: 12,
 				md: 10,
 				lg: 8,
@@ -128,23 +128,23 @@ var l = (t) => ({
 					children: [
 						/* @__PURE__ */ (0, u.jsx)("div", {
 							className: "lead mb-3",
-							style: t.top_header,
-							children: e.top_header
+							style: n.top_header,
+							children: t.top_header
 						}),
 						/* @__PURE__ */ (0, u.jsx)("h1", {
 							className: "display-1 font-weight-bold text-center mb-0",
-							style: t.main_header,
-							children: e.main_header
+							style: n.main_header,
+							children: t.main_header
 						}),
 						/* @__PURE__ */ (0, u.jsx)("h4", {
 							className: "mt-4 mb-4 text-center",
-							style: t.subheader,
-							children: e.subheader
+							style: n.subheader,
+							children: t.subheader
 						}),
 						/* @__PURE__ */ (0, u.jsx)("p", {
 							className: "body mx-auto mb-0 font-weight-bold w-100 mw-sm",
-							style: t.description,
-							children: e.description
+							style: n.description,
+							children: t.description
 						})
 					]
 				})
@@ -152,9 +152,9 @@ var l = (t) => ({
 		})]
 	});
 }, m = {
-	[o.course]: d,
-	[o.section]: f,
-	[o.separator]: p
+	[a.course]: d,
+	[a.section]: f,
+	[a.separator]: p
 }, h = (e) => {
 	let t = m[e.variant];
 	return /* @__PURE__ */ (0, u.jsx)(t, { ...e });

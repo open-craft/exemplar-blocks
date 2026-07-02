@@ -1,18 +1,18 @@
-import { D as e, T as t, _ as n, c as r, d as i, f as a, i as o, l as s, m as c, o as l, p as u, r as d, s as f, u as p, v as m, y as h } from "./types-BibSO508.js";
+import { E as e, O as t, b as n, c as r, d as i, f as a, h as o, i as s, l as c, o as l, p as u, r as d, s as f, u as p, v as m, y as h } from "./types-oIjTXCTg.js";
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Container.js
-var g = /* @__PURE__ */ e(u()), _ = /* @__PURE__ */ e(t()), v = [
+var g = /* @__PURE__ */ t(u()), _ = /* @__PURE__ */ t(e()), v = [
 	"bsPrefix",
 	"fluid",
 	"as",
 	"className"
 ], y = { fluid: !1 }, b = /* @__PURE__ */ _.forwardRef(function(e, t) {
-	var n = e.bsPrefix, r = e.fluid, a = e.as, o = a === void 0 ? "div" : a, c = e.className, l = p(e, v), u = s(n, "container"), d = typeof r == "string" ? "-" + r : "-fluid";
-	return /* @__PURE__ */ _.createElement(o, i({ ref: t }, l, { className: (0, g.default)(c, r ? "" + u + d : u) }));
+	var n = e.bsPrefix, r = e.fluid, a = e.as, o = a === void 0 ? "div" : a, s = e.className, l = p(e, v), u = c(n, "container"), d = typeof r == "string" ? "-" + r : "-fluid";
+	return /* @__PURE__ */ _.createElement(o, i({ ref: t }, l, { className: (0, g.default)(s, r ? "" + u + d : u) }));
 });
 b.displayName = "Container", b.defaultProps = y;
 //#endregion
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Image.js
-var x = /* @__PURE__ */ e(r()), S = [
+var x = /* @__PURE__ */ t(r()), S = [
 	"bsPrefix",
 	"className",
 	"fluid",
@@ -27,9 +27,9 @@ var C = {
 	roundedCircle: !1,
 	thumbnail: !1
 }, w = /* @__PURE__ */ _.forwardRef(function(e, t) {
-	var n = e.bsPrefix, r = e.className, a = e.fluid, o = e.rounded, c = e.roundedCircle, l = e.thumbnail, u = p(e, S);
-	n = s(n, "img");
-	var d = (0, g.default)(a && n + "-fluid", o && "rounded", c && "rounded-circle", l && n + "-thumbnail");
+	var n = e.bsPrefix, r = e.className, a = e.fluid, o = e.rounded, s = e.roundedCircle, l = e.thumbnail, u = p(e, S);
+	n = c(n, "img");
+	var d = (0, g.default)(a && n + "-fluid", o && "rounded", s && "rounded-circle", l && n + "-thumbnail");
 	return /* @__PURE__ */ _.createElement("img", i({ ref: t }, u, { className: (0, g.default)(r, d) }));
 });
 w.displayName = "Image", w.defaultProps = C;
@@ -54,7 +54,7 @@ var T = (e) => /* @__PURE__ */ _.createElement("svg", {
 	fluid: i,
 	ref: o,
 	className: (0, g.default)(a.className, e && E[e])
-}, t)), O = m({
+}, t)), O = h({
 	externalLinkAltText: {
 		id: "Hyperlink.externalLinkAltText",
 		defaultMessage: "in a new tab"
@@ -63,39 +63,39 @@ var T = (e) => /* @__PURE__ */ _.createElement("svg", {
 		id: "Hyperlink.externalLinkTitle",
 		defaultMessage: "Opens in a new tab"
 	}
-}), k = /* @__PURE__ */ (0, _.forwardRef)(({ as: e = "a", className: t, destination: n, children: r, target: i = "_self", onClick: a, externalLinkAlternativeText: s, externalLinkTitle: c, variant: l = "default", isInline: u = !1, showLaunchIcon: d = !0, ...f }, p) => {
-	let m = h(), v;
-	i === "_blank" && (f.rel = (() => {
-		let { rel: e } = f;
+}), k = /* @__PURE__ */ (0, _.forwardRef)(({ as: e = "a", className: t, destination: r, children: i, target: a = "_self", onClick: o, externalLinkAlternativeText: c, externalLinkTitle: l, variant: u = "default", isInline: d = !1, showLaunchIcon: f = !0, ...p }, m) => {
+	let h = n(), v;
+	a === "_blank" && (p.rel = (() => {
+		let { rel: e } = p;
 		return e ? (e.includes("noopener") || (e += " noopener"), e.includes("noreferrer") || (e += " noreferrer"), e) : "noopener noreferrer";
-	})(), d && (v = /* @__PURE__ */ _.createElement("span", {
+	})(), f && (v = /* @__PURE__ */ _.createElement("span", {
 		className: "pgn__hyperlink__external-icon",
-		title: c || m.formatMessage(O.externalLinkTitle)
-	}, /* @__PURE__ */ _.createElement(o, {
+		title: l || h.formatMessage(O.externalLinkTitle)
+	}, /* @__PURE__ */ _.createElement(s, {
 		src: T,
-		screenReaderText: s || m.formatMessage(O.externalLinkAltText),
+		screenReaderText: c || h.formatMessage(O.externalLinkAltText),
 		style: {
 			height: "1em",
 			width: "1em"
 		},
 		"data-testid": "hyperlink-icon"
 	}))));
-	let y = { ...f };
-	return n && (y.href = n), /* @__PURE__ */ _.createElement(e, {
-		ref: p,
-		className: (0, g.default)("pgn__hyperlink", `${l}-link`, {
-			"standalone-link": !u,
-			"inline-link": u
+	let y = { ...p };
+	return r && (y.href = r), /* @__PURE__ */ _.createElement(e, {
+		ref: m,
+		className: (0, g.default)("pgn__hyperlink", `${u}-link`, {
+			"standalone-link": !d,
+			"inline-link": d
 		}, t),
-		target: i,
-		onClick: a,
+		target: a,
+		onClick: o,
 		...y
-	}, r, v);
+	}, i, v);
 });
 k.displayName = "Hyperlink";
 //#endregion
 //#region src/two-column-block/student-ui/App.tsx
-var A = n(), j = ({ data: e }) => {
+var A = m(), j = ({ data: e }) => {
 	let [t, n] = e.columns.ratio.split(":").map((e) => parseInt(e, 10));
 	return /* @__PURE__ */ (0, A.jsx)(D, {
 		className: "p-0",
@@ -239,7 +239,7 @@ var A = n(), j = ({ data: e }) => {
 	style: { minHeight: "100%" },
 	dangerouslySetInnerHTML: { __html: e.html }
 }), R = ".xblock-two-column .lesson-list-item+.lesson-list-item{border-top:1px solid var(--pgn-color-gray-200)}.xblock-two-column.two-column-reverse{flex-direction:column-reverse}@media (width>=576px){.xblock-two-column.two-column-reverse{flex-direction:row}}.xblock-two-column .pgn__action-row{justify-content:flex-start}.xblock-two-column .lh-lg{line-height:2em!important}.xblock-two-column .top-image-grid-item{border-top-left-radius:var(--pgn-two-column-block-image-size-border-radius-lg);border-top-right-radius:var(--pgn-two-column-block-image-size-border-radius-lg);border-bottom-left-radius:var(--pgn-two-column-block-image-size-border-radius-sm);border-bottom-right-radius:var(--pgn-two-column-block-image-size-border-radius-sm)}.xblock-two-column .bottom-image-grid-item{border-top-left-radius:var(--pgn-two-column-block-image-size-border-radius-sm);border-top-right-radius:var(--pgn-two-column-block-image-size-border-radius-sm);border-bottom-left-radius:var(--pgn-two-column-block-image-size-border-radius-lg);border-bottom-right-radius:var(--pgn-two-column-block-image-size-border-radius-lg)}", z = (e, t, n) => {
-	c({
+	o({
 		runtime: e,
 		element: t,
 		config: n.config,

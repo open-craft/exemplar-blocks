@@ -3,7 +3,6 @@
 import json
 import logging
 
-from django.conf import settings
 from pydantic import ValidationError
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
@@ -12,6 +11,7 @@ from xblock.fields import Dict, Scope, String
 from xblock.utils.resources import ResourceLoader
 from xblock.utils.studio_editable import StudioEditableXBlockMixin
 
+from exemplar_common.xblock_config import get_xblock_config, XBlockView
 from .types import (
     Alignment,
     BottomRowOrder,
@@ -99,8 +99,10 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
         frag = Fragment(html)
 
         frag.add_javascript(resource_loader.load_unicode("static/js/entrypoint.js"))
+        view = XBlockView.STUDENT
         if is_studio:
             frag.add_css(resource_loader.load_unicode("static/css/studio.css"))
+            view = XBlockView.STUDIO
 
         frag.initialize_js(
             "TwoColumnXBlock",
@@ -114,9 +116,7 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
                     "columns": self.column_data,
                     "backgroundColor": self.background_color,
                 },
-                "config": {
-                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
-                },
+                "config": get_xblock_config(self.context_key, view=view),
             },
         )
         return frag
@@ -163,9 +163,7 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
                     "columns": validated_data.columns.model_dump(),
                     "backgroundColor": validated_data.backgroundColor,
                 },
-                "config": {
-                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
-                },
+                "config": get_xblock_config(self.context_key, XBlockView.STUDIO),
             },
         )
 

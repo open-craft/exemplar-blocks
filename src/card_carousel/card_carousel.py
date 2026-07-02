@@ -7,7 +7,6 @@ import json
 
 from pathlib import Path
 
-from django.conf import settings
 from pydantic import ValidationError
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
@@ -15,6 +14,7 @@ from xblock.exceptions import JsonHandlerError
 from xblock.fields import Scope, String, List, Boolean
 from xblock.utils.resources import ResourceLoader
 
+from exemplar_common.xblock_config import get_xblock_config, XBlockView
 from .types import CardData, CardType, ContentHighlightData, Orientation, InitData
 
 
@@ -113,9 +113,7 @@ class CardCarouselXBlock(XBlock):
                     "disableNumbering": self.disable_numbering,
                     "backgroundColor": self.background_color,
                 },
-                "config": {
-                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
-                },
+                "config": get_xblock_config(self.context_key, XBlockView.STUDENT),
             },
         )
         return frag
@@ -163,9 +161,7 @@ class CardCarouselXBlock(XBlock):
                     "disableNumbering": self.disable_numbering,
                     "backgroundColor": self.background_color,
                 },
-                "config": {
-                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
-                },
+                "config": get_xblock_config(self.context_key, XBlockView.STUDIO),
             },
         )
         return frag

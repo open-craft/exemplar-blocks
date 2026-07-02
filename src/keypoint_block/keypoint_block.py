@@ -4,11 +4,11 @@ An XBlock for key point glossary.
 
 from importlib.resources import files
 
-from django.conf import settings
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
 from xblock.fields import List, Scope, String
 
+from exemplar_common.xblock_config import get_xblock_config, XBlockView
 from .types import WorkbenchScenario
 
 
@@ -76,9 +76,7 @@ class KeypointXBlock(XBlock):
                     "button_link": self.button_link,
                     "background_color": self.background_color,
                 },
-                "config": {
-                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
-                },
+                "config": get_xblock_config(self.context_key, XBlockView.STUDENT),
             },
         )
         return frag
@@ -115,9 +113,7 @@ class KeypointXBlock(XBlock):
                     "button_link": self.button_link,
                     "background_color": self.background_color,
                 },
-                "config": {
-                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning",
-                },
+                "config": get_xblock_config(self.context_key, XBlockView.STUDIO),
             },
         )
         return frag

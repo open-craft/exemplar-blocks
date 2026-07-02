@@ -1,8 +1,8 @@
+import type { XBlockConfig } from '../../types.ts';
 import StudioUi from './studio-ui';
 import { type XBlockData } from '../type';
 import {
   createXBlockRoot,
-  type XBlockConfig,
   type XBlockRuntime,
 } from '@opencraft/xblock-react-utils';
 import styles from './style.scss?inline';

@@ -1,10 +1,13 @@
 import { Col, Form, Row } from '@openedx/paragon';
 import { Field, useField } from 'formik';
+import { URLFilePickerWrapper } from '../../../shared/components/URLFilePickerWrapper.tsx';
+import type { XBlockConfig } from '../../../types.ts';
 import { Variant, ImagePosition } from '../../apiTypes.ts';
 
 const CoverForm = () => {
   const [variant] = useField<Variant>('variant');
   const [imagePosition] = useField<ImagePosition>('image_position');
+  const [mediaUrl, , { setValue: setMediaUrl }] = useField<string>('media_url');
   const [description] = useField<string>('description');
   const colorsEnabled = variant.value !== Variant.section;
   const sectionVariant = variant.value === Variant.section;
@@ -35,7 +38,12 @@ const CoverForm = () => {
         </Form.Group>
         <Form.Group as={Col} controlId="cover-form-media-url" xs={12} sm={6}>
           <Form.Label>Image URL</Form.Label>
-          <Field as={Form.Control} name="media_url" />
+          <URLFilePickerWrapper<XBlockConfig>
+            setValue={(url) => setMediaUrl(url)}
+            fileTypes={['image']}
+          >
+            <Field as={Form.Control} name="media_url" value={mediaUrl.value} />
+          </URLFilePickerWrapper>
         </Form.Group>
         <Form.Group as={Col} controlId="cover-form-media-alt-text" xs={12}>
           <Form.Label>Image Alt Text</Form.Label>

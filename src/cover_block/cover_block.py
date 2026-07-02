@@ -13,6 +13,7 @@ from xblock.exceptions import JsonHandlerError
 from xblock.fields import Scope, String
 from xblock.utils.resources import ResourceLoader
 
+from exemplar_common.xblock_config import get_xblock_config, XBlockView
 from .types import CoverBlockFields, ImagePosition, WorkbenchScenario
 
 logger = logging.getLogger(__name__)
@@ -157,9 +158,7 @@ class CoverBlock(XBlock):
                     self, "public/coverBlockStudent.js"
                 ),
                 "data": self.field_data(),
-                "config": {
-                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning"
-                },
+                "config": get_xblock_config(self.context_key, XBlockView.STUDENT),
             },
         )
         return frag
@@ -199,9 +198,7 @@ class CoverBlock(XBlock):
                     self, "public/coverBlockStudio.js"
                 ),
                 "data": self.field_data(),
-                "config": {
-                    "mfe_config_api": f"{settings.LMS_ROOT_URL}/api/mfe_config/v1?mfe=learning"
-                },
+                "config": get_xblock_config(self.context_key, XBlockView.STUDIO),
             },
         )
         return frag

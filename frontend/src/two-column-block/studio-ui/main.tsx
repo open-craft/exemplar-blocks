@@ -1,14 +1,15 @@
+import type { XBlockConfig } from '../../types.ts';
 import { App } from './App.tsx';
 import {
   createXBlockRoot,
   getRoot,
   saveStudioBlock,
-  type XBlockConfig,
   type XBlockRuntime,
 } from '@opencraft/xblock-react-utils';
 
 import type { Data } from '../apiTypes.ts';
 import styles from './main.scss?inline';
+import { XBlockConfigContext } from '../../lib/context.ts';
 
 export const renderBlock = (
   runtime: XBlockRuntime,
@@ -32,6 +33,8 @@ export const renderBlock = (
   const cancel = () => runtime.notify('cancel', {});
 
   createXBlockRoot({ runtime, element, config: context.config, styles })(
-    <App initialData={context.data} onSave={save} onCancel={cancel} />,
+    <XBlockConfigContext.Provider value={context.config}>
+      <App initialData={context.data} onSave={save} onCancel={cancel} />
+    </XBlockConfigContext.Provider>,
   );
 };
