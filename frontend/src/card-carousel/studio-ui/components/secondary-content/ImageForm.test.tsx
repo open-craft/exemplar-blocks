@@ -49,6 +49,19 @@ describe('ImageForm', () => {
     );
   });
 
+  it('updates the formik data as expected', async () => {
+    const user = userEvent.setup();
+    render(<ImageFormWithContext />);
+
+    const urlInput = screen.getByPlaceholderText('URL');
+    const altInput = screen.getByPlaceholderText('Alt Text');
+    await user.type(urlInput, 'https://example.com/test.jpg');
+    await user.type(altInput, 'test alt text');
+
+    expect(urlInput).toHaveValue('https://example.com/test.jpg');
+    expect(altInput).toHaveValue('test alt text');
+  });
+
   it('disables the alt text input when Decorative Image is checked', async () => {
     const user = userEvent.setup();
     render(<ImageFormWithContext />);

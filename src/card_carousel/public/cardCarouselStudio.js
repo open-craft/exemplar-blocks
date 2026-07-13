@@ -9522,6 +9522,7 @@ function L_({ cardIndex: e }) {
 		children: /* @__PURE__ */ (0, R.jsx)(L.Control, {
 			name: `${o}.location`,
 			value: s.location,
+			onChange: n,
 			placeholder: "URL"
 		})
 	})] }), /* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [
