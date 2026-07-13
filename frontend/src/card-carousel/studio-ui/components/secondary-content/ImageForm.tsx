@@ -29,6 +29,7 @@ export default function ImageForm({ cardIndex }: { cardIndex: number }) {
           <Form.Control
             name={`${prefix}.location`}
             value={image.location}
+            onChange={handleChange}
             placeholder="URL"
           />
         </URLFilePickerWrapper>
