@@ -49,6 +49,7 @@ package = true
 module-name = [
     "card_carousel",
     "cover_block",
+    "exemplar_common",
     "keypoint_block",
     "two_column_block",
 ]
