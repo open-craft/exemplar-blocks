@@ -22,13 +22,6 @@
     box-sizing: border-box;
   }
 
-  .wrapper-comp-settings {
-    overflow-y: scroll;
-    // This is full screen height, with removal of 60px for the header, and 69px for the footer.
-    max-height: var(--exemplar-block-studio-ui-max-height, calc(100vh - 69px));
-    height: 100%;
-  }
-
   margin-bottom: 0 !important;
 }
 

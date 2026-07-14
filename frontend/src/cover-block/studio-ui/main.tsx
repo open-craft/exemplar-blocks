@@ -15,7 +15,7 @@ export const renderBlock = (
 ) => {
   createXBlockRoot({ runtime, element, config: context.config, styles })(
     <XBlockConfigContext.Provider value={context.config}>
-      <App {...context.data} />,
+      <App {...context.data} />
     </XBlockConfigContext.Provider>,
   );
 };
