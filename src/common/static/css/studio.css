@@ -6,9 +6,3 @@
 html {
     font-size: 100%;
 }
-
-
-.modal-lg {
-  /* studio-v1.css sets .modal-content height to 435px and the action buttons footer uses 69px */
-  --exemplar-block-studio-ui-max-height: 366px;
-}
