@@ -10,6 +10,8 @@ import 'tinymce/themes/silver';
 import 'tinymce/icons/default';
 // Editor styles
 import 'tinymce/skins/ui/oxide/skin';
+// This whole app is rendered in a shadow dom, so we also need this
+import 'tinymce/skins/ui/oxide/skin.shadowdom.js';
 
 // importing the plugin js.
 // if you use a plugin that is not listed here the editor will fail to load
