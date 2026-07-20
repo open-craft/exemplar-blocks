@@ -18,31 +18,28 @@ const sampleKeypoints: KeyPoint[] = [
   },
 ];
 
+const defaultProps = {
+  header: 'Key Concepts',
+  keypoints: sampleKeypoints,
+  summary: 'These concepts form a connected sequence.',
+  buttonText: 'Glossary',
+  buttonLink: 'https://example.com/glossary',
+  backgroundColor: '#FFF',
+};
+
+function renderStudent(overrides: Partial<typeof defaultProps> = {}) {
+  return render(<StudentUi {...defaultProps} {...overrides} />);
+}
+
 describe('StudentUi', () => {
   describe('rendering with full data', () => {
     it('renders the header text', () => {
-      render(
-        <StudentUi
-          header="Key Concepts"
-          keypoints={sampleKeypoints}
-          buttonText="Glossary"
-          buttonLink="https://example.com/glossary"
-          backgroundColor="#FFF"
-        />,
-      );
+      renderStudent();
       expect(screen.getByText('Key Concepts')).toBeInTheDocument();
     });
 
     it('renders all keypoint labels and descriptions', () => {
-      render(
-        <StudentUi
-          header="Key Concepts"
-          keypoints={sampleKeypoints}
-          buttonText="Glossary"
-          buttonLink="https://example.com/glossary"
-          backgroundColor="#FFF"
-        />,
-      );
+      renderStudent();
       sampleKeypoints.forEach((kp) => {
         expect(screen.getByText(kp.keypoint)).toBeInTheDocument();
         expect(screen.getByText(kp.description)).toBeInTheDocument();
@@ -50,29 +47,20 @@ describe('StudentUi', () => {
     });
 
     it('renders the correct number of keypoint items', () => {
-      render(
-        <StudentUi
-          header="Key Concepts"
-          keypoints={sampleKeypoints}
-          buttonText="Glossary"
-          buttonLink="https://example.com/glossary"
-          backgroundColor="#FFF"
-        />,
-      );
+      renderStudent();
       const items = screen.getAllByRole('heading', { level: 4 });
       expect(items).toHaveLength(3);
     });
 
+    it('renders the summary text', () => {
+      renderStudent();
+      expect(
+        screen.getByText('These concepts form a connected sequence.'),
+      ).toBeInTheDocument();
+    });
+
     it('renders the action button with correct attributes', () => {
-      render(
-        <StudentUi
-          header="Key Concepts"
-          keypoints={sampleKeypoints}
-          buttonText="Glossary"
-          buttonLink="https://example.com/glossary"
-          backgroundColor="#FFF"
-        />,
-      );
+      renderStudent();
       const link = screen.getByText('Glossary');
       expect(link).toBeInTheDocument();
       expect(link).toHaveAttribute('href', 'https://example.com/glossary');
@@ -81,56 +69,31 @@ describe('StudentUi', () => {
 
   describe('conditional rendering', () => {
     it('does not render the header when it is empty', () => {
-      render(
-        <StudentUi
-          header=""
-          keypoints={sampleKeypoints}
-          buttonText="Glossary"
-          buttonLink="https://example.com/glossary"
-          backgroundColor="#FFF"
-        />,
-      );
+      renderStudent({ header: '' });
       expect(
         screen.queryByRole('heading', { level: 2 }),
       ).not.toBeInTheDocument();
     });
 
+    it('does not render the summary when it is empty', () => {
+      const { container } = renderStudent({ summary: '' });
+      expect(
+        container.querySelector('.keypoints-summary'),
+      ).not.toBeInTheDocument();
+    });
+
     it('does not render the action button when buttonText is empty', () => {
-      render(
-        <StudentUi
-          header="Key Concepts"
-          keypoints={sampleKeypoints}
-          buttonText=""
-          buttonLink="https://example.com/glossary"
-          backgroundColor="#FFF"
-        />,
-      );
+      renderStudent({ buttonText: '' });
       expect(screen.queryByRole('link')).not.toBeInTheDocument();
     });
 
     it('does not render the action button when buttonLink is empty', () => {
-      render(
-        <StudentUi
-          header="Key Concepts"
-          keypoints={sampleKeypoints}
-          buttonText="Glossary"
-          buttonLink=""
-          backgroundColor="#FFF"
-        />,
-      );
+      renderStudent({ buttonLink: '' });
       expect(screen.queryByRole('link')).not.toBeInTheDocument();
     });
 
     it('renders an empty grid when keypoints is empty', () => {
-      const { container } = render(
-        <StudentUi
-          header="Key Concepts"
-          keypoints={[]}
-          buttonText="Glossary"
-          buttonLink="https://example.com/glossary"
-          backgroundColor="#FFF"
-        />,
-      );
+      const { container } = renderStudent({ keypoints: [] });
       const grid = container.querySelector('.keypoints-card-grid');
       expect(grid).toBeInTheDocument();
       expect(grid!.children).toHaveLength(0);

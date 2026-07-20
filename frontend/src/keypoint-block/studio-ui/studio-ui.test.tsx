@@ -25,6 +25,7 @@ function renderStudio(
   const props: React.ComponentProps<typeof StudioUi> = {
     initialHeader: 'Key Concepts',
     initialKeypoints: sampleKeypoints,
+    initialSummary: 'These concepts form a connected sequence.',
     initialButtonText: 'Glossary',
     initialButtonLink: 'https://example.com/glossary',
     initialBackgroundColor: '#CCCCCC',
@@ -53,6 +54,14 @@ describe('StudioUi', () => {
       renderStudio();
       const input = screen.getByPlaceholderText('e.g. Key Concepts to Explore');
       expect(input).toHaveValue('Key Concepts');
+    });
+
+    it('renders Summary input with initial value', () => {
+      renderStudio();
+      const input = screen.getByPlaceholderText(
+        'e.g. These concepts form a connected sequence...',
+      );
+      expect(input).toHaveValue('These concepts form a connected sequence.');
     });
 
     it('renders Button Text input with initial value', () => {
@@ -221,9 +230,9 @@ describe('StudioUi', () => {
     });
   });
 
-  // ─── editing header and action button fields ─────────────────────────────
+  // ─── editing header, summary, and action button fields ───────────────────
 
-  describe('editing header and action button fields', () => {
+  describe('editing header, summary, and action button fields', () => {
     it('updates the Block Header input when typing', async () => {
       const user = userEvent.setup();
       renderStudio();
@@ -232,6 +241,18 @@ describe('StudioUi', () => {
       await user.clear(input);
       await user.type(input, 'New Header');
       expect(input).toHaveValue('New Header');
+    });
+
+    it('updates the Summary input when typing', async () => {
+      const user = userEvent.setup();
+      renderStudio();
+
+      const input = screen.getByPlaceholderText(
+        'e.g. These concepts form a connected sequence...',
+      );
+      await user.clear(input);
+      await user.type(input, 'Updated summary');
+      expect(input).toHaveValue('Updated summary');
     });
 
     it('updates the Button Text input when typing', async () => {
@@ -280,6 +301,7 @@ describe('StudioUi', () => {
         JSON.stringify({
           header: 'Key Concepts',
           keypoints: sampleKeypoints,
+          summary: 'These concepts form a connected sequence.',
           button_text: 'Glossary',
           button_link: 'https://example.com/glossary',
           background_color: '#CCCCCC',
@@ -355,6 +377,7 @@ describe('StudioUi', () => {
         JSON.stringify({
           header: 'Key Concepts',
           keypoints: [{ keypoint: 'New term', description: 'New description' }],
+          summary: 'These concepts form a connected sequence.',
           button_text: 'Glossary',
           button_link: 'https://example.com/glossary',
           background_color: '#CCCCCC',
@@ -377,6 +400,7 @@ describe('StudioUi', () => {
         JSON.stringify({
           header: 'Key Concepts',
           keypoints: [sampleKeypoints[1]],
+          summary: 'These concepts form a connected sequence.',
           button_text: 'Glossary',
           button_link: 'https://example.com/glossary',
           background_color: '#CCCCCC',
@@ -384,7 +408,7 @@ describe('StudioUi', () => {
       );
     });
 
-    it('includes updated header and button fields in the save payload', async () => {
+    it('includes updated header, summary, and button fields in the save payload', async () => {
       const user = userEvent.setup();
       renderStudio({ initialKeypoints: [] });
 
@@ -393,6 +417,12 @@ describe('StudioUi', () => {
       );
       await user.clear(headerInput);
       await user.type(headerInput, 'Updated Header');
+
+      const summaryInput = screen.getByPlaceholderText(
+        'e.g. These concepts form a connected sequence...',
+      );
+      await user.clear(summaryInput);
+      await user.type(summaryInput, 'Updated Summary');
 
       const btnTextInput = screen.getByPlaceholderText('e.g. Glossary');
       await user.clear(btnTextInput);
@@ -411,6 +441,7 @@ describe('StudioUi', () => {
         JSON.stringify({
           header: 'Updated Header',
           keypoints: [],
+          summary: 'Updated Summary',
           button_text: 'Resources',
           button_link: 'https://new.com',
           background_color: '#CCCCCC',

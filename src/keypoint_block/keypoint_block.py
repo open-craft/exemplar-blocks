@@ -35,6 +35,12 @@ class KeypointXBlock(XBlock):
         scope=Scope.content,
         help="Key Points is a list of dictionary",
     )
+    summary = String(
+        display_name="Summary",
+        default="",
+        scope=Scope.content,
+        help="Optional summary text displayed below the key points.",
+    )
     button_text = String(
         display_name="Text for the action button",
         scope=Scope.content,
@@ -72,6 +78,7 @@ class KeypointXBlock(XBlock):
                 "data": {
                     "header": self.header,
                     "keypoints": self.keypoints,
+                    "summary": self.summary,
                     "button_text": self.button_text,
                     "button_link": self.button_link,
                     "background_color": self.background_color,
@@ -86,6 +93,7 @@ class KeypointXBlock(XBlock):
         """Save configuration data from the studio editor."""
         self.header = data.get("header", self.header)
         self.keypoints = data.get("keypoints", self.keypoints)
+        self.summary = data.get("summary", self.summary)
         self.button_text = data.get("button_text", self.button_text)
         self.button_link = data.get("button_link", self.button_link)
         self.background_color = data.get("background_color", self.background_color)
@@ -109,6 +117,7 @@ class KeypointXBlock(XBlock):
                 "data": {
                     "header": self.header,
                     "keypoints": self.keypoints,
+                    "summary": self.summary,
                     "button_text": self.button_text,
                     "button_link": self.button_link,
                     "background_color": self.background_color,
@@ -132,6 +141,7 @@ class KeypointXBlock(XBlock):
                         {"keypoint": "Neural signaling", "description": "The process by which neurons transmit electrical and chemical signals across synapses."},
                         {"keypoint": "Membrane potential", "description": "The difference in electrical charge between the interior and exterior of a cell."}
                     ]'
+                    summary="These concepts form a connected sequence. Learners identify the main ideas, compare how they relate, and use the pattern across contexts."
                     button_text="Glossary"
                     button_link="https://example.com/glossary"
                     background_color="#CCCCCC"

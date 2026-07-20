@@ -1,7 +1,7 @@
 # Keypoint XBlock
 
 A sleek glossary-style XBlock that displays a list of key terms (label + description pairs) in a
-responsive two-column grid. Includes an optional header and a configurable call-to-action button.
+responsive two-column grid. Includes an optional header, optional summary text, and a configurable call-to-action button.
 
 Both a **student view** and a **studio editor** are fully implemented using React and
 [Paragon](https://paragon-openedx.netlify.app/).
@@ -10,13 +10,13 @@ Both a **student view** and a **studio editor** are fully implemented using Reac
 
 ### Student View
 
-A two-column grid of key terms with an optional action button:
+A two-column grid of key terms with an optional summary paragraph and action button:
 
 ![Student view showing key terms in a two-column layout with a Glossary button](images/keypoint_block_student.png)
 
 ### Studio Editor
 
-A form to add/remove key terms and configure the header and action button:
+A form to add/remove key terms and configure the header, summary, and action button:
 
 ![Studio editor with fields for Block Header, Key Terms, and action buttons](images/key_point_studio.png)
 
@@ -55,6 +55,7 @@ tutor dev stop && tutor dev start
    - **Block Header** — the title displayed above the key terms (e.g. "Key Concepts to Explore").
    - **Key Terms** — click "Add Key Term" to add label + description pairs. Each term can be
      individually removed.
+   - **Summary** — optional paragraph shown below the key term cards.
    - **Action Button** — optional button text and URL shown at the bottom right of the student
      view (e.g. a link to a glossary page).
 5. Click **Save**.
@@ -66,6 +67,7 @@ tutor dev stop && tutor dev start
 | `display_name` | `String` | settings  | Component name shown in Studio                       |
 | `header`       | `String` | content   | Main header displayed above the key terms            |
 | `keypoints`    | `List`   | content   | List of `{"keypoint": "...", "description": "..."}` dicts |
+| `summary`      | `String` | content   | Optional summary paragraph below the key terms       |
 | `button_text`  | `String` | content   | Label for the optional action button                 |
 | `button_link`  | `String` | content   | URL the action button links to                       |
 

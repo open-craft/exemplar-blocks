@@ -4,6 +4,7 @@ import { type KeyPoint } from '../type';
 interface StudentUiProps {
   header: string;
   keypoints: KeyPoint[];
+  summary: string;
   buttonText: string;
   buttonLink: string;
   backgroundColor: string;
@@ -12,6 +13,7 @@ interface StudentUiProps {
 function StudentUi({
   header,
   keypoints,
+  summary,
   buttonText,
   buttonLink,
   backgroundColor,
@@ -31,6 +33,8 @@ function StudentUi({
             </div>
           ))}
         </div>
+
+        {summary && <p className="keypoints-summary mb-0">{summary}</p>}
 
         {buttonText && buttonLink && (
           <div className="d-flex justify-content-end mt-4">
