@@ -2,7 +2,7 @@
 Tests to validate that the data saved in Version 0.6.x is compatible with Version 0.7.
 """
 
-from card_carousel.types import CardData, CardType
+from exemplar_common.card_types import CardData, CardType
 
 
 def test_older_image_card_data_is_compatible():

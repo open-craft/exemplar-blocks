@@ -68,5 +68,10 @@ export default defineConfig(({ mode }) => {
         shuffle: true,
       },
     },
+    resolve: {
+      alias: {
+        '@': resolve(import.meta.dirname, 'src'),
+      },
+    },
   };
 });

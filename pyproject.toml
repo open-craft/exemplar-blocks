@@ -1,6 +1,6 @@
 [project]
 name = "exemplar-blocks"
-version = "0.9.3"
+version = "0.10.0"
 description = "A collection of XBlocks for managing and displaying aesthetically pleasing HTML content"
 readme = "README.md"
 license = "Apache-2.0"
@@ -13,6 +13,7 @@ dependencies = [
 
 [project.entry-points."xblock.v1"]
 card_carousel = "card_carousel:CardCarouselXBlock"
+card_grid = "card_grid_block:CardGridXBlock"
 cover = "cover_block:CoverBlock"
 keypoints = "keypoint_block:KeypointXBlock"
 two_column = "two_column_block:TwoColumnBlock"
@@ -48,6 +49,7 @@ package = true
 [tool.uv.build-backend]
 module-name = [
     "card_carousel",
+    "card_grid_block",
     "cover_block",
     "exemplar_common",
     "keypoint_block",
