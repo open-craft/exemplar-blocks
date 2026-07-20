@@ -15,7 +15,13 @@ from xblock.fields import Scope, String, List, Boolean
 from xblock.utils.resources import ResourceLoader
 
 from exemplar_common.xblock_config import get_xblock_config, XBlockView
-from .types import CardData, CardType, ContentHighlightData, Orientation, InitData
+from exemplar_common.card_types import (
+    CardData,
+    CardType,
+    ContentHighlightData,
+    Orientation,
+)
+from .types import InitData
 
 
 logger = logging.getLogger(__name__)

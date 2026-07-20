@@ -4,10 +4,11 @@ A collection of related XBlocks.
 
 **These are quick and dirty blocks intended to be replaced by a planned upcoming template block.**
 
+- **Card Carousel XBlock**: an XBlock that can present a list of cards in a Carousel. The cards support multiple layouts for presenting the content.
+- **Card Grid XBlock**: an XBlock that renders a grid of cards.
 - **Cover XBlock**: an aesthetically pleasing block intended for use as a section introduction.
 - **Keypoint XBlock:** a sleek looking glossary xblock, which helps to list down keypoint and defination.
 - **Two Column XBlock** an aesthetically pleasing block intended to display engaging static HTML content in two columns.
-- **Card Carousel XBlock**: an XBlock that can present a list of cards in a Carousel. The cards support multiple layouts for presenting the content. This is **NOT usable in courses** yet, only supports demo in the XBlock Workbench.
 
 ## Installation
 
@@ -43,12 +44,13 @@ tutor dev stop && tutor dev start
 Once installed, visit your course in studio and go to 'Settings' -> 'Advanced Settings'.
 In the Advanced module list, add the following entries, depending on which blocks you wish to enable:
 
-| XBlock            | Advanced settings entry |
-|-------------------|-------------------------|
-| Cover XBlock      | "cover"                 |
-| Two Column XBlock | "two_column"            |
-| Card Carousel XBlock | "card_carousel"            |
-| Keypoint XBlock   | "keypoints"             |
+| XBlock               | Advanced settings entry |
+|----------------------|-------------------------|
+| Card Carousel XBlock | "card_carousel"         |
+| Card Grid XBlock     | "card_grid"             |
+| Cover XBlock         | "cover"                 |
+| Keypoint XBlock      | "keypoints"             |
+| Two Column XBlock    | "two_column"            |
 
 See the [Open edX documentation](https://docs.openedx.org/en/latest/educators/how-tos/course_development/exercise_tools/enable_exercises_tools.html#enable-additional-exercises-and-tools) for more information.
 

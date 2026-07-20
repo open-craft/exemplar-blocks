@@ -5,7 +5,7 @@ from typing import Annotated, Literal
 
 from pydantic import AfterValidator, BaseModel, ConfigDict, Field
 
-from .utils import sanitise_text_layout_html
+from exemplar_common.utils import sanitise_text_layout_html
 
 WorkbenchScenario = tuple[str, str]
 

@@ -924,7 +924,7 @@ var Z = l(X, "Card", { muted: {
 } });
 Z.Status = W, Z.Header = B, Z.Divider = ye, Z.Section = V, Z.Footer = H, Z.ImageCap = U, Z.Context = R, Z.Body = P;
 //#endregion
-//#region src/card-carousel/student-ui/components/ContentHighlight.tsx
+//#region src/card/common/student-ui/ContentHighlight.tsx
 var Q = h();
 function Ne({ title: e, subtitle: t, description: n, orientation: r }) {
 	return /* @__PURE__ */ (0, Q.jsxs)("div", {
@@ -953,7 +953,7 @@ function Ne({ title: e, subtitle: t, description: n, orientation: r }) {
 	});
 }
 //#endregion
-//#region src/card-carousel/student-ui/components/MaterialIcon.tsx
+//#region src/card/common/student-ui/MaterialIcon.tsx
 function $({ name: e, bg: t, fg: n, size: r }) {
 	let i = `${r === "sm" ? "p-2" : "p-3"} ${t || "bg-secondary-500"} ${n || "text-light-100"} rounded-circle`, a = r === "sm" ? "2.5rem" : "3.5rem";
 	return /* @__PURE__ */ (0, Q.jsx)("div", {
@@ -969,7 +969,7 @@ function $({ name: e, bg: t, fg: n, size: r }) {
 	});
 }
 //#endregion
-//#region src/card-carousel/student-ui/components/RichList.tsx
+//#region src/card/common/student-ui/RichList.tsx
 function Pe({ items: e }) {
 	return /* @__PURE__ */ (0, Q.jsx)("div", {
 		className: "p-4 pt-5",
@@ -983,7 +983,7 @@ function Pe({ items: e }) {
 	});
 }
 //#endregion
-//#region src/card-carousel/student-ui/components/HoverList.tsx
+//#region src/card/common/student-ui/HoverList.tsx
 function Fe({ items: e }) {
 	let [t, n] = (0, y.useState)(null);
 	return /* @__PURE__ */ (0, Q.jsx)("ol", {
@@ -1023,10 +1023,10 @@ function Fe({ items: e }) {
 	});
 }
 //#endregion
-//#region src/card-carousel/student-ui/components/ComplexCard.tsx
+//#region src/card/common/student-ui/ComplexCard.tsx
 var Ie = ({ orientation: e, secondaryContent: t, children: n }) => {
 	let r = null;
-	switch (t.kind) {
+	switch (t?.kind) {
 		case "IMAGE": return /* @__PURE__ */ (0, Q.jsxs)(Q.Fragment, { children: [/* @__PURE__ */ (0, Q.jsx)(Z.ImageCap, {
 			src: t.location,
 			srcAlt: t.altText
@@ -1057,11 +1057,12 @@ var Ie = ({ orientation: e, secondaryContent: t, children: n }) => {
 function Le({ orientation: e, data: t, position: n }) {
 	return /* @__PURE__ */ (0, Q.jsx)(Z, {
 		orientation: e.toLowerCase(),
+		className: "complex-card",
 		children: /* @__PURE__ */ (0, Q.jsx)(Ie, {
 			orientation: e,
 			secondaryContent: t.secondaryContent,
 			children: /* @__PURE__ */ (0, Q.jsxs)(Z.Body, {
-				className: t.secondaryContent?.kind === "IMAGE" ? "w-50 p-3" : "p-3",
+				className: t.secondaryContent?.kind === "IMAGE" && e === "HORIZONTAL" ? "w-50 p-3" : "p-3",
 				children: [
 					n && /* @__PURE__ */ (0, Q.jsx)("div", {
 						className: "card-badge",
@@ -1092,7 +1093,7 @@ function Le({ orientation: e, data: t, position: n }) {
 	});
 }
 //#endregion
-//#region src/card-carousel/student-ui/StudentUI.tsx
+//#region src/card/card-carousel/student-ui/StudentUI.tsx
 function Re({ initData: { cards: e, displayName: t, orientation: n, disableNumbering: r, backgroundColor: i } }) {
 	let a = {
 		sm: 12,
@@ -1129,8 +1130,8 @@ function Re({ initData: { cards: e, displayName: t, orientation: n, disableNumbe
 	});
 }
 //#endregion
-//#region src/card-carousel/student-ui/StudentUI.css?inline
-var ze = ".card-carousel-xblock{--pgn-color-headings-base:var(--ccblk-typography-headings-color);--ccblk-spacing-badge-spacer-x:var(--pgn-spacing-card-spacer-x);--ccblk-spacing-badge-spacer-y:var(--pgn-spacing-card-spacer-y);--ccblk-typography-headings-color:var(--pgn-color-headings-base)}.card-carousel-xblock .text-accent{color:var(--pgn-color-accent-a)}.card-carousel-xblock .btn-accent{background-color:var(--pgn-color-accent-a);color:var(--pgn-color-light-100);background-image:unset}.card-carousel-xblock .card-badge{margin:var(--pgn-spacing-card-spacer-x);margin-bottom:0}.card-carousel-xblock .card-badge .badge{padding:var(--ccblk-spacing-badge-spacer-y) var(--ccblk-spacing-badge-spacer-x);font-family:var(--pgn-typography-headings-font-family);font-size:var(--pgn-typography-font-size-h5-base);font-weight:var(--pgn-typography-headings-font-weight)}.card-carousel-xblock .pgn__card .pgn__card-wrapper-image-cap.horizontal{max-width:50%!important}.card-carousel-xblock .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap{max-width:100%!important}.card-carousel-xblock .pgn__card .pgn__card-header .pgn__card-header-content{margin-top:var(--pgn-spacing-card-spacer-x)}.card-carousel-xblock .pgn__card .pgn__card-header .pgn__card-header-title-md{font-family:var(--pgn-typography-headings-font-family);color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-h4-base)}.card-carousel-xblock .pgn__card .pgn__card-header .pgn__card-header-subtitle-md{color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-base);font-weight:700;font-family:var(--pgn-typography-headings-font-family)}.horizontal .hover-list{column-count:2;column-gap:calc(var(--pgn-spacing-spacer-base) * 2)!important}.hover-list-description,.hover-content{padding:calc(var(--pgn-spacing-spacer-base))}.hover-list-content-wrapper{min-height:calc(( var(--pgn-spacing-spacer-base) + var(--pgn-typography-font-size-base) * var(--pgn-typography-line-height-base) ) * 2);position:relative}.hover-list-description{opacity:1;visibility:visible;z-index:0}.hover-content{background-color:var(--pgn-color-primary-500);width:100%;color:var(--pgn-color-light-100);border-radius:var(--pgn-size-border-radius-base);opacity:0;visibility:hidden;z-index:10;align-items:center;display:flex;position:absolute;top:0;left:0}.hover-list-item:has(.hover-content){cursor:pointer}:is(.hover-list-item:has(.hover-content):hover,.hover-list-item:has(.hover-content).is-active){list-style:none;margin-left:calc(var(--pgn-spacing-spacer-base) * -2.5)!important}.hover-list-item:has(.hover-content):hover .hover-list-description{opacity:0;visibility:hidden}.hover-list-item:has(.hover-content):hover .hover-content{opacity:1;visibility:visible}.hover-content-icon-wrapper{color:var(--pgn-color-light-100);margin-right:var(--pgn-spacing-spacer-base)}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", Be = (e, t, n) => {
+//#region src/card/common/student-ui/main.css?inline
+var ze = ".complex-card{--pgn-color-headings-base:var(--ccblk-typography-headings-color);--ccblk-spacing-badge-spacer-x:var(--pgn-spacing-card-spacer-x);--ccblk-spacing-badge-spacer-y:var(--pgn-spacing-card-spacer-y);--ccblk-typography-headings-color:var(--pgn-color-headings-base)}.complex-card .text-accent{color:var(--pgn-color-accent-a)}.complex-card .btn-accent{background-color:var(--pgn-color-accent-a);color:var(--pgn-color-light-100);background-image:unset}.complex-card .card-badge{margin:var(--pgn-spacing-card-spacer-x);margin-bottom:0}.complex-card .card-badge .badge{padding:var(--ccblk-spacing-badge-spacer-y) var(--ccblk-spacing-badge-spacer-x);font-family:var(--pgn-typography-headings-font-family);font-size:var(--pgn-typography-font-size-h5-base);font-weight:var(--pgn-typography-headings-font-weight)}.complex-card .pgn__card .pgn__card-wrapper-image-cap.horizontal{max-width:50%!important}.complex-card .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap{max-width:100%!important}.complex-card .pgn__card .pgn__card-header .pgn__card-header-content{margin-top:var(--pgn-spacing-card-spacer-x)}.complex-card .pgn__card .pgn__card-header .pgn__card-header-title-md{font-family:var(--pgn-typography-headings-font-family);color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-h4-base)}.complex-card .pgn__card .pgn__card-header .pgn__card-header-subtitle-md{color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-base);font-weight:700;font-family:var(--pgn-typography-headings-font-family)}.horizontal .hover-list{column-count:2;column-gap:calc(var(--pgn-spacing-spacer-base) * 2)!important}.hover-list-description,.hover-content{padding:calc(var(--pgn-spacing-spacer-base))}.hover-list-content-wrapper{min-height:calc(( var(--pgn-spacing-spacer-base) + var(--pgn-typography-font-size-base) * var(--pgn-typography-line-height-base) ) * 2);position:relative}.hover-list-description{opacity:1;visibility:visible;z-index:0}.hover-content{background-color:var(--pgn-color-primary-500);width:100%;color:var(--pgn-color-light-100);border-radius:var(--pgn-size-border-radius-base);opacity:0;visibility:hidden;z-index:10;align-items:center;display:flex;position:absolute;top:0;left:0}.hover-list-item:has(.hover-content){cursor:pointer}:is(.hover-list-item:has(.hover-content):hover,.hover-list-item:has(.hover-content).is-active){list-style:none;margin-left:calc(var(--pgn-spacing-spacer-base) * -2.5)!important}.hover-list-item:has(.hover-content):hover .hover-list-description{opacity:0;visibility:hidden}.hover-list-item:has(.hover-content):hover .hover-content{opacity:1;visibility:visible}.hover-content-icon-wrapper{color:var(--pgn-color-light-100);margin-right:var(--pgn-spacing-spacer-base)}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", Be = (e, t, n) => {
 	o({
 		runtime: t,
 		element: e,

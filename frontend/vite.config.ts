@@ -31,14 +31,27 @@ export default defineConfig(({ mode }) => {
       entry: {
         cardCarouselStudent: resolve(
           import.meta.dirname,
-          'src/card-carousel/student-ui/main.tsx',
+          'src/card/card-carousel/student-ui/main.tsx',
         ),
         cardCarouselStudio: resolve(
           import.meta.dirname,
-          'src/card-carousel/studio-ui/main.tsx',
+          'src/card/card-carousel/studio-ui/main.tsx',
         ),
       },
       outDir: resolve(__dirname, '../src/card_carousel/public'),
+    },
+    card_grid: {
+      entry: {
+        cardGridStudent: resolve(
+          import.meta.dirname,
+          'src/card/card-grid/student-ui/main.tsx',
+        ),
+        cardGridStudio: resolve(
+          import.meta.dirname,
+          'src/card/card-grid/studio-ui/main.tsx',
+        ),
+      },
+      outDir: resolve(__dirname, '../src/card_grid_block/public'),
     },
     keypoint_block: {
       entry: {
@@ -129,6 +142,11 @@ export default defineConfig(({ mode }) => {
       globals: true,
       environment: 'jsdom',
       setupFiles: ['./test/setup.ts'],
+    },
+    resolve: {
+      alias: {
+        '@': resolve(import.meta.dirname, 'src'),
+      },
     },
   };
 });

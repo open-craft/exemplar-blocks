@@ -6,7 +6,7 @@ import {
 } from '@openedx/paragon/icons';
 import type { ChangeEvent } from 'react';
 import type { Alignment, TextLayoutData } from '../../apiTypes';
-import { TextLayoutTinyMCE } from './TinyMCE';
+import { TextLayoutTinyMCE } from '@/shared/components/TinyMCE';
 
 type TextLayoutEditorProps = {
   data: TextLayoutData;
