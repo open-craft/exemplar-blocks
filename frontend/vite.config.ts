@@ -92,6 +92,19 @@ export default defineConfig(({ mode }) => {
       },
       outDir: resolve(__dirname, '../src/two_column_block/public'),
     },
+    ideas_overview_block: {
+      entry: {
+        ideasOverviewBlockStudent: resolve(
+          import.meta.dirname,
+          'src/ideas-overview-block/student-ui/main.tsx',
+        ),
+        ideasOverviewBlockStudio: resolve(
+          import.meta.dirname,
+          'src/ideas-overview-block/studio-ui/main.tsx',
+        ),
+      },
+      outDir: resolve(__dirname, '../src/ideas_overview_block/public'),
+    },
   };
 
   const xblock = process.env.XBLOCK;
@@ -141,7 +154,7 @@ export default defineConfig(({ mode }) => {
     test: {
       globals: true,
       environment: 'jsdom',
-      setupFiles: ['./test/setup.ts'],
+      setupFiles: ['./test/setup.tsx'],
     },
     resolve: {
       alias: {

@@ -50449,7 +50449,7 @@ var Ky = ({ value: e, onEditorChange: t, height: n }) => /* @__PURE__ */ (0, J.j
 		promotion: !1,
 		menubar: !1,
 		plugins: [],
-		toolbar: ["undo redo | blocks | bold italic forecolor"],
+		toolbar: "undo redo | blocks | bold italic forecolor",
 		height: n
 	}
 });

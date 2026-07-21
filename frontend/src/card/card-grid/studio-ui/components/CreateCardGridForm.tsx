@@ -5,7 +5,7 @@ import ColorPicker from '@openedx/paragon/dist/ColorPicker';
 
 import { useFormikContext } from 'formik';
 import type { InitData } from '@/card/card-grid/types';
-import { TextLayoutTinyMCE } from '@/shared/components/TinyMCE';
+import { SimpleRichTextEditor } from '@/shared/components/TinyMCE';
 
 export default function CreateCardGridForm() {
   const { values, setFieldValue, handleChange } = useFormikContext<InitData>();
@@ -29,7 +29,7 @@ export default function CreateCardGridForm() {
         <Form.Text muted>
           An optional description that can be shown above the cards.
         </Form.Text>
-        <TextLayoutTinyMCE
+        <SimpleRichTextEditor
           value={values.description}
           onEditorChange={(value: string) =>
             setFieldValue('description', value)
@@ -83,7 +83,7 @@ export default function CreateCardGridForm() {
       <Form.Group>
         <Form.Label>Footer Description</Form.Label>
         <Form.Text muted>Text that's shown below the cards.</Form.Text>
-        <TextLayoutTinyMCE
+        <SimpleRichTextEditor
           value={values.footerDescription}
           onEditorChange={(value: string) =>
             setFieldValue('footerDescription', value)

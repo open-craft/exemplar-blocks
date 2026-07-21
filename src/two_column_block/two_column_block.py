@@ -26,7 +26,7 @@ from .types import (
     WorkbenchScenario,
     TextLayoutData,
 )
-from .utils import generate_attrs
+from exemplar_common.utils import generate_attrs
 
 log = logging.getLogger(__name__)
 

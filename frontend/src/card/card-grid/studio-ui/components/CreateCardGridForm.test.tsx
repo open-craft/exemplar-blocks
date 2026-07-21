@@ -1,25 +1,10 @@
 import { act } from 'react';
 import { render, screen, within } from '@opencraft/xblock-react-utils/testing';
 import userEvent from '@testing-library/user-event';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { Formik } from 'formik';
 import { type InitData } from '@/card/card-grid/types';
 import CreateCardGridForm from './CreateCardGridForm';
-
-// TinyMCE renders its content inside an iframe, which can't be tested with
-// the testing library's JSDom.
-// Replace it with a plain textarea that mirrors the value/onEditorChange API.
-vi.mock('@/shared/components/TinyMCE', () => ({
-  TextLayoutTinyMCE: ({
-    value,
-    onEditorChange,
-  }: {
-    value: string;
-    onEditorChange: (content: string) => void;
-  }) => (
-    <textarea value={value} onChange={(e) => onEditorChange(e.target.value)} />
-  ),
-}));
 
 const makeInitData = (overrides: Partial<InitData> = {}): InitData => ({
   cards: [],

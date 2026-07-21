@@ -11,7 +11,7 @@ from typing import Annotated
 from pydantic import AfterValidator, BaseModel
 
 from exemplar_common.card_types import CardData, Orientation
-from exemplar_common.utils import sanitise_text_layout_html
+from exemplar_common.utils import sanitise_simple_html
 
 
 class InitData(BaseModel):
@@ -26,7 +26,7 @@ class InitData(BaseModel):
     displayName: str
 
     # Description above the cards. Stored as a HTML string.
-    description: Annotated[str, AfterValidator(sanitise_text_layout_html)]
+    description: Annotated[str, AfterValidator(sanitise_simple_html)]
 
     # Alignment of the content in the cards.
     orientation: Orientation
@@ -35,4 +35,4 @@ class InitData(BaseModel):
     backgroundColor: str = "#FFFFFF"
 
     # Description below the cards. Stored as a HTML string.
-    footerDescription: Annotated[str, AfterValidator(sanitise_text_layout_html)]
+    footerDescription: Annotated[str, AfterValidator(sanitise_simple_html)]
