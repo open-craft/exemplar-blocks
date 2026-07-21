@@ -46,7 +46,7 @@ export default defineConfig(({ mode }) => {
     test: {
       globals: true,
       environment: 'jsdom',
-      setupFiles: ['./test/setup.ts'],
+      setupFiles: ['./test/setup.tsx'],
       onConsoleLog(log) {
         // Paragon needs to update their components. We don't do this.
         if (log.includes('Support for defaultProps will be removed')) {

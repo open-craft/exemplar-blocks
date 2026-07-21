@@ -48521,7 +48521,7 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, height: n }) => /* @__PURE__ *
 		promotion: !1,
 		menubar: !1,
 		plugins: [],
-		toolbar: ["undo redo | blocks | bold italic forecolor"],
+		toolbar: "undo redo | blocks | bold italic forecolor",
 		height: n
 	}
 }), qf = ({ data: e, onUpdate: t }) => /* @__PURE__ */ (0, Y.jsxs)(Y.Fragment, { children: [/* @__PURE__ */ (0, Y.jsx)(Kf, {

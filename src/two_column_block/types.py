@@ -5,7 +5,7 @@ from typing import Annotated, Literal
 
 from pydantic import AfterValidator, BaseModel, ConfigDict, Field
 
-from exemplar_common.utils import sanitise_text_layout_html
+from exemplar_common.utils import sanitise_simple_html
 
 WorkbenchScenario = tuple[str, str]
 
@@ -88,7 +88,7 @@ class TextLayoutData(BaseModel):
     model_config = ConfigDict(use_enum_values=True, extra="forbid")
 
     kind: Literal["text"]
-    content: Annotated[str, AfterValidator(sanitise_text_layout_html)]
+    content: Annotated[str, AfterValidator(sanitise_simple_html)]
     verticalAlignment: Alignment
 
 

@@ -41,3 +41,18 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: vi.fn(),
   })),
 });
+
+// TinyMCE renders its content inside an iframe, which can't be tested with
+// the testing library's JSDom.
+// Replace it with a plain textarea that mirrors the value/onEditorChange API.
+vi.mock('@/shared/components/TinyMCE', () => ({
+  SimpleRichTextEditor: ({
+    value,
+    onEditorChange,
+  }: {
+    value: string;
+    onEditorChange: (content: string) => void;
+  }) => (
+    <textarea value={value} onChange={(e) => onEditorChange(e.target.value)} />
+  ),
+}));

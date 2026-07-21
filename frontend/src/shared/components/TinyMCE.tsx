@@ -53,8 +53,12 @@ interface TinyMceEditorProps {
   height?: string;
 }
 
-// A simple editor with restricted styling, for the two-column block, text content.
-export const TextLayoutTinyMCE = ({
+// A simple editor with restricted styling,
+// for text content where we want to allow some simple styling (eg. colours, headings, bold/italics),
+// but nothing that would mess up the designs or layouts.
+//
+// Content here is expected to be sanitised on the backend using src/exemplar_common/utils.py:sanitise_simple_html
+export const SimpleRichTextEditor = ({
   value,
   onEditorChange,
   height,
@@ -67,7 +71,7 @@ export const TextLayoutTinyMCE = ({
       promotion: false,
       menubar: false,
       plugins: [],
-      toolbar: ['undo redo | blocks | bold italic forecolor'],
+      toolbar: 'undo redo | blocks | bold italic forecolor',
       height,
     }}
   />

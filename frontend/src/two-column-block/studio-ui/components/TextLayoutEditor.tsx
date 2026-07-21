@@ -6,7 +6,7 @@ import {
 } from '@openedx/paragon/icons';
 import type { ChangeEvent } from 'react';
 import type { Alignment, TextLayoutData } from '../../apiTypes';
-import { TextLayoutTinyMCE } from '@/shared/components/TinyMCE';
+import { SimpleRichTextEditor } from '@/shared/components/TinyMCE';
 
 type TextLayoutEditorProps = {
   data: TextLayoutData;
@@ -16,7 +16,7 @@ type TextLayoutEditorProps = {
 export const TextLayoutEditor = ({ data, onUpdate }: TextLayoutEditorProps) => {
   return (
     <>
-      <TextLayoutTinyMCE
+      <SimpleRichTextEditor
         value={data.content}
         onEditorChange={(content: string) => onUpdate({ ...data, content })}
       />
