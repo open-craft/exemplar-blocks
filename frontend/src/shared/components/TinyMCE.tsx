@@ -26,8 +26,8 @@ import 'tinymce/skins/ui/oxide/skin.shadowdom.js';
 // import 'tinymce/plugins/directionality';
 // import 'tinymce/plugins/emoticons';
 // import 'tinymce/plugins/fullscreen';
-// import 'tinymce/plugins/help';
-// import 'tinymce/plugins/help/js/i18n/keynav/en';
+import 'tinymce/plugins/help';
+import 'tinymce/plugins/help/js/i18n/keynav/en';
 // import 'tinymce/plugins/image';
 // import 'tinymce/plugins/importcss';
 // import 'tinymce/plugins/link';
@@ -50,6 +50,7 @@ import 'tinymce/skins/ui/oxide/content';
 interface TinyMceEditorProps {
   value: string;
   onEditorChange: (content: string) => void;
+  ariaLabel: string;
   height?: string;
 }
 
@@ -61,18 +62,24 @@ interface TinyMceEditorProps {
 export const SimpleRichTextEditor = ({
   value,
   onEditorChange,
+  ariaLabel,
   height,
-}: TinyMceEditorProps) => (
-  <Editor
-    licenseKey="gpl"
-    value={value}
-    onEditorChange={onEditorChange}
-    init={{
-      promotion: false,
-      menubar: false,
-      plugins: [],
-      toolbar: 'undo redo | blocks | bold italic forecolor',
-      height,
-    }}
-  />
-);
+}: TinyMceEditorProps) => {
+  return (
+    <>
+      <Editor
+        licenseKey="gpl"
+        value={value}
+        onEditorChange={onEditorChange}
+        init={{
+          iframe_aria_text: ariaLabel,
+          promotion: false,
+          menubar: false,
+          plugins: ['help'],
+          toolbar: 'undo redo | blocks | bold italic forecolor',
+          height,
+        }}
+      />
+    </>
+  );
+};

@@ -17,6 +17,7 @@ export const TextLayoutEditor = ({ data, onUpdate }: TextLayoutEditorProps) => {
   return (
     <>
       <SimpleRichTextEditor
+        ariaLabel="Rich text editor for the column content."
         value={data.content}
         onEditorChange={(content: string) => onUpdate({ ...data, content })}
       />

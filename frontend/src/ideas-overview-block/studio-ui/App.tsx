@@ -68,9 +68,10 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
             />
           </Form.Group>
 
-          <Form.Group>
-            <Form.Label>Header</Form.Label>
+          <Form.Label>
+            <span>Rich text content to display above the ideas.</span>
             <SimpleRichTextEditor
+              ariaLabel="Rich text editor for the content above the ideas."
               value={data.content.header}
               onEditorChange={(value: string) =>
                 setData({
@@ -79,7 +80,7 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
                 })
               }
             />
-          </Form.Group>
+          </Form.Label>
 
           <h4>Ideas</h4>
           {data.content.ideas.map((idea, i) => (
@@ -112,9 +113,10 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
             </Col>
           </Row>
 
-          <Form.Group>
-            <Form.Label>Footer</Form.Label>
+          <Form.Label>
+            <span>Rich text content to display below the ideas.</span>
             <SimpleRichTextEditor
+              ariaLabel="Rich text editor for the content below the ideas."
               value={data.content.footer}
               onEditorChange={(value: string) =>
                 setData({
@@ -123,7 +125,7 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
                 })
               }
             />
-          </Form.Group>
+          </Form.Label>
 
           <Form.Label>
             Background Color
