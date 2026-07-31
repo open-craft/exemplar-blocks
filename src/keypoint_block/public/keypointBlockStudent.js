@@ -1,10 +1,10 @@
 import { d as e, m as t, n, t as r } from "./Container-DiwZDjXy.js";
 //#region src/keypoint-block/student-ui/student-ui.tsx
 var i = t();
-function a({ header: e, keypoints: t, buttonText: a, buttonLink: o, backgroundColor: s }) {
+function a({ header: e, keypoints: t, summary: a, buttonText: o, buttonLink: s, backgroundColor: c }) {
 	return /* @__PURE__ */ (0, i.jsx)("div", {
 		className: "xblock-keypoints",
-		style: { backgroundColor: s },
+		style: { backgroundColor: c },
 		children: /* @__PURE__ */ (0, i.jsxs)(r, {
 			size: "xl",
 			className: "p-4",
@@ -26,15 +26,19 @@ function a({ header: e, keypoints: t, buttonText: a, buttonLink: o, backgroundCo
 						})]
 					}, `kp-${t}`))
 				}),
-				a && o && /* @__PURE__ */ (0, i.jsx)("div", {
+				a && /* @__PURE__ */ (0, i.jsx)("p", {
+					className: "keypoints-summary mb-0",
+					children: a
+				}),
+				o && s && /* @__PURE__ */ (0, i.jsx)("div", {
 					className: "d-flex justify-content-end mt-4",
 					children: /* @__PURE__ */ (0, i.jsx)(n, {
 						as: "a",
-						href: o,
+						href: s,
 						variant: "dark",
 						target: "_blank",
 						rel: "noopener noreferrer",
-						children: a
+						children: o
 					})
 				})
 			]
@@ -43,8 +47,8 @@ function a({ header: e, keypoints: t, buttonText: a, buttonLink: o, backgroundCo
 }
 //#endregion
 //#region src/keypoint-block/student-ui/style.scss?inline
-var o = ".xblock-keypoints *,.xblock-keypoints :before,.xblock-keypoints :after{box-sizing:border-box}.xblock-keypoints .keypoints-card-grid{column-gap:var(--pgn-spacing-grid-gutter-width);row-gap:var(--pgn-spacing-grid-gutter-width);grid-template-columns:1fr 1fr;display:grid}.xblock-keypoints .keypoint-label{color:var(--pgn-color-primary-base);font-size:1.1rem}.xblock-keypoints .text-gray-700{line-height:1.6}.xblock-keypoints .keypoint{padding:var(--pgn-spacing-alert-padding-y) var(--pgn-spacing-alert-padding-x);background-color:var(--pgn-color-white);border-radius:var(--pgn-size-card-border-radius-base)}", s = (t, n, r) => {
-	let { header: s, keypoints: c, button_text: l, button_link: u, background_color: d } = r.data;
+var o = ".xblock-keypoints *,.xblock-keypoints :before,.xblock-keypoints :after{box-sizing:border-box}.xblock-keypoints .keypoints-card-grid{column-gap:var(--pgn-spacing-grid-gutter-width);row-gap:var(--pgn-spacing-grid-gutter-width);grid-template-columns:1fr 1fr;display:grid}.xblock-keypoints .keypoint-label{color:var(--pgn-color-primary-base);font-size:1.1rem}.xblock-keypoints .text-gray-700{line-height:1.6}.xblock-keypoints .keypoints-summary{color:var(--pgn-color-primary-base);margin-top:2rem;font-weight:700;line-height:1.5}.xblock-keypoints .keypoint{padding:var(--pgn-spacing-alert-padding-y) var(--pgn-spacing-alert-padding-x);background-color:var(--pgn-color-white);border-radius:var(--pgn-size-card-border-radius-base)}", s = (t, n, r) => {
+	let { header: s, keypoints: c, summary: l, button_text: u, button_link: d, background_color: f } = r.data;
 	e({
 		runtime: t,
 		element: n,
@@ -53,9 +57,10 @@ var o = ".xblock-keypoints *,.xblock-keypoints :before,.xblock-keypoints :after{
 	})(/* @__PURE__ */ (0, i.jsx)(a, {
 		header: s || "",
 		keypoints: c || [],
-		buttonText: l || "",
-		buttonLink: u || "",
-		backgroundColor: d || ""
+		summary: l || "",
+		buttonText: u || "",
+		buttonLink: d || "",
+		backgroundColor: f || ""
 	}));
 };
 //#endregion

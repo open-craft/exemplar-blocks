@@ -7884,20 +7884,20 @@ cd.defaultProps = {
 //#endregion
 //#region src/keypoint-block/studio-ui/studio-ui.tsx
 var $ = f();
-function ld({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initialButtonLink: r, initialBackgroundColor: i }) {
-	let { runtime: a } = (0, w.useContext)(y), o = h("studio_save"), [c, l] = w.useState(e), [u, d] = w.useState(t), [f, m] = w.useState(n), [g, _] = w.useState(r), [b, x] = w.useState(i), S = () => {
-		d([...u, {
+function ld({ initialHeader: e, initialKeypoints: t, initialSummary: n, initialButtonText: r, initialButtonLink: i, initialBackgroundColor: a }) {
+	let { runtime: o } = (0, w.useContext)(y), c = h("studio_save"), [l, u] = w.useState(e), [d, f] = w.useState(t), [m, g] = w.useState(n), [_, b] = w.useState(r), [x, S] = w.useState(i), [C, T] = w.useState(a), D = () => {
+		f([...d, {
 			keypoint: "",
 			description: ""
 		}]);
-	}, C = (e, t) => {
-		let n = [...u];
+	}, O = (e, t) => {
+		let n = [...d];
 		n[e] = {
 			...n[e],
 			...t
-		}, d(n);
-	}, T = (e) => {
-		d(u.filter((t, n) => n !== e));
+		}, f(n);
+	}, k = (e) => {
+		f(d.filter((t, n) => n !== e));
 	};
 	return /* @__PURE__ */ (0, $.jsxs)("div", {
 		className: "react-studio-block",
@@ -7911,8 +7911,8 @@ function ld({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 					className: "p-2",
 					children: [
 						/* @__PURE__ */ (0, $.jsxs)(X.Group, { children: [/* @__PURE__ */ (0, $.jsx)(X.Label, { children: "Block Header" }), /* @__PURE__ */ (0, $.jsx)(X.Control, {
-							value: c,
-							onChange: (e) => l(e.target.value),
+							value: l,
+							onChange: (e) => u(e.target.value),
 							placeholder: "e.g. Key Concepts to Explore"
 						})] }),
 						/* @__PURE__ */ (0, $.jsxs)("div", { children: [
@@ -7926,16 +7926,16 @@ function ld({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 									/* @__PURE__ */ (0, $.jsx)(E.Spacer, {}),
 									/* @__PURE__ */ (0, $.jsx)(p, {
 										iconBefore: di,
-										onClick: S,
+										onClick: D,
 										children: "Add Key Term"
 									})
 								]
 							}),
-							u.length === 0 && /* @__PURE__ */ (0, $.jsx)("p", {
+							d.length === 0 && /* @__PURE__ */ (0, $.jsx)("p", {
 								className: "text-muted",
 								children: "No key terms added yet. Click \"Add Key Term\" to get started."
 							}),
-							u.map((e, t) => /* @__PURE__ */ (0, $.jsxs)("div", {
+							d.map((e, t) => /* @__PURE__ */ (0, $.jsxs)("div", {
 								className: "keypoint-entry",
 								children: [
 									/* @__PURE__ */ (0, $.jsxs)(E, {
@@ -7949,7 +7949,7 @@ function ld({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 											/* @__PURE__ */ (0, $.jsx)(p, {
 												variant: "outline-danger",
 												iconBefore: gi,
-												onClick: () => T(t),
+												onClick: () => k(t),
 												children: "Remove"
 											})
 										]
@@ -7958,7 +7958,7 @@ function ld({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 										className: "mb-2",
 										children: [/* @__PURE__ */ (0, $.jsx)(X.Label, { children: "Label" }), /* @__PURE__ */ (0, $.jsx)(X.Control, {
 											value: e.keypoint,
-											onChange: (e) => C(t, { keypoint: e.target.value }),
+											onChange: (e) => O(t, { keypoint: e.target.value }),
 											placeholder: "e.g. Fluid balance"
 										})]
 									}),
@@ -7968,13 +7968,27 @@ function ld({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 											as: "textarea",
 											rows: 3,
 											value: e.description,
-											onChange: (e) => C(t, { description: e.target.value }),
+											onChange: (e) => O(t, { description: e.target.value }),
 											placeholder: "e.g. The regulation of fluids within the body..."
 										})]
 									})
 								]
 							}, `keypoint-${t}`))
 						] }),
+						/* @__PURE__ */ (0, $.jsxs)(X.Group, { children: [/* @__PURE__ */ (0, $.jsx)(X.Label, { children: "Summary" }), /* @__PURE__ */ (0, $.jsx)(X.Control, {
+							as: "textarea",
+							rows: 4,
+							value: m,
+							onChange: (e) => g(e.target.value),
+							placeholder: "e.g. These concepts form a connected sequence..."
+						})] }),
+						/* @__PURE__ */ (0, $.jsxs)(X.Group, {
+							className: "my-3",
+							children: [/* @__PURE__ */ (0, $.jsx)(X.Label, { children: "Background Color" }), /* @__PURE__ */ (0, $.jsx)(cd, {
+								color: C,
+								setColor: T
+							})]
+						}),
 						/* @__PURE__ */ (0, $.jsxs)("div", { children: [
 							/* @__PURE__ */ (0, $.jsx)("h4", {
 								className: "mb-2",
@@ -7983,27 +7997,20 @@ function ld({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 							/* @__PURE__ */ (0, $.jsxs)(X.Group, {
 								className: "mb-2",
 								children: [/* @__PURE__ */ (0, $.jsx)(X.Label, { children: "Button Text" }), /* @__PURE__ */ (0, $.jsx)(X.Control, {
-									value: f,
-									onChange: (e) => m(e.target.value),
+									value: _,
+									onChange: (e) => b(e.target.value),
 									placeholder: "e.g. Glossary"
 								})]
 							}),
 							/* @__PURE__ */ (0, $.jsxs)(X.Group, {
 								className: "mb-0",
 								children: [/* @__PURE__ */ (0, $.jsx)(X.Label, { children: "Button Link" }), /* @__PURE__ */ (0, $.jsx)(X.Control, {
-									value: g,
-									onChange: (e) => _(e.target.value),
+									value: x,
+									onChange: (e) => S(e.target.value),
 									placeholder: "e.g. https://example.com/glossary"
 								})]
 							})
-						] }),
-						/* @__PURE__ */ (0, $.jsx)("div", {
-							className: "my-3",
-							children: /* @__PURE__ */ (0, $.jsxs)(X.Group, { children: [/* @__PURE__ */ (0, $.jsx)(X.Label, { children: "Background Color" }), /* @__PURE__ */ (0, $.jsx)(cd, {
-								color: b,
-								setColor: x
-							})] })
-						})
+						] })
 					]
 				})
 			})
@@ -8014,22 +8021,23 @@ function ld({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 				/* @__PURE__ */ (0, $.jsx)(E.Spacer, {}),
 				/* @__PURE__ */ (0, $.jsx)(p, {
 					variant: "tertiary",
-					onClick: () => a.notify("cancel", {}),
+					onClick: () => o.notify("cancel", {}),
 					children: "Cancel"
 				}),
 				/* @__PURE__ */ (0, $.jsx)(p, {
 					variant: "primary",
 					onClick: () => {
 						s({
-							saveUrl: o,
+							saveUrl: c,
 							data: {
-								header: c,
-								keypoints: u,
-								button_text: f,
-								button_link: g,
-								background_color: b
+								header: l,
+								keypoints: d,
+								summary: m,
+								button_text: _,
+								button_link: x,
+								background_color: C
 							},
-							runtime: a,
+							runtime: o,
 							errorMessage: "Failed to save keypoint configuration"
 						});
 					},
@@ -8042,7 +8050,7 @@ function ld({ initialHeader: e, initialKeypoints: t, initialButtonText: n, initi
 //#endregion
 //#region src/keypoint-block/studio-ui/style.scss?inline
 var ud = ".wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.xblock-keypoints .keypoint-entry{border:1px solid var(--pgn-color-gray-200);border-radius:var(--pgn-size-border-radius-base);padding:var(--pgn-spacing-spacer-base);background-color:var(--pgn-color-gray-100);margin-bottom:.75rem}", dd = (e, t, n) => {
-	let { header: r, keypoints: i, button_text: a, button_link: s, background_color: c } = n.data;
+	let { header: r, keypoints: i, summary: a, button_text: s, button_link: c, background_color: l } = n.data;
 	o({
 		runtime: e,
 		element: t,
@@ -8051,9 +8059,10 @@ var ud = ".wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xb
 	})(/* @__PURE__ */ (0, $.jsx)(ld, {
 		initialHeader: r || "",
 		initialKeypoints: i || [],
-		initialButtonText: a || "",
-		initialButtonLink: s || "",
-		initialBackgroundColor: c || ""
+		initialSummary: a || "",
+		initialButtonText: s || "",
+		initialButtonLink: c || "",
+		initialBackgroundColor: l || ""
 	}));
 };
 //#endregion

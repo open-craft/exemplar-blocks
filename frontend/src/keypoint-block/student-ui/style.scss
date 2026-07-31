@@ -25,6 +25,13 @@
     line-height: 1.6;
   }
 
+  .keypoints-summary {
+    color: var(--pgn-color-primary-base);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-top: 2rem;
+  }
+
   .keypoint {
     padding: var(--pgn-spacing-alert-padding-y)
       var(--pgn-spacing-alert-padding-x);

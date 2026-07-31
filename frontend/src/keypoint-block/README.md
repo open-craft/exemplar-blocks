@@ -1,10 +1,10 @@
 # Keypoint XBlock
 
-An Open edX Paragon-based UI that renders a list of key terms (label + description pairs) in a two-column grid, with an optional header and action button. Both a **student view** and a fully functional **studio editor** are implemented.
+An Open edX Paragon-based UI that renders a list of key terms (label + description pairs) in a two-column grid, with an optional header, summary paragraph, and action button. Both a **student view** and a fully functional **studio editor** are implemented.
 
 ## Student UI
 
-Displays the configured keypoints in a responsive two-column layout using Paragon's `Row` / `Col` grid. An optional call-to-action button (e.g. linking to a glossary) is shown at the bottom right when both button text and link are provided.
+Displays the configured keypoints in a responsive two-column layout. An optional summary paragraph is shown below the keypoint cards, and an optional call-to-action button (e.g. linking to a glossary) is shown at the bottom right when both button text and link are provided.
 
 ## Studio UI
 
@@ -12,6 +12,7 @@ A form-based editor that lets course authors:
 
 - Set a **Block Header** (displayed above the keypoints).
 - **Add / remove key terms** dynamically — each term has a label and a multi-line description.
+- Add an optional **Summary** paragraph displayed below the keypoint cards.
 - Configure an **Action Button** with custom text and URL.
 
 Changes are persisted via a `studio_save` handler on the XBlock backend.
@@ -27,7 +28,7 @@ Defined in `type.ts`:
 | Type         | Fields                                                                    |
 | ------------ | ------------------------------------------------------------------------- |
 | `KeyPoint`   | `keypoint` (label string), `description` (description string)             |
-| `XBlockData` | `header`, `keypoints` (array of `KeyPoint`), `button_text`, `button_link` |
+| `XBlockData` | `header`, `keypoints` (array of `KeyPoint`), `summary`, `button_text`, `button_link`, `background_color` |
 
 ## Dev Notes
 

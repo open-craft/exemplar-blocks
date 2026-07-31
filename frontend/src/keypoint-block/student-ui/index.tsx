@@ -12,12 +12,19 @@ export const renderBlock = (
   element: Element | null,
   context: { data: XBlockData; config: XBlockConfig },
 ) => {
-  const { header, keypoints, button_text, button_link, background_color } =
-    context.data;
+  const {
+    header,
+    keypoints,
+    summary,
+    button_text,
+    button_link,
+    background_color,
+  } = context.data;
   createXBlockRoot({ runtime, element, config: context.config, styles })(
     <StudentUi
       header={header || ''}
       keypoints={keypoints || []}
+      summary={summary || ''}
       buttonText={button_text || ''}
       buttonLink={button_link || ''}
       backgroundColor={background_color || ''}

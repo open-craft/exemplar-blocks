@@ -9,6 +9,7 @@ export interface KeyPoints {
 
 export interface XBlockData extends KeyPoints {
   header: string;
+  summary: string;
   button_link: string;
   button_text: string;
   background_color: string;

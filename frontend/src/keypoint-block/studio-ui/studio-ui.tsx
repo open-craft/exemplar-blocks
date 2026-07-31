@@ -20,6 +20,7 @@ import {
 interface StudioUiProps {
   initialHeader: string;
   initialKeypoints: KeyPoint[];
+  initialSummary: string;
   initialButtonText: string;
   initialButtonLink: string;
   initialBackgroundColor: string;
@@ -28,6 +29,7 @@ interface StudioUiProps {
 interface SaveData {
   header: string;
   keypoints: KeyPoint[];
+  summary: string;
   button_text: string;
   button_link: string;
   background_color: string;
@@ -36,6 +38,7 @@ interface SaveData {
 export default function StudioUi({
   initialHeader,
   initialKeypoints,
+  initialSummary,
   initialButtonText,
   initialButtonLink,
   initialBackgroundColor,
@@ -45,6 +48,7 @@ export default function StudioUi({
   const [header, setHeader] = React.useState(initialHeader);
   const [keypoints, setKeypoints] =
     React.useState<KeyPoint[]>(initialKeypoints);
+  const [summary, setSummary] = React.useState(initialSummary);
   const [buttonText, setButtonText] = React.useState(initialButtonText);
   const [buttonLink, setButtonLink] = React.useState(initialButtonLink);
   const [backgroundColor, setBackgroundColor] = React.useState(
@@ -69,6 +73,7 @@ export default function StudioUi({
     const data: SaveData = {
       header,
       keypoints,
+      summary,
       button_text: buttonText,
       button_link: buttonLink,
       background_color: backgroundColor,
@@ -155,6 +160,28 @@ export default function StudioUi({
               ))}
             </div>
 
+            {/* Summary */}
+            <Form.Group>
+              <Form.Label>Summary</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={4}
+                value={summary}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                  setSummary(e.target.value)
+                }
+                placeholder="e.g. These concepts form a connected sequence..."
+              />
+            </Form.Group>
+
+            <Form.Group className="my-3">
+              <Form.Label>Background Color</Form.Label>
+              <ColorPicker
+                color={backgroundColor}
+                setColor={setBackgroundColor}
+              />
+            </Form.Group>
+
             {/* Action Button Section */}
             <div>
               <h4 className="mb-2">Action Button</h4>
@@ -176,16 +203,6 @@ export default function StudioUi({
                     setButtonLink(e.target.value)
                   }
                   placeholder="e.g. https://example.com/glossary"
-                />
-              </Form.Group>
-            </div>
-
-            <div className="my-3">
-              <Form.Group>
-                <Form.Label>Background Color</Form.Label>
-                <ColorPicker
-                  color={backgroundColor}
-                  setColor={setBackgroundColor}
                 />
               </Form.Group>
             </div>
