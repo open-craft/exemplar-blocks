@@ -113,7 +113,13 @@ export default function ComplexCard({
           {data.description && <Card.Section>{data.description}</Card.Section>}
           {data.ctaLabel && data.ctaLink && (
             <Card.Section className="d-flex justify-content-end">
-              <Button variant="accent" className="rounded-pill px-6">
+              <Button
+                variant="accent"
+                className="rounded-pill px-6"
+                href={data.ctaLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <strong>{data.ctaLabel}</strong>
               </Button>
             </Card.Section>

@@ -1083,6 +1083,9 @@ function Le({ orientation: e, data: t, position: n }) {
 						children: /* @__PURE__ */ (0, Q.jsx)(c, {
 							variant: "accent",
 							className: "rounded-pill px-6",
+							href: t.ctaLink,
+							target: "_blank",
+							rel: "noopener noreferrer",
 							children: /* @__PURE__ */ (0, Q.jsx)("strong", { children: t.ctaLabel })
 						})
 					}),
