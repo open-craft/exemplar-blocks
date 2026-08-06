@@ -15,7 +15,6 @@ python quality:
     # The tools are already installed with apk
     - export MISE_AUTO_INSTALL=false
     - mise run install:backend
-    - mise run init_sdk
     - mise run quality:backend
     - mise run sync-types
     # If the types were out of sync, there will be a git diff here.
@@ -30,7 +29,6 @@ python test:
     # The tools are already installed with apk
     - export MISE_AUTO_INSTALL=false
     - mise run install:backend
-    - mise run init_sdk
     - mise run test:backend
 
 frontend quality:
