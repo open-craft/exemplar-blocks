@@ -43,6 +43,10 @@ class ContentHighlightData(BaseModel):
     subtitle: str
     description: str
 
+    def searchable_text(self) -> list[str]:
+        """Learner-visible text fragments for search indexing."""
+        return [self.title, self.subtitle, self.description]
+
 
 class RichListItem(BaseModel):
     """
@@ -52,6 +56,10 @@ class RichListItem(BaseModel):
     icon: str
     title: str
     description: str
+
+    def searchable_text(self) -> list[str]:
+        """Learner-visible text fragments; the icon name is not indexed."""
+        return [self.title, self.description]
 
 
 class RichListData(BaseModel):
@@ -63,6 +71,10 @@ class RichListData(BaseModel):
     kind: Literal[CardType.RICH_LIST] = CardType.RICH_LIST
     items: list[RichListItem]
 
+    def searchable_text(self) -> list[str]:
+        """Learner-visible text fragments for search indexing."""
+        return [text for item in self.items for text in item.searchable_text()]
+
 
 class HoverListItem(BaseModel):
     """
@@ -72,6 +84,10 @@ class HoverListItem(BaseModel):
     description: str
     hoverContent: str = ""
     icon: str = ""
+
+    def searchable_text(self) -> list[str]:
+        """Learner-visible text fragments; the icon name is not indexed."""
+        return [self.description, self.hoverContent]
 
 
 class HoverListData(BaseModel):
@@ -83,6 +99,10 @@ class HoverListData(BaseModel):
     kind: Literal[CardType.HOVER_LIST] = CardType.HOVER_LIST
     items: list[HoverListItem]
 
+    def searchable_text(self) -> list[str]:
+        """Learner-visible text fragments for search indexing."""
+        return [text for item in self.items for text in item.searchable_text()]
+
 
 class ImageData(BaseModel):
     """
@@ -92,6 +112,10 @@ class ImageData(BaseModel):
     kind: Literal[CardType.IMAGE] = CardType.IMAGE
     location: str
     altText: str
+
+    def searchable_text(self) -> list[str]:
+        """Learner-visible text fragments; the image URL is not indexed."""
+        return [self.altText]
 
 
 class CardData(BaseModel):
@@ -126,3 +150,15 @@ class CardData(BaseModel):
     secondaryContent: Optional[
         HoverListData | ImageData | RichListData | ContentHighlightData
     ]
+
+    def searchable_text(self) -> list[str]:
+        """
+        Learner-visible text fragments for search indexing.
+
+        The editor-only ``name``, the ``ctaLink`` URL and the ``id`` are
+        deliberately excluded — only text a learner can read is returned.
+        """
+        parts = [self.title, self.subtitle, self.description, self.ctaLabel]
+        if self.secondaryContent:
+            parts.extend(self.secondaryContent.searchable_text())
+        return [part for part in parts if part]

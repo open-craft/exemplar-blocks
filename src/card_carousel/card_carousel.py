@@ -21,11 +21,13 @@ from exemplar_common.card_types import (
     ContentHighlightData,
     Orientation,
 )
+from exemplar_common.utils import strip_html_for_search
 from .types import InitData
 
 
 logger = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
+
 
 DEFAULT_CARD = CardData(
     id=1,
@@ -193,6 +195,42 @@ class CardCarouselXBlock(XBlock):
         self.background_color = carousel.backgroundColor
         logger.info("Successfully saved Card Carousel data.")
         return {"result": "success"}
+
+    def index_dictionary(self):
+        """
+        Return dictionary prepared with block content and type for indexing.
+        """
+        xblock_body = super().index_dictionary()
+        parts = []
+        for card in self.cards or []:
+            # Parsing through CardData applies the same normalisation and
+            # data migration as the render paths, so the index can never
+            # disagree with what learners see on the page.
+            try:
+                card_data = CardData(**card)
+            except (ValidationError, TypeError):
+                logger.warning(
+                    "Skipping malformed card while indexing block %s",
+                    self.scope_ids.usage_id,
+                )
+                continue
+            # Strip each fragment separately so stray markup in one field
+            # cannot affect the fields that follow it.
+            parts.extend(
+                text
+                for text in map(strip_html_for_search, card_data.searchable_text())
+                if text
+            )
+        index_body = {
+            "display_name": self.display_name,
+            "card_carousel_content": " ".join(parts),
+        }
+        if "content" in xblock_body:
+            xblock_body["content"].update(index_body)
+        else:
+            xblock_body["content"] = index_body
+        xblock_body["content_type"] = "Card Carousel"
+        return xblock_body
 
     @staticmethod
     def workbench_scenarios():
