@@ -1,8 +1,33 @@
 import json
+import re
 from typing import Any
 from xml.sax.saxutils import quoteattr
 
 import nh3
+
+# Applied in order: comments and CDATA sections first, script/style elements
+# with their contents, then any remaining well-formed tags.
+_HTML_STRIP_PATTERNS = (
+    re.compile(r"<!--.*?-->", re.DOTALL),
+    re.compile(r"<!\[CDATA\[.*?\]\]>", re.DOTALL),
+    re.compile(r"<(script|style)\b[^>]*>.*?</\1\s*>", re.DOTALL | re.IGNORECASE),
+    re.compile(r"<[^>]*>"),
+)
+
+
+def strip_html_for_search(text: str | None) -> str:
+    """
+    Reduce HTML to plain text suitable for search indexing.
+
+    Use this for text going into a search index.
+
+    Tags are removed, script/style contents are dropped, and whitespace is
+    collapsed.
+    """
+    text = text or ""
+    for pattern in _HTML_STRIP_PATTERNS:
+        text = pattern.sub(" ", text)
+    return " ".join(text.replace("&nbsp;", " ").split())
 
 
 def sanitise_simple_html(value: str) -> str:
@@ -10,6 +35,9 @@ def sanitise_simple_html(value: str) -> str:
     Sanitise html for text content where we want to allow some simple styling (eg. colours, headings, bold/italics),
     but nothing that would mess up the designs or layouts.
     docs for nh3: https://nh3.readthedocs.io/en/latest/#nh3.clean
+
+    Use this for text that will be rendered as HTML; use
+    ``strip_html_for_search`` instead for text going into a search index.
     """
     cleaner = nh3.Cleaner(
         tags={"h1", "h2", "h3", "h4", "h5", "p", "strong", "em", "span"},
