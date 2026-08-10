@@ -84,7 +84,7 @@ dir = "./xblock-sdk"
 
 [tasks."test:backend:unit"]
 description = "Run Python unit tests"
-env = { DJANGO_SETTINGS_MODULE = "test_settings" }
+env = { DJANGO_SETTINGS_MODULE = "ci_settings" }
 run = ["uv run pytest --cov=src src", "uv run coverage html"]
 
 [tasks."test:backend"]
