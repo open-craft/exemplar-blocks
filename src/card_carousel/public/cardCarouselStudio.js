@@ -9677,54 +9677,56 @@ var H_ = {
 	HOVER_LIST: P_
 };
 function U_({ cardIndex: e }) {
-	let { values: t, handleChange: n, handleBlur: r, setFieldValue: i } = Ah(), [a, o] = (0, j.useState)(!1), s = t.cards[e], c = `cards[${e}]`, l = s.secondaryContent?.kind ? H_[s.secondaryContent.kind] : null;
-	return /* @__PURE__ */ (0, R.jsxs)("div", {
+	let { values: t, handleChange: n, handleBlur: r, setFieldValue: i } = Ah(), a = t.cards[e], o = `cards[${e}]`, s = !!(a?.ctaLink && a?.ctaLabel), [c, l] = (0, j.useState)(s), u = a.secondaryContent?.kind ? H_[a.secondaryContent.kind] : null;
+	return (0, j.useEffect)(() => {
+		l(s);
+	}, [s]), /* @__PURE__ */ (0, R.jsxs)("div", {
 		className: "row mt-5",
 		children: [/* @__PURE__ */ (0, R.jsxs)("div", {
 			className: "col border-right",
 			children: [
 				/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Title" }), /* @__PURE__ */ (0, R.jsx)(L.Control, {
-					name: `${c}.title`,
-					value: s.title,
+					name: `${o}.title`,
+					value: a.title,
 					onChange: n,
 					onBlur: r
 				})] }),
 				/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Subtitle" }), /* @__PURE__ */ (0, R.jsx)(L.Control, {
-					name: `${c}.subtitle`,
-					value: s.subtitle,
+					name: `${o}.subtitle`,
+					value: a.subtitle,
 					onChange: n,
 					onBlur: r
 				})] }),
-				s.secondaryContent?.kind !== "HOVER_LIST" && /* @__PURE__ */ (0, R.jsxs)(R.Fragment, { children: [
+				a.secondaryContent?.kind !== "HOVER_LIST" && /* @__PURE__ */ (0, R.jsxs)(R.Fragment, { children: [
 					/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Body Content" }), /* @__PURE__ */ (0, R.jsx)(L.Control, {
 						as: "textarea",
 						autoResize: !0,
-						name: `${c}.description`,
-						value: s?.description ?? "",
+						name: `${o}.description`,
+						value: a?.description ?? "",
 						onChange: n,
 						onBlur: r
 					})] }),
 					/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [/* @__PURE__ */ (0, R.jsx)(L.Checkbox, {
-						checked: a,
+						checked: c,
 						onChange: (e) => {
-							o(e.currentTarget.checked), e.currentTarget.checked || (i(`${c}.ctaLabel`, ""), i(`${c}.ctaLink`, ""));
+							l(e.currentTarget.checked), e.currentTarget.checked || (i(`${o}.ctaLabel`, ""), i(`${o}.ctaLink`, ""));
 						},
 						children: "Add a button"
 					}), /* @__PURE__ */ (0, R.jsx)(L.Text, { children: "Link to another page or resource" })] }),
-					a && /* @__PURE__ */ (0, R.jsxs)(R.Fragment, { children: [/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Button Label" }), /* @__PURE__ */ (0, R.jsx)(L.Control, {
-						name: `${c}.ctaLabel`,
-						value: s?.ctaLabel ?? "",
+					c && /* @__PURE__ */ (0, R.jsxs)(R.Fragment, { children: [/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Button Label" }), /* @__PURE__ */ (0, R.jsx)(L.Control, {
+						name: `${o}.ctaLabel`,
+						value: a?.ctaLabel ?? "",
 						onChange: n
 					})] }), /* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Button Link" }), /* @__PURE__ */ (0, R.jsx)(L.Control, {
-						name: `${c}.ctaLink`,
-						value: s?.ctaLink ?? "",
+						name: `${o}.ctaLink`,
+						value: a?.ctaLink ?? "",
 						onChange: n
 					})] })] })
 				] })
 			]
 		}), /* @__PURE__ */ (0, R.jsx)("div", {
 			className: "col",
-			children: l && /* @__PURE__ */ (0, R.jsx)(l, { cardIndex: e })
+			children: u && /* @__PURE__ */ (0, R.jsx)(u, { cardIndex: e })
 		})]
 	});
 }

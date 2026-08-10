@@ -1,4 +1,4 @@
-import { useState, type FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import Form from '@openedx/paragon/dist/Form';
 import { useFormikContext } from 'formik';
 import type {
@@ -55,12 +55,16 @@ const SecondaryForm: Record<CardType, FC<{ cardIndex: number }>> = {
 function SecondaryContentForm({ cardIndex }: { cardIndex: number }) {
   const { values, handleChange, handleBlur, setFieldValue } =
     useFormikContext<FormDataPartial>();
-  const [showButton, setShowButton] = useState(false);
   const card = values.cards[cardIndex];
   const prefix = `cards[${cardIndex}]`;
+  const showCTAButton = Boolean(card?.ctaLink && card?.ctaLabel);
+  const [showButton, setShowButton] = useState(showCTAButton);
   const ActiveForm = card.secondaryContent?.kind
     ? SecondaryForm[card.secondaryContent.kind]
     : null;
+  useEffect(() => {
+    setShowButton(showCTAButton);
+  }, [showCTAButton]);
 
   return (
     <div className="row mt-5">
