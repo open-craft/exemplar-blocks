@@ -5,13 +5,16 @@
  **/
 import type { CardData, Orientation } from '../common/types';
 
+export interface CarouselCardData extends CardData {
+  orientation: Orientation;
+}
+
 /**
  * Model that defines the complete data that's passed to the frontend.
  */
 export interface InitData {
-  cards: CardData[];
+  cards: CarouselCardData[];
   displayName: string;
-  orientation: Orientation;
   disableNumbering?: boolean;
   backgroundColor?: string;
 }

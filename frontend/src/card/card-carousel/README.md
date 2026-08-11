@@ -1,6 +1,6 @@
 # Card Carousel XBlock
 
-An Open edX Paragon based UI that renders a horizontally scrollable carousel of content cards. Built on top of Paragon's `CardCarousel`, it supports four distinct card types and adapts layout based on orientation.
+An Open edX Paragon based UI that renders a horizontally scrollable carousel of content cards. Built on top of Paragon's `CardCarousel`, it supports four distinct card types and adapts each card's layout based on that card's orientation.
 
 ## Card Types
 
@@ -13,8 +13,10 @@ An Open edX Paragon based UI that renders a horizontally scrollable carousel of 
 
 ## Layouts
 
-- `HORIZONTAL` — primary content and secondary content sit side-by-side. The carousel column width is wider to accommodate the layout.
-- `VERTICAL` — primary content stacks above secondary content. The carousel uses narrower columns.
+- `HORIZONTAL` — primary content and secondary content sit side-by-side.
+- `VERTICAL` — primary content stacks above secondary content.
+
+Each card chooses its own orientation. The carousel uses the wider horizontal column width if any card is horizontal; otherwise it uses the narrower vertical column width.
 
 ## Data Models
 

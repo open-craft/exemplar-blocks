@@ -16,22 +16,21 @@ from xblock.utils.resources import ResourceLoader
 
 from exemplar_common.xblock_config import get_xblock_config, XBlockView
 from exemplar_common.card_types import (
-    CardData,
     CardType,
     ContentHighlightData,
     Orientation,
 )
 from exemplar_common.utils import strip_html_for_search
-from .types import InitData
+from .types import CarouselCardData, InitData
 
 
 logger = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
 
-
-DEFAULT_CARD = CardData(
+DEFAULT_CARD = CarouselCardData(
     id=1,
     name="Placeholder Card",
+    orientation=Orientation.HORIZONTAL,
     title="Carousel Card",
     subtitle=(
         "Use the 'Edit' button to change the contents of this card and add more "
@@ -66,15 +65,6 @@ class CardCarouselXBlock(XBlock):
     has_author_view = True
 
     display_name = String(default="Card Carousel")
-    orientation = String(
-        display_name="Orientation of the Card Content",
-        help="Horizontal for side-by-side content, Vertical for top and bottom content.",
-        default=Orientation.HORIZONTAL,
-        values=[
-            {"display_name": "Horizontal", "value": "HORIZONTAL"},
-            {"display_name": "Vertical", "value": "VERTICAL"},
-        ],
-    )
     cards = List(
         help="List of Cards", default=[DEFAULT_CARD.model_dump()], scope=Scope.content
     )
@@ -112,11 +102,7 @@ class CardCarouselXBlock(XBlock):
                     self, "public/cardCarouselStudent.js"
                 ),
                 "data": {
-                    "orientation": self.orientation,
-                    # Data model was changed between versions 0.6 and 0.7.
-                    # The parsing and dumping of card data here ensures any old data
-                    # is migrated to the new format.
-                    "cards": [CardData(**c).model_dump() for c in self.cards],
+                    "cards": [CarouselCardData(**c).model_dump() for c in self.cards],
                     "displayName": self.display_name,
                     "disableNumbering": self.disable_numbering,
                     "backgroundColor": self.background_color,
@@ -160,11 +146,7 @@ class CardCarouselXBlock(XBlock):
                     self, "public/cardCarouselStudio.js"
                 ),
                 "data": {
-                    "orientation": self.orientation,
-                    # Data model was changed between versions 0.6 and 0.7.
-                    # The parsing and dumping of card data here ensures any old data
-                    # is migrated to the new format.
-                    "cards": [CardData(**c).model_dump() for c in self.cards],
+                    "cards": [CarouselCardData(**c).model_dump() for c in self.cards],
                     "displayName": self.display_name,
                     "disableNumbering": self.disable_numbering,
                     "backgroundColor": self.background_color,
@@ -189,7 +171,6 @@ class CardCarouselXBlock(XBlock):
             raise JsonHandlerError(400, message)
 
         self.display_name = carousel.displayName
-        self.orientation = carousel.orientation
         self.cards = [c.model_dump() for c in carousel.cards]
         self.disable_numbering = carousel.disableNumbering
         self.background_color = carousel.backgroundColor
@@ -242,20 +223,20 @@ class CardCarouselXBlock(XBlock):
             ),
             (
                 "CardCarouselXblock (Vertical Cards - Content Highlight only)",
-                f"""<card_carousel display_name="CardCarousel (Vertical)" cards='{vertical_cards}' orientation="VERTICAL" disable_numbering="true" />
+                f"""<card_carousel display_name="CardCarousel (Vertical)" cards='{vertical_cards}' disable_numbering="true" />
                 """,
             ),
             (
                 "CardCarouselXblock (Vertical - All cards)",
-                f"""<card_carousel display_name="CardCarousel (Vertical)" cards='{demo_cards}' orientation="VERTICAL" />
+                f"""<card_carousel display_name="CardCarousel (Vertical)" cards='{vertical_cards}' />
                 """,
             ),
             (
                 "Multiple CardCarouselXBlock",
                 f"""<vertical_demo>
                 <card_carousel display_name="CardCarousel (Default)" cards='{demo_cards}' />
-                <card_carousel display_name="CardCarousel (Vertical)" cards='{vertical_cards}' orientation="VERTICAL" />
-                <card_carousel display_name="CardCarousel (Horizontal)" cards='{demo_cards}' orientation="HORIZONTAL" />
+                <card_carousel display_name="CardCarousel (Vertical)" cards='{vertical_cards}' />
+                <card_carousel display_name="CardCarousel (Horizontal)" cards='{demo_cards}' />
                 </vertical_demo>
                 """,
             ),

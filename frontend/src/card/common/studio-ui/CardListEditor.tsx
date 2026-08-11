@@ -61,7 +61,13 @@ function CardItem({
   );
 }
 
-export default function CardListEditor() {
+interface CardListEditorProps {
+  enableCardOrientation?: boolean;
+}
+
+export default function CardListEditor({
+  enableCardOrientation = false,
+}: CardListEditorProps) {
   const { values, setFieldValue } = useFormikContext<FormDataPartial>();
   const [activeCard, setActiveCard] = useState(0);
 
@@ -77,7 +83,14 @@ export default function CardListEditor() {
                 variant="primary"
                 iconBefore={AddIcon}
                 onClick={() => {
-                  push(newCard(values.cards));
+                  push(
+                    newCard(
+                      values.cards,
+                      enableCardOrientation
+                        ? { orientation: 'HORIZONTAL' as const }
+                        : {},
+                    ),
+                  );
                   setActiveCard(values.cards.length);
                 }}
               >
@@ -104,7 +117,12 @@ export default function CardListEditor() {
               </div>
             </div>
             <div className="col-9 p-4">
-              {values.cards.length > 0 && <CardEditor cardIndex={activeCard} />}
+              {values.cards.length > 0 && (
+                <CardEditor
+                  cardIndex={activeCard}
+                  enableOrientation={enableCardOrientation}
+                />
+              )}
             </div>
           </div>
         )}

@@ -1097,20 +1097,20 @@ function Le({ orientation: e, data: t, position: n }) {
 }
 //#endregion
 //#region src/card/card-carousel/student-ui/StudentUI.tsx
-function Re({ initData: { cards: e, displayName: t, orientation: n, disableNumbering: r, backgroundColor: i } }) {
-	let a = {
+function Re({ initData: { cards: e, displayName: t, disableNumbering: n, backgroundColor: r } }) {
+	let i = {
 		sm: 12,
 		md: 8,
 		lg: 6,
 		xl: 6
-	}, o = {
+	}, a = {
 		sm: 12,
 		md: 10,
 		lg: 10,
 		xl: 11
-	}, s = { sm: 12 };
-	return e.length > 1 && (s = n === "HORIZONTAL" ? o : a), /* @__PURE__ */ (0, Q.jsx)("div", {
-		style: { backgroundColor: i },
+	}, o = { sm: 12 };
+	return e.length > 1 && (o = e.some((e) => e.orientation === "HORIZONTAL") ? a : i), /* @__PURE__ */ (0, Q.jsx)("div", {
+		style: { backgroundColor: r },
 		className: "card-carousel-xblock py-6",
 		children: /* @__PURE__ */ (0, Q.jsx)("div", {
 			style: {
@@ -1122,12 +1122,12 @@ function Re({ initData: { cards: e, displayName: t, orientation: n, disableNumbe
 				title: t ? /* @__PURE__ */ (0, Q.jsx)("h3", { children: t }) : "",
 				canScrollHorizontal: !0,
 				disableOpacityMasks: !0,
-				columnSizes: s,
-				children: e.map((t, i) => /* @__PURE__ */ (0, Q.jsx)(Le, {
-					orientation: n,
+				columnSizes: o,
+				children: e.map((t, r) => /* @__PURE__ */ (0, Q.jsx)(Le, {
+					orientation: t.orientation,
 					data: t,
-					position: r ? "" : `${i + 1} / ${e.length}`
-				}, i))
+					position: n ? "" : `${r + 1} / ${e.length}`
+				}, r))
 			})
 		})
 	});

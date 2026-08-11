@@ -1,6 +1,9 @@
 import { type CardData } from './types';
 
-export function newCard(cards: Array<CardData> = []): CardData {
+export function newCard<T extends object = Record<string, never>>(
+  cards: Array<CardData> = [],
+  overrides?: T,
+): CardData & T {
   const newId = cards.length ? Math.max(...cards.map((c) => c.id)) + 1 : 1;
   return {
     id: newId,
@@ -8,5 +11,6 @@ export function newCard(cards: Array<CardData> = []): CardData {
     title: '',
     subtitle: '',
     secondaryContent: null,
-  };
+    ...overrides,
+  } as CardData & T;
 }

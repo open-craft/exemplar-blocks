@@ -9,20 +9,19 @@ interface StudentUIProps {
 }
 
 function StudentUI({
-  initData: {
-    cards,
-    displayName,
-    orientation,
-    disableNumbering,
-    backgroundColor,
-  },
+  initData: { cards, displayName, disableNumbering, backgroundColor },
 }: StudentUIProps) {
   const verticalCardSizes = { sm: 12, md: 8, lg: 6, xl: 6 };
   const horizontalCardSizes = { sm: 12, md: 10, lg: 10, xl: 11 };
   let columnSizes: Record<string, number> = { sm: 12 };
   if (cards.length > 1) {
-    columnSizes =
-      orientation === 'HORIZONTAL' ? horizontalCardSizes : verticalCardSizes;
+    // We need a columnSizes for CardCarousel
+    // Hence, if we have a single horizontal card we set the carouse to be horizontal.
+    // So that design looks presentable
+    const hasHorizontalCard = cards.some(
+      (card) => card.orientation === 'HORIZONTAL',
+    );
+    columnSizes = hasHorizontalCard ? horizontalCardSizes : verticalCardSizes;
   }
 
   return (
@@ -40,7 +39,7 @@ function StudentUI({
         >
           {cards.map((c, i) => (
             <ComplexCard
-              orientation={orientation}
+              orientation={c.orientation}
               data={c}
               position={disableNumbering ? '' : `${i + 1} / ${cards.length}`}
               key={i}

@@ -10,7 +10,6 @@ const mockRuntime: XBlockRuntime = { handlerUrl: vi.fn(), notify: vi.fn() };
 const defaultInitData: InitData = {
   cards: [],
   displayName: 'Carousel Editor',
-  orientation: 'HORIZONTAL',
 };
 
 beforeEach(() => {

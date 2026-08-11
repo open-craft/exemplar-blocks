@@ -14,12 +14,12 @@ const mockRuntime: XBlockRuntime = {
 
 const initData: InitData = {
   displayName: "What's Expected of You",
-  orientation: 'HORIZONTAL',
   backgroundColor: '#EEE',
   cards: [
     {
       id: 1,
       name: 'Card #1',
+      orientation: 'HORIZONTAL',
       title: 'Build Employability Skills',
       description:
         "When assessing a patient's condition, providers must identify and apply their knowledge based on assessment findings. To perform their role, providers must develop specific skills. This section helps you begin building the skills that employers seek when hiring or promoting healthcare professionals.",
@@ -50,6 +50,7 @@ const initData: InitData = {
     {
       id: 2,
       name: 'Card #2',
+      orientation: 'HORIZONTAL',
       title: 'Develop Competence',
       description:
         'In this course, you can demonstrate these skills by passing a final assessment that measures whether you have mastered the following competency.',
@@ -64,6 +65,7 @@ const initData: InitData = {
     {
       id: 3,
       name: 'Card #3',
+      orientation: 'HORIZONTAL',
       title: 'Prepare for the Assessment',
       subtitle:
         'There are six evidence statements for this competency, hover over each to turn them into questions.',
@@ -114,6 +116,7 @@ const initData: InitData = {
     {
       id: 4,
       name: 'Card #4',
+      orientation: 'HORIZONTAL',
       title: 'Up Next',
       subtitle: '4.1 Cardiovascular Systems Pathophysiology',
       description:

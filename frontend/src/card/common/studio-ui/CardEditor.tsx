@@ -1,5 +1,7 @@
 import { useEffect, useState, type FC } from 'react';
+import Button from '@openedx/paragon/dist/Button';
 import Form from '@openedx/paragon/dist/Form';
+import Stack from '@openedx/paragon/dist/Stack';
 import { useFormikContext } from 'formik';
 import type {
   CardData,
@@ -8,6 +10,7 @@ import type {
   FormDataPartial,
   HoverListData,
   ImageData,
+  Orientation,
   RichListData,
 } from '@/card/common/types';
 import HoverListItemForm from './secondary-content/HoverListItemForm';
@@ -17,6 +20,7 @@ import ContentHighlightForm from './secondary-content/ContentHiglightForm';
 
 interface CardEditorProps {
   cardIndex: number;
+  enableOrientation?: boolean;
 }
 
 function blankContent(ct: CardType): CardData['secondaryContent'] {
@@ -145,11 +149,16 @@ function SecondaryContentForm({ cardIndex }: { cardIndex: number }) {
   );
 }
 
-export default function CardEditor({ cardIndex }: CardEditorProps) {
+export default function CardEditor({
+  cardIndex,
+  enableOrientation = false,
+}: CardEditorProps) {
   const { values, setFieldValue, handleChange, handleBlur } =
     useFormikContext<FormDataPartial>();
   const card = values.cards[cardIndex];
   const prefix = `cards[${cardIndex}]`;
+  const cardOrientation = (card as CardData & { orientation?: Orientation })
+    .orientation;
 
   const handleCardTypeChange = (e: React.InputEvent<HTMLInputElement>) => {
     setFieldValue(`${prefix}.cardType`, e.currentTarget.value);
@@ -171,6 +180,52 @@ export default function CardEditor({ cardIndex }: CardEditorProps) {
           onBlur={handleBlur}
         />
       </Form.Group>
+      {enableOrientation && (
+        <Form.Group>
+          <Form.Label>Card Layout</Form.Label>
+          <Form.Text>
+            Choose whether this card uses a vertical or horizontal layout.
+          </Form.Text>
+          <Stack direction="horizontal" gap={4}>
+            <Button
+              className="flex flex-column mt-4 p-4"
+              variant={
+                cardOrientation === 'VERTICAL'
+                  ? 'outline-success'
+                  : 'outline-secondary'
+              }
+              onClick={() => setFieldValue(`${prefix}.orientation`, 'VERTICAL')}
+            >
+              <p>
+                <span className="material-icons-outlined">splitscreen</span>
+              </p>
+              <p className="mt-0">
+                <strong>Vertical Card</strong>
+              </p>
+              <p className="small">Content sits above and below</p>
+            </Button>
+            <Button
+              className="flex flex-column mt-4 p-4"
+              variant={
+                cardOrientation === 'HORIZONTAL'
+                  ? 'outline-success'
+                  : 'outline-secondary'
+              }
+              onClick={() =>
+                setFieldValue(`${prefix}.orientation`, 'HORIZONTAL')
+              }
+            >
+              <p>
+                <span className="material-icons-outlined">vertical_split</span>
+              </p>
+              <p className="mt-0">
+                <strong>Horizontal Card</strong>
+              </p>
+              <p className="small">Content sits side-by-side</p>
+            </Button>
+          </Stack>
+        </Form.Group>
+      )}
       <Form.Group>
         <Form.Label>Supporting Content</Form.Label>
         <Form.Control

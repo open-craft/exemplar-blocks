@@ -12,8 +12,7 @@ const mockRuntime: XBlockRuntime = {
 };
 const initData: InitData = {
   displayName: 'Demo Carousel',
-  orientation: 'HORIZONTAL',
-  cards: [newCard()],
+  cards: [newCard([], { orientation: 'HORIZONTAL' })],
   backgroundColor: '#ccc',
 };
 

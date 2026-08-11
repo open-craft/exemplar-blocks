@@ -8300,51 +8300,6 @@ function ug() {
 					onChange: n
 				})
 			] }),
-			/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [
-				/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Card Layout" }),
-				/* @__PURE__ */ (0, R.jsx)(L.Text, { children: "Choose whether cards in this carousel use a vertical or horizontal layout. You'll add and edit the cards in the next step." }),
-				/* @__PURE__ */ (0, R.jsxs)(_e, {
-					direction: "horizontal",
-					gap: 4,
-					children: [/* @__PURE__ */ (0, R.jsxs)(D, {
-						className: "flex flex-column mt-4 p-4",
-						variant: e.orientation === "VERTICAL" ? "outline-success" : "outline-secondary",
-						onClick: () => t("orientation", "VERTICAL"),
-						children: [
-							/* @__PURE__ */ (0, R.jsx)("p", { children: /* @__PURE__ */ (0, R.jsx)("span", {
-								className: "material-icons-outlined",
-								children: "splitscreen"
-							}) }),
-							/* @__PURE__ */ (0, R.jsx)("p", {
-								className: "mt-0",
-								children: /* @__PURE__ */ (0, R.jsx)("strong", { children: "Vertical Cards" })
-							}),
-							/* @__PURE__ */ (0, R.jsx)("p", {
-								className: "small",
-								children: "Content sits above and below"
-							})
-						]
-					}), /* @__PURE__ */ (0, R.jsxs)(D, {
-						className: "flex flex-column mt-4 p-4",
-						variant: e.orientation === "HORIZONTAL" ? "outline-success" : "outline-secondary",
-						onClick: () => t("orientation", "HORIZONTAL"),
-						children: [
-							/* @__PURE__ */ (0, R.jsx)("p", { children: /* @__PURE__ */ (0, R.jsx)("span", {
-								className: "material-icons-outlined",
-								children: "vertical_split"
-							}) }),
-							/* @__PURE__ */ (0, R.jsx)("p", {
-								className: "mt-0",
-								children: /* @__PURE__ */ (0, R.jsx)("strong", { children: "Horizontal Cards" })
-							}),
-							/* @__PURE__ */ (0, R.jsx)("p", {
-								className: "small",
-								children: "Content sits side-by-side"
-							})
-						]
-					})]
-				})
-			] }),
 			/* @__PURE__ */ (0, R.jsxs)(L.Group, {
 				className: "my-3",
 				children: [/* @__PURE__ */ (0, R.jsx)(L.Checkbox, {
@@ -9730,8 +9685,8 @@ function U_({ cardIndex: e }) {
 		})]
 	});
 }
-function W_({ cardIndex: e }) {
-	let { values: t, setFieldValue: n, handleChange: r, handleBlur: i } = Ah(), a = t.cards[e], o = `cards[${e}]`;
+function W_({ cardIndex: e, enableOrientation: t = !1 }) {
+	let { values: n, setFieldValue: r, handleChange: i, handleBlur: a } = Ah(), o = n.cards[e], s = `cards[${e}]`, c = o.orientation;
 	return /* @__PURE__ */ (0, R.jsxs)("div", { children: [
 		/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [
 			/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Card Name" }),
@@ -9740,20 +9695,65 @@ function W_({ cardIndex: e }) {
 				children: "Name of the card in Studio"
 			}),
 			/* @__PURE__ */ (0, R.jsx)(L.Control, {
-				name: `${o}.name`,
-				value: a.name,
-				onChange: r,
-				onBlur: i
+				name: `${s}.name`,
+				value: o.name,
+				onChange: i,
+				onBlur: a
+			})
+		] }),
+		t && /* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [
+			/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Card Layout" }),
+			/* @__PURE__ */ (0, R.jsx)(L.Text, { children: "Choose whether this card uses a vertical or horizontal layout." }),
+			/* @__PURE__ */ (0, R.jsxs)(_e, {
+				direction: "horizontal",
+				gap: 4,
+				children: [/* @__PURE__ */ (0, R.jsxs)(D, {
+					className: "flex flex-column mt-4 p-4",
+					variant: c === "VERTICAL" ? "outline-success" : "outline-secondary",
+					onClick: () => r(`${s}.orientation`, "VERTICAL"),
+					children: [
+						/* @__PURE__ */ (0, R.jsx)("p", { children: /* @__PURE__ */ (0, R.jsx)("span", {
+							className: "material-icons-outlined",
+							children: "splitscreen"
+						}) }),
+						/* @__PURE__ */ (0, R.jsx)("p", {
+							className: "mt-0",
+							children: /* @__PURE__ */ (0, R.jsx)("strong", { children: "Vertical Card" })
+						}),
+						/* @__PURE__ */ (0, R.jsx)("p", {
+							className: "small",
+							children: "Content sits above and below"
+						})
+					]
+				}), /* @__PURE__ */ (0, R.jsxs)(D, {
+					className: "flex flex-column mt-4 p-4",
+					variant: c === "HORIZONTAL" ? "outline-success" : "outline-secondary",
+					onClick: () => r(`${s}.orientation`, "HORIZONTAL"),
+					children: [
+						/* @__PURE__ */ (0, R.jsx)("p", { children: /* @__PURE__ */ (0, R.jsx)("span", {
+							className: "material-icons-outlined",
+							children: "vertical_split"
+						}) }),
+						/* @__PURE__ */ (0, R.jsx)("p", {
+							className: "mt-0",
+							children: /* @__PURE__ */ (0, R.jsx)("strong", { children: "Horizontal Card" })
+						}),
+						/* @__PURE__ */ (0, R.jsx)("p", {
+							className: "small",
+							children: "Content sits side-by-side"
+						})
+					]
+				})]
 			})
 		] }),
 		/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Supporting Content" }), /* @__PURE__ */ (0, R.jsxs)(L.Control, {
 			as: "select",
-			name: `${o}.cardType`,
-			value: a.secondaryContent?.kind ?? "UNKNOWN",
+			name: `${s}.cardType`,
+			value: o.secondaryContent?.kind ?? "UNKNOWN",
 			onChange: (e) => {
-				n(`${o}.cardType`, e.currentTarget.value), n(`${o}.secondaryContent`, V_(e.currentTarget.value));
+				r(`${s}.cardType`, e.currentTarget.value), r(`${s}.secondaryContent`, V_(e.currentTarget.value));
 			},
-			onBlur: i,
+			onBlur: a,
 			children: [
 				/* @__PURE__ */ (0, R.jsx)("option", {
 					value: "UNKNOWN",
@@ -9777,7 +9777,7 @@ function W_({ cardIndex: e }) {
 				})
 			]
 		})] }),
-		a.secondaryContent?.kind && /* @__PURE__ */ (0, R.jsx)(U_, { cardIndex: e })
+		o.secondaryContent?.kind && /* @__PURE__ */ (0, R.jsx)(U_, { cardIndex: e })
 	] });
 }
 //#endregion
@@ -14039,14 +14039,15 @@ function Vk(e, t) {
 }
 //#endregion
 //#region src/card/common/utils.ts
-function Hk(e = []) {
-	let t = e.length ? Math.max(...e.map((e) => e.id)) + 1 : 1;
+function Hk(e = [], t) {
+	let n = e.length ? Math.max(...e.map((e) => e.id)) + 1 : 1;
 	return {
-		id: t,
-		name: `Card #${t}`,
+		id: n,
+		name: `Card #${n}`,
 		title: "",
 		subtitle: "",
-		secondaryContent: null
+		secondaryContent: null,
+		...t
 	};
 }
 //#endregion
@@ -14079,13 +14080,13 @@ function Uk({ id: e, cardName: t, index: n, active: r, canDelete: i, onSelect: a
 		})]
 	});
 }
-function Wk() {
-	let { values: e, setFieldValue: t } = Ah(), [n, r] = (0, j.useState)(0);
+function Wk({ enableCardOrientation: e = !1 }) {
+	let { values: t, setFieldValue: n } = Ah(), [r, i] = (0, j.useState)(0);
 	return /* @__PURE__ */ (0, R.jsx)(UO, {
-		onDragOver: (n) => t("cards", Vk(e.cards, n)),
+		onDragOver: (e) => n("cards", Vk(t.cards, e)),
 		children: /* @__PURE__ */ (0, R.jsx)(lg, {
 			name: "cards",
-			children: ({ push: t, remove: i }) => /* @__PURE__ */ (0, R.jsxs)("div", {
+			children: ({ push: n, remove: a }) => /* @__PURE__ */ (0, R.jsxs)("div", {
 				className: "row m-0 carousel-editor",
 				children: [/* @__PURE__ */ (0, R.jsxs)("div", {
 					className: "col-3 p-2 border-right",
@@ -14093,26 +14094,29 @@ function Wk() {
 						variant: "primary",
 						iconBefore: Ln,
 						onClick: () => {
-							t(Hk(e.cards)), r(e.cards.length);
+							n(Hk(t.cards, e ? { orientation: "HORIZONTAL" } : {})), i(t.cards.length);
 						},
 						children: "Add Card"
 					}), /* @__PURE__ */ (0, R.jsx)("div", {
 						className: "mt-4",
-						children: e.cards.map((t, a) => /* @__PURE__ */ (0, R.jsx)(Uk, {
-							id: t.id,
-							cardName: t.name || `Card #${t.id}`,
-							index: a,
-							active: n === a,
-							canDelete: e.cards.length > 1,
-							onSelect: () => r(a),
+						children: t.cards.map((e, n) => /* @__PURE__ */ (0, R.jsx)(Uk, {
+							id: e.id,
+							cardName: e.name || `Card #${e.id}`,
+							index: n,
+							active: r === n,
+							canDelete: t.cards.length > 1,
+							onSelect: () => i(n),
 							onDelete: () => {
-								i(a), r((t) => Math.min(t, e.cards.length - 2));
+								a(n), i((e) => Math.min(e, t.cards.length - 2));
 							}
-						}, t.id))
+						}, e.id))
 					})]
 				}), /* @__PURE__ */ (0, R.jsx)("div", {
 					className: "col-9 p-4",
-					children: e.cards.length > 0 && /* @__PURE__ */ (0, R.jsx)(W_, { cardIndex: n })
+					children: t.cards.length > 0 && /* @__PURE__ */ (0, R.jsx)(W_, {
+						cardIndex: r,
+						enableOrientation: e
+					})
 				})]
 			})
 		})
@@ -14164,7 +14168,7 @@ function Kk({ runtime: e, saveUrl: t, initData: n }) {
 		},
 		children: /* @__PURE__ */ (0, R.jsx)(eg, { children: /* @__PURE__ */ (0, R.jsxs)("div", {
 			className: "studio-ui d-flex flex-column justify-content-between",
-			children: [r ? /* @__PURE__ */ (0, R.jsx)(Wk, {}) : /* @__PURE__ */ (0, R.jsx)(ug, {}), /* @__PURE__ */ (0, R.jsx)(Gk, {
+			children: [r ? /* @__PURE__ */ (0, R.jsx)(Wk, { enableCardOrientation: !0 }) : /* @__PURE__ */ (0, R.jsx)(ug, {}), /* @__PURE__ */ (0, R.jsx)(Gk, {
 				runtime: e,
 				showingEditor: r,
 				onContinue: (e) => {
@@ -14178,7 +14182,7 @@ function Kk({ runtime: e, saveUrl: t, initData: n }) {
 //#region src/card/card-carousel/studio-ui/StudioUI.css?inline
 var qk = ".icon-selector.dropdown-toggle:after{display:none}.icon-list-popup{background-color:var(--pgn-color-body-bg);width:292px;min-height:242px;max-height:300px;overflow:scroll}button:not(:disabled).icon-symbol{background-color:var(--pgn-color-body-bg);width:auto;color:var(--pgn-color-gray-600);border:0}button:not(:disabled).icon-symbol:hover{background-color:var(--pgn-color-light);color:var(--pgn-color-primary)}button:not(:disabled).icon-symbol:focus{background-color:var(--pgn-color-light);color:var(--pgn-color-primary);border:0}.card-carousel-editor-modal-footer{background-color:var(--pgn-color-card-bg-base)}.xblock-root .input-group .pgn__form-control-decorator-group{margin-right:0}.xblock-root .input-group .pgn__form-control-decorator-group .form-control{border-top-right-radius:0;border-bottom-right-radius:0}.wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", Jk = (e, t, n) => {
 	let r = s(e), i = t.handlerUrl(e, "studio_save");
-	(!n.data.cards || !n.data.cards.length) && (n.data.cards = [Hk()]);
+	(!n.data.cards || !n.data.cards.length) && (n.data.cards = [Hk([], { orientation: "HORIZONTAL" })]);
 	let a = r.parentElement?.parentElement;
 	a && (a.style.minHeight = "635px", a.style.maxHeight = "calc(100vh - 51px)", a.style.overflowY = "scroll"), C({
 		runtime: t,

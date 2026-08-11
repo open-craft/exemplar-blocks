@@ -18,7 +18,7 @@ export const renderBlock = (
   const container = getRoot(element);
   const saveUrl = runtime.handlerUrl(element, 'studio_save');
   if (!context.data.cards || !context.data.cards.length) {
-    context.data.cards = [newCard()];
+    context.data.cards = [newCard([], { orientation: 'HORIZONTAL' })];
   }
 
   // The Modal Body has a hardcoded value of 435px in studio-main-v1.css
