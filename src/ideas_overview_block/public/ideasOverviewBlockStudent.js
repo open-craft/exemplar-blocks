@@ -1,4 +1,4 @@
-import { c as e, g as t, m as n, n as r, r as i, s as a, t as o } from "./Container-BpfY3cAE.js";
+import { c as e, g as t, m as n, n as r, r as i, s as a, t as o } from "./Container-C23PCkNC.js";
 //#region src/ideas-overview-block/student-ui/App.tsx
 var s = t(), c = ({ data: t }) => /* @__PURE__ */ (0, s.jsx)(o, {
 	className: "p-0",

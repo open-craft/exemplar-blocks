@@ -30,6 +30,7 @@ export default function CreateCardGridForm() {
           An optional description that can be shown above the cards.
         </Form.Text>
         <SimpleRichTextEditor
+          ariaLabel="Rich text editor for the description content."
           value={values.description}
           onEditorChange={(value: string) =>
             setFieldValue('description', value)
@@ -84,6 +85,7 @@ export default function CreateCardGridForm() {
         <Form.Label>Footer Description</Form.Label>
         <Form.Text muted>Text that's shown below the cards.</Form.Text>
         <SimpleRichTextEditor
+          ariaLabel="Rich text editor for the footer description content."
           value={values.footerDescription}
           onEditorChange={(value: string) =>
             setFieldValue('footerDescription', value)

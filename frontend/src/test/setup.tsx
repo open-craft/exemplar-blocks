@@ -48,11 +48,17 @@ Object.defineProperty(window, 'matchMedia', {
 vi.mock('@/shared/components/TinyMCE', () => ({
   SimpleRichTextEditor: ({
     value,
+    ariaLabel,
     onEditorChange,
   }: {
     value: string;
+    ariaLabel: string;
     onEditorChange: (content: string) => void;
   }) => (
-    <textarea value={value} onChange={(e) => onEditorChange(e.target.value)} />
+    <textarea
+      aria-label={ariaLabel}
+      value={value}
+      onChange={(e) => onEditorChange(e.target.value)}
+    />
   ),
 }));
