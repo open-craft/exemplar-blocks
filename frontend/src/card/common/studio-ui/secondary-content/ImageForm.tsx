@@ -3,14 +3,27 @@ import Form from '@openedx/paragon/dist/Form';
 import { useFormikContext } from 'formik';
 import { URLFilePickerWrapper } from '@/shared/components/URLFilePickerWrapper.tsx';
 import type { XBlockConfig } from '../../../../types.ts';
-import type { FormDataPartial, ImageData } from '@/card/common/types';
+import type {
+  FormDataPartial,
+  ImageData,
+  Orientation,
+} from '@/card/common/types';
 
 export default function ImageForm({ cardIndex }: { cardIndex: number }) {
   const { values, handleChange, setFieldValue } =
     useFormikContext<FormDataPartial>();
   const [isDecorative, setIsDecorative] = useState(false);
+  const card = values.cards[cardIndex];
   const prefix = `cards[${cardIndex}].secondaryContent`;
-  const image = values.cards[cardIndex].secondaryContent as ImageData;
+  const image = card.secondaryContent as ImageData;
+  const orientation = (card as typeof card & { orientation?: Orientation })
+    .orientation;
+  const recommendation =
+    orientation === 'HORIZONTAL'
+      ? 'Recommended image size: 700 × 1200 px. Use a portrait image to avoid cropping in the side panel.'
+      : orientation === 'VERTICAL'
+        ? 'Recommended image size: 1200 × 300 px. Use a wide banner image to avoid cropping.'
+        : null;
 
   function handleDecorativeChange(e: React.ChangeEvent<HTMLInputElement>) {
     setIsDecorative(e.currentTarget.checked);
@@ -34,6 +47,9 @@ export default function ImageForm({ cardIndex }: { cardIndex: number }) {
             placeholder="URL"
           />
         </URLFilePickerWrapper>
+        {recommendation && (
+          <Form.Text className="small">{recommendation}</Form.Text>
+        )}
       </Form.Group>
 
       <Form.Group>
