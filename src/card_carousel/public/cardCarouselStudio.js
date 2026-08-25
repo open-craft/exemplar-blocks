@@ -9467,45 +9467,66 @@ var F_ = ({ fileTypes: e, onFileSelect: t, onError: n, onClose: r }) => {
 //#endregion
 //#region src/card/common/studio-ui/secondary-content/ImageForm.tsx
 function L_({ cardIndex: e }) {
-	let { values: t, handleChange: n, setFieldValue: r } = Ah(), [i, a] = (0, j.useState)(!1), o = t.cards[e], s = `cards[${e}].secondaryContent`, c = o.secondaryContent, l = o.orientation, u = l === "HORIZONTAL" ? "Recommended image size: 700 × 1200 px. Use a portrait image to avoid cropping in the side panel." : l === "VERTICAL" ? "Recommended image size: 1200 × 300 px. Use a wide banner image to avoid cropping." : null;
+	let { values: t, handleChange: n, setFieldValue: r } = Ah(), [i, a] = (0, j.useState)(!1), o = t.cards[e], s = `cards[${e}].secondaryContent`, c = o.secondaryContent, l = o.orientation, u = null;
+	switch (l) {
+		case "HORIZONTAL":
+			u = "Recommended image size: 700 × 1200 px. Use a portrait image to avoid cropping in the side panel.";
+			break;
+		case "VERTICAL":
+			u = "Recommended image size: 1200 × 300 px. Use a wide banner image to avoid cropping.";
+			break;
+		default: u = null;
+	}
 	function d(e) {
 		a(e.currentTarget.checked), e.currentTarget.checked && r(`${s}.altText`, "");
 	}
-	return /* @__PURE__ */ (0, R.jsxs)(R.Fragment, { children: [/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [
-		/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Image Source URL" }),
-		/* @__PURE__ */ (0, R.jsx)(I_, {
-			setValue: (e) => r(`${s}.location`, e),
-			fileTypes: ["image"],
-			children: /* @__PURE__ */ (0, R.jsx)(L.Control, {
-				name: `${s}.location`,
-				value: c.location,
-				onChange: n,
-				placeholder: "URL"
+	return /* @__PURE__ */ (0, R.jsxs)(R.Fragment, { children: [
+		/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [
+			/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Image Source URL" }),
+			/* @__PURE__ */ (0, R.jsx)(I_, {
+				setValue: (e) => r(`${s}.location`, e),
+				fileTypes: ["image"],
+				children: /* @__PURE__ */ (0, R.jsx)(L.Control, {
+					name: `${s}.location`,
+					value: c.location,
+					onChange: n,
+					placeholder: "URL"
+				})
+			}),
+			!c.useAsBackground && u && /* @__PURE__ */ (0, R.jsx)(L.Text, {
+				className: "small",
+				children: u
 			})
-		}),
-		u && /* @__PURE__ */ (0, R.jsx)(L.Text, {
+		] }),
+		/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [/* @__PURE__ */ (0, R.jsx)(L.Checkbox, {
+			name: `${s}.useAsBackground`,
+			checked: c.useAsBackground ?? !1,
+			onChange: (e) => r(`${s}.useAsBackground`, e.currentTarget.checked),
+			children: "Use image as card background"
+		}), /* @__PURE__ */ (0, R.jsx)(L.Text, {
 			className: "small",
-			children: u
-		})
-	] }), /* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [
-		/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Alt Text" }),
-		/* @__PURE__ */ (0, R.jsx)("div", {
-			className: "mb-0",
-			children: /* @__PURE__ */ (0, R.jsx)(L.Checkbox, {
-				checked: i,
-				onChange: d,
-				size: "sm",
-				children: "Decorative Image"
+			children: "The image will fill the full card background. Text will appear over the image."
+		})] }),
+		/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [
+			/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Alt Text" }),
+			/* @__PURE__ */ (0, R.jsx)("div", {
+				className: "mb-0",
+				children: /* @__PURE__ */ (0, R.jsx)(L.Checkbox, {
+					checked: i,
+					onChange: d,
+					size: "sm",
+					children: "Decorative Image"
+				})
+			}),
+			/* @__PURE__ */ (0, R.jsx)(L.Control, {
+				name: `${s}.altText`,
+				value: c.altText,
+				onChange: n,
+				placeholder: "Alt Text",
+				disabled: i
 			})
-		}),
-		/* @__PURE__ */ (0, R.jsx)(L.Control, {
-			name: `${s}.altText`,
-			value: c.altText,
-			onChange: n,
-			placeholder: "Alt Text",
-			disabled: i
-		})
-	] })] });
+		] })
+	] });
 }
 //#endregion
 //#region src/card/common/studio-ui/secondary-content/IconListItemForm.tsx

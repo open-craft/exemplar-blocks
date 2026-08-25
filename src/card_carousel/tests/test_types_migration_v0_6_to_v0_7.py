@@ -32,6 +32,7 @@ def test_older_image_card_data_is_compatible():
             "kind": CardType.IMAGE,
             "location": "https://image-location",
             "altText": "description",
+            "useAsBackground": False,
         },
     }
 

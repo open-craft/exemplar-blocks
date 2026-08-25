@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import type { CSSProperties, PropsWithChildren } from 'react';
 import Badge from '@openedx/paragon/dist/Badge';
 import Button from '@openedx/paragon/dist/Button';
 // @ts-expect-error The Card component is defined in a JSX file & lacks types.
@@ -35,16 +35,21 @@ export const ContentLayout = ({
   let secondaryContentElement = null;
 
   switch (secondaryContent?.kind) {
-    case 'IMAGE':
+    case 'IMAGE': {
+      const imageContent = secondaryContent as ImageData;
+      if (imageContent.useAsBackground) {
+        return children;
+      }
       return (
         <>
           <Card.ImageCap
-            src={(secondaryContent as ImageData).location}
-            srcAlt={(secondaryContent as ImageData).altText}
+            src={imageContent.location}
+            srcAlt={imageContent.altText}
           />
           {children}
         </>
       );
+    }
     case 'CONTENT_HIGHLIGHT':
       secondaryContentElement = (
         <ContentHighlight
@@ -84,8 +89,26 @@ export default function ComplexCard({
   data,
   position,
 }: ComplexCardProps) {
+  const imageContent =
+    data.secondaryContent?.kind === 'IMAGE'
+      ? (data.secondaryContent as ImageData)
+      : null;
+  const useImageBackground = imageContent?.useAsBackground ?? false;
+  const cardStyle = useImageBackground
+    ? ({
+        '--ccblk-card-background-image': `url("${imageContent?.location}")`,
+      } as CSSProperties)
+    : undefined;
+
   return (
-    <Card orientation={orientation.toLowerCase()} className="complex-card">
+    <Card
+      orientation={orientation.toLowerCase()}
+      className={
+        'complex-card' +
+        (useImageBackground ? ' complex-card--image-background' : '')
+      }
+      style={cardStyle}
+    >
       <ContentLayout
         orientation={orientation}
         secondaryContent={data.secondaryContent}
@@ -93,7 +116,8 @@ export default function ComplexCard({
         <Card.Body
           className={
             data.secondaryContent?.kind === 'IMAGE' &&
-            orientation === 'HORIZONTAL'
+            orientation === 'HORIZONTAL' &&
+            !useImageBackground
               ? 'w-50 p-3'
               : 'p-3'
           }

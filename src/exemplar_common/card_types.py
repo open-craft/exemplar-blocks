@@ -112,6 +112,7 @@ class ImageData(BaseModel):
     kind: Literal[CardType.IMAGE] = CardType.IMAGE
     location: str
     altText: str
+    useAsBackground: bool = False
 
     def searchable_text(self) -> str:
         """Learner-visible text for search indexing; the image URL is not indexed."""

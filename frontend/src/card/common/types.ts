@@ -59,6 +59,7 @@ export interface ImageData {
   kind: 'IMAGE';
   location: string;
   altText: string;
+  useAsBackground?: boolean;
 }
 /**
  * The secondary content that renders into a "rich list" with icon, title and

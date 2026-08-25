@@ -18,12 +18,20 @@ export default function ImageForm({ cardIndex }: { cardIndex: number }) {
   const image = card.secondaryContent as ImageData;
   const orientation = (card as typeof card & { orientation?: Orientation })
     .orientation;
-  const recommendation =
-    orientation === 'HORIZONTAL'
-      ? 'Recommended image size: 700 × 1200 px. Use a portrait image to avoid cropping in the side panel.'
-      : orientation === 'VERTICAL'
-        ? 'Recommended image size: 1200 × 300 px. Use a wide banner image to avoid cropping.'
-        : null;
+  let recommendation = null;
+
+  switch (orientation) {
+    case 'HORIZONTAL':
+      recommendation =
+        'Recommended image size: 700 × 1200 px. Use a portrait image to avoid cropping in the side panel.';
+      break;
+    case 'VERTICAL':
+      recommendation =
+        'Recommended image size: 1200 × 300 px. Use a wide banner image to avoid cropping.';
+      break;
+    default:
+      recommendation = null;
+  }
 
   function handleDecorativeChange(e: React.ChangeEvent<HTMLInputElement>) {
     setIsDecorative(e.currentTarget.checked);
@@ -47,9 +55,25 @@ export default function ImageForm({ cardIndex }: { cardIndex: number }) {
             placeholder="URL"
           />
         </URLFilePickerWrapper>
-        {recommendation && (
+        {!image.useAsBackground && recommendation && (
           <Form.Text className="small">{recommendation}</Form.Text>
         )}
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Checkbox
+          name={`${prefix}.useAsBackground`}
+          checked={image.useAsBackground ?? false}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setFieldValue(`${prefix}.useAsBackground`, e.currentTarget.checked)
+          }
+        >
+          Use image as card background
+        </Form.Checkbox>
+        <Form.Text className="small">
+          The image will fill the full card background. Text will appear over
+          the image.
+        </Form.Text>
       </Form.Group>
 
       <Form.Group>
