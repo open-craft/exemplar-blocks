@@ -38,6 +38,13 @@ describe('StudentUi', () => {
       expect(screen.getByText('Key Concepts')).toBeInTheDocument();
     });
 
+    it('renders the design-system container', () => {
+      const { container } = renderStudent();
+      expect(
+        container.querySelector('.keypoints-container'),
+      ).toBeInTheDocument();
+    });
+
     it('renders all keypoint labels and descriptions', () => {
       renderStudent();
       sampleKeypoints.forEach((kp) => {
@@ -60,10 +67,11 @@ describe('StudentUi', () => {
     });
 
     it('renders the action button with correct attributes', () => {
-      renderStudent();
+      const { container } = renderStudent();
       const link = screen.getByText('Glossary');
       expect(link).toBeInTheDocument();
       expect(link).toHaveAttribute('href', 'https://example.com/glossary');
+      expect(container.querySelector('.keypoints-action')).toBeInTheDocument();
     });
   });
 

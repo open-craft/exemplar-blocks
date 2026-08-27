@@ -1,4 +1,5 @@
-import { Button, Container } from '@openedx/paragon';
+import { Button } from '@openedx/paragon';
+import { type CSSProperties } from 'react';
 import { type KeyPoint } from '../type';
 
 interface StudentUiProps {
@@ -18,26 +19,28 @@ function StudentUi({
   buttonLink,
   backgroundColor,
 }: StudentUiProps) {
+  const keypointsStyle = {
+    '--keypoints-background-color': backgroundColor,
+  } as CSSProperties;
+
   return (
-    <div className="xblock-keypoints" style={{ backgroundColor }}>
-      <Container size="xl" className="p-4">
-        {header && <h2 className="font-weight-bold mb-4">{header}</h2>}
+    <div className="xblock-keypoints" style={keypointsStyle}>
+      <div className="keypoints-container">
+        {header && <h2 className="keypoints-header">{header}</h2>}
 
         <div className="keypoints-card-grid">
           {keypoints.map((kp, idx) => (
             <div key={`kp-${idx}`} className="keypoint">
-              <h4 className="keypoint-label font-weight-bold mb-1">
-                {kp.keypoint}
-              </h4>
-              <p className="text-gray-700 mb-0">{kp.description}</p>
+              <h4 className="keypoint-label">{kp.keypoint}</h4>
+              <p className="keypoint-description">{kp.description}</p>
             </div>
           ))}
         </div>
 
-        {summary && <p className="keypoints-summary mb-0">{summary}</p>}
+        {summary && <p className="keypoints-summary">{summary}</p>}
 
         {buttonText && buttonLink && (
-          <div className="d-flex justify-content-end mt-4">
+          <div className="keypoints-action">
             <Button
               as="a"
               href={buttonLink}
@@ -49,7 +52,7 @@ function StudentUi({
             </Button>
           </div>
         )}
-      </Container>
+      </div>
     </div>
   );
 }

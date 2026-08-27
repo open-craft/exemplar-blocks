@@ -89,9 +89,9 @@ export default function StudioUi({
 
   return (
     <div className="react-studio-block">
-      <Container className="xblock-keypoints editor-with-buttons">
+      <Container className="xblock-keypoints-studio editor-with-buttons">
         <div className="wrapper-comp-settings is-active">
-          <Stack direction="vertical" gap={3} className="p-2">
+          <Stack direction="vertical" className="keypoints-studio-stack">
             {/* Block Header */}
             <Form.Group>
               <Form.Label>Block Header</Form.Label>
@@ -106,8 +106,8 @@ export default function StudioUi({
 
             {/* Key Terms Section */}
             <div>
-              <ActionRow className="mb-2">
-                <h4 className="m-0">Key Terms</h4>
+              <ActionRow className="keypoints-studio-row">
+                <h4 className="keypoints-studio-section-title">Key Terms</h4>
                 <ActionRow.Spacer />
                 <Button iconBefore={Add} onClick={addKeypoint}>
                   Add Key Term
@@ -115,7 +115,7 @@ export default function StudioUi({
               </ActionRow>
 
               {keypoints.length === 0 && (
-                <p className="text-muted">
+                <p className="keypoints-studio-empty">
                   No key terms added yet. Click &quot;Add Key Term&quot; to get
                   started.
                 </p>
@@ -123,8 +123,10 @@ export default function StudioUi({
 
               {keypoints.map((kp, idx) => (
                 <div className="keypoint-entry" key={`keypoint-${idx}`}>
-                  <ActionRow className="mb-2">
-                    <span className="font-weight-bold">Term {idx + 1}</span>
+                  <ActionRow className="keypoints-studio-entry-header">
+                    <span className="keypoints-studio-entry-title">
+                      Term {idx + 1}
+                    </span>
                     <ActionRow.Spacer />
                     <Button
                       variant="outline-danger"
@@ -134,7 +136,7 @@ export default function StudioUi({
                       Remove
                     </Button>
                   </ActionRow>
-                  <Form.Group className="mb-2">
+                  <Form.Group className="keypoints-studio-field">
                     <Form.Label>Label</Form.Label>
                     <Form.Control
                       value={kp.keypoint}
@@ -144,7 +146,7 @@ export default function StudioUi({
                       placeholder="e.g. Fluid balance"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-0">
+                  <Form.Group className="keypoints-studio-field keypoints-studio-field--last">
                     <Form.Label>Description</Form.Label>
                     <Form.Control
                       as="textarea"
@@ -174,7 +176,7 @@ export default function StudioUi({
               />
             </Form.Group>
 
-            <Form.Group className="my-3">
+            <Form.Group className="keypoints-studio-field">
               <Form.Label>Background Color</Form.Label>
               <ColorPicker
                 color={backgroundColor}
@@ -184,8 +186,8 @@ export default function StudioUi({
 
             {/* Action Button Section */}
             <div>
-              <h4 className="mb-2">Action Button</h4>
-              <Form.Group className="mb-2">
+              <h4 className="keypoints-studio-section-title">Action Button</h4>
+              <Form.Group className="keypoints-studio-field">
                 <Form.Label>Button Text</Form.Label>
                 <Form.Control
                   value={buttonText}
@@ -195,7 +197,7 @@ export default function StudioUi({
                   placeholder="e.g. Glossary"
                 />
               </Form.Group>
-              <Form.Group className="mb-0">
+              <Form.Group className="keypoints-studio-field keypoints-studio-field--last">
                 <Form.Label>Button Link</Form.Label>
                 <Form.Control
                   value={buttonLink}
@@ -211,7 +213,10 @@ export default function StudioUi({
       </Container>
 
       {/* Save / Cancel action bar — outside editor-with-buttons to avoid platform's position:absolute */}
-      <Sticky position="bottom" className="xblock-actions p-2 border-top">
+      <Sticky
+        position="bottom"
+        className="xblock-actions keypoints-studio-actions"
+      >
         <ActionRow>
           <ActionRow.Spacer />
           <Button

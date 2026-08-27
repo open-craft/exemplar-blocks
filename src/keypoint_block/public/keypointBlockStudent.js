@@ -1,44 +1,43 @@
-import { d as e, m as t, n, t as r } from "./Container-DiwZDjXy.js";
-//#region src/keypoint-block/student-ui/student-ui.tsx
-var i = t();
-function a({ header: e, keypoints: t, summary: a, buttonText: o, buttonLink: s, backgroundColor: c }) {
+import { p as e, t, u as n, x as r } from "./Button-Cm7YYHnH.js";
+r();
+var i = e();
+function a({ header: e, keypoints: n, summary: r, buttonText: a, buttonLink: o, backgroundColor: s }) {
 	return /* @__PURE__ */ (0, i.jsx)("div", {
 		className: "xblock-keypoints",
-		style: { backgroundColor: c },
-		children: /* @__PURE__ */ (0, i.jsxs)(r, {
-			size: "xl",
-			className: "p-4",
+		style: { "--keypoints-background-color": s },
+		children: /* @__PURE__ */ (0, i.jsxs)("div", {
+			className: "keypoints-container",
 			children: [
 				e && /* @__PURE__ */ (0, i.jsx)("h2", {
-					className: "font-weight-bold mb-4",
+					className: "keypoints-header",
 					children: e
 				}),
 				/* @__PURE__ */ (0, i.jsx)("div", {
 					className: "keypoints-card-grid",
-					children: t.map((e, t) => /* @__PURE__ */ (0, i.jsxs)("div", {
+					children: n.map((e, t) => /* @__PURE__ */ (0, i.jsxs)("div", {
 						className: "keypoint",
 						children: [/* @__PURE__ */ (0, i.jsx)("h4", {
-							className: "keypoint-label font-weight-bold mb-1",
+							className: "keypoint-label",
 							children: e.keypoint
 						}), /* @__PURE__ */ (0, i.jsx)("p", {
-							className: "text-gray-700 mb-0",
+							className: "keypoint-description",
 							children: e.description
 						})]
 					}, `kp-${t}`))
 				}),
-				a && /* @__PURE__ */ (0, i.jsx)("p", {
-					className: "keypoints-summary mb-0",
-					children: a
+				r && /* @__PURE__ */ (0, i.jsx)("p", {
+					className: "keypoints-summary",
+					children: r
 				}),
-				o && s && /* @__PURE__ */ (0, i.jsx)("div", {
-					className: "d-flex justify-content-end mt-4",
-					children: /* @__PURE__ */ (0, i.jsx)(n, {
+				a && o && /* @__PURE__ */ (0, i.jsx)("div", {
+					className: "keypoints-action",
+					children: /* @__PURE__ */ (0, i.jsx)(t, {
 						as: "a",
-						href: s,
+						href: o,
 						variant: "dark",
 						target: "_blank",
 						rel: "noopener noreferrer",
-						children: o
+						children: a
 					})
 				})
 			]
@@ -47,11 +46,11 @@ function a({ header: e, keypoints: t, summary: a, buttonText: o, buttonLink: s, 
 }
 //#endregion
 //#region src/keypoint-block/student-ui/style.scss?inline
-var o = ".xblock-keypoints *,.xblock-keypoints :before,.xblock-keypoints :after{box-sizing:border-box}.xblock-keypoints .keypoints-card-grid{column-gap:var(--pgn-spacing-grid-gutter-width);row-gap:var(--pgn-spacing-grid-gutter-width);grid-template-columns:1fr 1fr;display:grid}.xblock-keypoints .keypoint-label{color:var(--pgn-color-primary-base);font-size:1.1rem}.xblock-keypoints .text-gray-700{line-height:1.6}.xblock-keypoints .keypoints-summary{color:var(--pgn-color-primary-base);margin-top:2rem;font-weight:700;line-height:1.5}.xblock-keypoints .keypoint{padding:var(--pgn-spacing-alert-padding-y) var(--pgn-spacing-alert-padding-x);background-color:var(--pgn-color-white);border-radius:var(--pgn-size-card-border-radius-base)}", s = (t, n, r) => {
+var o = ".xblock-keypoints{--keypoints-background-color:transparent;background-color:var(--keypoints-background-color)}.xblock-keypoints *,.xblock-keypoints :before,.xblock-keypoints :after{box-sizing:border-box}.xblock-keypoints .keypoints-container{max-width:var(--pgn-exemplar-xblock-container-max-width,1280px);padding:var(--pgn-exemplar-xblock-container-padding,32px);margin:0 auto}.xblock-keypoints .keypoints-header{margin:0 0 var(--pgn-exemplar-xblock-section-gap,32px);font-weight:700}.xblock-keypoints .keypoints-card-grid{gap:var(--pgn-exemplar-xblock-grid-gap,32px);grid-template-columns:repeat(2,minmax(0,1fr));display:grid}.xblock-keypoints .keypoint{padding:var(--pgn-exemplar-xblock-card-padding,32px);background-color:var(--pgn-color-white);border-radius:var(--pgn-size-card-border-radius-base)}.xblock-keypoints .keypoint-label{margin:0 0 var(--pgn-spacing-spacer-2);color:var(--pgn-color-primary-base);font-size:var(--pgn-exemplar-xblock-label-font-size,1.1rem);font-weight:700;line-height:1.4}.xblock-keypoints .keypoint-description{color:var(--pgn-color-gray-700);margin:0;line-height:1.6}.xblock-keypoints .keypoints-summary{margin:var(--pgn-exemplar-xblock-section-gap,32px) 0 0;color:var(--pgn-color-primary-base);font-weight:700;line-height:1.5}.xblock-keypoints .keypoints-action{margin-top:var(--pgn-exemplar-xblock-section-gap,32px);justify-content:flex-end;display:flex}@media (width<=767.98px){.xblock-keypoints .keypoints-card-grid{grid-template-columns:1fr}}", s = (e, t, r) => {
 	let { header: s, keypoints: c, summary: l, button_text: u, button_link: d, background_color: f } = r.data;
-	e({
-		runtime: t,
-		element: n,
+	n({
+		runtime: e,
+		element: t,
 		config: r.config,
 		styles: o
 	})(/* @__PURE__ */ (0, i.jsx)(a, {
