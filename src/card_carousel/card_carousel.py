@@ -102,6 +102,9 @@ class CardCarouselXBlock(XBlock):
                     self, "public/cardCarouselStudent.js"
                 ),
                 "data": {
+                    # Data model was changed between versions 0.6 and 0.7.
+                    # The parsing and dumping of card data here ensures any old data
+                    # is migrated to the new format.
                     "cards": [CarouselCardData(**c).model_dump() for c in self.cards],
                     "displayName": self.display_name,
                     "disableNumbering": self.disable_numbering,
@@ -146,6 +149,9 @@ class CardCarouselXBlock(XBlock):
                     self, "public/cardCarouselStudio.js"
                 ),
                 "data": {
+                    # Data model was changed between versions 0.6 and 0.7.
+                    # The parsing and dumping of card data here ensures any old data
+                    # is migrated to the new format.
                     "cards": [CarouselCardData(**c).model_dump() for c in self.cards],
                     "displayName": self.display_name,
                     "disableNumbering": self.disable_numbering,
@@ -188,7 +194,7 @@ class CardCarouselXBlock(XBlock):
             # data migration as the render paths, so the index can never
             # disagree with what learners see on the page.
             try:
-                card_data = CardData(**card)
+                card_data = CarouselCardData(**card)
             except (ValidationError, TypeError):
                 logger.warning(
                     "Skipping malformed card while indexing block %s",
