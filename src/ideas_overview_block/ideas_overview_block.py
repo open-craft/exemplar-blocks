@@ -12,6 +12,7 @@ from xblock.utils.resources import ResourceLoader
 from xblock.utils.studio_editable import StudioEditableXBlockMixin
 
 from exemplar_common.xblock_config import get_xblock_config, XBlockView
+from exemplar_common.utils import strip_html_for_search
 from .types import (
     Data,
     Content,
@@ -163,6 +164,33 @@ class IdeasOverviewBlock(StudioEditableXBlockMixin, XBlock):
         self.content = validated_data.content.model_dump()
         self.background_color = validated_data.backgroundColor
         return {"result": "success"}
+
+    def index_dictionary(self):
+        """
+        Return dictionary prepared with block content and type for indexing.
+        """
+        xblock_body = super().index_dictionary()
+        ideas_overview_content = ""
+
+        try:
+            content = Content(**self.content)
+            ideas_overview_content = content.searchable_text()
+        except (ValidationError, TypeError):
+            log.warning(
+                "Skipping malformed content while indexing block %s",
+                self.scope_ids.usage_id,
+            )
+
+        index_body = {
+            "display_name": self.display_name,
+            "ideas_overview_content": strip_html_for_search(ideas_overview_content),
+        }
+        if "content" in xblock_body:
+            xblock_body["content"].update(index_body)
+        else:
+            xblock_body["content"] = index_body
+        xblock_body["content_type"] = "Ideas Overview"
+        return xblock_body
 
     @staticmethod
     def workbench_scenarios() -> list[WorkbenchScenario]:

@@ -56,6 +56,10 @@ class LessonInfo(BaseModel):
     id: str  # a lesson id or number - eg. 4.1.1
     title: str
 
+    def searchable_text(self) -> str:
+        """Learner-visible text; the lesson id is not indexed."""
+        return self.title
+
 
 class ExtendedLessonInfo(BaseModel):
     model_config = ConfigDict(use_enum_values=True, extra="forbid")
@@ -63,6 +67,10 @@ class ExtendedLessonInfo(BaseModel):
     id: str  # a lesson id or number - eg. 4.1.1
     title: str
     url: str
+
+    def searchable_text(self) -> str:
+        """Learner-visible text; the id and url are not indexed."""
+        return self.title
 
 
 class ImageInfo(BaseModel):
@@ -72,6 +80,10 @@ class ImageInfo(BaseModel):
     decorative: bool  # if decorative, doesn't need alt text
     alt: str
     onClickUrl: str
+
+    def searchable_text(self) -> str:
+        """Learner-visible text; the URL is not indexed."""
+        return "" if self.decorative else self.alt
 
 
 class ImageGridText(BaseModel):
@@ -83,6 +95,10 @@ class ImageGridText(BaseModel):
     backgroundColor: str
     color: str
 
+    def searchable_text(self) -> str:
+        """Learner-visible text; style settings are not indexed."""
+        return self.content
+
 
 class TextLayoutData(BaseModel):
     model_config = ConfigDict(use_enum_values=True, extra="forbid")
@@ -90,6 +106,10 @@ class TextLayoutData(BaseModel):
     kind: Literal["text"]
     content: Annotated[str, AfterValidator(sanitise_simple_html)]
     verticalAlignment: Alignment
+
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing."""
+        return self.content
 
 
 class LessonListLayoutData(BaseModel):
@@ -99,6 +119,16 @@ class LessonListLayoutData(BaseModel):
     title: str
     text: str
     lessons: list[LessonInfo]
+
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing."""
+        return " ".join(
+            [
+                self.title,
+                self.text,
+                *(lesson.searchable_text() for lesson in self.lessons),
+            ]
+        )
 
 
 class LessonIntroLayoutData(BaseModel):
@@ -113,6 +143,17 @@ class LessonIntroLayoutData(BaseModel):
         ExtendedLessonInfo | None
     )  # presence of a value here implies the 'previous lesson' button is to be shown
 
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing."""
+        return " ".join(
+            [
+                self.title,
+                self.summary,
+                self.lesson.title,
+                self.previousLesson.title if self.previousLesson else "",
+            ]
+        ).strip()
+
 
 class ImageGridLayoutData(BaseModel):
     model_config = ConfigDict(use_enum_values=True, extra="forbid")
@@ -123,6 +164,16 @@ class ImageGridLayoutData(BaseModel):
     text: ImageGridText
     bottomRowOrder: BottomRowOrder
 
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing."""
+        return " ".join(
+            [
+                self.featuredImage.searchable_text(),
+                self.bottomImage.searchable_text(),
+                self.text.searchable_text(),
+            ]
+        )
+
 
 class RawHTMLLayoutData(BaseModel):
     model_config = ConfigDict(use_enum_values=True, extra="forbid")
@@ -131,6 +182,10 @@ class RawHTMLLayoutData(BaseModel):
     # Raw HTML; not sanitised, because it's expected to be embed codes or interactive content.
     # Users are expected to take care to avoid entering unsafe code.
     html: str
+
+    def searchable_text(self) -> str:
+        """Learner-visible text. Returns the raw HTML as-is."""
+        return self.html
 
 
 class ColumnData(BaseModel):
@@ -152,6 +207,15 @@ class ColumnData(BaseModel):
     ) = Field(discriminator="kind")
     ratio: Ratio
     order: ColumnOrder
+
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing."""
+        return " ".join(
+            [
+                self.left.searchable_text(),
+                self.right.searchable_text(),
+            ]
+        )
 
 
 class Data(BaseModel):

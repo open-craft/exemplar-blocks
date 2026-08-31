@@ -16,6 +16,10 @@ class Idea(BaseModel):
     title: str  # plain text, single line
     points: list[Annotated[str, AfterValidator(sanitise_simple_html)]]
 
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing."""
+        return " ".join([self.title, *self.points])
+
 
 class Content(BaseModel):
     model_config = ConfigDict(use_enum_values=True, extra="forbid")
@@ -23,6 +27,16 @@ class Content(BaseModel):
     header: Annotated[str, AfterValidator(sanitise_simple_html)]
     footer: Annotated[str, AfterValidator(sanitise_simple_html)]
     ideas: list[Idea]
+
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing."""
+        return " ".join(
+            [
+                self.header,
+                self.footer,
+                *(idea.searchable_text() for idea in self.ideas),
+            ]
+        )
 
 
 class Data(BaseModel):

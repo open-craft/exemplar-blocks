@@ -201,3 +201,64 @@ def test_workbench_scenarios():
     scenarios = TwoColumnBlock.workbench_scenarios()
     assert isinstance(scenarios, list)
     assert len(scenarios) > 0
+
+
+def test_index_dictionary():
+    """Learner-visible text from both columns is indexed as plain text."""
+    block = make_block(
+        display_name="Two columns",
+        column_data={
+            "left": {
+                "kind": "text",
+                "content": "<h1>Paths through nature</h1><p>Some <strong>text</strong>.</p>",
+                "verticalAlignment": "center",
+            },
+            "right": {
+                "kind": "imageGrid",
+                "featuredImage": {
+                    "url": "https://picsum.photos/id/993/800/400",
+                    "decorative": True,
+                    "alt": "",
+                    "onClickUrl": "",
+                },
+                "bottomImage": {
+                    "url": "https://picsum.photos/id/767/400",
+                    "decorative": False,
+                    "alt": "A road extending into the distance.",
+                    "onClickUrl": "https://example.com/",
+                },
+                "text": {
+                    "content": "Which path will you take?",
+                    "alignment": "center",
+                    "fontSize": "large",
+                    "backgroundColor": "#FFFAF0",
+                    "color": "#045e2e",
+                },
+                "bottomRowOrder": "textImage",
+            },
+            "ratio": "6:6",
+            "order": "leftAboveRight",
+        },
+    )
+
+    result = block.index_dictionary()
+
+    assert result["content_type"] == "Two-column Block"
+    assert result["content"]["display_name"] == "Two columns"
+    content = result["content"]["two_column_content"]
+    assert "Paths through nature" in content
+    assert "Some text" in content
+    assert "A road extending into the distance" in content
+    assert "Which path will you take?" in content
+    # Decorative images and links are not indexed.
+    assert "https://picsum.photos" not in content
+    assert "https://example.com" not in content
+
+
+def test_index_dictionary_malformed_content():
+    """Malformed column data is ignored rather than breaking indexing."""
+    block = make_block(display_name="test", column_data={"invalid": "data"})
+
+    result = block.index_dictionary()
+
+    assert result["content"]["two_column_content"] == ""

@@ -13,6 +13,7 @@ from xblock.exceptions import JsonHandlerError
 from xblock.fields import Scope, String
 from xblock.utils.resources import ResourceLoader
 
+from exemplar_common.utils import strip_html_for_search
 from exemplar_common.xblock_config import get_xblock_config, XBlockView
 from .types import CoverBlockFields, ImagePosition, WorkbenchScenario
 
@@ -217,6 +218,25 @@ class CoverBlock(XBlock):
         for field, value in model_data.model_dump(mode="json").items():
             setattr(self, field, value)
         return {"result": "success"}
+
+    def index_dictionary(self) -> dict:
+        """
+        Return dictionary prepared with block content and type for indexing.
+        """
+        xblock_body = super().index_dictionary()
+        cover_block_content = strip_html_for_search(
+            " ".join([self.main_header, self.subheader, self.description])
+        )
+        index_body = {
+            "display_name": self.display_name,
+            "cover_block_content": cover_block_content,
+        }
+        if "content" in xblock_body:
+            xblock_body["content"].update(index_body)
+        else:
+            xblock_body["content"] = index_body
+        xblock_body["content_type"] = "Cover"
+        return xblock_body
 
     @staticmethod
     def workbench_scenarios() -> list[WorkbenchScenario]:

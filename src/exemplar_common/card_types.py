@@ -1,7 +1,7 @@
 """
 Card data models shared by the card-based XBlocks (Card Carousel, Card Grid).
 
-Developer Note [IMPORTATNT]
+Developer Note [IMPORTANT]
 ---------------------------
 These need to be in sync with the frontend types. Update the corresponding
 types in the `frontend/src/card/common/types.ts` file, when making changes here.
@@ -43,9 +43,9 @@ class ContentHighlightData(BaseModel):
     subtitle: str
     description: str
 
-    def searchable_text(self) -> list[str]:
-        """Learner-visible text fragments for search indexing."""
-        return [self.title, self.subtitle, self.description]
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing."""
+        return " ".join([self.title, self.subtitle, self.description])
 
 
 class RichListItem(BaseModel):
@@ -57,9 +57,9 @@ class RichListItem(BaseModel):
     title: str
     description: str
 
-    def searchable_text(self) -> list[str]:
-        """Learner-visible text fragments; the icon name is not indexed."""
-        return [self.title, self.description]
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing; the icon name is not indexed."""
+        return " ".join([self.title, self.description])
 
 
 class RichListData(BaseModel):
@@ -71,9 +71,9 @@ class RichListData(BaseModel):
     kind: Literal[CardType.RICH_LIST] = CardType.RICH_LIST
     items: list[RichListItem]
 
-    def searchable_text(self) -> list[str]:
-        """Learner-visible text fragments for search indexing."""
-        return [text for item in self.items for text in item.searchable_text()]
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing."""
+        return " ".join(item.searchable_text() for item in self.items)
 
 
 class HoverListItem(BaseModel):
@@ -85,9 +85,9 @@ class HoverListItem(BaseModel):
     hoverContent: str = ""
     icon: str = ""
 
-    def searchable_text(self) -> list[str]:
-        """Learner-visible text fragments; the icon name is not indexed."""
-        return [self.description, self.hoverContent]
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing; the icon name is not indexed."""
+        return " ".join([self.description, self.hoverContent])
 
 
 class HoverListData(BaseModel):
@@ -99,9 +99,9 @@ class HoverListData(BaseModel):
     kind: Literal[CardType.HOVER_LIST] = CardType.HOVER_LIST
     items: list[HoverListItem]
 
-    def searchable_text(self) -> list[str]:
-        """Learner-visible text fragments for search indexing."""
-        return [text for item in self.items for text in item.searchable_text()]
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing."""
+        return " ".join(item.searchable_text() for item in self.items)
 
 
 class ImageData(BaseModel):
@@ -113,9 +113,9 @@ class ImageData(BaseModel):
     location: str
     altText: str
 
-    def searchable_text(self) -> list[str]:
-        """Learner-visible text fragments; the image URL is not indexed."""
-        return [self.altText]
+    def searchable_text(self) -> str:
+        """Learner-visible text for search indexing; the image URL is not indexed."""
+        return self.altText
 
 
 class CardData(BaseModel):
@@ -151,14 +151,14 @@ class CardData(BaseModel):
         HoverListData | ImageData | RichListData | ContentHighlightData
     ]
 
-    def searchable_text(self) -> list[str]:
+    def searchable_text(self) -> str:
         """
-        Learner-visible text fragments for search indexing.
+        Learner-visible text for search indexing.
 
         The editor-only ``name``, the ``ctaLink`` URL and the ``id`` are
         deliberately excluded — only text a learner can read is returned.
         """
         parts = [self.title, self.subtitle, self.description, self.ctaLabel]
         if self.secondaryContent:
-            parts.extend(self.secondaryContent.searchable_text())
-        return [part for part in parts if part]
+            parts.append(self.secondaryContent.searchable_text())
+        return " ".join(parts)
