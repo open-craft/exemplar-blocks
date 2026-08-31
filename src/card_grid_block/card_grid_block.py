@@ -15,6 +15,7 @@ from xblock.fields import List, Scope, String
 from xblock.utils.resources import ResourceLoader
 
 from exemplar_common.xblock_config import get_xblock_config, XBlockView
+from exemplar_common.utils import strip_html_for_search
 from .types import CardData, InitData, Orientation
 
 logger = logging.getLogger(__name__)
@@ -176,6 +177,35 @@ class CardGridXBlock(XBlock):
         self.footer_description = validated.footerDescription
         logger.info("Successfully saved Card Grid data.")
         return {"result": "success"}
+
+    def index_dictionary(self):
+        """
+        Return dictionary prepared with block content and type for indexing.
+        """
+        xblock_body = super().index_dictionary()
+        parts = [self.description, self.footer_description]
+        for card in self.cards or []:
+            try:
+                card_data = CardData(**card)
+            except (ValidationError, TypeError):
+                logger.warning(
+                    "Skipping malformed card while indexing block %s",
+                    self.scope_ids.usage_id,
+                )
+                continue
+            if card_text := card_data.searchable_text():
+                parts.append(card_text)
+
+        index_body = {
+            "display_name": self.display_name,
+            "card_grid_content": strip_html_for_search(" ".join(parts)),
+        }
+        if "content" in xblock_body:
+            xblock_body["content"].update(index_body)
+        else:
+            xblock_body["content"] = index_body
+        xblock_body["content_type"] = "Card Grid"
+        return xblock_body
 
     @staticmethod
     def workbench_scenarios():

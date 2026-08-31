@@ -2,6 +2,8 @@
 An XBlock for key point glossary.
 """
 
+from exemplar_common.utils import strip_html_for_search
+
 from importlib.resources import files
 
 from web_fragments.fragment import Fragment
@@ -98,6 +100,28 @@ class KeypointXBlock(XBlock):
         self.button_link = data.get("button_link", self.button_link)
         self.background_color = data.get("background_color", self.background_color)
         return {"result": "success"}
+
+    def index_dictionary(self):
+        """
+        Return dictionary prepared with block content and type for indexing.
+        """
+        xblock_body = super().index_dictionary()
+        parts = [self.header, self.summary, self.button_text]
+        for keypoint in self.keypoints or []:
+            parts.extend([keypoint.get("keypoint"), keypoint.get("description")])
+
+        index_body = {
+            "display_name": self.display_name,
+            "keypoint_block_content": strip_html_for_search(
+                " ".join(part for part in parts if part)
+            ),
+        }
+        if "content" in xblock_body:
+            xblock_body["content"].update(index_body)
+        else:
+            xblock_body["content"] = index_body
+        xblock_body["content_type"] = "Key Points"
+        return xblock_body
 
     def studio_view(self, context=None):
         """

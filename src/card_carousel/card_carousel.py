@@ -214,16 +214,11 @@ class CardCarouselXBlock(XBlock):
                     self.scope_ids.usage_id,
                 )
                 continue
-            # Strip each fragment separately so stray markup in one field
-            # cannot affect the fields that follow it.
-            parts.extend(
-                text
-                for text in map(strip_html_for_search, card_data.searchable_text())
-                if text
-            )
+            if card_text := card_data.searchable_text():
+                parts.append(card_text)
         index_body = {
             "display_name": self.display_name,
-            "card_carousel_content": " ".join(parts),
+            "card_carousel_content": strip_html_for_search(" ".join(parts)),
         }
         if "content" in xblock_body:
             xblock_body["content"].update(index_body)

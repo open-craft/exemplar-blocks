@@ -92,3 +92,20 @@ def test_override_default_image():
     """
     block = make_block()
     assert "openedx.org/logo.png" in block.field_data()["media_url"]
+
+
+def test_index_dictionary():
+    """The block's learner-visible text is indexed as plain text."""
+    block = make_block(
+        main_header="<b>Neural</b> Function",
+        subheader="How neurons communicate",
+        description="A descriptive <i>paragraph.</i>",
+    )
+
+    result = block.index_dictionary()
+
+    assert result["content_type"] == "Cover"
+    assert result["content"]["display_name"] == "Cover"
+    assert result["content"]["cover_block_content"] == (
+        "Neural Function How neurons communicate A descriptive paragraph."
+    )

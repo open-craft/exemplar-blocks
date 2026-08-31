@@ -26,7 +26,7 @@ from .types import (
     WorkbenchScenario,
     TextLayoutData,
 )
-from exemplar_common.utils import generate_attrs
+from exemplar_common.utils import generate_attrs, strip_html_for_search
 
 log = logging.getLogger(__name__)
 
@@ -182,6 +182,31 @@ class TwoColumnBlock(StudioEditableXBlockMixin, XBlock):
         self.background_color = validated_data.backgroundColor
         # TODO: clean/delete empty values - eg. empty lessons in a lesson list
         return {"result": "success"}
+
+    def index_dictionary(self):
+        """
+        Return dictionary prepared with block content and type for indexing.
+        """
+        xblock_body = super().index_dictionary()
+        two_column_content = ""
+        try:
+            columns = ColumnData(**self.column_data)
+            two_column_content = columns.searchable_text()
+        except (ValidationError, TypeError):
+            log.warning(
+                "Skipping malformed content while indexing block %s",
+                self.scope_ids.usage_id,
+            )
+        index_body = {
+            "display_name": self.display_name,
+            "two_column_content": strip_html_for_search(two_column_content),
+        }
+        if "content" in xblock_body:
+            xblock_body["content"].update(index_body)
+        else:
+            xblock_body["content"] = index_body
+        xblock_body["content_type"] = "Two-column Block"
+        return xblock_body
 
     @staticmethod
     def workbench_scenarios() -> list[WorkbenchScenario]:

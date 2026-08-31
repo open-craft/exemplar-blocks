@@ -188,3 +188,39 @@ def test_workbench_scenarios():
     scenarios = IdeasOverviewBlock.workbench_scenarios()
     assert isinstance(scenarios, list)
     assert len(scenarios) > 0
+
+
+def test_index_dictionary():
+    """Header, footer and idea text are indexed as plain text."""
+    block = make_block(
+        display_name="Ideas",
+        content={
+            "header": "<p><b>Ideas</b> in this section</p>",
+            "footer": "<p>Consider <b>these</b>.</p>",
+            "ideas": [
+                {"title": "Idea 1", "points": ["<b>First:</b> point", "second point"]},
+                {"title": "Idea 2", "points": ["<i>another</i> point"]},
+            ],
+        },
+    )
+
+    result = block.index_dictionary()
+
+    assert result["content_type"] == "Ideas Overview"
+    assert result["content"]["display_name"] == "Ideas"
+    content = result["content"]["ideas_overview_content"]
+    assert "Ideas in this section" in content
+    assert "Consider these" in content
+    assert "Idea 1" in content
+    assert "First: point" in content
+    assert "second point" in content
+    assert "another point" in content
+
+
+def test_index_dictionary_malformed_content():
+    """Malformed content is ignored rather than breaking indexing."""
+    block = make_block(display_name="test", content={})
+
+    result = block.index_dictionary()
+
+    assert result["content"]["ideas_overview_content"] == ""
