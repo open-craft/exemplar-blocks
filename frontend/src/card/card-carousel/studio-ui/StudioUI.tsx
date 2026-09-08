@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Form, Formik } from 'formik';
 import { type InitData } from '@/card/card-carousel/types';
+import { newCard } from '@/card/common/utils';
 import {
   saveStudioBlock,
   type XBlockRuntime,
@@ -17,10 +18,20 @@ interface StudioUIProps {
 
 function StudioUI({ runtime, saveUrl, initData }: StudioUIProps) {
   const [showCardEditor, setShowCardEditor] = useState(false);
+  const initialData = useMemo(
+    () =>
+      initData.cards.length
+        ? initData
+        : {
+            ...initData,
+            cards: [newCard([], { orientation: 'HORIZONTAL' as const })],
+          },
+    [initData],
+  );
 
   return (
     <Formik
-      initialValues={initData}
+      initialValues={initialData}
       onSubmit={(values) => {
         saveStudioBlock<InitData>({
           saveUrl,

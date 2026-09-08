@@ -52414,7 +52414,6 @@ function yx({ cardIndex: e }) {
 		case "VERTICAL":
 			u = "Recommended image size: 1200 × 300 px. Use a wide banner image to avoid cropping.";
 			break;
-		default: u = null;
 	}
 	function d(e) {
 		a(e.currentTarget.checked), e.currentTarget.checked && r(`${s}.altText`, "");

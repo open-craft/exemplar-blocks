@@ -31,6 +31,7 @@
   &.complex-card--image-background {
     position: relative;
     overflow: hidden;
+    // this variable is set from the react component based on the card's background image
     background-image: var(--ccblk-card-background-image);
     background-size: cover;
     background-position: center;

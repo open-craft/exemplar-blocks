@@ -16,8 +16,8 @@ function StudentUI({
   let columnSizes: Record<string, number> = { sm: 12 };
   if (cards.length > 1) {
     // We need a columnSizes for CardCarousel
-    // Hence, if we have a single horizontal card we set the carouse to be horizontal.
-    // So that design looks presentable
+    // Hence, if we have a single horizontal card we set the carousel to use horizontal sizing,
+    // so that design looks presentable (horizontal cards are wider).
     const hasHorizontalCard = cards.some(
       (card) => card.orientation === 'HORIZONTAL',
     );

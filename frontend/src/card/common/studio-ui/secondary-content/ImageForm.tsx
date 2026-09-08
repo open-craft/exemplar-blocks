@@ -29,8 +29,6 @@ export default function ImageForm({ cardIndex }: { cardIndex: number }) {
       recommendation =
         'Recommended image size: 1200 × 300 px. Use a wide banner image to avoid cropping.';
       break;
-    default:
-      recommendation = null;
   }
 
   function handleDecorativeChange(e: React.ChangeEvent<HTMLInputElement>) {

@@ -7,7 +7,6 @@ import { XBlockConfigContext } from '@/lib/context.ts';
 import type { XBlockConfig } from '@/types.ts';
 import StudioUI from './StudioUI';
 import type { InitData } from '@/card/card-carousel/types.ts';
-import { newCard } from '@/card/common/utils';
 import styles from './StudioUI.css?inline';
 
 export const renderBlock = (
@@ -17,9 +16,6 @@ export const renderBlock = (
 ) => {
   const container = getRoot(element);
   const saveUrl = runtime.handlerUrl(element, 'studio_save');
-  if (!context.data.cards || !context.data.cards.length) {
-    context.data.cards = [newCard([], { orientation: 'HORIZONTAL' })];
-  }
 
   // The Modal Body has a hardcoded value of 435px in studio-main-v1.css
   // This effect updates that height to match make sure the full content is visible.
