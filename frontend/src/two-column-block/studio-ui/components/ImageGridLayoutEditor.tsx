@@ -51,9 +51,9 @@ export const ImageGridLayoutEditor = ({
 
   return (
     <>
-      <h5>Featured Image</h5>
+      <h5 className="two-column-editor-subsection-title">Featured Image</h5>
 
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Image Source URL</Form.Label>
         <URLFilePickerWrapper<XBlockConfig>
           setValue={handleSetFeaturedImageURL}
@@ -67,10 +67,10 @@ export const ImageGridLayoutEditor = ({
         </URLFilePickerWrapper>
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Alt text</Form.Label>
         <Form.Checkbox
-          className="d-flex"
+          className="two-column-editor-checkbox"
           checked={data.featuredImage.decorative}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             onUpdate({
@@ -101,7 +101,7 @@ export const ImageGridLayoutEditor = ({
         )}
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Image link (optional)</Form.Label>
         <Form.Control
           value={data.featuredImage.onClickUrl}
@@ -118,7 +118,7 @@ export const ImageGridLayoutEditor = ({
         />
       </Form.Group>
 
-      <h5>Bottom row</h5>
+      <h5 className="two-column-editor-subsection-title">Bottom row</h5>
 
       <SelectableBox.Set
         value={data.bottomRowOrder}
@@ -133,22 +133,22 @@ export const ImageGridLayoutEditor = ({
         ariaLabel="Order of components on the bottom row"
       >
         <SelectableBox value="imageText">
-          <Row xs={1} className="justify-content-center text-center">
+          <Row xs={1} className="two-column-editor-selectable-content">
             <Icon src={ImageText} />
             <p>Image left, text right</p>
           </Row>
         </SelectableBox>
         <SelectableBox value="textImage">
-          <Row xs={1} className="justify-content-center text-center">
+          <Row xs={1} className="two-column-editor-selectable-content">
             <Icon src={TextImage} />
             <p>Image right, text left</p>
           </Row>
         </SelectableBox>
       </SelectableBox.Set>
 
-      <h4>Image</h4>
+      <h4 className="two-column-editor-subsection-title">Image</h4>
 
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Image Source URL</Form.Label>
         <URLFilePickerWrapper
           setValue={handleSetBottomImageURL}
@@ -162,10 +162,10 @@ export const ImageGridLayoutEditor = ({
         </URLFilePickerWrapper>
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Alt text</Form.Label>
         <Form.Checkbox
-          className="d-flex"
+          className="two-column-editor-checkbox"
           checked={data.bottomImage.decorative}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             onUpdate({
@@ -196,7 +196,7 @@ export const ImageGridLayoutEditor = ({
         )}
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Image link (optional)</Form.Label>
         <Form.Control
           value={data.bottomImage.onClickUrl}
@@ -210,9 +210,9 @@ export const ImageGridLayoutEditor = ({
         />
       </Form.Group>
 
-      <h4>Text</h4>
+      <h4 className="two-column-editor-subsection-title">Text</h4>
 
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Text</Form.Label>
         <Form.Control
           value={data.text.content}
@@ -228,7 +228,7 @@ export const ImageGridLayoutEditor = ({
 
       <Row xs={2}>
         <Col>
-          <Form.Group>
+          <Form.Group className="two-column-editor-field">
             <Form.Label>Text alignment</Form.Label>
             <Form.Control
               value={data.text.alignment}
@@ -249,8 +249,8 @@ export const ImageGridLayoutEditor = ({
             </Form.Control>
           </Form.Group>
 
-          <Form.Group className="d-flex">
-            <Form.Label className="mr-3">Background color</Form.Label>
+          <Form.Group className="two-column-editor-inline-color-field">
+            <Form.Label>Background color</Form.Label>
             <ColorPicker
               color={data.text.backgroundColor}
               setColor={(backgroundColor: string) =>
@@ -262,7 +262,7 @@ export const ImageGridLayoutEditor = ({
         </Col>
 
         <Col>
-          <Form.Group>
+          <Form.Group className="two-column-editor-field">
             <Form.Label>Font size</Form.Label>
             <Form.Control
               value={data.text.fontSize}
@@ -279,8 +279,8 @@ export const ImageGridLayoutEditor = ({
             </Form.Control>
           </Form.Group>
 
-          <Form.Group className="d-flex">
-            <Form.Label className="mr-3">Text color</Form.Label>
+          <Form.Group className="two-column-editor-inline-color-field">
+            <Form.Label>Text color</Form.Label>
             <ColorPicker
               color={data.text.color}
               setColor={(color: string) =>

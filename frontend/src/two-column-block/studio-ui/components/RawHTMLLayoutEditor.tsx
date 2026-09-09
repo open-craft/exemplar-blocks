@@ -13,7 +13,7 @@ export const RawHTMLLayoutEditor = ({
 }: RawHTMLLayoutEditorProps) => {
   return (
     <>
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>
           Raw HTML (e.g. an embed code or interactive activity)
         </Form.Label>
@@ -27,7 +27,7 @@ export const RawHTMLLayoutEditor = ({
           }
           placeholder=""
           as="textarea"
-          style={{ height: '7lh' }}
+          className="two-column-editor-raw-html"
         />
       </Form.Group>
     </>

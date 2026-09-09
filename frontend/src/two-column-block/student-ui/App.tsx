@@ -5,7 +5,6 @@ import {
   Row,
   Hyperlink,
   ActionRow,
-  Container,
 } from '@openedx/paragon';
 import {
   type Data,
@@ -16,7 +15,7 @@ import {
   type TextLayoutData,
 } from '../apiTypes';
 import { type LayoutData } from '../types';
-import type { ReactElement } from 'react';
+import type { CSSProperties, ReactElement } from 'react';
 
 type AppProps = {
   data: Data;
@@ -26,25 +25,25 @@ export const App = ({ data }: AppProps) => {
   const [firstColumnSize, secondColumnSize] = data.columns.ratio
     .split(':')
     .map((s) => parseInt(s, 10));
+  const wrapperStyle = {
+    '--two-column-background-color': data.backgroundColor,
+  } as CSSProperties;
 
   return (
-    <Container
-      className="p-0"
-      style={{ backgroundColor: data.backgroundColor }}
-    >
-      <Container size="lg">
+    <div className="xblock-two-column-wrapper" style={wrapperStyle}>
+      <div className="two-column-container">
         <Row
-          className={`xblock-two-column p-3 ${data.columns.order == 'rightAboveLeft' ? 'two-column-reverse' : ''}`}
+          className={`xblock-two-column ${data.columns.order == 'rightAboveLeft' ? 'two-column-reverse' : ''}`}
         >
-          <Col xs={12} sm={firstColumnSize}>
+          <Col xs={12} sm={firstColumnSize} className="two-column-column">
             <ColumnView data={data.columns.left} />
           </Col>
-          <Col xs={12} sm={secondColumnSize}>
+          <Col xs={12} sm={secondColumnSize} className="two-column-column">
             <ColumnView data={data.columns.right} />
           </Col>
         </Row>
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 };
 
@@ -72,15 +71,16 @@ type TextColumnViewProps = {
 };
 
 const TextColumnView = ({ data }: TextColumnViewProps) => {
+  const style = {
+    '--two-column-text-vertical-alignment': data.verticalAlignment,
+  } as CSSProperties;
+
   return (
-    <div
-      style={{
-        display: 'flex',
-        minHeight: '100%',
-        alignItems: data.verticalAlignment,
-      }}
-    >
-      <div dangerouslySetInnerHTML={{ __html: data.content }} />
+    <div className="two-column-text-column" style={style}>
+      <div
+        className="two-column-text-content"
+        dangerouslySetInnerHTML={{ __html: data.content }}
+      />
     </div>
   );
 };
@@ -91,18 +91,20 @@ type LessonListColumnViewProps = {
 
 const LessonListColumnView = ({ data }: LessonListColumnViewProps) => {
   return (
-    <>
-      <h5>{data.title}</h5>
-      <p>{data.text}</p>
+    <div className="lesson-list-column">
+      <h5 className="lesson-list-title">{data.title}</h5>
+      <p className="lesson-list-intro">{data.text}</p>
       {data.lessons.map((lesson) => (
-        <Row className="lesson-list-item py-4">
-          <Col xs={2} className="text-secondary font-weight-bold">
+        <Row className="lesson-list-item" key={`${lesson.id}-${lesson.title}`}>
+          <Col xs={2} className="lesson-list-item-number">
             {lesson.id}
           </Col>
-          <Col xs={10}>{lesson.title}</Col>
+          <Col xs={10} className="lesson-list-item-title">
+            {lesson.title}
+          </Col>
         </Row>
       ))}
-    </>
+    </div>
   );
 };
 
@@ -112,19 +114,19 @@ type LessonIntroColumnViewProps = {
 
 const LessonIntroColumnView = ({ data }: LessonIntroColumnViewProps) => {
   return (
-    <>
-      <h4 className="mb-4.5">{data.title}</h4>
-      <h5 className="lh-lg">
-        <span className="text-secondary">
+    <div className="lesson-intro-column">
+      <h4 className="lesson-intro-title">{data.title}</h4>
+      <h5 className="lesson-intro-heading">
+        <span className="lesson-intro-id">
           {data.lesson.id ? data.lesson.id : null}
         </span>
         <br />
         <span>{data.lesson.title}</span>
       </h5>
-      <p>{data.summary}</p>
+      <p className="lesson-intro-summary">{data.summary}</p>
 
       {(data.previousLesson || data.showStartLessonButton) && (
-        <ActionRow>
+        <ActionRow className="lesson-intro-actions">
           {data.previousLesson && (
             <Button
               className="rounded-pill"
@@ -145,7 +147,7 @@ const LessonIntroColumnView = ({ data }: LessonIntroColumnViewProps) => {
           )}
         </ActionRow>
       )}
-    </>
+    </div>
   );
 };
 
@@ -156,13 +158,13 @@ type ImageGridColumnViewProps = {
 const ImageGridColumnView = ({ data }: ImageGridColumnViewProps) => {
   const bottomImage = data.bottomImage.onClickUrl ? (
     <Hyperlink
-      className="d-block w-100 bottom-image-grid-item overflow-hidden"
+      className="image-grid-link bottom-image-grid-item"
       showLaunchIcon={false}
       target="_blank"
       destination={data.bottomImage.onClickUrl}
     >
       <Image
-        className="w-100"
+        className="image-grid-image"
         fluid
         src={data.bottomImage.url}
         alt={data.bottomImage.alt}
@@ -170,21 +172,29 @@ const ImageGridColumnView = ({ data }: ImageGridColumnViewProps) => {
     </Hyperlink>
   ) : (
     <Image
-      className="w-100 bottom-image-grid-item overflow-hidden"
+      className="image-grid-image bottom-image-grid-item"
       fluid
       src={data.bottomImage.url}
       alt={data.bottomImage.alt}
     />
   );
 
+  const bottomTextStyle = {
+    '--two-column-image-grid-text-background-color': data.text.backgroundColor,
+    '--two-column-image-grid-text-color': data.text.color,
+  } as CSSProperties;
+
   const bottomText = (
     <div
-      className={`d-flex align-items-center justify-content-${data.text.alignment} p-3 bottom-image-grid-item`}
-      style={{ backgroundColor: data.text.backgroundColor, height: '100%' }}
+      className={`image-grid-bottom-text image-grid-text-align-${data.text.alignment}`}
+      style={bottomTextStyle}
     >
       <div
-        className={data.text.fontSize == 'large' ? 'lead' : ''}
-        style={{ color: data.text.color }}
+        className={
+          data.text.fontSize == 'large'
+            ? 'image-grid-text-content image-grid-text-content-large'
+            : 'image-grid-text-content'
+        }
       >
         {data.text.content}
       </div>
@@ -197,40 +207,44 @@ const ImageGridColumnView = ({ data }: ImageGridColumnViewProps) => {
       : [bottomText, bottomImage];
 
   return (
-    <>
-      <Row>
-        <Col xs={12} className="pb-1">
-          {data.featuredImage.onClickUrl ? (
-            <Hyperlink
-              target="_blank"
-              className="d-block w-100 top-image-grid-item overflow-hidden"
-              showLaunchIcon={false}
-              destination={data.featuredImage.onClickUrl}
-            >
-              <Image
-                fluid
-                className="w-100"
-                src={data.featuredImage.url}
-                alt={data.featuredImage.alt}
-              />
-            </Hyperlink>
-          ) : (
+    <Row className="image-grid">
+      <Col xs={12} className="image-grid-featured">
+        {data.featuredImage.onClickUrl ? (
+          <Hyperlink
+            target="_blank"
+            className="image-grid-link top-image-grid-item"
+            showLaunchIcon={false}
+            destination={data.featuredImage.onClickUrl}
+          >
             <Image
               fluid
-              className="w-100 top-image-grid-item"
+              className="image-grid-image"
               src={data.featuredImage.url}
               alt={data.featuredImage.alt}
             />
-          )}
-        </Col>
-        <Col xs={6} className="pr-1">
-          {bottomLeft}
-        </Col>
-        <Col xs={6} className="pl-1">
-          {bottomRight}
-        </Col>
-      </Row>
-    </>
+          </Hyperlink>
+        ) : (
+          <Image
+            fluid
+            className="image-grid-image top-image-grid-item"
+            src={data.featuredImage.url}
+            alt={data.featuredImage.alt}
+          />
+        )}
+      </Col>
+      <Col
+        xs={6}
+        className="image-grid-bottom-cell image-grid-bottom-cell-left"
+      >
+        {bottomLeft}
+      </Col>
+      <Col
+        xs={6}
+        className="image-grid-bottom-cell image-grid-bottom-cell-right"
+      >
+        {bottomRight}
+      </Col>
+    </Row>
   );
 };
 
@@ -241,9 +255,7 @@ type RawHTMLColumnViewProps = {
 const RawHTMLColumnView = ({ data }: RawHTMLColumnViewProps) => {
   return (
     <div
-      style={{
-        minHeight: '100%',
-      }}
+      className="two-column-raw-html"
       dangerouslySetInnerHTML={{ __html: data.html }}
     />
   );

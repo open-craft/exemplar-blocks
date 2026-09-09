@@ -38,12 +38,12 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
     });
 
   return (
-    <div className="two-column-block-editor editor-with-buttons d-flex flex-column justify-content-between">
-      <div className="wrapper-comp-settings is-active container-fluid">
-        <Form.Group>
+    <div className="two-column-block-editor editor-with-buttons">
+      <div className="wrapper-comp-settings is-active two-column-editor-body">
+        <Form.Group className="two-column-editor-field">
           <Form.Label>Display Name (shown in Studio only)</Form.Label>
           <Form.Control
-            controlClassName="w-auto"
+            controlClassName="two-column-editor-control-auto"
             value={data.displayName}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setData({ ...data, displayName: e.target.value })
@@ -52,10 +52,10 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
           />
         </Form.Group>
 
-        <Row xs={1} sm={2}>
-          <Col className="d-flex flex-column">
-            <h4 className="my-3">Left Column</h4>
-            <div className="border rounded flex-grow-1 p-4">
+        <Row xs={1} sm={2} className="two-column-editor-columns">
+          <Col className="two-column-editor-column">
+            <h4 className="two-column-editor-column-title">Left Column</h4>
+            <div className="two-column-editor-panel">
               <LayoutSwitcher
                 layoutType={data.columns.left.kind}
                 onUpdate={(kind: LayoutData['kind']) =>
@@ -77,9 +77,10 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
             </div>
           </Col>
 
-          <Col className="d-flex flex-column">
-            <div className="d-flex justify-content-between">
-              <h4 className="my-3">Right Column</h4>
+          <Col className="two-column-editor-column">
+            <ActionRow className="two-column-editor-column-header">
+              <h4 className="two-column-editor-column-title">Right Column</h4>
+              <ActionRow.Spacer />
               <Button
                 variant="tertiary"
                 iconBefore={CompareArrows}
@@ -87,8 +88,8 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
               >
                 Reverse columns
               </Button>
-            </div>
-            <div className="border rounded flex-grow-1 p-4">
+            </ActionRow>
+            <div className="two-column-editor-panel">
               <LayoutSwitcher
                 layoutType={data.columns.right.kind}
                 onUpdate={(kind: LayoutData['kind']) =>
@@ -111,11 +112,11 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
           </Col>
         </Row>
 
-        <h4 className="my-4">Additional Settings</h4>
-        <Form.Group>
+        <h4 className="two-column-editor-section-title">Additional Settings</h4>
+        <Form.Group className="two-column-editor-field">
           <Form.Label>Column ratio</Form.Label>
           <Form.Control
-            controlClassName="w-auto"
+            controlClassName="two-column-editor-control-auto"
             value={data.columns.ratio}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setData({
@@ -135,7 +136,7 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="two-column-editor-field">
           <Form.Label>
             <p>Column order on small screens</p>
             <small>Which column should appear first?</small>
@@ -158,7 +159,7 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
           </Form.RadioSet>
         </Form.Group>
 
-        <Form.Label>
+        <Form.Label className="two-column-editor-color-field">
           Background Color
           <ColorPicker
             color={data.backgroundColor}
@@ -169,7 +170,10 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
         </Form.Label>
       </div>
 
-      <Sticky position="bottom" className="xblock-actions p-2 border-top">
+      <Sticky
+        position="bottom"
+        className="xblock-actions two-column-editor-actions"
+      >
         <ActionRow>
           <Button variant="primary" onClick={() => onSave(data)}>
             Save
@@ -210,7 +214,7 @@ type LayoutSwitcherProps = {
 
 const LayoutSwitcher = ({ layoutType, onUpdate }: LayoutSwitcherProps) => {
   return (
-    <Form.Group>
+    <Form.Group className="two-column-editor-field">
       <Form.Label>Template</Form.Label>
       <Form.Control
         value={layoutType}

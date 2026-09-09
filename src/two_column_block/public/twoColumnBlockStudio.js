@@ -49238,40 +49238,43 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 		...e,
 		content: n
 	})
-}), /* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Vertical alignment:" }), /* @__PURE__ */ (0, Y.jsxs)(Rd.Set, {
-	value: e.verticalAlignment,
-	onChange: (n) => t({
-		...e,
-		verticalAlignment: n.target.value
-	}),
-	columns: 3,
-	children: [
-		/* @__PURE__ */ (0, Y.jsx)(Rd, {
-			value: "start",
-			children: /* @__PURE__ */ (0, Y.jsxs)(v, {
-				xs: 1,
-				className: "justify-content-center text-center",
-				children: [/* @__PURE__ */ (0, Y.jsx)(m, { src: ra }), /* @__PURE__ */ (0, Y.jsx)("p", { children: "Align top" })]
-			})
+}), /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+	className: "two-column-editor-field",
+	children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Vertical alignment:" }), /* @__PURE__ */ (0, Y.jsxs)(Rd.Set, {
+		value: e.verticalAlignment,
+		onChange: (n) => t({
+			...e,
+			verticalAlignment: n.target.value
 		}),
-		/* @__PURE__ */ (0, Y.jsx)(Rd, {
-			value: "center",
-			children: /* @__PURE__ */ (0, Y.jsxs)(v, {
-				xs: 1,
-				className: "justify-content-center text-center",
-				children: [/* @__PURE__ */ (0, Y.jsx)(m, { src: na }), /* @__PURE__ */ (0, Y.jsx)("p", { children: "Align center" })]
+		columns: 3,
+		children: [
+			/* @__PURE__ */ (0, Y.jsx)(Rd, {
+				value: "start",
+				children: /* @__PURE__ */ (0, Y.jsxs)(v, {
+					xs: 1,
+					className: "two-column-editor-selectable-content",
+					children: [/* @__PURE__ */ (0, Y.jsx)(m, { src: ra }), /* @__PURE__ */ (0, Y.jsx)("p", { children: "Align top" })]
+				})
+			}),
+			/* @__PURE__ */ (0, Y.jsx)(Rd, {
+				value: "center",
+				children: /* @__PURE__ */ (0, Y.jsxs)(v, {
+					xs: 1,
+					className: "two-column-editor-selectable-content",
+					children: [/* @__PURE__ */ (0, Y.jsx)(m, { src: na }), /* @__PURE__ */ (0, Y.jsx)("p", { children: "Align center" })]
+				})
+			}),
+			/* @__PURE__ */ (0, Y.jsx)(Rd, {
+				value: "end",
+				children: /* @__PURE__ */ (0, Y.jsxs)(v, {
+					xs: 1,
+					className: "two-column-editor-selectable-content",
+					children: [/* @__PURE__ */ (0, Y.jsx)(m, { src: ta }), /* @__PURE__ */ (0, Y.jsx)("p", { children: "Align bottom" })]
+				})
 			})
-		}),
-		/* @__PURE__ */ (0, Y.jsx)(Rd, {
-			value: "end",
-			children: /* @__PURE__ */ (0, Y.jsxs)(v, {
-				xs: 1,
-				className: "justify-content-center text-center",
-				children: [/* @__PURE__ */ (0, Y.jsx)(m, { src: ta }), /* @__PURE__ */ (0, Y.jsx)("p", { children: "Align bottom" })]
-			})
-		})
-	]
-})] })] }), Jf = (0, D.createContext)(null), Yf = () => (0, D.useContext)(Jf), Xf = ({ fileTypes: e, onFileSelect: t, onError: n, onClose: r }) => {
+		]
+	})]
+})] }), Jf = (0, D.createContext)(null), Yf = () => (0, D.useContext)(Jf), Xf = ({ fileTypes: e, onFileSelect: t, onError: n, onClose: r }) => {
 	let [i, a] = (0, D.useState)(null), { element: o } = (0, D.useContext)(g), s = Yf(), c = (0, D.useRef)(null), l = o.getAttribute("data-usage-id");
 	if ((0, D.useEffect)(() => {
 		let e = async ({ data: e, source: t }) => {
@@ -49379,55 +49382,70 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 		}
 	}), [e, t]), r = (0, D.useCallback)(async (e) => await n("featuredImage", e), [n]), i = (0, D.useCallback)(async (e) => await r(e.target.value), [r]), a = (0, D.useCallback)(async (e) => await n("bottomImage", e), [n]), o = (0, D.useCallback)(async (e) => await a(e.target.value), [a]);
 	return /* @__PURE__ */ (0, Y.jsxs)(Y.Fragment, { children: [
-		/* @__PURE__ */ (0, Y.jsx)("h5", { children: "Featured Image" }),
-		/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Image Source URL" }), /* @__PURE__ */ (0, Y.jsx)(Zf, {
-			setValue: r,
-			fileTypes: ["image"],
-			children: /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-				value: e.featuredImage.url,
-				onChange: i,
-				placeholder: ""
-			})
-		})] }),
-		/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [
-			/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Alt text" }),
-			/* @__PURE__ */ (0, Y.jsx)(U.Checkbox, {
-				className: "d-flex",
-				checked: e.featuredImage.decorative,
+		/* @__PURE__ */ (0, Y.jsx)("h5", {
+			className: "two-column-editor-subsection-title",
+			children: "Featured Image"
+		}),
+		/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+			className: "two-column-editor-field",
+			children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Image Source URL" }), /* @__PURE__ */ (0, Y.jsx)(Zf, {
+				setValue: r,
+				fileTypes: ["image"],
+				children: /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+					value: e.featuredImage.url,
+					onChange: i,
+					placeholder: ""
+				})
+			})]
+		}),
+		/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+			className: "two-column-editor-field",
+			children: [
+				/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Alt text" }),
+				/* @__PURE__ */ (0, Y.jsx)(U.Checkbox, {
+					className: "two-column-editor-checkbox",
+					checked: e.featuredImage.decorative,
+					onChange: (n) => t({
+						...e,
+						featuredImage: {
+							...e.featuredImage,
+							alt: n.target.checked ? "" : e.featuredImage.alt,
+							decorative: n.target.checked
+						}
+					}),
+					children: "Decorative image"
+				}),
+				!e.featuredImage.decorative && /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+					value: e.featuredImage.alt,
+					onChange: (n) => t({
+						...e,
+						featuredImage: {
+							...e.featuredImage,
+							alt: n.target.value
+						}
+					}),
+					placeholder: "Alt text"
+				})
+			]
+		}),
+		/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+			className: "two-column-editor-field",
+			children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Image link (optional)" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+				value: e.featuredImage.onClickUrl,
 				onChange: (n) => t({
 					...e,
 					featuredImage: {
 						...e.featuredImage,
-						alt: n.target.checked ? "" : e.featuredImage.alt,
-						decorative: n.target.checked
+						onClickUrl: n.target.value
 					}
 				}),
-				children: "Decorative image"
-			}),
-			!e.featuredImage.decorative && /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-				value: e.featuredImage.alt,
-				onChange: (n) => t({
-					...e,
-					featuredImage: {
-						...e.featuredImage,
-						alt: n.target.value
-					}
-				}),
-				placeholder: "Alt text"
-			})
-		] }),
-		/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Image link (optional)" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-			value: e.featuredImage.onClickUrl,
-			onChange: (n) => t({
-				...e,
-				featuredImage: {
-					...e.featuredImage,
-					onClickUrl: n.target.value
-				}
-			}),
-			placeholder: "URL"
-		})] }),
-		/* @__PURE__ */ (0, Y.jsx)("h5", { children: "Bottom row" }),
+				placeholder: "URL"
+			})]
+		}),
+		/* @__PURE__ */ (0, Y.jsx)("h5", {
+			className: "two-column-editor-subsection-title",
+			children: "Bottom row"
+		}),
 		/* @__PURE__ */ (0, Y.jsxs)(Rd.Set, {
 			value: e.bottomRowOrder,
 			onChange: (n) => t({
@@ -49441,110 +49459,128 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 				value: "imageText",
 				children: /* @__PURE__ */ (0, Y.jsxs)(v, {
 					xs: 1,
-					className: "justify-content-center text-center",
+					className: "two-column-editor-selectable-content",
 					children: [/* @__PURE__ */ (0, Y.jsx)(m, { src: Qf }), /* @__PURE__ */ (0, Y.jsx)("p", { children: "Image left, text right" })]
 				})
 			}), /* @__PURE__ */ (0, Y.jsx)(Rd, {
 				value: "textImage",
 				children: /* @__PURE__ */ (0, Y.jsxs)(v, {
 					xs: 1,
-					className: "justify-content-center text-center",
+					className: "two-column-editor-selectable-content",
 					children: [/* @__PURE__ */ (0, Y.jsx)(m, { src: $f }), /* @__PURE__ */ (0, Y.jsx)("p", { children: "Image right, text left" })]
 				})
 			})]
 		}),
-		/* @__PURE__ */ (0, Y.jsx)("h4", { children: "Image" }),
-		/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Image Source URL" }), /* @__PURE__ */ (0, Y.jsx)(Zf, {
-			setValue: a,
-			fileTypes: ["image"],
-			children: /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-				value: e.bottomImage.url,
-				onChange: o,
-				placeholder: ""
-			})
-		})] }),
-		/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [
-			/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Alt text" }),
-			/* @__PURE__ */ (0, Y.jsx)(U.Checkbox, {
-				className: "d-flex",
-				checked: e.bottomImage.decorative,
+		/* @__PURE__ */ (0, Y.jsx)("h4", {
+			className: "two-column-editor-subsection-title",
+			children: "Image"
+		}),
+		/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+			className: "two-column-editor-field",
+			children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Image Source URL" }), /* @__PURE__ */ (0, Y.jsx)(Zf, {
+				setValue: a,
+				fileTypes: ["image"],
+				children: /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+					value: e.bottomImage.url,
+					onChange: o,
+					placeholder: ""
+				})
+			})]
+		}),
+		/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+			className: "two-column-editor-field",
+			children: [
+				/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Alt text" }),
+				/* @__PURE__ */ (0, Y.jsx)(U.Checkbox, {
+					className: "two-column-editor-checkbox",
+					checked: e.bottomImage.decorative,
+					onChange: (n) => t({
+						...e,
+						bottomImage: {
+							...e.bottomImage,
+							alt: n.target.checked ? "" : e.bottomImage.alt,
+							decorative: n.target.checked
+						}
+					}),
+					children: "Decorative image"
+				}),
+				!e.bottomImage.decorative && /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+					value: e.bottomImage.alt,
+					onChange: (n) => t({
+						...e,
+						bottomImage: {
+							...e.bottomImage,
+							alt: n.target.value
+						}
+					}),
+					placeholder: "Alt text"
+				})
+			]
+		}),
+		/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+			className: "two-column-editor-field",
+			children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Image link (optional)" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+				value: e.bottomImage.onClickUrl,
 				onChange: (n) => t({
 					...e,
 					bottomImage: {
 						...e.bottomImage,
-						alt: n.target.checked ? "" : e.bottomImage.alt,
-						decorative: n.target.checked
+						onClickUrl: n.target.value
 					}
 				}),
-				children: "Decorative image"
-			}),
-			!e.bottomImage.decorative && /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-				value: e.bottomImage.alt,
-				onChange: (n) => t({
-					...e,
-					bottomImage: {
-						...e.bottomImage,
-						alt: n.target.value
-					}
-				}),
-				placeholder: "Alt text"
-			})
-		] }),
-		/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Image link (optional)" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-			value: e.bottomImage.onClickUrl,
-			onChange: (n) => t({
-				...e,
-				bottomImage: {
-					...e.bottomImage,
-					onClickUrl: n.target.value
-				}
-			}),
-			placeholder: "URL"
-		})] }),
-		/* @__PURE__ */ (0, Y.jsx)("h4", { children: "Text" }),
-		/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Text" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-			value: e.text.content,
-			onChange: (n) => t({
-				...e,
-				text: {
-					...e.text,
-					content: n.target.value
-				}
-			}),
-			placeholder: "Enter text"
-		})] }),
-		/* @__PURE__ */ (0, Y.jsxs)(v, {
-			xs: 2,
-			children: [/* @__PURE__ */ (0, Y.jsxs)(x, { children: [/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Text alignment" }), /* @__PURE__ */ (0, Y.jsxs)(U.Control, {
-				value: e.text.alignment,
+				placeholder: "URL"
+			})]
+		}),
+		/* @__PURE__ */ (0, Y.jsx)("h4", {
+			className: "two-column-editor-subsection-title",
+			children: "Text"
+		}),
+		/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+			className: "two-column-editor-field",
+			children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Text" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+				value: e.text.content,
 				onChange: (n) => t({
 					...e,
 					text: {
 						...e.text,
-						alignment: n.target.value
+						content: n.target.value
 					}
 				}),
-				as: "select",
-				children: [
-					/* @__PURE__ */ (0, Y.jsx)("option", {
-						value: "start",
-						children: "Left-aligned"
+				placeholder: "Enter text"
+			})]
+		}),
+		/* @__PURE__ */ (0, Y.jsxs)(v, {
+			xs: 2,
+			children: [/* @__PURE__ */ (0, Y.jsxs)(x, { children: [/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+				className: "two-column-editor-field",
+				children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Text alignment" }), /* @__PURE__ */ (0, Y.jsxs)(U.Control, {
+					value: e.text.alignment,
+					onChange: (n) => t({
+						...e,
+						text: {
+							...e.text,
+							alignment: n.target.value
+						}
 					}),
-					/* @__PURE__ */ (0, Y.jsx)("option", {
-						value: "center",
-						children: "Centered"
-					}),
-					/* @__PURE__ */ (0, Y.jsx)("option", {
-						value: "end",
-						children: "Right-aligned"
-					})
-				]
-			})] }), /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
-				className: "d-flex",
-				children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
-					className: "mr-3",
-					children: "Background color"
-				}), /* @__PURE__ */ (0, Y.jsx)(yf, {
+					as: "select",
+					children: [
+						/* @__PURE__ */ (0, Y.jsx)("option", {
+							value: "start",
+							children: "Left-aligned"
+						}),
+						/* @__PURE__ */ (0, Y.jsx)("option", {
+							value: "center",
+							children: "Centered"
+						}),
+						/* @__PURE__ */ (0, Y.jsx)("option", {
+							value: "end",
+							children: "Right-aligned"
+						})
+					]
+				})]
+			}), /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+				className: "two-column-editor-inline-color-field",
+				children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Background color" }), /* @__PURE__ */ (0, Y.jsx)(yf, {
 					color: e.text.backgroundColor,
 					setColor: (n) => t({
 						...e,
@@ -49555,29 +49591,29 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 					}),
 					size: "sm"
 				})]
-			})] }), /* @__PURE__ */ (0, Y.jsxs)(x, { children: [/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Font size" }), /* @__PURE__ */ (0, Y.jsxs)(U.Control, {
-				value: e.text.fontSize,
-				onChange: (n) => t({
-					...e,
-					text: {
-						...e.text,
-						fontSize: n.target.value
-					}
-				}),
-				as: "select",
-				children: [/* @__PURE__ */ (0, Y.jsx)("option", {
-					value: "small",
-					children: "Small"
-				}), /* @__PURE__ */ (0, Y.jsx)("option", {
-					value: "large",
-					children: "Large"
+			})] }), /* @__PURE__ */ (0, Y.jsxs)(x, { children: [/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+				className: "two-column-editor-field",
+				children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Font size" }), /* @__PURE__ */ (0, Y.jsxs)(U.Control, {
+					value: e.text.fontSize,
+					onChange: (n) => t({
+						...e,
+						text: {
+							...e.text,
+							fontSize: n.target.value
+						}
+					}),
+					as: "select",
+					children: [/* @__PURE__ */ (0, Y.jsx)("option", {
+						value: "small",
+						children: "Small"
+					}), /* @__PURE__ */ (0, Y.jsx)("option", {
+						value: "large",
+						children: "Large"
+					})]
 				})]
-			})] }), /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
-				className: "d-flex",
-				children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
-					className: "mr-3",
-					children: "Text color"
-				}), /* @__PURE__ */ (0, Y.jsx)(yf, {
+			}), /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+				className: "two-column-editor-inline-color-field",
+				children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Text color" }), /* @__PURE__ */ (0, Y.jsx)(yf, {
 					color: e.text.color,
 					setColor: (n) => t({
 						...e,
@@ -49592,61 +49628,73 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 		})
 	] });
 }, np = ({ data: e, onUpdate: t }) => /* @__PURE__ */ (0, Y.jsxs)(Y.Fragment, { children: [
-	/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Title" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-		value: e.title,
-		onChange: (n) => t({
-			...e,
-			title: n.target.value
-		}),
-		placeholder: "Overview"
-	})] }),
+	/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+		className: "two-column-editor-field",
+		children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Title" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+			value: e.title,
+			onChange: (n) => t({
+				...e,
+				title: n.target.value
+			}),
+			placeholder: "Overview"
+		})]
+	}),
 	/* @__PURE__ */ (0, Y.jsx)("p", {
-		className: "lead",
+		className: "two-column-editor-subsection-title",
 		children: "Lesson Info"
 	}),
 	/* @__PURE__ */ (0, Y.jsxs)(v, { children: [/* @__PURE__ */ (0, Y.jsx)(x, {
 		xs: 3,
-		children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
-			className: "sm",
-			children: "Lesson No."
-		}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-			value: e.lesson.id,
-			onChange: (n) => t({
-				...e,
-				lesson: {
-					...e.lesson,
-					id: n.target.value
-				}
-			}),
-			placeholder: ""
-		})] })
+		children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+			className: "two-column-editor-field",
+			children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
+				className: "two-column-editor-label-sm",
+				children: "Lesson No."
+			}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+				value: e.lesson.id,
+				onChange: (n) => t({
+					...e,
+					lesson: {
+						...e.lesson,
+						id: n.target.value
+					}
+				}),
+				placeholder: ""
+			})]
+		})
 	}), /* @__PURE__ */ (0, Y.jsx)(x, {
 		xs: 9,
-		children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
-			className: "sm",
-			children: "Lesson Title"
-		}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-			value: e.lesson.title,
+		children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+			className: "two-column-editor-field",
+			children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
+				className: "two-column-editor-label-sm",
+				children: "Lesson Title"
+			}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+				value: e.lesson.title,
+				onChange: (n) => t({
+					...e,
+					lesson: {
+						...e.lesson,
+						title: n.target.value
+					}
+				}),
+				placeholder: "Add lesson title"
+			})]
+		})
+	})] }),
+	/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+		className: "two-column-editor-field",
+		children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Lesson Summary" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+			className: "two-column-editor-tall-textarea",
+			value: e.summary,
 			onChange: (n) => t({
 				...e,
-				lesson: {
-					...e.lesson,
-					title: n.target.value
-				}
+				summary: n.target.value
 			}),
-			placeholder: "Add lesson title"
-		})] })
-	})] }),
-	/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Lesson Summary" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-		style: { minHeight: "160px" },
-		value: e.summary,
-		onChange: (n) => t({
-			...e,
-			summary: n.target.value
-		}),
-		placeholder: "",
-		as: "textarea"
-	})] }),
+			placeholder: "",
+			as: "textarea"
+		})]
+	}),
 	/* @__PURE__ */ (0, Y.jsx)(v, { children: /* @__PURE__ */ (0, Y.jsx)(x, { children: /* @__PURE__ */ (0, Y.jsx)(U.Checkbox, {
 		checked: e.showStartLessonButton,
 		onChange: (n) => t({
@@ -49655,20 +49703,23 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 		}),
 		children: "Show start lesson button"
 	}) }) }),
-	e.showStartLessonButton && /* @__PURE__ */ (0, Y.jsx)(v, { children: /* @__PURE__ */ (0, Y.jsx)(x, { children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
-		className: "sm",
-		children: "Next Lesson URL"
-	}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-		value: e.lesson.url,
-		onChange: (n) => t({
-			...e,
-			lesson: {
-				...e.lesson,
-				url: n.target.value
-			}
-		}),
-		placeholder: "URL"
-	})] }) }) }),
+	e.showStartLessonButton && /* @__PURE__ */ (0, Y.jsx)(v, { children: /* @__PURE__ */ (0, Y.jsx)(x, { children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+		className: "two-column-editor-field",
+		children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
+			className: "two-column-editor-label-sm",
+			children: "Next Lesson URL"
+		}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+			value: e.lesson.url,
+			onChange: (n) => t({
+				...e,
+				lesson: {
+					...e.lesson,
+					url: n.target.value
+				}
+			}),
+			placeholder: "URL"
+		})]
+	}) }) }),
 	/* @__PURE__ */ (0, Y.jsx)(v, { children: /* @__PURE__ */ (0, Y.jsx)(x, { children: /* @__PURE__ */ (0, Y.jsx)(U.Checkbox, {
 		checked: e.previousLesson !== null,
 		onChange: (n) => t({
@@ -49681,58 +49732,73 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 		}),
 		children: "Show previous lesson button"
 	}) }) }),
-	e.previousLesson !== null && /* @__PURE__ */ (0, Y.jsxs)(Y.Fragment, { children: [/* @__PURE__ */ (0, Y.jsx)(v, { children: /* @__PURE__ */ (0, Y.jsx)(x, { children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
-		className: "sm",
-		children: "Lesson No."
-	}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-		controlClassName: "w-auto",
-		value: e.previousLesson.id,
-		onChange: (n) => t({
-			...e,
-			previousLesson: {
-				...e.previousLesson,
-				id: n.target.value
-			}
-		}),
-		placeholder: ""
-	})] }) }) }), /* @__PURE__ */ (0, Y.jsx)(v, { children: /* @__PURE__ */ (0, Y.jsx)(x, { children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
-		className: "sm",
-		children: "Previous Lesson URL"
-	}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-		value: e.previousLesson.url,
-		onChange: (n) => t({
-			...e,
-			previousLesson: {
-				...e.previousLesson,
-				url: n.target.value
-			}
-		}),
-		placeholder: "URL"
-	})] }) }) })] })
+	e.previousLesson !== null && /* @__PURE__ */ (0, Y.jsxs)(Y.Fragment, { children: [/* @__PURE__ */ (0, Y.jsx)(v, { children: /* @__PURE__ */ (0, Y.jsx)(x, { children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+		className: "two-column-editor-field",
+		children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
+			className: "two-column-editor-label-sm",
+			children: "Lesson No."
+		}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+			controlClassName: "two-column-editor-control-auto",
+			value: e.previousLesson.id,
+			onChange: (n) => t({
+				...e,
+				previousLesson: {
+					...e.previousLesson,
+					id: n.target.value
+				}
+			}),
+			placeholder: ""
+		})]
+	}) }) }), /* @__PURE__ */ (0, Y.jsx)(v, { children: /* @__PURE__ */ (0, Y.jsx)(x, { children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+		className: "two-column-editor-field",
+		children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
+			className: "two-column-editor-label-sm",
+			children: "Previous Lesson URL"
+		}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+			value: e.previousLesson.url,
+			onChange: (n) => t({
+				...e,
+				previousLesson: {
+					...e.previousLesson,
+					url: n.target.value
+				}
+			}),
+			placeholder: "URL"
+		})]
+	}) }) })] })
 ] }), rp = ({ data: e, onUpdate: t }) => /* @__PURE__ */ (0, Y.jsxs)(Y.Fragment, { children: [
-	/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Title" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-		value: e.title,
-		onChange: (n) => t({
-			...e,
-			title: n.target.value
-		}),
-		placeholder: "Overview"
-	})] }),
-	/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Intro text" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-		style: { minHeight: "160px" },
-		value: e.text,
-		onChange: (n) => t({
-			...e,
-			text: n.target.value
-		}),
-		placeholder: "",
-		as: "textarea"
-	})] }),
+	/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+		className: "two-column-editor-field",
+		children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Title" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+			value: e.title,
+			onChange: (n) => t({
+				...e,
+				title: n.target.value
+			}),
+			placeholder: "Overview"
+		})]
+	}),
+	/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+		className: "two-column-editor-field",
+		children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Intro text" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+			className: "two-column-editor-tall-textarea",
+			value: e.text,
+			onChange: (n) => t({
+				...e,
+				text: n.target.value
+			}),
+			placeholder: "",
+			as: "textarea"
+		})]
+	}),
 	/* @__PURE__ */ (0, Y.jsx)("p", {
-		className: "lead",
+		className: "two-column-editor-subsection-title",
 		children: "Lesson List"
 	}),
-	/* @__PURE__ */ (0, Y.jsx)("p", { children: "Add lessons to display in the bulleted list." }),
+	/* @__PURE__ */ (0, Y.jsx)("p", {
+		className: "two-column-editor-subsection-description",
+		children: "Add lessons to display in the bulleted list."
+	}),
 	(e.lessons.length > 0 ? e.lessons : [{
 		id: "",
 		title: ""
@@ -49750,7 +49816,7 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 			...e,
 			lessons: [...e.lessons.slice(0, r), ...e.lessons.slice(r + 1)]
 		})
-	})),
+	}, r)),
 	/* @__PURE__ */ (0, Y.jsx)(v, { children: /* @__PURE__ */ (0, Y.jsx)(x, { children: /* @__PURE__ */ (0, Y.jsx)(b, {
 		variant: "success",
 		onClick: () => t({
@@ -49763,83 +49829,99 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 		children: "Add Lesson"
 	}) }) })
 ] }), ip = ({ lesson: e, onUpdate: t, onDelete: n }) => /* @__PURE__ */ (0, Y.jsxs)(v, {
-	className: "align-items-end",
+	className: "two-column-editor-entry",
 	children: [
 		/* @__PURE__ */ (0, Y.jsx)(x, {
 			xs: 2,
-			children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
-				className: "sm",
-				children: "Lesson No."
-			}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-				value: e.id,
-				onChange: (n) => t({
-					...e,
-					id: n.target.value
-				}),
-				placeholder: ""
-			})] })
+			children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+				className: "two-column-editor-field",
+				children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
+					className: "two-column-editor-label-sm",
+					children: "Lesson No."
+				}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+					value: e.id,
+					onChange: (n) => t({
+						...e,
+						id: n.target.value
+					}),
+					placeholder: ""
+				})]
+			})
 		}),
 		/* @__PURE__ */ (0, Y.jsx)(x, {
 			xs: 8,
-			children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
-				className: "sm",
-				children: "Lesson Title"
-			}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-				value: e.title,
-				onChange: (n) => t({
-					...e,
-					title: n.target.value
-				}),
-				placeholder: "Add lesson title"
-			})] })
+			children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+				className: "two-column-editor-field",
+				children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, {
+					className: "two-column-editor-label-sm",
+					children: "Lesson Title"
+				}), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+					value: e.title,
+					onChange: (n) => t({
+						...e,
+						title: n.target.value
+					}),
+					placeholder: "Add lesson title"
+				})]
+			})
 		}),
 		/* @__PURE__ */ (0, Y.jsx)(x, {
 			xs: 1,
-			children: /* @__PURE__ */ (0, Y.jsx)(U.Group, { children: /* @__PURE__ */ (0, Y.jsx)(b, {
-				variant: "danger",
-				onClick: () => n(),
-				children: /* @__PURE__ */ (0, Y.jsx)(m, {
-					src: ep,
-					screenReaderText: "delete"
+			children: /* @__PURE__ */ (0, Y.jsx)(U.Group, {
+				className: "two-column-editor-field",
+				children: /* @__PURE__ */ (0, Y.jsx)(b, {
+					variant: "danger",
+					onClick: () => n(),
+					children: /* @__PURE__ */ (0, Y.jsx)(m, {
+						src: ep,
+						screenReaderText: "delete"
+					})
 				})
-			}) })
+			})
 		})
 	]
-}), ap = ({ data: e, onUpdate: t }) => /* @__PURE__ */ (0, Y.jsx)(Y.Fragment, { children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Raw HTML (e.g. an embed code or interactive activity)" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-	value: e.html,
-	onChange: (n) => t({
-		...e,
-		html: n.target.value
-	}),
-	placeholder: "",
-	as: "textarea",
-	style: { height: "7lh" }
-})] }) }), op = ({ initialData: e, onSave: t, onCancel: n }) => {
+}), ap = ({ data: e, onUpdate: t }) => /* @__PURE__ */ (0, Y.jsx)(Y.Fragment, { children: /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+	className: "two-column-editor-field",
+	children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Raw HTML (e.g. an embed code or interactive activity)" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+		value: e.html,
+		onChange: (n) => t({
+			...e,
+			html: n.target.value
+		}),
+		placeholder: "",
+		as: "textarea",
+		className: "two-column-editor-raw-html"
+	})]
+}) }), op = ({ initialData: e, onSave: t, onCancel: n }) => {
 	let [r, i] = (0, D.useState)(e);
 	return /* @__PURE__ */ (0, Y.jsxs)("div", {
-		className: "two-column-block-editor editor-with-buttons d-flex flex-column justify-content-between",
+		className: "two-column-block-editor editor-with-buttons",
 		children: [/* @__PURE__ */ (0, Y.jsxs)("div", {
-			className: "wrapper-comp-settings is-active container-fluid",
+			className: "wrapper-comp-settings is-active two-column-editor-body",
 			children: [
-				/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Display Name (shown in Studio only)" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
-					controlClassName: "w-auto",
-					value: r.displayName,
-					onChange: (e) => i({
-						...r,
-						displayName: e.target.value
-					}),
-					placeholder: "Two-column Block"
-				})] }),
+				/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+					className: "two-column-editor-field",
+					children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Display Name (shown in Studio only)" }), /* @__PURE__ */ (0, Y.jsx)(U.Control, {
+						controlClassName: "two-column-editor-control-auto",
+						value: r.displayName,
+						onChange: (e) => i({
+							...r,
+							displayName: e.target.value
+						}),
+						placeholder: "Two-column Block"
+					})]
+				}),
 				/* @__PURE__ */ (0, Y.jsxs)(v, {
 					xs: 1,
 					sm: 2,
+					className: "two-column-editor-columns",
 					children: [/* @__PURE__ */ (0, Y.jsxs)(x, {
-						className: "d-flex flex-column",
+						className: "two-column-editor-column",
 						children: [/* @__PURE__ */ (0, Y.jsx)("h4", {
-							className: "my-3",
+							className: "two-column-editor-column-title",
 							children: "Left Column"
 						}), /* @__PURE__ */ (0, Y.jsxs)("div", {
-							className: "border rounded flex-grow-1 p-4",
+							className: "two-column-editor-panel",
 							children: [/* @__PURE__ */ (0, Y.jsx)(cp, {
 								layoutType: r.columns.left.kind,
 								onUpdate: (e) => i({
@@ -49861,27 +49943,31 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 							})]
 						})]
 					}), /* @__PURE__ */ (0, Y.jsxs)(x, {
-						className: "d-flex flex-column",
-						children: [/* @__PURE__ */ (0, Y.jsxs)("div", {
-							className: "d-flex justify-content-between",
-							children: [/* @__PURE__ */ (0, Y.jsx)("h4", {
-								className: "my-3",
-								children: "Right Column"
-							}), /* @__PURE__ */ (0, Y.jsx)(b, {
-								variant: "tertiary",
-								iconBefore: Zi,
-								onClick: () => i({
-									...r,
-									columns: {
-										...r.columns,
-										left: r.columns.right,
-										right: r.columns.left
-									}
+						className: "two-column-editor-column",
+						children: [/* @__PURE__ */ (0, Y.jsxs)(d, {
+							className: "two-column-editor-column-header",
+							children: [
+								/* @__PURE__ */ (0, Y.jsx)("h4", {
+									className: "two-column-editor-column-title",
+									children: "Right Column"
 								}),
-								children: "Reverse columns"
-							})]
+								/* @__PURE__ */ (0, Y.jsx)(d.Spacer, {}),
+								/* @__PURE__ */ (0, Y.jsx)(b, {
+									variant: "tertiary",
+									iconBefore: Zi,
+									onClick: () => i({
+										...r,
+										columns: {
+											...r.columns,
+											left: r.columns.right,
+											right: r.columns.left
+										}
+									}),
+									children: "Reverse columns"
+								})
+							]
 						}), /* @__PURE__ */ (0, Y.jsxs)("div", {
-							className: "border rounded flex-grow-1 p-4",
+							className: "two-column-editor-panel",
 							children: [/* @__PURE__ */ (0, Y.jsx)(cp, {
 								layoutType: r.columns.right.kind,
 								onUpdate: (e) => i({
@@ -49905,80 +49991,89 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 					})]
 				}),
 				/* @__PURE__ */ (0, Y.jsx)("h4", {
-					className: "my-4",
+					className: "two-column-editor-section-title",
 					children: "Additional Settings"
 				}),
-				/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Column ratio" }), /* @__PURE__ */ (0, Y.jsxs)(U.Control, {
-					controlClassName: "w-auto",
-					value: r.columns.ratio,
-					onChange: (e) => i({
-						...r,
-						columns: {
-							...r.columns,
-							ratio: e.target.value
-						}
-					}),
-					as: "select",
-					children: [
-						/* @__PURE__ */ (0, Y.jsx)("option", {
-							value: "3:9",
-							children: "3:9"
+				/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+					className: "two-column-editor-field",
+					children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Column ratio" }), /* @__PURE__ */ (0, Y.jsxs)(U.Control, {
+						controlClassName: "two-column-editor-control-auto",
+						value: r.columns.ratio,
+						onChange: (e) => i({
+							...r,
+							columns: {
+								...r.columns,
+								ratio: e.target.value
+							}
 						}),
-						/* @__PURE__ */ (0, Y.jsx)("option", {
-							value: "4:8",
-							children: "4:8"
-						}),
-						/* @__PURE__ */ (0, Y.jsx)("option", {
-							value: "5:7",
-							children: "5:7"
-						}),
-						/* @__PURE__ */ (0, Y.jsx)("option", {
-							value: "6:6",
-							children: "6:6"
-						}),
-						/* @__PURE__ */ (0, Y.jsx)("option", {
-							value: "7:5",
-							children: "7:5"
-						}),
-						/* @__PURE__ */ (0, Y.jsx)("option", {
-							value: "8:4",
-							children: "8:4"
-						}),
-						/* @__PURE__ */ (0, Y.jsx)("option", {
-							value: "9:3",
-							children: "9:3"
-						})
-					]
-				})] }),
-				/* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsxs)(U.Label, { children: [/* @__PURE__ */ (0, Y.jsx)("p", { children: "Column order on small screens" }), /* @__PURE__ */ (0, Y.jsx)("small", { children: "Which column should appear first?" })] }), /* @__PURE__ */ (0, Y.jsxs)(U.RadioSet, {
-					isInline: !0,
-					value: r.columns.order,
-					onChange: (e) => i({
-						...r,
-						columns: {
-							...r.columns,
-							order: e.target.value
-						}
-					}),
-					children: [/* @__PURE__ */ (0, Y.jsx)(U.Radio, {
-						value: "leftAboveRight",
-						children: "Left column"
-					}), /* @__PURE__ */ (0, Y.jsx)(U.Radio, {
-						value: "rightAboveLeft",
-						children: "Right column"
+						as: "select",
+						children: [
+							/* @__PURE__ */ (0, Y.jsx)("option", {
+								value: "3:9",
+								children: "3:9"
+							}),
+							/* @__PURE__ */ (0, Y.jsx)("option", {
+								value: "4:8",
+								children: "4:8"
+							}),
+							/* @__PURE__ */ (0, Y.jsx)("option", {
+								value: "5:7",
+								children: "5:7"
+							}),
+							/* @__PURE__ */ (0, Y.jsx)("option", {
+								value: "6:6",
+								children: "6:6"
+							}),
+							/* @__PURE__ */ (0, Y.jsx)("option", {
+								value: "7:5",
+								children: "7:5"
+							}),
+							/* @__PURE__ */ (0, Y.jsx)("option", {
+								value: "8:4",
+								children: "8:4"
+							}),
+							/* @__PURE__ */ (0, Y.jsx)("option", {
+								value: "9:3",
+								children: "9:3"
+							})
+						]
 					})]
-				})] }),
-				/* @__PURE__ */ (0, Y.jsxs)(U.Label, { children: ["Background Color", /* @__PURE__ */ (0, Y.jsx)(yf, {
-					color: r.backgroundColor,
-					setColor: (e) => i({
-						...r,
-						backgroundColor: e
-					})
-				})] })
+				}),
+				/* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+					className: "two-column-editor-field",
+					children: [/* @__PURE__ */ (0, Y.jsxs)(U.Label, { children: [/* @__PURE__ */ (0, Y.jsx)("p", { children: "Column order on small screens" }), /* @__PURE__ */ (0, Y.jsx)("small", { children: "Which column should appear first?" })] }), /* @__PURE__ */ (0, Y.jsxs)(U.RadioSet, {
+						isInline: !0,
+						value: r.columns.order,
+						onChange: (e) => i({
+							...r,
+							columns: {
+								...r.columns,
+								order: e.target.value
+							}
+						}),
+						children: [/* @__PURE__ */ (0, Y.jsx)(U.Radio, {
+							value: "leftAboveRight",
+							children: "Left column"
+						}), /* @__PURE__ */ (0, Y.jsx)(U.Radio, {
+							value: "rightAboveLeft",
+							children: "Right column"
+						})]
+					})]
+				}),
+				/* @__PURE__ */ (0, Y.jsxs)(U.Label, {
+					className: "two-column-editor-color-field",
+					children: ["Background Color", /* @__PURE__ */ (0, Y.jsx)(yf, {
+						color: r.backgroundColor,
+						setColor: (e) => i({
+							...r,
+							backgroundColor: e
+						})
+					})]
+				})
 			]
 		}), /* @__PURE__ */ (0, Y.jsx)(Md, {
 			position: "bottom",
-			className: "xblock-actions p-2 border-top",
+			className: "xblock-actions two-column-editor-actions",
 			children: /* @__PURE__ */ (0, Y.jsxs)(d, { children: [/* @__PURE__ */ (0, Y.jsx)(b, {
 				variant: "primary",
 				onClick: () => t(r),
@@ -50013,33 +50108,36 @@ var Y = w(), Kf = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => 
 			onUpdate: t
 		});
 	}
-}, cp = ({ layoutType: e, onUpdate: t }) => /* @__PURE__ */ (0, Y.jsxs)(U.Group, { children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Template" }), /* @__PURE__ */ (0, Y.jsxs)(U.Control, {
-	value: e,
-	onChange: (e) => t(e.target.value),
-	as: "select",
-	children: [
-		/* @__PURE__ */ (0, Y.jsx)("option", {
-			value: S.Text,
-			children: "Text"
-		}),
-		/* @__PURE__ */ (0, Y.jsx)("option", {
-			value: S.LessonList,
-			children: "Bulleted Lesson List"
-		}),
-		/* @__PURE__ */ (0, Y.jsx)("option", {
-			value: S.LessonIntro,
-			children: "Lesson Intro"
-		}),
-		/* @__PURE__ */ (0, Y.jsx)("option", {
-			value: S.ImageGrid,
-			children: "Image and Text Grid"
-		}),
-		/* @__PURE__ */ (0, Y.jsx)("option", {
-			value: S.RawHTML,
-			children: "Raw HTML"
-		})
-	]
-})] }), lp = ".wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.edit-xblock-modal>.modal-actions{display:none!important}", up = (e, t, n) => {
+}, cp = ({ layoutType: e, onUpdate: t }) => /* @__PURE__ */ (0, Y.jsxs)(U.Group, {
+	className: "two-column-editor-field",
+	children: [/* @__PURE__ */ (0, Y.jsx)(U.Label, { children: "Template" }), /* @__PURE__ */ (0, Y.jsxs)(U.Control, {
+		value: e,
+		onChange: (e) => t(e.target.value),
+		as: "select",
+		children: [
+			/* @__PURE__ */ (0, Y.jsx)("option", {
+				value: S.Text,
+				children: "Text"
+			}),
+			/* @__PURE__ */ (0, Y.jsx)("option", {
+				value: S.LessonList,
+				children: "Bulleted Lesson List"
+			}),
+			/* @__PURE__ */ (0, Y.jsx)("option", {
+				value: S.LessonIntro,
+				children: "Lesson Intro"
+			}),
+			/* @__PURE__ */ (0, Y.jsx)("option", {
+				value: S.ImageGrid,
+				children: "Image and Text Grid"
+			}),
+			/* @__PURE__ */ (0, Y.jsx)("option", {
+				value: S.RawHTML,
+				children: "Raw HTML"
+			})
+		]
+	})]
+}), lp = ".wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.edit-xblock-modal>.modal-actions{display:none!important}.two-column-block-editor{flex-direction:column;justify-content:space-between;display:flex}.two-column-editor-body{padding:var(--pgn-exemplar-xblock-studio-stack-padding,16px)}.two-column-editor-columns{row-gap:var(--pgn-exemplar-xblock-studio-section-gap,24px)}.two-column-editor-column{flex-direction:column;display:flex}.two-column-editor-column-header{margin:var(--pgn-exemplar-xblock-studio-field-gap,16px) 0}.two-column-editor-column-title,.two-column-editor-section-title{font-weight:700}.two-column-editor-column-title{margin:var(--pgn-exemplar-xblock-studio-field-gap,16px) 0}.two-column-editor-column-header .two-column-editor-column-title{margin:0}.two-column-editor-section-title{margin:var(--pgn-exemplar-xblock-studio-section-gap,24px) 0 var(--pgn-exemplar-xblock-studio-field-gap,16px)}.two-column-editor-panel{padding:var(--pgn-exemplar-xblock-studio-entry-padding,24px);border:1px solid var(--pgn-color-gray-200);border-radius:var(--pgn-exemplar-xblock-studio-entry-radius,8px);flex-grow:1}.two-column-editor-field{margin-bottom:var(--pgn-exemplar-xblock-studio-field-gap,16px)}.two-column-editor-control-auto{width:auto}.two-column-editor-color-field{display:block}.two-column-editor-actions{padding:var(--pgn-exemplar-xblock-studio-actions-padding,16px)}.two-column-editor-tall-textarea{min-height:160px}.two-column-editor-raw-html{height:7lh}.two-column-editor-subsection-title{margin:var(--pgn-exemplar-xblock-studio-section-gap,24px) 0 0}.two-column-editor-subsection-description{margin-top:0}.two-column-editor-entry{align-items:flex-end}.two-column-editor-label-sm{font-size:var(--pgn-typography-font-size-sm,.875rem)}.two-column-editor-checkbox{display:flex}.two-column-editor-selectable-content{text-align:center;justify-content:center}.two-column-editor-inline-color-field{gap:var(--pgn-exemplar-xblock-studio-field-gap,16px);display:flex}", up = (e, t, n) => {
 	let r = f(t), i = e.handlerUrl(r, "studio_save");
 	p({
 		runtime: e,

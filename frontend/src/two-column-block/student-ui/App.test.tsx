@@ -1,4 +1,4 @@
-import { describe, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { render } from '@opencraft/xblock-react-utils/testing';
 import { App } from './App.tsx';
 import type { Data } from '../apiTypes.ts';
@@ -18,6 +18,9 @@ describe('App.tsx', () => {
     };
     const screen = render(<App data={data} />);
     screen.getByText('Overview');
+    expect(
+      screen.container.querySelector('.xblock-two-column-wrapper'),
+    ).toHaveStyle('--two-column-background-color: #FFFFFF');
   });
 
   it('also renders with other components', () => {
@@ -33,6 +36,9 @@ describe('App.tsx', () => {
     };
     const screen = render(<App data={data} />);
     screen.getByText('Up Next');
+    expect(
+      screen.container.querySelector('.two-column-reverse'),
+    ).toBeInTheDocument();
   });
 
   it('renders images with alt text', () => {

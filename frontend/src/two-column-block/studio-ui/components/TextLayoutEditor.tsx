@@ -22,7 +22,7 @@ export const TextLayoutEditor = ({ data, onUpdate }: TextLayoutEditorProps) => {
         onEditorChange={(content: string) => onUpdate({ ...data, content })}
       />
 
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Vertical alignment:</Form.Label>
         <SelectableBox.Set
           value={data.verticalAlignment}
@@ -35,19 +35,19 @@ export const TextLayoutEditor = ({ data, onUpdate }: TextLayoutEditorProps) => {
           columns={3}
         >
           <SelectableBox value="start">
-            <Row xs={1} className="justify-content-center text-center">
+            <Row xs={1} className="two-column-editor-selectable-content">
               <Icon src={VerticalAlignTop} />
               <p>Align top</p>
             </Row>
           </SelectableBox>
           <SelectableBox value="center">
-            <Row xs={1} className="justify-content-center text-center">
+            <Row xs={1} className="two-column-editor-selectable-content">
               <Icon src={VerticalAlignCenter} />
               <p>Align center</p>
             </Row>
           </SelectableBox>
           <SelectableBox value="end">
-            <Row xs={1} className="justify-content-center text-center">
+            <Row xs={1} className="two-column-editor-selectable-content">
               <Icon src={VerticalAlignBottom} />
               <p>Align bottom</p>
             </Row>
