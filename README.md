@@ -10,6 +10,7 @@ A collection of related XBlocks.
 - **Ideas Overview XBlock**: an XBlock that renders a grid of dot-point ideas.
 - **Keypoint XBlock:** a sleek looking glossary xblock, which helps to list down keypoint and defination.
 - **Two Column XBlock** an aesthetically pleasing block intended to display engaging static HTML content in two columns.
+- **Unfolding Scenario XBlock**: an interactive XBlock providing multi-step, decision-based practice activities.
 
 ## Installation
 
@@ -53,6 +54,7 @@ In the Advanced module list, add the following entries, depending on which block
 | Ideas Overview XBlock  | "ideas_overview"        |
 | Keypoint XBlock        | "keypoints"             |
 | Two Column XBlock      | "two_column"            |
+| Unfolding Scenario XBlock | "unfolding_scenario"  |
 
 See the [Open edX documentation](https://docs.openedx.org/en/latest/educators/how-tos/course_development/exercise_tools/enable_exercises_tools.html#enable-additional-exercises-and-tools) for more information.
 
