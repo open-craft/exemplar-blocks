@@ -2,11 +2,12 @@
 Type definitions for MyPy.
 """
 
-import re
 from enum import StrEnum
 from typing import Annotated
 
 from pydantic import AfterValidator, BaseModel
+
+from exemplar_common.utils import is_color
 
 WorkbenchScenario = tuple[str, str]
 
@@ -20,20 +21,6 @@ class Variant(StrEnum):
 class ImagePosition(StrEnum):
     LEFT = "left"
     RIGHT = "right"
-
-
-COLOR_REGEX = re.compile("^#[a-fA-F0-9]{6}$")
-
-
-def is_color(value: str) -> str:
-    """
-    Validates that a string is a valid color per HTML color picker specifications.
-    """
-    if not value:
-        return value
-    if COLOR_REGEX.match(value):
-        return value
-    raise ValueError(f"{repr(value)} is not a valid HTML hex color.")
 
 
 Color = Annotated[str, AfterValidator(is_color)]
