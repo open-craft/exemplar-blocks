@@ -1,23 +1,52 @@
-import { render, screen } from '@opencraft/xblock-react-utils/testing';
+import { render, screen, waitFor } from '@opencraft/xblock-react-utils/testing';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
 import { Formik } from 'formik';
-import { type FormDataPartial } from '@/card/common/types';
+import { type FormDataPartial, type Orientation } from '@/card/common/types';
 import ImageForm from './ImageForm';
 
-const makeInitData = (location = '', altText = ''): FormDataPartial => ({
+const makeInitData = ({
+  location = '',
+  altText = '',
+  orientation,
+  useAsBackground = false,
+}: {
+  location?: string;
+  altText?: string;
+  orientation?: Orientation;
+  useAsBackground?: boolean;
+} = {}): FormDataPartial => ({
   cards: [
     {
       id: 1,
       name: '',
       title: '',
-      secondaryContent: { kind: 'IMAGE', location, altText },
+      ...(orientation ? { orientation } : {}),
+      secondaryContent: { kind: 'IMAGE', location, altText, useAsBackground },
     },
   ],
 });
 
-const ImageFormWithContext = ({ location = '', altText = '' } = {}) => (
-  <Formik initialValues={makeInitData(location, altText)} onSubmit={() => {}}>
+const ImageFormWithContext = ({
+  location = '',
+  altText = '',
+  orientation,
+  useAsBackground = false,
+}: {
+  location?: string;
+  altText?: string;
+  orientation?: Orientation;
+  useAsBackground?: boolean;
+} = {}) => (
+  <Formik
+    initialValues={makeInitData({
+      location,
+      altText,
+      orientation,
+      useAsBackground,
+    })}
+    onSubmit={() => {}}
+  >
     <ImageForm cardIndex={0} />
   </Formik>
 );
@@ -30,6 +59,21 @@ describe('ImageForm', () => {
     expect(
       screen.getByRole('checkbox', { name: 'Decorative Image' }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole('checkbox', { name: 'Use image as card background' }),
+    ).toBeInTheDocument();
+  });
+
+  it('toggles the card background image option', async () => {
+    const user = userEvent.setup();
+    render(<ImageFormWithContext />);
+
+    const checkbox = screen.getByRole('checkbox', {
+      name: 'Use image as card background',
+    });
+    expect(checkbox).not.toBeChecked();
+    await user.click(checkbox);
+    expect(checkbox).toBeChecked();
   });
 
   it('shows provided values', () => {
@@ -44,6 +88,53 @@ describe('ImageForm', () => {
     );
     expect(screen.getByPlaceholderText('Alt Text')).toHaveValue(
       'A scenic mountain',
+    );
+  });
+
+  it('shows the horizontal card image size recommendation', () => {
+    render(<ImageFormWithContext orientation="HORIZONTAL" />);
+    expect(
+      screen.getByText(/Recommended image size: 700 × 1200 px/),
+    ).toBeInTheDocument();
+  });
+
+  it('shows the vertical card image size recommendation', () => {
+    render(<ImageFormWithContext orientation="VERTICAL" />);
+    expect(
+      screen.getByText(/Recommended image size: 1200 × 300 px/),
+    ).toBeInTheDocument();
+  });
+
+  it('does not show an image size recommendation without per-card orientation', () => {
+    render(<ImageFormWithContext />);
+    expect(
+      screen.queryByText(/Recommended image size:/),
+    ).not.toBeInTheDocument();
+  });
+
+  it('does not show the image size recommendation when image is used as background', () => {
+    render(<ImageFormWithContext orientation="HORIZONTAL" useAsBackground />);
+    expect(
+      screen.queryByText(/Recommended image size:/),
+    ).not.toBeInTheDocument();
+  });
+
+  it('hides the image size recommendation when image is changed to background', async () => {
+    const user = userEvent.setup();
+    render(<ImageFormWithContext orientation="HORIZONTAL" />);
+
+    expect(
+      screen.getByText(/Recommended image size: 700 × 1200 px/),
+    ).toBeInTheDocument();
+
+    await user.click(
+      screen.getByRole('checkbox', { name: 'Use image as card background' }),
+    );
+
+    await waitFor(() =>
+      expect(
+        screen.queryByText(/Recommended image size:/),
+      ).not.toBeInTheDocument(),
     );
   });
 

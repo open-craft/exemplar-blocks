@@ -8,7 +8,6 @@ import CreateCarouselForm from './CreateCarouselForm';
 const makeInitData = (overrides: Partial<InitData> = {}): InitData => ({
   cards: [],
   displayName: 'My Carousel',
-  orientation: 'HORIZONTAL',
   ...overrides,
 });
 
@@ -30,50 +29,14 @@ describe('CreateCarouselForm', () => {
     );
   });
 
-  it('shows Vertical Cards and Horizontal Cards orientation buttons', () => {
+  it('does not show carousel-level card layout buttons', () => {
     render(<CreateCarouselFormWithContext initData={makeInitData()} />);
     expect(
-      screen.getByRole('button', { name: /Vertical Cards/ }),
-    ).toBeInTheDocument();
+      screen.queryByRole('button', { name: /Vertical Cards/ }),
+    ).not.toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: /Horizontal Cards/ }),
-    ).toBeInTheDocument();
-  });
-
-  describe('Card layout orientation buttons', () => {
-    it('switches orientation to VERTICAL when the Vertical Cards button is clicked', async () => {
-      const user = userEvent.setup();
-      render(
-        <CreateCarouselFormWithContext
-          initData={makeInitData({ orientation: 'HORIZONTAL' })}
-        />,
-      );
-      await user.click(screen.getByRole('button', { name: /Vertical Cards/ }));
-      expect(
-        screen.getByRole('button', { name: /Vertical Cards/ }),
-      ).toHaveClass('btn-outline-success');
-      expect(
-        screen.getByRole('button', { name: /Horizontal Cards/ }),
-      ).toHaveClass('btn-outline-secondary');
-    });
-
-    it('switches orientation to HORIZONTAL when the Horizontal Cards button is clicked', async () => {
-      const user = userEvent.setup();
-      render(
-        <CreateCarouselFormWithContext
-          initData={makeInitData({ orientation: 'VERTICAL' })}
-        />,
-      );
-      await user.click(
-        screen.getByRole('button', { name: /Horizontal Cards/ }),
-      );
-      expect(
-        screen.getByRole('button', { name: /Horizontal Cards/ }),
-      ).toHaveClass('btn-outline-success');
-      expect(
-        screen.getByRole('button', { name: /Vertical Cards/ }),
-      ).toHaveClass('btn-outline-secondary');
-    });
+      screen.queryByRole('button', { name: /Horizontal Cards/ }),
+    ).not.toBeInTheDocument();
   });
 
   describe('Add card numbers checkbox', () => {

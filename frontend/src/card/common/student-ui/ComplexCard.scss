@@ -28,6 +28,40 @@
     }
   }
 
+  &.complex-card--image-background {
+    position: relative;
+    overflow: hidden;
+    // this variable is set from the react component based on the card's background image
+    background-image: var(--ccblk-card-background-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--pgn-color-light-100);
+    --ccblk-typography-headings-color: var(--pgn-color-light-100);
+
+    // The styles below makes a overlay on the image to put the image in the background.
+    // This is done via psuedo style so that the text is given more attention. Hence all other elements
+    // here are given a higher z-index.
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pgn__card-section,
+    .pgn__card-header-subtitle-md {
+      color: var(--pgn-color-light-100);
+    }
+  }
+
   .pgn__card {
     /* Make the image cap take up half the card */
     .pgn__card-wrapper-image-cap.horizontal {

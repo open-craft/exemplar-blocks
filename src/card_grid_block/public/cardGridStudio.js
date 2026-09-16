@@ -52406,38 +52406,65 @@ var _x = ({ fileTypes: e, onFileSelect: t, onError: n, onClose: r }) => {
 //#endregion
 //#region src/card/common/studio-ui/secondary-content/ImageForm.tsx
 function yx({ cardIndex: e }) {
-	let { values: t, handleChange: n, setFieldValue: r } = zv(), [i, a] = (0, D.useState)(!1), o = `cards[${e}].secondaryContent`, s = t.cards[e].secondaryContent;
-	function c(e) {
-		a(e.currentTarget.checked), e.currentTarget.checked && r(`${o}.altText`, "");
+	let { values: t, handleChange: n, setFieldValue: r } = zv(), [i, a] = (0, D.useState)(!1), o = t.cards[e], s = `cards[${e}].secondaryContent`, c = o.secondaryContent, l = o.orientation, u = null;
+	switch (l) {
+		case "HORIZONTAL":
+			u = "Recommended image size: 700 × 1200 px. Use a portrait image to avoid cropping in the side panel.";
+			break;
+		case "VERTICAL":
+			u = "Recommended image size: 1200 × 300 px. Use a wide banner image to avoid cropping.";
+			break;
 	}
-	return /* @__PURE__ */ (0, J.jsxs)(J.Fragment, { children: [/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Image Source URL" }), /* @__PURE__ */ (0, J.jsx)(vx, {
-		setValue: (e) => r(`${o}.location`, e),
-		fileTypes: ["image"],
-		children: /* @__PURE__ */ (0, J.jsx)(W.Control, {
-			name: `${o}.location`,
-			value: s.location,
-			onChange: n,
-			placeholder: "URL"
-		})
-	})] }), /* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [
-		/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Alt Text" }),
-		/* @__PURE__ */ (0, J.jsx)("div", {
-			className: "mb-0",
-			children: /* @__PURE__ */ (0, J.jsx)(W.Checkbox, {
-				checked: i,
-				onChange: c,
-				size: "sm",
-				children: "Decorative Image"
+	function d(e) {
+		a(e.currentTarget.checked), e.currentTarget.checked && r(`${s}.altText`, "");
+	}
+	return /* @__PURE__ */ (0, J.jsxs)(J.Fragment, { children: [
+		/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [
+			/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Image Source URL" }),
+			/* @__PURE__ */ (0, J.jsx)(vx, {
+				setValue: (e) => r(`${s}.location`, e),
+				fileTypes: ["image"],
+				children: /* @__PURE__ */ (0, J.jsx)(W.Control, {
+					name: `${s}.location`,
+					value: c.location,
+					onChange: n,
+					placeholder: "URL"
+				})
+			}),
+			!c.useAsBackground && u && /* @__PURE__ */ (0, J.jsx)(W.Text, {
+				className: "small",
+				children: u
 			})
-		}),
-		/* @__PURE__ */ (0, J.jsx)(W.Control, {
-			name: `${o}.altText`,
-			value: s.altText,
-			onChange: n,
-			placeholder: "Alt Text",
-			disabled: i
-		})
-	] })] });
+		] }),
+		/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [/* @__PURE__ */ (0, J.jsx)(W.Checkbox, {
+			name: `${s}.useAsBackground`,
+			checked: c.useAsBackground ?? !1,
+			onChange: (e) => r(`${s}.useAsBackground`, e.currentTarget.checked),
+			children: "Use image as card background"
+		}), /* @__PURE__ */ (0, J.jsx)(W.Text, {
+			className: "small",
+			children: "The image will fill the full card background. Text will appear over the image."
+		})] }),
+		/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [
+			/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Alt Text" }),
+			/* @__PURE__ */ (0, J.jsx)("div", {
+				className: "mb-0",
+				children: /* @__PURE__ */ (0, J.jsx)(W.Checkbox, {
+					checked: i,
+					onChange: d,
+					size: "sm",
+					children: "Decorative Image"
+				})
+			}),
+			/* @__PURE__ */ (0, J.jsx)(W.Control, {
+				name: `${s}.altText`,
+				value: c.altText,
+				onChange: n,
+				placeholder: "Alt Text",
+				disabled: i
+			})
+		] })
+	] });
 }
 //#endregion
 //#region src/card/common/studio-ui/secondary-content/IconListItemForm.tsx
@@ -52571,59 +52598,61 @@ var wx = {
 	HOVER_LIST: gx
 };
 function Tx({ cardIndex: e }) {
-	let { values: t, handleChange: n, handleBlur: r, setFieldValue: i } = zv(), [a, o] = (0, D.useState)(!1), s = t.cards[e], c = `cards[${e}]`, l = s.secondaryContent?.kind ? wx[s.secondaryContent.kind] : null;
-	return /* @__PURE__ */ (0, J.jsxs)("div", {
+	let { values: t, handleChange: n, handleBlur: r, setFieldValue: i } = zv(), a = t.cards[e], o = `cards[${e}]`, s = !!(a?.ctaLink && a?.ctaLabel), [c, l] = (0, D.useState)(s), u = a.secondaryContent?.kind ? wx[a.secondaryContent.kind] : null;
+	return (0, D.useEffect)(() => {
+		l(s);
+	}, [s]), /* @__PURE__ */ (0, J.jsxs)("div", {
 		className: "row mt-5",
 		children: [/* @__PURE__ */ (0, J.jsxs)("div", {
 			className: "col border-right",
 			children: [
 				/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Title" }), /* @__PURE__ */ (0, J.jsx)(W.Control, {
-					name: `${c}.title`,
-					value: s.title,
+					name: `${o}.title`,
+					value: a.title,
 					onChange: n,
 					onBlur: r
 				})] }),
 				/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Subtitle" }), /* @__PURE__ */ (0, J.jsx)(W.Control, {
-					name: `${c}.subtitle`,
-					value: s.subtitle,
+					name: `${o}.subtitle`,
+					value: a.subtitle,
 					onChange: n,
 					onBlur: r
 				})] }),
-				s.secondaryContent?.kind !== "HOVER_LIST" && /* @__PURE__ */ (0, J.jsxs)(J.Fragment, { children: [
+				a.secondaryContent?.kind !== "HOVER_LIST" && /* @__PURE__ */ (0, J.jsxs)(J.Fragment, { children: [
 					/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Body Content" }), /* @__PURE__ */ (0, J.jsx)(W.Control, {
 						as: "textarea",
 						autoResize: !0,
-						name: `${c}.description`,
-						value: s?.description ?? "",
+						name: `${o}.description`,
+						value: a?.description ?? "",
 						onChange: n,
 						onBlur: r
 					})] }),
 					/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [/* @__PURE__ */ (0, J.jsx)(W.Checkbox, {
-						checked: a,
+						checked: c,
 						onChange: (e) => {
-							o(e.currentTarget.checked), e.currentTarget.checked || (i(`${c}.ctaLabel`, ""), i(`${c}.ctaLink`, ""));
+							l(e.currentTarget.checked), e.currentTarget.checked || (i(`${o}.ctaLabel`, ""), i(`${o}.ctaLink`, ""));
 						},
 						children: "Add a button"
 					}), /* @__PURE__ */ (0, J.jsx)(W.Text, { children: "Link to another page or resource" })] }),
-					a && /* @__PURE__ */ (0, J.jsxs)(J.Fragment, { children: [/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Button Label" }), /* @__PURE__ */ (0, J.jsx)(W.Control, {
-						name: `${c}.ctaLabel`,
-						value: s?.ctaLabel ?? "",
+					c && /* @__PURE__ */ (0, J.jsxs)(J.Fragment, { children: [/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Button Label" }), /* @__PURE__ */ (0, J.jsx)(W.Control, {
+						name: `${o}.ctaLabel`,
+						value: a?.ctaLabel ?? "",
 						onChange: n
 					})] }), /* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Button Link" }), /* @__PURE__ */ (0, J.jsx)(W.Control, {
-						name: `${c}.ctaLink`,
-						value: s?.ctaLink ?? "",
+						name: `${o}.ctaLink`,
+						value: a?.ctaLink ?? "",
 						onChange: n
 					})] })] })
 				] })
 			]
 		}), /* @__PURE__ */ (0, J.jsx)("div", {
 			className: "col",
-			children: l && /* @__PURE__ */ (0, J.jsx)(l, { cardIndex: e })
+			children: u && /* @__PURE__ */ (0, J.jsx)(u, { cardIndex: e })
 		})]
 	});
 }
-function Ex({ cardIndex: e }) {
-	let { values: t, setFieldValue: n, handleChange: r, handleBlur: i } = zv(), a = t.cards[e], o = `cards[${e}]`;
+function Ex({ cardIndex: e, enableOrientation: t = !1 }) {
+	let { values: n, setFieldValue: r, handleChange: i, handleBlur: a } = zv(), o = n.cards[e], s = `cards[${e}]`, c = o.orientation;
 	return /* @__PURE__ */ (0, J.jsxs)("div", { children: [
 		/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [
 			/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Card Name" }),
@@ -52632,20 +52661,65 @@ function Ex({ cardIndex: e }) {
 				children: "Name of the card in Studio"
 			}),
 			/* @__PURE__ */ (0, J.jsx)(W.Control, {
-				name: `${o}.name`,
-				value: a.name,
-				onChange: r,
-				onBlur: i
+				name: `${s}.name`,
+				value: o.name,
+				onChange: i,
+				onBlur: a
+			})
+		] }),
+		t && /* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [
+			/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Card Layout" }),
+			/* @__PURE__ */ (0, J.jsx)(W.Text, { children: "Choose whether this card uses a vertical or horizontal layout." }),
+			/* @__PURE__ */ (0, J.jsxs)(S, {
+				direction: "horizontal",
+				gap: 4,
+				children: [/* @__PURE__ */ (0, J.jsxs)(_, {
+					className: "flex flex-column mt-4 p-4",
+					variant: c === "VERTICAL" ? "outline-success" : "outline-secondary",
+					onClick: () => r(`${s}.orientation`, "VERTICAL"),
+					children: [
+						/* @__PURE__ */ (0, J.jsx)("p", { children: /* @__PURE__ */ (0, J.jsx)("span", {
+							className: "material-icons-outlined",
+							children: "splitscreen"
+						}) }),
+						/* @__PURE__ */ (0, J.jsx)("p", {
+							className: "mt-0",
+							children: /* @__PURE__ */ (0, J.jsx)("strong", { children: "Vertical Card" })
+						}),
+						/* @__PURE__ */ (0, J.jsx)("p", {
+							className: "small",
+							children: "Content sits above and below"
+						})
+					]
+				}), /* @__PURE__ */ (0, J.jsxs)(_, {
+					className: "flex flex-column mt-4 p-4",
+					variant: c === "HORIZONTAL" ? "outline-success" : "outline-secondary",
+					onClick: () => r(`${s}.orientation`, "HORIZONTAL"),
+					children: [
+						/* @__PURE__ */ (0, J.jsx)("p", { children: /* @__PURE__ */ (0, J.jsx)("span", {
+							className: "material-icons-outlined",
+							children: "vertical_split"
+						}) }),
+						/* @__PURE__ */ (0, J.jsx)("p", {
+							className: "mt-0",
+							children: /* @__PURE__ */ (0, J.jsx)("strong", { children: "Horizontal Card" })
+						}),
+						/* @__PURE__ */ (0, J.jsx)("p", {
+							className: "small",
+							children: "Content sits side-by-side"
+						})
+					]
+				})]
 			})
 		] }),
 		/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Supporting Content" }), /* @__PURE__ */ (0, J.jsxs)(W.Control, {
 			as: "select",
-			name: `${o}.cardType`,
-			value: a.secondaryContent?.kind ?? "UNKNOWN",
+			name: `${s}.cardType`,
+			value: o.secondaryContent?.kind ?? "UNKNOWN",
 			onChange: (e) => {
-				n(`${o}.cardType`, e.currentTarget.value), n(`${o}.secondaryContent`, Cx(e.currentTarget.value));
+				r(`${s}.cardType`, e.currentTarget.value), r(`${s}.secondaryContent`, Cx(e.currentTarget.value));
 			},
-			onBlur: i,
+			onBlur: a,
 			children: [
 				/* @__PURE__ */ (0, J.jsx)("option", {
 					value: "UNKNOWN",
@@ -52669,7 +52743,7 @@ function Ex({ cardIndex: e }) {
 				})
 			]
 		})] }),
-		a.secondaryContent?.kind && /* @__PURE__ */ (0, J.jsx)(Tx, { cardIndex: e })
+		o.secondaryContent?.kind && /* @__PURE__ */ (0, J.jsx)(Tx, { cardIndex: e })
 	] });
 }
 //#endregion
@@ -56931,14 +57005,15 @@ function PN(e, t) {
 }
 //#endregion
 //#region src/card/common/utils.ts
-function FN(e = []) {
-	let t = e.length ? Math.max(...e.map((e) => e.id)) + 1 : 1;
+function FN(e = [], t) {
+	let n = e.length ? Math.max(...e.map((e) => e.id)) + 1 : 1;
 	return {
-		id: t,
-		name: `Card #${t}`,
+		id: n,
+		name: `Card #${n}`,
 		title: "",
 		subtitle: "",
-		secondaryContent: null
+		secondaryContent: null,
+		...t
 	};
 }
 //#endregion
@@ -56971,13 +57046,13 @@ function IN({ id: e, cardName: t, index: n, active: r, canDelete: i, onSelect: a
 		})]
 	});
 }
-function LN() {
-	let { values: e, setFieldValue: t } = zv(), [n, r] = (0, D.useState)(0);
+function LN({ enableCardOrientation: e = !1 }) {
+	let { values: t, setFieldValue: n } = zv(), [r, i] = (0, D.useState)(0);
 	return /* @__PURE__ */ (0, J.jsx)(IM, {
-		onDragOver: (n) => t("cards", PN(e.cards, n)),
+		onDragOver: (e) => n("cards", PN(t.cards, e)),
 		children: /* @__PURE__ */ (0, J.jsx)(vy, {
 			name: "cards",
-			children: ({ push: t, remove: i }) => /* @__PURE__ */ (0, J.jsxs)("div", {
+			children: ({ push: n, remove: a }) => /* @__PURE__ */ (0, J.jsxs)("div", {
 				className: "row m-0 carousel-editor",
 				children: [/* @__PURE__ */ (0, J.jsxs)("div", {
 					className: "col-3 p-2 border-right",
@@ -56985,26 +57060,29 @@ function LN() {
 						variant: "primary",
 						iconBefore: za,
 						onClick: () => {
-							t(FN(e.cards)), r(e.cards.length);
+							n(FN(t.cards, e ? { orientation: "HORIZONTAL" } : {})), i(t.cards.length);
 						},
 						children: "Add Card"
 					}), /* @__PURE__ */ (0, J.jsx)("div", {
 						className: "mt-4",
-						children: e.cards.map((t, a) => /* @__PURE__ */ (0, J.jsx)(IN, {
-							id: t.id,
-							cardName: t.name || `Card #${t.id}`,
-							index: a,
-							active: n === a,
-							canDelete: e.cards.length > 1,
-							onSelect: () => r(a),
+						children: t.cards.map((e, n) => /* @__PURE__ */ (0, J.jsx)(IN, {
+							id: e.id,
+							cardName: e.name || `Card #${e.id}`,
+							index: n,
+							active: r === n,
+							canDelete: t.cards.length > 1,
+							onSelect: () => i(n),
 							onDelete: () => {
-								i(a), r((t) => Math.min(t, e.cards.length - 2));
+								a(n), i((e) => Math.min(e, t.cards.length - 2));
 							}
-						}, t.id))
+						}, e.id))
 					})]
 				}), /* @__PURE__ */ (0, J.jsx)("div", {
 					className: "col-9 p-4",
-					children: e.cards.length > 0 && /* @__PURE__ */ (0, J.jsx)(Ex, { cardIndex: n })
+					children: t.cards.length > 0 && /* @__PURE__ */ (0, J.jsx)(Ex, {
+						cardIndex: r,
+						enableOrientation: e
+					})
 				})]
 			})
 		})

@@ -2,20 +2,22 @@ import { render, screen } from '@opencraft/xblock-react-utils/testing';
 import type { XBlockRuntime } from '@opencraft/xblock-react-utils';
 import { describe, it, expect, vi } from 'vitest';
 import StudentUI from './StudentUI';
-import { type CardData } from '../../common/types';
+import { type CarouselCardData } from '@/card/card-carousel/types';
 
 const mockRuntime: XBlockRuntime = { handlerUrl: vi.fn(), notify: vi.fn() };
 
-const mockCards: Array<CardData> = [
+const mockCards: Array<CarouselCardData> = [
   {
     id: 1,
     name: 'Card 1',
+    orientation: 'VERTICAL',
     title: 'Card 1',
     secondaryContent: { kind: 'IMAGE', location: '', altText: '' },
   },
   {
     id: 2,
     name: 'Card 2',
+    orientation: 'HORIZONTAL',
     title: 'Card 2',
     secondaryContent: {
       kind: 'RICH_LIST',
@@ -27,6 +29,7 @@ const mockCards: Array<CardData> = [
   {
     id: 3,
     name: 'Card 3',
+    orientation: 'VERTICAL',
     title: 'Card 3',
     secondaryContent: {
       kind: 'HOVER_LIST',
@@ -49,7 +52,6 @@ describe('StudentUI', () => {
         initData={{
           cards: mockCards,
           displayName: 'My Carousel',
-          orientation: 'HORIZONTAL',
         }}
       />,
     );
@@ -66,11 +68,55 @@ describe('StudentUI', () => {
         initData={{
           cards: mockCards,
           displayName: 'Test',
-          orientation: 'HORIZONTAL',
         }}
       />,
     );
     expect(screen.getAllByText(/Card \d/)).toHaveLength(3);
+  });
+
+  it('renders each card with its own orientation', () => {
+    const { container } = render(
+      <StudentUI
+        runtime={mockRuntime}
+        initData={{
+          cards: mockCards,
+          displayName: 'Test',
+        }}
+      />,
+    );
+    expect(container.querySelectorAll('.pgn__card.horizontal')).toHaveLength(1);
+  });
+
+  it('uses horizontal carousel column sizes when any card is horizontal', () => {
+    const { container } = render(
+      <StudentUI
+        runtime={mockRuntime}
+        initData={{
+          cards: mockCards,
+          displayName: 'Test',
+        }}
+      />,
+    );
+    expect(container.querySelectorAll('.col-lg-10').length).toBeGreaterThan(0);
+    expect(container.querySelector('.col-lg-6')).not.toBeInTheDocument();
+  });
+
+  it('uses vertical carousel column sizes when all cards are vertical', () => {
+    const verticalCards = mockCards.map((card) => ({
+      ...card,
+      orientation: 'VERTICAL' as const,
+    }));
+    const { container } = render(
+      <StudentUI
+        runtime={mockRuntime}
+        initData={{
+          cards: verticalCards,
+          displayName: 'Test',
+        }}
+      />,
+    );
+    expect(container.querySelectorAll('.col-lg-6').length).toBeGreaterThan(0);
+    expect(container.querySelector('.col-lg-10')).not.toBeInTheDocument();
   });
 
   it('renders cards with position indicators', () => {
@@ -80,7 +126,6 @@ describe('StudentUI', () => {
         initData={{
           cards: mockCards,
           displayName: 'Test',
-          orientation: 'HORIZONTAL',
         }}
       />,
     );
@@ -96,7 +141,6 @@ describe('StudentUI', () => {
         initData={{
           cards: mockCards,
           displayName: 'Test',
-          orientation: 'HORIZONTAL',
           disableNumbering: true,
         }}
       />,
@@ -111,7 +155,6 @@ describe('StudentUI', () => {
         initData={{
           cards: [],
           displayName: 'Empty',
-          orientation: 'VERTICAL',
         }}
       />,
     );
@@ -125,7 +168,6 @@ describe('StudentUI', () => {
         initData={{
           cards: mockCards,
           displayName: '',
-          orientation: 'VERTICAL',
         }}
       />,
     );

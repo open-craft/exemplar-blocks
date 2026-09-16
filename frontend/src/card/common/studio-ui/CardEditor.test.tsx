@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { describe, it, expect, beforeEach } from 'vitest';
 import { Formik } from 'formik';
 import CardEditor from './CardEditor';
-import type { FormDataPartial, CardData } from '../types';
+import type { FormDataPartial, CardData, Orientation } from '../types';
 
 const defaultCard: CardData = {
   id: 1,
@@ -18,11 +18,30 @@ const testInitData: FormDataPartial = {
 };
 
 // Wrap the component in Formik so useFormikContext has data
-const CardEditorWithContext = () => (
-  <Formik initialValues={testInitData} onSubmit={() => {}}>
-    <CardEditor cardIndex={0} />
-  </Formik>
-);
+const CardEditorWithContext = ({
+  enableOrientation = false,
+  orientation,
+}: {
+  enableOrientation?: boolean;
+  orientation?: Orientation;
+} = {}) => {
+  const initData = orientation
+    ? {
+        cards: [
+          {
+            ...defaultCard,
+            orientation,
+          },
+        ],
+      }
+    : testInitData;
+
+  return (
+    <Formik initialValues={initData} onSubmit={() => {}}>
+      <CardEditor cardIndex={0} enableOrientation={enableOrientation} />
+    </Formik>
+  );
+};
 
 describe('CardEditor', () => {
   it('starts with the card name and provided type', () => {
@@ -33,6 +52,36 @@ describe('CardEditor', () => {
     expect(
       screen.getByRole('combobox', { name: 'Supporting Content' }),
     ).toHaveValue('UNKNOWN');
+  });
+
+  it('hides the card layout buttons by default', () => {
+    render(<CardEditorWithContext />);
+    expect(
+      screen.queryByRole('button', { name: /Vertical Card/ }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: /Horizontal Card/ }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('shows and updates card layout buttons when enabled', async () => {
+    const user = userEvent.setup();
+    render(
+      <CardEditorWithContext enableOrientation orientation="HORIZONTAL" />,
+    );
+
+    const verticalButton = screen.getByRole('button', {
+      name: /Vertical Card/,
+    });
+    const horizontalButton = screen.getByRole('button', {
+      name: /Horizontal Card/,
+    });
+    expect(horizontalButton).toHaveClass('btn-outline-success');
+    expect(verticalButton).toHaveClass('btn-outline-secondary');
+
+    await user.click(verticalButton);
+    expect(verticalButton).toHaveClass('btn-outline-success');
+    expect(horizontalButton).toHaveClass('btn-outline-secondary');
   });
 
   describe('Card Type: IMAGE', () => {

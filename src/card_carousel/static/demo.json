@@ -1,7 +1,6 @@
 {
     "horizontal": [
         {
-            "cardType": "RICH_LIST",
             "title": "Build Employability Skills",
             "description": "When assessing a patient&#x27;s condition, providers must identify and apply their knowledge based on assessment findings. To perform their role, providers must develop specific skills. This section helps you begin building the skills that employers seek when hiring or promoting healthcare professionals.",
             "secondaryContent": {
@@ -21,21 +20,27 @@
                         "title": "Physiology",
                         "description": "Identify normal physiological functions of living organisms and their parts."
                     }
-                ]
-            }
+                ],
+                "kind": "RICH_LIST"
+            },
+            "id": 1,
+            "name": "Card #1",
+            "orientation": "HORIZONTAL"
         },
         {
-            "cardType": "CONTENT_HIGHLIGHT",
             "title": "Develop Competence",
             "description": "In this course, you can demonstrate these skills by passing a final assessment that measures whether you have mastered the following competency.",
             "secondaryContent": {
                 "title": "Cardiovascular and Lymphatic Systems",
                 "subtitle": "Competency 738.11.4",
-                "description": "The learner describes pathogenesis, manifestations, complications, and variations of the cardiovascular and lymphatic systems."
-            }
+                "description": "The learner describes pathogenesis, manifestations, complications, and variations of the cardiovascular and lymphatic systems.",
+                "kind": "CONTENT_HIGHLIGHT"
+            },
+            "id": 2,
+            "name": "Card #2",
+            "orientation": "HORIZONTAL"
         },
         {
-            "cardType": "HOVER_LIST",
             "title": "Prepare for the Assessment",
             "subtitle": "There are six evidence statements for this competency, hover over each to turn them into questions.",
             "secondaryContent": {
@@ -70,11 +75,14 @@
                         "hoverContent": "",
                         "icon": ""
                     }
-                ]
-            }
+                ],
+                "kind": "HOVER_LIST"
+            },
+            "id": 3,
+            "name": "Card #3",
+            "orientation": "HORIZONTAL"
         },
         {
-            "cardType": "IMAGE",
             "title": "Up Next",
             "subtitle": "4.1 Cardiovascular Systems Pathophysiology",
             "description": "Examines how normal cardiac and vascular functions are disrupted by disease, highlighting key mechanisms that affect blood flow, oxygen delivery, and systemic regulation.",
@@ -82,30 +90,40 @@
             "ctaLink": "/",
             "secondaryContent": {
                 "location": "https://picsum.photos/512/512/",
-                "altText": "Random Image from picsum.photos"
-            }
+                "altText": "Random Image from picsum.photos",
+                "kind": "IMAGE"
+            },
+            "id": 4,
+            "name": "Card #4",
+            "orientation": "HORIZONTAL"
         }
     ],
     "vertical": [
         {
-            "cardType": "IMAGE",
             "title": "4.1",
             "subtitle": "Cardiovascular System Pathophysiology",
             "description": "Examines how normal cardiac and vascular functions are disrupted by disease, highlighting key mechanisms that affect blood flow, oxygen delivery, and systemic regulation.",
             "secondaryContent": {
                 "location": "https://picsum.photos/500/500/",
-                "altText": "Random Image from picsum.photos"
-            }
+                "altText": "Random Image from picsum.photos",
+                "kind": "IMAGE"
+            },
+            "id": 1,
+            "name": "Card #1",
+            "orientation": "VERTICAL"
         },
         {
-            "cardType": "IMAGE",
             "title": "4.2",
             "subtitle": "Lymphatic System Pathophysiology",
             "description": "Explores how the lymphatic network supports fluid balance and immune defense, and how dysfunction can lead to edema, impaired immunity, and disease.",
             "secondaryContent": {
                 "location": "https://picsum.photos/512/512/",
-                "altText": "Random Image from picsum.photos"
-            }
+                "altText": "Random Image from picsum.photos",
+                "kind": "IMAGE"
+            },
+            "id": 2,
+            "name": "Card #2",
+            "orientation": "VERTICAL"
         }
     ]
 }

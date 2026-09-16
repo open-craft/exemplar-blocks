@@ -16,22 +16,21 @@ from xblock.utils.resources import ResourceLoader
 
 from exemplar_common.xblock_config import get_xblock_config, XBlockView
 from exemplar_common.card_types import (
-    CardData,
     CardType,
     ContentHighlightData,
     Orientation,
 )
 from exemplar_common.utils import strip_html_for_search
-from .types import InitData
+from .types import CarouselCardData, InitData
 
 
 logger = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
 
-
-DEFAULT_CARD = CardData(
+DEFAULT_CARD = CarouselCardData(
     id=1,
     name="Placeholder Card",
+    orientation=Orientation.HORIZONTAL,
     title="Carousel Card",
     subtitle=(
         "Use the 'Edit' button to change the contents of this card and add more "
@@ -66,6 +65,7 @@ class CardCarouselXBlock(XBlock):
     has_author_view = True
 
     display_name = String(default="Card Carousel")
+    # Legacy field: keep the original scope/default for stored courses and OLX.
     orientation = String(
         display_name="Orientation of the Card Content",
         help="Horizontal for side-by-side content, Vertical for top and bottom content.",
@@ -76,7 +76,10 @@ class CardCarouselXBlock(XBlock):
         ],
     )
     cards = List(
-        help="List of Cards", default=[DEFAULT_CARD.model_dump()], scope=Scope.content
+        help="List of Cards",
+        # An implicit placeholder must inherit an old block's orientation too.
+        default=[DEFAULT_CARD.model_dump(exclude={"orientation"})],
+        scope=Scope.content,
     )
     disable_numbering = Boolean(
         display_name="Disable Numbering",
@@ -95,6 +98,23 @@ class CardCarouselXBlock(XBlock):
         """Handy helper for getting resources from our kit."""
         return resource_loader.load_unicode(path)
 
+    def _normalized_card(self, card):
+        """Resolve legacy layout without writing to the XBlock's stored fields."""
+        return CarouselCardData.model_validate(
+            card, context={"orientation": self.orientation}
+        )
+
+    def _card_view_data(self):
+        return {
+            # Data model was changed between versions 0.6 and 0.7.
+            # The parsing and dumping of card data here ensures any old data
+            # is migrated to the new per-card orientation format.
+            "cards": [self._normalized_card(card).model_dump() for card in self.cards],
+            "displayName": self.display_name,
+            "disableNumbering": self.disable_numbering,
+            "backgroundColor": self.background_color,
+        }
+
     def _render_student_view(self, is_author_view: bool = False):
         frag = Fragment()
         frag.add_resource_url(
@@ -111,16 +131,7 @@ class CardCarouselXBlock(XBlock):
                 "url": self.runtime.local_resource_url(
                     self, "public/cardCarouselStudent.js"
                 ),
-                "data": {
-                    "orientation": self.orientation,
-                    # Data model was changed between versions 0.6 and 0.7.
-                    # The parsing and dumping of card data here ensures any old data
-                    # is migrated to the new format.
-                    "cards": [CardData(**c).model_dump() for c in self.cards],
-                    "displayName": self.display_name,
-                    "disableNumbering": self.disable_numbering,
-                    "backgroundColor": self.background_color,
-                },
+                "data": self._card_view_data(),
                 "config": get_xblock_config(self.context_key, XBlockView.STUDENT),
             },
         )
@@ -159,16 +170,7 @@ class CardCarouselXBlock(XBlock):
                 "url": self.runtime.local_resource_url(
                     self, "public/cardCarouselStudio.js"
                 ),
-                "data": {
-                    "orientation": self.orientation,
-                    # Data model was changed between versions 0.6 and 0.7.
-                    # The parsing and dumping of card data here ensures any old data
-                    # is migrated to the new format.
-                    "cards": [CardData(**c).model_dump() for c in self.cards],
-                    "displayName": self.display_name,
-                    "disableNumbering": self.disable_numbering,
-                    "backgroundColor": self.background_color,
-                },
+                "data": self._card_view_data(),
                 "config": get_xblock_config(self.context_key, XBlockView.STUDIO),
             },
         )
@@ -180,7 +182,9 @@ class CardCarouselXBlock(XBlock):
         Get the data from the Studio Editor and save it on the XBlock.
         """
         try:
-            carousel = InitData.model_validate(data)
+            carousel = InitData.model_validate(
+                data, context={"orientation": self.orientation}
+            )
         except ValidationError as e:
             logger.exception("Invalid data received from studio.")
             message = "\n".join(
@@ -189,8 +193,10 @@ class CardCarouselXBlock(XBlock):
             raise JsonHandlerError(400, message)
 
         self.display_name = carousel.displayName
-        self.orientation = carousel.orientation
         self.cards = [c.model_dump() for c in carousel.cards]
+        # Once cards have per-card orientation, remove the legacy root field from
+        # persisted data. If it was never stored, deletion is a no-op.
+        del self.orientation
         self.disable_numbering = carousel.disableNumbering
         self.background_color = carousel.backgroundColor
         logger.info("Successfully saved Card Carousel data.")
@@ -207,7 +213,7 @@ class CardCarouselXBlock(XBlock):
             # data migration as the render paths, so the index can never
             # disagree with what learners see on the page.
             try:
-                card_data = CardData(**card)
+                card_data = self._normalized_card(card)
             except (ValidationError, TypeError):
                 logger.warning(
                     "Skipping malformed card while indexing block %s",
@@ -242,20 +248,20 @@ class CardCarouselXBlock(XBlock):
             ),
             (
                 "CardCarouselXblock (Vertical Cards - Content Highlight only)",
-                f"""<card_carousel display_name="CardCarousel (Vertical)" cards='{vertical_cards}' orientation="VERTICAL" disable_numbering="true" />
+                f"""<card_carousel display_name="CardCarousel (Vertical)" cards='{vertical_cards}' disable_numbering="true" />
                 """,
             ),
             (
                 "CardCarouselXblock (Vertical - All cards)",
-                f"""<card_carousel display_name="CardCarousel (Vertical)" cards='{demo_cards}' orientation="VERTICAL" />
+                f"""<card_carousel display_name="CardCarousel (Vertical)" cards='{vertical_cards}' />
                 """,
             ),
             (
                 "Multiple CardCarouselXBlock",
                 f"""<vertical_demo>
                 <card_carousel display_name="CardCarousel (Default)" cards='{demo_cards}' />
-                <card_carousel display_name="CardCarousel (Vertical)" cards='{vertical_cards}' orientation="VERTICAL" />
-                <card_carousel display_name="CardCarousel (Horizontal)" cards='{demo_cards}' orientation="HORIZONTAL" />
+                <card_carousel display_name="CardCarousel (Vertical)" cards='{vertical_cards}' />
+                <card_carousel display_name="CardCarousel (Horizontal)" cards='{demo_cards}' />
                 </vertical_demo>
                 """,
             ),

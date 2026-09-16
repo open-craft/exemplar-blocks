@@ -29,6 +29,30 @@ describe('ComplexCard — IMAGE type', () => {
     const img = screen.getByAltText('Test image');
     expect(img).toHaveAttribute('src', '/img.jpg');
   });
+
+  it('renders the image as a card background when enabled', () => {
+    const { container } = render(
+      <ComplexCard
+        orientation="HORIZONTAL"
+        data={{
+          name: 'background image card',
+          id: 1,
+          title: 'Test',
+          secondaryContent: {
+            kind: 'IMAGE',
+            location: '/img.jpg',
+            altText: 'Test image',
+            useAsBackground: true,
+          },
+        }}
+      />,
+    );
+    const card = container.querySelector('.complex-card--image-background');
+    expect(card).toBeInTheDocument();
+    expect(card).toHaveStyle('--ccblk-card-background-image: url("/img.jpg")');
+    expect(screen.queryByAltText('Test image')).not.toBeInTheDocument();
+    expect(screen.getByText('Test')).toBeInTheDocument();
+  });
 });
 
 describe('ComplexCard — CONTENT_HIGHLIGHT type', () => {
@@ -116,6 +140,10 @@ describe('ContentLayout', () => {
     location: '/img.jpg',
     altText: 'Alt Image Content',
   };
+  const backgroundImgContent: ImageData = {
+    ...imgContent,
+    useAsBackground: true,
+  };
 
   it('renders Card.ImageCap and children for IMAGE type without a layout wrapper', () => {
     const { container } = render(
@@ -126,6 +154,19 @@ describe('ContentLayout', () => {
     expect(screen.getByAltText('Alt Image Content')).toBeInTheDocument();
     expect(screen.getByText('child component')).toBeInTheDocument();
     expect(container.querySelector('.row')).not.toBeInTheDocument();
+  });
+
+  it('renders children directly without Card.ImageCap for background IMAGE type', () => {
+    render(
+      <ContentLayout
+        orientation="HORIZONTAL"
+        secondaryContent={backgroundImgContent}
+      >
+        <span>child component</span>
+      </ContentLayout>,
+    );
+    expect(screen.queryByAltText('Alt Image Content')).not.toBeInTheDocument();
+    expect(screen.getByText('child component')).toBeInTheDocument();
   });
 
   it('uses ".d-flex.w-100" outer class for CONTENT_HIGHLIGHT + horizontal', () => {

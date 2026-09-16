@@ -1,5 +1,4 @@
 .horizontal .hover-list {
-  column-count: 2;
   column-gap: calc(var(--pgn-spacing-spacer-base) * 2) !important;
 }
 
