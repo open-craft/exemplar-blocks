@@ -1,6 +1,10 @@
 @import '../../base';
 
 .xblock-keypoints {
+  --keypoints-background-color: transparent;
+
+  background-color: var(--keypoints-background-color);
+
   // Bootstrap grid requires border-box sizing. Since we don't import
   // the full reboot (to avoid affecting LMS global styles), scope it here.
   *,
@@ -9,33 +13,59 @@
     box-sizing: border-box;
   }
 
+  .keypoints-container {
+    max-width: var(--pgn-exemplar-xblock-container-max-width, 1280px);
+    margin: 0 auto;
+    padding: var(--pgn-exemplar-xblock-container-padding, 32px);
+  }
+
+  .keypoints-header {
+    margin: 0 0 var(--pgn-exemplar-xblock-section-gap, 32px);
+    font-weight: 700;
+  }
+
   .keypoints-card-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: var(--pgn-spacing-grid-gutter-width);
-    row-gap: var(--pgn-spacing-grid-gutter-width);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--pgn-exemplar-xblock-grid-gap, 32px);
+  }
+
+  .keypoint {
+    padding: var(--pgn-exemplar-xblock-card-padding, 32px);
+    background-color: var(--pgn-color-white);
+    border-radius: var(--pgn-size-card-border-radius-base);
   }
 
   .keypoint-label {
+    margin: 0 0 var(--pgn-spacing-spacer-2);
     color: var(--pgn-color-primary-base);
-    font-size: 1.1rem;
+    font-size: var(--pgn-exemplar-xblock-label-font-size, 1.1rem);
+    font-weight: 700;
+    line-height: 1.4;
   }
 
-  .text-gray-700 {
+  .keypoint-description {
+    margin: 0;
+    color: var(--pgn-color-gray-700);
     line-height: 1.6;
   }
 
   .keypoints-summary {
+    margin: var(--pgn-exemplar-xblock-section-gap, 32px) 0 0;
     color: var(--pgn-color-primary-base);
     font-weight: 700;
     line-height: 1.5;
-    margin-top: 2rem;
   }
 
-  .keypoint {
-    padding: var(--pgn-spacing-alert-padding-y)
-      var(--pgn-spacing-alert-padding-x);
-    background-color: var(--pgn-color-white);
-    border-radius: var(--pgn-size-card-border-radius-base);
+  .keypoints-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--pgn-exemplar-xblock-section-gap, 32px);
+  }
+
+  @media (max-width: 767.98px) {
+    .keypoints-card-grid {
+      grid-template-columns: 1fr;
+    }
   }
 }

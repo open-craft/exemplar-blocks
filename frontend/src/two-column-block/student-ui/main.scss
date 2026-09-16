@@ -2,7 +2,24 @@
 //   --pgn-two-column-block-image-size-border-radius-lg
 //   --pgn-two-column-block-image-size-border-radius-sm
 
+.xblock-two-column-wrapper {
+  --two-column-background-color: transparent;
+  --two-column-image-grid-text-background-color: transparent;
+  --two-column-image-grid-text-color: inherit;
+  --two-column-image-grid-gap: var(--pgn-spacing-spacer-1, 4px);
+
+  background-color: var(--two-column-background-color);
+}
+
+.two-column-container {
+  max-width: var(--pgn-exemplar-xblock-container-max-width, 1280px);
+  margin: 0 auto;
+  padding: var(--pgn-exemplar-xblock-container-padding, 32px);
+}
+
 .xblock-two-column {
+  padding: var(--pgn-exemplar-xblock-card-padding, 32px);
+
   .lesson-list-item + .lesson-list-item {
     border-top: 1px solid var(--pgn-color-gray-200);
   }
@@ -16,44 +33,137 @@
       flex-direction: row;
     }
   }
+}
 
-  // override action row because the designs now hawe the buttons left-aligned for the lesson intro column
-  .pgn__action-row {
-    justify-content: flex-start;
-  }
+.two-column-column {
+  min-width: 0;
+}
 
-  // This can be dropped when we upgrade to Bootstrap 5 - https://getbootstrap.com/docs/5.0/utilities/text/#line-height
-  .lh-lg {
-    line-height: 2em !important;
-  }
+.two-column-text-column,
+.two-column-raw-html {
+  min-height: 100%;
+}
 
-  .top-image-grid-item {
-    border-top-left-radius: var(
-      --pgn-two-column-block-image-size-border-radius-lg
-    );
-    border-top-right-radius: var(
-      --pgn-two-column-block-image-size-border-radius-lg
-    );
-    border-bottom-left-radius: var(
-      --pgn-two-column-block-image-size-border-radius-sm
-    );
-    border-bottom-right-radius: var(
-      --pgn-two-column-block-image-size-border-radius-sm
-    );
-  }
+.two-column-text-column {
+  display: flex;
+  align-items: var(--two-column-text-vertical-alignment, start);
+}
 
-  .bottom-image-grid-item {
-    border-top-left-radius: var(
-      --pgn-two-column-block-image-size-border-radius-sm
-    );
-    border-top-right-radius: var(
-      --pgn-two-column-block-image-size-border-radius-sm
-    );
-    border-bottom-left-radius: var(
-      --pgn-two-column-block-image-size-border-radius-lg
-    );
-    border-bottom-right-radius: var(
-      --pgn-two-column-block-image-size-border-radius-lg
-    );
-  }
+.lesson-list-title,
+.lesson-list-intro,
+.lesson-intro-heading,
+.lesson-intro-summary {
+  margin-top: 0;
+}
+
+.lesson-list-item {
+  padding-block: var(--pgn-exemplar-xblock-studio-section-gap, 24px);
+}
+
+.lesson-list-item-number {
+  color: var(--pgn-color-secondary-base);
+  font-weight: 700;
+}
+
+.lesson-intro-title {
+  margin: 0 0 var(--pgn-exemplar-xblock-section-gap, 32px);
+}
+
+.lesson-intro-heading {
+  line-height: var(--pgn-exemplar-xblock-heading-line-height, 2);
+}
+
+.lesson-intro-id {
+  color: var(--pgn-color-secondary-base);
+}
+
+.lesson-intro-actions {
+  justify-content: flex-start;
+}
+
+.image-grid-featured {
+  padding-bottom: var(--two-column-image-grid-gap);
+}
+
+.image-grid-bottom-cell-left {
+  padding-right: var(--two-column-image-grid-gap);
+}
+
+.image-grid-bottom-cell-right {
+  padding-left: var(--two-column-image-grid-gap);
+}
+
+.image-grid-link {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-grid-image {
+  width: 100%;
+}
+
+.image-grid-bottom-text {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: var(--pgn-exemplar-xblock-card-padding, 32px);
+  background-color: var(--two-column-image-grid-text-background-color);
+  color: var(--two-column-image-grid-text-color);
+}
+
+.image-grid-text-align-start {
+  justify-content: flex-start;
+}
+
+.image-grid-text-align-center {
+  justify-content: center;
+}
+
+.image-grid-text-align-end {
+  justify-content: flex-end;
+}
+
+.image-grid-text-content-large {
+  font-size: var(--pgn-typography-font-size-lead-base, 1.25rem);
+  font-weight: var(--pgn-typography-font-weight-lead-base, 300);
+}
+
+.top-image-grid-item {
+  border-top-left-radius: var(
+    --pgn-two-column-block-image-size-border-radius-lg,
+    24px
+  );
+  border-top-right-radius: var(
+    --pgn-two-column-block-image-size-border-radius-lg,
+    24px
+  );
+  border-bottom-left-radius: var(
+    --pgn-two-column-block-image-size-border-radius-sm,
+    8px
+  );
+  border-bottom-right-radius: var(
+    --pgn-two-column-block-image-size-border-radius-sm,
+    8px
+  );
+}
+
+.bottom-image-grid-item,
+.image-grid-bottom-text {
+  border-top-left-radius: var(
+    --pgn-two-column-block-image-size-border-radius-sm,
+    8px
+  );
+  border-top-right-radius: var(
+    --pgn-two-column-block-image-size-border-radius-sm,
+    8px
+  );
+  border-bottom-left-radius: var(
+    --pgn-two-column-block-image-size-border-radius-lg,
+    24px
+  );
+  border-bottom-right-radius: var(
+    --pgn-two-column-block-image-size-border-radius-lg,
+    24px
+  );
 }

@@ -5,3 +5,105 @@
 .edit-xblock-modal > .modal-actions {
   display: none !important;
 }
+
+.two-column-block-editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.two-column-editor-body {
+  padding: var(--pgn-exemplar-xblock-studio-stack-padding, 16px);
+}
+
+.two-column-editor-columns {
+  row-gap: var(--pgn-exemplar-xblock-studio-section-gap, 24px);
+}
+
+.two-column-editor-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.two-column-editor-column-header {
+  margin: var(--pgn-exemplar-xblock-studio-field-gap, 16px) 0;
+}
+
+.two-column-editor-column-title,
+.two-column-editor-section-title {
+  font-weight: 700;
+}
+
+.two-column-editor-column-title {
+  margin: var(--pgn-exemplar-xblock-studio-field-gap, 16px) 0;
+}
+
+.two-column-editor-column-header .two-column-editor-column-title {
+  margin: 0;
+}
+
+.two-column-editor-section-title {
+  margin: var(--pgn-exemplar-xblock-studio-section-gap, 24px) 0
+    var(--pgn-exemplar-xblock-studio-field-gap, 16px);
+}
+
+.two-column-editor-panel {
+  flex-grow: 1;
+  padding: var(--pgn-exemplar-xblock-studio-entry-padding, 24px);
+  border: 1px solid var(--pgn-color-gray-200);
+  border-radius: var(--pgn-exemplar-xblock-studio-entry-radius, 8px);
+}
+
+.two-column-editor-field {
+  margin-bottom: var(--pgn-exemplar-xblock-studio-field-gap, 16px);
+}
+
+.two-column-editor-control-auto {
+  width: auto;
+}
+
+.two-column-editor-color-field {
+  display: block;
+}
+
+.two-column-editor-actions {
+  padding: var(--pgn-exemplar-xblock-studio-actions-padding, 16px);
+}
+
+.two-column-editor-tall-textarea {
+  min-height: 160px;
+}
+
+.two-column-editor-raw-html {
+  height: 7lh;
+}
+
+.two-column-editor-subsection-title {
+  margin: var(--pgn-exemplar-xblock-studio-section-gap, 24px) 0 0;
+}
+
+.two-column-editor-subsection-description {
+  margin-top: 0;
+}
+
+.two-column-editor-entry {
+  align-items: flex-end;
+}
+
+.two-column-editor-label-sm {
+  font-size: var(--pgn-typography-font-size-sm, 0.875rem);
+}
+
+.two-column-editor-checkbox {
+  display: flex;
+}
+
+.two-column-editor-selectable-content {
+  justify-content: center;
+  text-align: center;
+}
+
+.two-column-editor-inline-color-field {
+  display: flex;
+  gap: var(--pgn-exemplar-xblock-studio-field-gap, 16px);
+}

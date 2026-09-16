@@ -1,2 +1,28 @@
 @import '../../base';
 @import '../../studio';
+
+.cover-block-editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cover-editor-body {
+  padding: var(--pgn-exemplar-xblock-studio-stack-padding, 16px);
+}
+
+.cover-editor-form {
+  padding: var(--pgn-exemplar-xblock-studio-stack-padding, 16px);
+}
+
+.cover-editor-grid {
+  row-gap: var(--pgn-exemplar-xblock-studio-field-gap, 16px);
+}
+
+.cover-editor-field {
+  margin-bottom: var(--pgn-exemplar-xblock-studio-field-gap, 16px);
+}
+
+.cover-editor-actions {
+  padding: var(--pgn-exemplar-xblock-studio-actions-padding, 16px);
+}

@@ -14,7 +14,7 @@ export const LessonListLayoutEditor = ({
 }: LessonListLayoutEditorProps) => {
   return (
     <>
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Title</Form.Label>
         <Form.Control
           value={data.title}
@@ -25,10 +25,10 @@ export const LessonListLayoutEditor = ({
         />
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Intro text</Form.Label>
         <Form.Control
-          style={{ minHeight: '160px' }}
+          className="two-column-editor-tall-textarea"
           value={data.text}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             onUpdate({ ...data, text: e.target.value })
@@ -37,11 +37,14 @@ export const LessonListLayoutEditor = ({
           as="textarea"
         />
       </Form.Group>
-      <p className="lead">Lesson List</p>
-      <p>Add lessons to display in the bulleted list.</p>
+      <p className="two-column-editor-subsection-title">Lesson List</p>
+      <p className="two-column-editor-subsection-description">
+        Add lessons to display in the bulleted list.
+      </p>
       {(data.lessons.length > 0 ? data.lessons : [{ id: '', title: '' }]).map(
         (lesson, index) => (
           <LessonEntry
+            key={index}
             lesson={lesson}
             onUpdate={(lesson) =>
               onUpdate({
@@ -98,10 +101,12 @@ type LessonEntryProps = {
 
 const LessonEntry = ({ lesson, onUpdate, onDelete }: LessonEntryProps) => {
   return (
-    <Row className="align-items-end">
+    <Row className="two-column-editor-entry">
       <Col xs={2}>
-        <Form.Group>
-          <Form.Label className="sm">Lesson No.</Form.Label>
+        <Form.Group className="two-column-editor-field">
+          <Form.Label className="two-column-editor-label-sm">
+            Lesson No.
+          </Form.Label>
           <Form.Control
             value={lesson.id}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -112,8 +117,10 @@ const LessonEntry = ({ lesson, onUpdate, onDelete }: LessonEntryProps) => {
         </Form.Group>
       </Col>
       <Col xs={8}>
-        <Form.Group>
-          <Form.Label className="sm">Lesson Title</Form.Label>
+        <Form.Group className="two-column-editor-field">
+          <Form.Label className="two-column-editor-label-sm">
+            Lesson Title
+          </Form.Label>
           <Form.Control
             value={lesson.title}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -124,7 +131,7 @@ const LessonEntry = ({ lesson, onUpdate, onDelete }: LessonEntryProps) => {
         </Form.Group>
       </Col>
       <Col xs={1}>
-        <Form.Group>
+        <Form.Group className="two-column-editor-field">
           <Button variant="danger" onClick={() => onDelete()}>
             <Icon src={CrossMark} screenReaderText="delete" />
           </Button>

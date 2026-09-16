@@ -19,16 +19,27 @@ const CoverForm = () => {
   return (
     // Add padding to compensate for the negative margins from Row and prevent
     // horizontal scrolling.
-    <div className="p-3">
-      <Row>
-        <Form.Group as={Col} controlId="cover-form-display-name" xs={12}>
+    <div className="cover-editor-form">
+      <Row className="cover-editor-grid">
+        <Form.Group
+          className="cover-editor-field"
+          as={Col}
+          controlId="cover-form-display-name"
+          xs={12}
+        >
           <Form.Label>Display Name</Form.Label>
           <Field as={Form.Control} name="display_name" />
           <Form.Text muted>
             The label for this block, shown only in studio.
           </Form.Text>
         </Form.Group>
-        <Form.Group as={Col} controlId="cover-form-variant" xs={12} sm={6}>
+        <Form.Group
+          className="cover-editor-field"
+          as={Col}
+          controlId="cover-form-variant"
+          xs={12}
+          sm={6}
+        >
           <Form.Label>Variant</Form.Label>
           <Form.Control as="select" {...variant}>
             <option value={Variant.section}>Section Cover</option>
@@ -36,7 +47,13 @@ const CoverForm = () => {
             <option value={Variant.separator}>Separator</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group as={Col} controlId="cover-form-media-url" xs={12} sm={6}>
+        <Form.Group
+          className="cover-editor-field"
+          as={Col}
+          controlId="cover-form-media-url"
+          xs={12}
+          sm={6}
+        >
           <Form.Label>Image URL</Form.Label>
           <URLFilePickerWrapper<XBlockConfig>
             setValue={(url) => setMediaUrl(url)}
@@ -45,7 +62,12 @@ const CoverForm = () => {
             <Field as={Form.Control} name="media_url" value={mediaUrl.value} />
           </URLFilePickerWrapper>
         </Form.Group>
-        <Form.Group as={Col} controlId="cover-form-media-alt-text" xs={12}>
+        <Form.Group
+          className="cover-editor-field"
+          as={Col}
+          controlId="cover-form-media-alt-text"
+          xs={12}
+        >
           <Form.Label>Image Alt Text</Form.Label>
           <Field as={Form.Control} name="media_alt_text" />
           <Form.Text muted>
@@ -54,6 +76,7 @@ const CoverForm = () => {
         </Form.Group>
         {sectionVariant && (
           <Form.Group
+            className="cover-editor-field"
             as={Col}
             controlId="cover-form-image-position"
             xs={12}
@@ -67,6 +90,7 @@ const CoverForm = () => {
           </Form.Group>
         )}
         <Form.Group
+          className="cover-editor-field"
           as={Col}
           controlId="cover-form-top-header"
           {...mainColumSizes}
@@ -76,6 +100,7 @@ const CoverForm = () => {
         </Form.Group>
         {colorsEnabled && (
           <Form.Group
+            className="cover-editor-field"
             as={Col}
             controlId="cover-form-top-header-color"
             xs={12}
@@ -92,6 +117,7 @@ const CoverForm = () => {
           </Form.Group>
         )}
         <Form.Group
+          className="cover-editor-field"
           as={Col}
           controlId="cover-form-main-header"
           {...mainColumSizes}
@@ -101,6 +127,7 @@ const CoverForm = () => {
         </Form.Group>
         {colorsEnabled && (
           <Form.Group
+            className="cover-editor-field"
             as={Col}
             controlId="cover-form-main-header-color"
             xs={12}
@@ -117,6 +144,7 @@ const CoverForm = () => {
           </Form.Group>
         )}
         <Form.Group
+          className="cover-editor-field"
           as={Col}
           controlId="cover-form-subheader"
           {...mainColumSizes}
@@ -126,6 +154,7 @@ const CoverForm = () => {
         </Form.Group>
         {colorsEnabled && (
           <Form.Group
+            className="cover-editor-field"
             as={Col}
             controlId="cover-form-subheader-color"
             xs={12}
@@ -142,6 +171,7 @@ const CoverForm = () => {
           </Form.Group>
         )}
         <Form.Group
+          className="cover-editor-field"
           as={Col}
           controlId="cover-form-description"
           {...mainColumSizes}
@@ -151,6 +181,7 @@ const CoverForm = () => {
         </Form.Group>
         {colorsEnabled && (
           <Form.Group
+            className="cover-editor-field"
             as={Col}
             controlId="cover-form-description-color"
             xs={12}

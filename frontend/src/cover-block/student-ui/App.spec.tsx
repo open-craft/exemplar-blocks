@@ -15,16 +15,14 @@ describe('App.tsx', () => {
     const screen = render(<App {...data} />);
     screen.getByTestId('section-cover');
   });
-  it('reverses column order when image_position is left', () => {
+  it('sets the section image-left layout modifier', () => {
     const data = initDataFactory({
       variant: Variant.section,
       image_position: ImagePosition.left,
     });
-    const { container } = render(<App {...data} />);
-    const cols = container.querySelectorAll('.col-lg-5');
-    expect(cols.length).toBe(2);
-    // First col (image) gets order-lg-1, second col (text) gets order-lg-2
-    expect(cols[0].className).toContain('order-lg-1');
-    expect(cols[1].className).toContain('order-lg-2');
+    const screen = render(<App {...data} />);
+    expect(screen.getByTestId('section-cover')).toHaveClass(
+      'section-cover--image-left',
+    );
   });
 });

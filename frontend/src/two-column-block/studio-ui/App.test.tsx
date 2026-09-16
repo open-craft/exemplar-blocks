@@ -141,9 +141,11 @@ describe('App.tsx', () => {
 
     const { screen, mockOnSave, user } = specRender();
 
-    const leftColumn = screen.getByText(/Left Column/).parentElement!;
-    const rightColumn =
-      screen.getByText(/Right Column/).parentElement!.parentElement!;
+    const [leftColumn, rightColumn] = Array.from(
+      screen.container.querySelectorAll<HTMLElement>(
+        '.two-column-editor-column',
+      ),
+    );
 
     // check the current order of columns
     within(leftColumn).getByDisplayValue('Text');

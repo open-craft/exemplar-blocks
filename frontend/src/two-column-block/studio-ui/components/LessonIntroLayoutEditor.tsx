@@ -13,7 +13,7 @@ export const LessonIntroLayoutEditor = ({
 }: LessonIntroLayoutEditorProps) => {
   return (
     <>
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Title</Form.Label>
         <Form.Control
           value={data.title}
@@ -24,11 +24,13 @@ export const LessonIntroLayoutEditor = ({
         />
       </Form.Group>
 
-      <p className="lead">Lesson Info</p>
+      <p className="two-column-editor-subsection-title">Lesson Info</p>
       <Row>
         <Col xs={3}>
-          <Form.Group>
-            <Form.Label className="sm">Lesson No.</Form.Label>
+          <Form.Group className="two-column-editor-field">
+            <Form.Label className="two-column-editor-label-sm">
+              Lesson No.
+            </Form.Label>
             <Form.Control
               value={data.lesson.id}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -42,8 +44,10 @@ export const LessonIntroLayoutEditor = ({
           </Form.Group>
         </Col>
         <Col xs={9}>
-          <Form.Group>
-            <Form.Label className="sm">Lesson Title</Form.Label>
+          <Form.Group className="two-column-editor-field">
+            <Form.Label className="two-column-editor-label-sm">
+              Lesson Title
+            </Form.Label>
             <Form.Control
               value={data.lesson.title}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -58,10 +62,10 @@ export const LessonIntroLayoutEditor = ({
         </Col>
       </Row>
 
-      <Form.Group>
+      <Form.Group className="two-column-editor-field">
         <Form.Label>Lesson Summary</Form.Label>
         <Form.Control
-          style={{ minHeight: '160px' }}
+          className="two-column-editor-tall-textarea"
           value={data.summary}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             onUpdate({ ...data, summary: e.target.value })
@@ -87,8 +91,10 @@ export const LessonIntroLayoutEditor = ({
       {data.showStartLessonButton && (
         <Row>
           <Col>
-            <Form.Group>
-              <Form.Label className="sm">Next Lesson URL</Form.Label>
+            <Form.Group className="two-column-editor-field">
+              <Form.Label className="two-column-editor-label-sm">
+                Next Lesson URL
+              </Form.Label>
               <Form.Control
                 value={data.lesson.url}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -129,10 +135,12 @@ export const LessonIntroLayoutEditor = ({
         <>
           <Row>
             <Col>
-              <Form.Group>
-                <Form.Label className="sm">Lesson No.</Form.Label>
+              <Form.Group className="two-column-editor-field">
+                <Form.Label className="two-column-editor-label-sm">
+                  Lesson No.
+                </Form.Label>
                 <Form.Control
-                  controlClassName="w-auto"
+                  controlClassName="two-column-editor-control-auto"
                   value={data.previousLesson.id}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     onUpdate({
@@ -150,8 +158,10 @@ export const LessonIntroLayoutEditor = ({
           </Row>
           <Row>
             <Col>
-              <Form.Group>
-                <Form.Label className="sm">Previous Lesson URL</Form.Label>
+              <Form.Group className="two-column-editor-field">
+                <Form.Label className="two-column-editor-label-sm">
+                  Previous Lesson URL
+                </Form.Label>
                 <Form.Control
                   value={data.previousLesson.url}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
