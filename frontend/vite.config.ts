@@ -105,6 +105,19 @@ export default defineConfig(({ mode }) => {
       },
       outDir: resolve(__dirname, '../src/ideas_overview_block/public'),
     },
+    unfolding_scenario: {
+      entry: {
+        unfoldingScenarioStudent: resolve(
+          import.meta.dirname,
+          'src/unfolding-scenario-block/student-ui/main.tsx',
+        ),
+        unfoldingScenarioStudio: resolve(
+          import.meta.dirname,
+          'src/unfolding-scenario-block/studio-ui/main.tsx',
+        ),
+      },
+      outDir: resolve(__dirname, '../src/unfolding_scenario/public'),
+    },
   };
 
   const xblock = process.env.XBLOCK;

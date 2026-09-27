@@ -9,21 +9,26 @@ from xblock.test.toy_runtime import ToyRuntime
 from unfolding_scenario import UnfoldingScenarioXBlock
 
 VALID_DATA = {
+    "name": "Example Scenario",
     "introduction": {
         "heading": "Introduction",
         "description": "An introduction to the scenario.",
-        "button_text": "Start",
+        "imageURL": "https://picsum.photos/200",
     },
     "scenarios": [
         {
             "heading": "Scenario 1",
             "description": "The first scenario.",
-            "instruction_title": "Make a decision",
-            "instruction_description": "Choose one of the options below.",
-            "question": "What would you do next?",
-            "answers": [
-                {"value": "Do this", "feedback": "Not quite.", "is_correct": False},
-                {"value": "Do that", "feedback": "That's right!", "is_correct": True},
+            "instructionTitle": "Make a decision",
+            "instructionDescription": "Choose one of the options below.",
+            "prompt": "What would you do next?",
+            "options": [
+                {"value": "Do this", "feedback": "Not quite.", "icon": "placeholder"},
+                {
+                    "value": "Do that",
+                    "feedback": "That's right!",
+                    "icon": "placeholder",
+                },
             ],
         },
     ],
@@ -91,8 +96,7 @@ def test_block_default_data():
     """The block has valid default data."""
     block = make_block()
 
-    assert block.data["introduction"]["heading"] == "Unfolding Scenario"
-    assert block.background_color == "#FFFFFF"
+    assert block.scenario_data["introduction"]["heading"] == "An example scenario"
     assert block.display_name == "Unfolding Scenario"
 
 
@@ -105,9 +109,8 @@ def test_block_update_data():
         make_request(
             "POST",
             {
-                "display_name": "test",
-                "background_color": "#AABBCC",
-                "data": {
+                "displayName": "test",
+                "scenarioData": {
                     **VALID_DATA,
                     "outcome": None,
                 },
@@ -119,9 +122,8 @@ def test_block_update_data():
     assert b"success" in response.body
 
     assert block.display_name == "test"
-    assert block.background_color == "#AABBCC"
-    assert block.data["introduction"]["heading"] == "Introduction"
-    assert block.data["outcome"] is None
+    assert block.scenario_data["introduction"]["heading"] == "Introduction"
+    assert block.scenario_data["outcome"] is None
 
 
 def test_block_update_data_reject_invalid():
@@ -133,14 +135,13 @@ def test_block_update_data_reject_invalid():
         make_request(
             "POST",
             {
-                "display_name": "test",
-                "background_color": "#AABBCC",
-                "data": {
+                "displayName": "test",
+                "scenarioData": {
                     "introduction": VALID_DATA["introduction"],
                     "scenarios": [
                         {
                             **VALID_DATA["scenarios"][0],
-                            "answers": "not-a-list",
+                            "options": "not-a-list",
                         }
                     ],
                     "outcome": VALID_DATA["outcome"],
@@ -153,27 +154,7 @@ def test_block_update_data_reject_invalid():
 
     # assert the changes haven't been persisted
     assert block.display_name == "Unfolding Scenario"
-    assert block.data["introduction"]["heading"] == "Unfolding Scenario"
-
-
-def test_block_update_data_reject_invalid_color():
-    """Test that an invalid background colour is rejected."""
-    block = make_block()
-
-    response = block.handle(
-        "studio_save",
-        make_request(
-            "POST",
-            {
-                "display_name": "test",
-                "background_color": "not-a-color",
-                "data": VALID_DATA,
-            },
-        ),
-    )
-
-    assert response.status == "400 Bad Request"
-    assert block.background_color == "#FFFFFF"
+    assert block.scenario_data["introduction"]["heading"] == "An example scenario"
 
 
 def test_workbench_scenarios():
@@ -185,7 +166,7 @@ def test_workbench_scenarios():
 
 def test_index_dictionary():
     """Learner-visible text from the block content is indexed as plain text."""
-    block = make_block(data=VALID_DATA)
+    block = make_block(scenario_data=VALID_DATA)
 
     result = block.index_dictionary()
 
@@ -200,7 +181,7 @@ def test_index_dictionary():
 
 def test_index_dictionary_malformed_content():
     """Malformed data is ignored rather than breaking indexing."""
-    block = make_block(data={"invalid": "data"})
+    block = make_block(scenario_data={"invalid": "data"})
 
     result = block.index_dictionary()
 
