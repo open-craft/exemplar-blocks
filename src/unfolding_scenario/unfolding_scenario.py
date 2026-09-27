@@ -11,31 +11,37 @@ from xblock.exceptions import JsonHandlerError
 from xblock.fields import Scope, String, Dict
 from xblock.utils.resources import ResourceLoader
 
-from unfolding_scenario.types import Data, UnfoldingScenarioFields
+from unfolding_scenario.types import Data, ScenarioData
 from exemplar_common.utils import strip_html_for_search
+from exemplar_common.xblock_config import get_xblock_config, XBlockView
 
 logger = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
 
-DEFAULT_DATA = Data(
+DEFAULT_SCENARIO_DATA = ScenarioData(
+    name="Unfolding Scenario",
     introduction={
-        "heading": "Unfolding Scenario",
+        "heading": "An example scenario",
         "description": (
             "Work through the scenarios one by one, making a decision at each "
             "step, to see how the situation unfolds."
         ),
-        "button_text": "Start",
+        "imageURL": "https://picsum.photos/id/82/300/500",
     },
     scenarios=[
         {
             "heading": "Scenario 1",
             "description": "The first scenario in the sequence.",
-            "instruction_title": "Make a decision",
-            "instruction_description": "Choose one of the options below.",
-            "question": "What would you do next?",
-            "answers": [
-                {"value": "Do this", "feedback": "Not quite.", "is_correct": False},
-                {"value": "Do that", "feedback": "That's right!", "is_correct": True},
+            "instructionTitle": "Make a decision",
+            "instructionDescription": "Choose one of the options below.",
+            "prompt": "What would you do next?",
+            "options": [
+                {"value": "Do this", "feedback": "Not quite.", "icon": "placeholder"},
+                {
+                    "value": "Do that",
+                    "feedback": "That's right!",
+                    "icon": "placeholder",
+                },
             ],
         }
     ],
@@ -58,37 +64,50 @@ class UnfoldingScenarioXBlock(XBlock):
         scope=Scope.settings,
         help="Name of the component in the studio",
     )
-    background_color = String(
-        display_name="Background Color",
-        default="#FFFFFF",
-        scope=Scope.settings,
-        help="Background color for the block",
-    )
-    data = Dict(
+    scenario_data = Dict(
         display_name="Data",
-        default=DEFAULT_DATA.model_dump(),
+        default=DEFAULT_SCENARIO_DATA.model_dump(),
         scope=Scope.content,
         help="All the content of the block: the introduction, scenarios and outcome",
     )
 
-    def student_view(self, context=None) -> Fragment:
+    def _render_preview(self, *, is_studio: bool) -> Fragment:
         """
         Student view for the Unfolding Scenario XBlock.
         """
         html = resource_loader.load_unicode("static/html/unfolding_scenario.html")
         frag = Fragment(html)
-        frag.add_javascript(resource_loader.load_unicode("static/js/student.js"))
+
+        frag.add_javascript(resource_loader.load_unicode("static/js/entrypoint.js"))
+        view = XBlockView.STUDENT
+
+        if is_studio:
+            frag.add_css(resource_loader.load_unicode("static/css/studio.css"))
+            view = XBlockView.STUDIO
+
         frag.initialize_js(
             "UnfoldingScenarioXBlock",
             {
                 "url": self.runtime.local_resource_url(
                     self, "public/unfoldingScenarioStudent.js"
                 ),
-                "data": self.data,
-                "backgroundColor": self.background_color,
+                "data": {
+                    "displayName": self.display_name,
+                    "scenarioData": self.scenario_data,
+                },
+                "config": get_xblock_config(self.context_key, view=view),
             },
         )
         return frag
+
+    def student_view(self, context=None):
+        """The primary view of this block, shown to students
+        when viewing courses.
+        """
+        return self._render_preview(is_studio=False)
+
+    def author_view(self, context=None):
+        return self._render_preview(is_studio=True)
 
     def studio_view(self, context=None):
         """
@@ -98,15 +117,20 @@ class UnfoldingScenarioXBlock(XBlock):
             "static/html/unfolding_scenario_editor.html"
         )
         frag = Fragment(html)
-        frag.add_javascript(resource_loader.load_unicode("static/js/studio.js"))
+        frag.add_css(resource_loader.load_unicode("static/css/studio.css"))
+        frag.add_javascript(resource_loader.load_unicode("static/js/entrypoint.js"))
+
         frag.initialize_js(
-            "UnfoldingScenarioEditor",
+            "UnfoldingScenarioXBlock",
             {
                 "url": self.runtime.local_resource_url(
                     self, "public/unfoldingScenarioStudio.js"
                 ),
-                "data": self.data,
-                "backgroundColor": self.background_color,
+                "data": {
+                    "displayName": self.display_name,
+                    "scenarioData": self.scenario_data,
+                },
+                "config": get_xblock_config(self.context_key, XBlockView.STUDIO),
             },
         )
         return frag
@@ -117,7 +141,7 @@ class UnfoldingScenarioXBlock(XBlock):
         JSON handler that saves the studio editor data.
         """
         try:
-            block_data = UnfoldingScenarioFields.model_validate(data)
+            block_data = Data.model_validate(data)
         except ValidationError as e:
             logger.exception("Invalid data received from studio.")
             message = "\n".join(
@@ -125,9 +149,8 @@ class UnfoldingScenarioXBlock(XBlock):
             )
             raise JsonHandlerError(400, message)
 
-        self.display_name = block_data.display_name
-        self.background_color = block_data.background_color
-        self.data = block_data.data.model_dump()
+        self.display_name = block_data.displayName
+        self.scenario_data = block_data.scenarioData.model_dump()
 
         logger.info("Successfully saved Unfolding Scenario data.")
         return {"result": "success"}
@@ -140,7 +163,9 @@ class UnfoldingScenarioXBlock(XBlock):
         xblock_body = super().index_dictionary()
         searchable_text = ""
         try:
-            searchable_text = Data.model_validate(self.data).searchable_text()
+            searchable_text = ScenarioData.model_validate(
+                self.scenario_data
+            ).searchable_text()
         except (ValidationError, TypeError):
             logger.warning(
                 "Skipping malformed content while indexing block %s",
@@ -170,7 +195,6 @@ class UnfoldingScenarioXBlock(XBlock):
                 """
                 <unfolding_scenario
                     display_name="Unfolding Scenario Demo"
-                    background_color="#CCCCCC"
                 />
                 """,
             ),

@@ -43,6 +43,7 @@ run = [
     "pydantic2ts --module ./src/two_column_block/types.py --output ./frontend/src/two-column-block/apiTypes.ts --json2ts-cmd ./frontend/node_modules/.bin/json2ts",
     "pydantic2ts --module ./src/cover_block/types.py --output ./frontend/src/cover-block/apiTypes.ts  --json2ts-cmd \"./frontend/node_modules/.bin/json2ts --inferStringEnumKeysFromValues\"",
     "pydantic2ts --module ./src/ideas_overview_block/types.py --output ./frontend/src/ideas-overview-block/apiTypes.ts --json2ts-cmd \"./frontend/node_modules/.bin/json2ts --inferStringEnumKeysFromValues\"",
+    "pydantic2ts --module ./src/unfolding_scenario/types.py --output ./frontend/src/unfolding-scenario-block/apiTypes.ts --json2ts-cmd \"./frontend/node_modules/.bin/json2ts --inferStringEnumKeysFromValues\"",
 ]
 
 [tasks."format:backend"]
@@ -131,7 +132,7 @@ depends = ["compile"]
 
 [tasks."build:all"]
 description = "Build all blocks"
-depends = ["build card_carousel", "build card_grid", "build keypoint_block", "build cover_block", "build two_column_block", "build ideas_overview_block"]
+depends = ["build card_carousel", "build card_grid", "build keypoint_block", "build cover_block", "build two_column_block", "build ideas_overview_block", "build unfolding_scenario"]
 
 [tasks.preview]
 description = "Preview Block"

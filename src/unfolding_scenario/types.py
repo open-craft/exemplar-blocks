@@ -1,10 +1,6 @@
 """Types for the Unfolding Scenario Block"""
 
-from typing import Annotated
-
-from pydantic import AfterValidator, BaseModel, ConfigDict
-
-from exemplar_common.utils import is_color
+from pydantic import BaseModel, ConfigDict
 
 
 class Outcome(BaseModel):
@@ -22,7 +18,7 @@ class Outcome(BaseModel):
         return f"{self.heading} {self.description}"
 
 
-class Answer(BaseModel):
+class Option(BaseModel):
     """
     Options presented in a scenario.
     """
@@ -31,7 +27,7 @@ class Answer(BaseModel):
 
     value: str
     feedback: str
-    is_correct: bool
+    icon: str  # TODO: the format of this is still under discussion
 
     def searchable_text(self) -> str:
         """Learner-visible text for search indexing."""
@@ -47,24 +43,21 @@ class Scenario(BaseModel):
 
     heading: str
     description: str
-    instruction_title: str
-    instruction_description: str
-    question: str
-    answers: list[Answer]
+    instructionTitle: str
+    instructionDescription: str
+    prompt: str
+    options: list[Option]
 
     def searchable_text(self) -> str:
-        """Learner-visible text for search indexing.
-
-        TODO: verify all the answers should be added
-        """
+        """Learner-visible text for search indexing."""
         return " ".join(
             [
                 self.heading,
                 self.description,
-                self.instruction_title,
-                self.instruction_description,
-                self.question,
-                *[ans.searchable_text() for ans in self.answers],
+                self.instructionTitle,
+                self.instructionDescription,
+                self.prompt,
+                *[option.searchable_text() for option in self.options],
             ]
         )
 
@@ -78,23 +71,24 @@ class Introduction(BaseModel):
 
     heading: str
     description: str
-    button_text: str
+    imageURL: str
 
     def searchable_text(self) -> str:
         """Learner-visible text for search indexing."""
         return " ".join([self.heading, self.description])
 
 
-class Data(BaseModel):
+class ScenarioData(BaseModel):
     """
     All the learner-facing content of the Unfolding Scenario block.
     """
 
     model_config = ConfigDict(extra="forbid")
 
+    name: str
     introduction: Introduction
     scenarios: list[Scenario]
-    outcome: Outcome | None = None
+    outcome: Outcome | None
 
     def searchable_text(self) -> str:
         """
@@ -109,13 +103,12 @@ class Data(BaseModel):
         return " ".join(parts)
 
 
-class UnfoldingScenarioFields(BaseModel):
+class Data(BaseModel):
     """
     Full payload sent by the studio editor when saving the block.
     """
 
     model_config = ConfigDict(extra="forbid")
 
-    display_name: str
-    background_color: Annotated[str, AfterValidator(is_color)]
-    data: Data
+    displayName: str
+    scenarioData: ScenarioData
