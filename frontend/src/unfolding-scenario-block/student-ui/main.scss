@@ -5,6 +5,7 @@
   --palette-light: var(--pgn-unfolding-scenario-palette-light, #cdeaea);
   --palette-lightest: var(--pgn-unfolding-scenario-palette-lightest, #e0f2f2);
   --palette-offwhite: var(--pgn-unfolding-scenario-palette-offwhite, #e9f6f5);
+  --palette-main-navy: var(--pgn-unfolding-scenario-palette-main-navy, #223e5d);
 
   --color-btn-bg-blue: var(--pgn-unfolding-scenario-color-btn-bg-blue, #3376c3);
   --color-btn-hover-bg-blue: var(
@@ -21,27 +22,80 @@
   );
   --btn-min-width: var(--pgn-unfolding-scenario-btn-min-width, 200px);
 
-  background-color: var(--palette-offwhite);
+  --color-option-focus-border: var(
+    --pgn-unfolding-scenario-color-option-focus-border,
+    #f0664a
+  );
 
-  // the bordered box with the outward arrow and scenario type name
-  .scenario-name {
-    font-size: calc(
-      var(--pgn-typography-font-size-base) * 1.125
-    ); // 18px if base size is 16px
-    font-family: var(--pgn-typography-headings-font-family);
-    font-weight: var(--pgn-typography-font-weight-bold);
-    color: var(--palette-main);
+  .bg-darkest {
+    background-color: var(--palette-darkest);
+  }
+  .bg-main {
+    background-color: var(--palette-main);
+  }
+  .bg-medium {
+    background-color: var(--palette-medium);
+  }
+  .bg-light {
+    background-color: var(--palette-light);
+  }
+  .bg-lightest {
     background-color: var(--palette-lightest);
-    border-color: var(--palette-medium) !important;
-    border-radius: var(--pgn-spacing-spacer-base);
-    border-bottom-left-radius: 0;
+  }
+  .bg-offwhite {
+    background-color: var(--palette-offwhite);
+  }
+  .bg-main-navy {
+    background-color: var(--palette-main-navy);
+  }
+  .text-darkest {
+    color: var(--palette-darkest);
+  }
+  .text-main {
+    color: var(--palette-main);
+  }
+  .text-medium {
+    color: var(--palette-medium);
+  }
+  .text-light {
+    color: var(--palette-light);
+  }
+  .text-lightest {
+    color: var(--palette-lightest);
+  }
+  .text-offwhite {
+    color: var(--palette-offwhite);
+  }
+  .text-main-navy {
+    color: var(--palette-main-navy);
+  }
 
-    .border-right {
+  .rounded-lg-bottom {
+    border-bottom-right-radius: var(--pgn-size-border-radius-lg) !important;
+    border-bottom-left-radius: var(--pgn-size-border-radius-lg) !important;
+  }
+
+  .scenario-intro {
+    // the bordered box with the outward arrow and scenario type name
+    .scenario-name {
+      font-size: calc(
+        var(--pgn-typography-font-size-base) * 1.125
+      ); // 18px if base size is 16px
+      font-family: var(--pgn-typography-headings-font-family);
+      font-weight: var(--pgn-typography-font-weight-bold);
+      color: var(--palette-main);
+      background-color: var(--palette-lightest);
       border-color: var(--palette-medium) !important;
-    }
+      border-radius: var(--pgn-spacing-spacer-base);
+      border-bottom-left-radius: 0;
 
-    .pgn__icon {
-      zoom: 2;
+      .border-right {
+        border-color: var(--palette-medium) !important;
+      }
+
+      .pgn__icon {
+        zoom: 2;
+      }
     }
   }
 
@@ -63,7 +117,7 @@
   .btn-outline-unfolding-scenario-blue {
     --pgn-size-btn-border-width: 2px;
 
-    --pgn-btn-bg: transparent;
+    --pgn-btn-bg: var(--color-btn-text-blue);
     --pgn-btn-color: var(--color-btn-bg-blue);
     --pgn-btn-border-color: var(--color-btn-bg-blue);
 
@@ -84,5 +138,124 @@
   .btn {
     min-width: var(--btn-min-width);
     padding: var(--pgn-spacing-spacer-2-5) var(--pgn-spacing-spacer-4-5);
+  }
+
+  .small-heading {
+    font-size: calc(
+      var(--pgn-typography-font-size-base) * 1.125
+    ); // 18px if base size is 16px
+    font-family: var(--pgn-typography-headings-font-family);
+    font-weight: var(--pgn-typography-font-weight-bold);
+  }
+
+  .font-size-lg {
+    font-size: calc(
+      var(--pgn-typography-font-size-base) * 1.25
+    ); // 20px if base size is 16px
+  }
+
+  .font-size-md {
+    font-size: calc(
+      var(--pgn-typography-font-size-base) * 1.125
+    ); // 18px if base size is 16px
+  }
+
+  // utility margins/paddings to complement existing bootstrap utility margins/paddings
+  .m-4-5 {
+    margin: var(--pgn-spacing-spacer-4-5) !important;
+  }
+  .ml-4-5,
+  .mx-4-5 {
+    margin-left: var(--pgn-spacing-spacer-4-5) !important;
+  }
+  .mr-4-5,
+  .mx-4-5 {
+    margin-right: var(--pgn-spacing-spacer-4-5) !important;
+  }
+  .mt-4-5,
+  .my-4-5 {
+    margin-top: var(--pgn-spacing-spacer-4-5) !important;
+  }
+  .mb-4-5,
+  .my-4-5 {
+    margin-bottom: var(--pgn-spacing-spacer-4-5) !important;
+  }
+  .p-4-5 {
+    padding: var(--pgn-spacing-spacer-4-5) !important;
+  }
+  .pl-4-5,
+  .px-4-5 {
+    padding-left: var(--pgn-spacing-spacer-4-5) !important;
+  }
+  .pr-4-5,
+  .px-4-5 {
+    padding-right: var(--pgn-spacing-spacer-4-5) !important;
+  }
+  .pt-4-5,
+  .py-4-5 {
+    padding-top: var(--pgn-spacing-spacer-4-5) !important;
+  }
+  .pb-4-5,
+  .py-4-5 {
+    padding-bottom: var(--pgn-spacing-spacer-4-5) !important;
+  }
+
+  .unfolding-scenario-activity-wrapper {
+    height: 100%;
+  }
+
+  .step-indicator {
+    height: var(--pgn-spacing-spacer-4-5);
+    width: var(--pgn-spacing-spacer-4-5);
+    font-size: calc(
+      var(--pgn-typography-font-size-base) * 1.125
+    ); // 18px if base size is 16px
+  }
+  .step-indicator-separator {
+    height: 1px;
+    width: 17px;
+    background-color: var(--palette-darkest);
+  }
+
+  .arrow-bubble {
+    display: inline-block;
+    background-color: var(--palette-lightest);
+    color: var(--palette-main);
+    border: 1px solid var(--palette-medium);
+    border-radius: var(--pgn-spacing-spacer-base);
+    border-bottom-left-radius: 0;
+  }
+
+  .scenario-option-btn {
+    height: calc(
+      var(--pgn-typography-line-height-base) *
+        var(--pgn-typography-font-size-base) * 3 +
+        var(--pgn-spacing-spacer-base) * 2
+    );
+
+    &.pre-selected {
+      outline: 2px solid var(--palette-main);
+    }
+
+    .hover-arrow {
+      min-width: 10px;
+
+      .pgn__icon {
+        display: none;
+      }
+    }
+
+    &:hover,
+    &.active {
+      .hover-arrow {
+        .pgn__icon {
+          display: block;
+        }
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-option-focus-border);
+    }
   }
 }

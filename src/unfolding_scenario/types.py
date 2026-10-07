@@ -10,8 +10,10 @@ class Outcome(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
 
+    # TODO: there is also an outcome variant option that we need to record here (still under discussion)
     heading: str
-    description: str
+    description: str  # TODO: this should be treated as html and sanitised
+    # TODO: add a new outcome type field (or equivalent) once discussion around type of outcomes is finalised
 
     def searchable_text(self) -> str:
         """Learner-visible text for search indexing."""
@@ -42,9 +44,9 @@ class Scenario(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     heading: str
-    description: str
+    description: str  # TODO: this should be treated as html and sanitised
     instructionTitle: str
-    instructionDescription: str
+    instructionDescription: str  # TODO: this should be treated as html and sanitised
     prompt: str
     options: list[Option]
 

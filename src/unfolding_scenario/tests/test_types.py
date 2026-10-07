@@ -16,7 +16,7 @@ VALID_DATA = {
         {
             "heading": "Scenario 1",
             "description": "The first scenario.",
-            "instructionTitle": "Make a decision",
+            "instructionTitle": "What you need to do",
             "instructionDescription": "Choose one of the options below.",
             "prompt": "What would you do next?",
             "options": [
