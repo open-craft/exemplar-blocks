@@ -13,21 +13,16 @@ export function ContentHighlight({
   description,
   orientation,
 }: ContentHighlightProps) {
-  const roundedCorners =
+  const orientationClass =
     orientation === 'HORIZONTAL'
-      ? {
-          borderTopRightRadius: 'var(--pgn-size-border-radius-lg)',
-          borderBottomRightRadius: 'var(--pgn-size-border-radius-lg)',
-        }
-      : {
-          borderBottomRightRadius: 'var(--pgn-size-border-radius-lg)',
-          borderBottomLeftRadius: 'var(--pgn-size-border-radius-lg)',
-        };
+      ? 'content-highlight--horizontal'
+      : 'content-highlight--vertical';
+
   return (
-    <div className="p-5 bg-primary-500 h-100" style={roundedCorners}>
-      <h4 className="text-accent">{subtitle}</h4>
-      <h3 className="text-light-100 mb-3">{title}</h3>
-      <p className="text-light-100">{description}</p>
+    <div className={`content-highlight ${orientationClass}`}>
+      <h4 className="content-highlight-subtitle text-accent">{subtitle}</h4>
+      <h3 className="content-highlight-title">{title}</h3>
+      <p className="content-highlight-description">{description}</p>
     </div>
   );
 }

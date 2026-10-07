@@ -928,25 +928,18 @@ Z.Status = W, Z.Header = B, Z.Divider = ye, Z.Section = V, Z.Footer = H, Z.Image
 var Q = h();
 function Ne({ title: e, subtitle: t, description: n, orientation: r }) {
 	return /* @__PURE__ */ (0, Q.jsxs)("div", {
-		className: "p-5 bg-primary-500 h-100",
-		style: r === "HORIZONTAL" ? {
-			borderTopRightRadius: "var(--pgn-size-border-radius-lg)",
-			borderBottomRightRadius: "var(--pgn-size-border-radius-lg)"
-		} : {
-			borderBottomRightRadius: "var(--pgn-size-border-radius-lg)",
-			borderBottomLeftRadius: "var(--pgn-size-border-radius-lg)"
-		},
+		className: `content-highlight ${r === "HORIZONTAL" ? "content-highlight--horizontal" : "content-highlight--vertical"}`,
 		children: [
 			/* @__PURE__ */ (0, Q.jsx)("h4", {
-				className: "text-accent",
+				className: "content-highlight-subtitle text-accent",
 				children: t
 			}),
 			/* @__PURE__ */ (0, Q.jsx)("h3", {
-				className: "text-light-100 mb-3",
+				className: "content-highlight-title",
 				children: e
 			}),
 			/* @__PURE__ */ (0, Q.jsx)("p", {
-				className: "text-light-100",
+				className: "content-highlight-description",
 				children: n
 			})
 		]
@@ -972,14 +965,24 @@ function $({ name: e, bg: t, fg: n, size: r }) {
 //#region src/card/common/student-ui/RichList.tsx
 function Pe({ items: e }) {
 	return /* @__PURE__ */ (0, Q.jsx)("div", {
-		className: "p-4 pt-5",
-		children: e.map((t, n) => /* @__PURE__ */ (0, Q.jsxs)("div", { children: [/* @__PURE__ */ (0, Q.jsxs)(_, {
-			direction: "horizontal",
-			children: [/* @__PURE__ */ (0, Q.jsx)($, { name: t.icon }), /* @__PURE__ */ (0, Q.jsxs)("div", {
-				className: "ml-4",
-				children: [/* @__PURE__ */ (0, Q.jsx)("h4", { children: t.title }), /* @__PURE__ */ (0, Q.jsx)("p", { children: t.description })]
-			})]
-		}), n < e.length - 1 && /* @__PURE__ */ (0, Q.jsx)("hr", {})] }, n))
+		className: "rich-list",
+		children: e.map((t, n) => /* @__PURE__ */ (0, Q.jsxs)("div", {
+			className: "rich-list-item",
+			children: [/* @__PURE__ */ (0, Q.jsxs)(_, {
+				direction: "horizontal",
+				className: "rich-list-row",
+				children: [/* @__PURE__ */ (0, Q.jsx)($, { name: t.icon }), /* @__PURE__ */ (0, Q.jsxs)("div", {
+					className: "rich-list-content",
+					children: [/* @__PURE__ */ (0, Q.jsx)("h4", {
+						className: "rich-list-title",
+						children: t.title
+					}), /* @__PURE__ */ (0, Q.jsx)("p", {
+						className: "rich-list-description",
+						children: t.description
+					})]
+				})]
+			}), n < e.length - 1 && /* @__PURE__ */ (0, Q.jsx)("hr", { className: "rich-list-divider" })]
+		}, n))
 	});
 }
 //#endregion
@@ -1014,7 +1017,7 @@ function Fe({ items: e }) {
 						fg: "text-primary-500",
 						bg: "bg-light-100"
 					}), /* @__PURE__ */ (0, Q.jsx)("div", {
-						className: "ml-2",
+						className: "hover-content-text",
 						children: e.hoverContent
 					})]
 				})]
@@ -1047,12 +1050,12 @@ var Ie = ({ orientation: e, secondaryContent: t, children: n }) => {
 	}
 	let i = e === "HORIZONTAL" ? "d-flex w-100" : "d-flex flex-column h-100 justify-content-between", a = e === "HORIZONTAL" ? "flex-grow-1 w-50" : "flex-grow-1";
 	return /* @__PURE__ */ (0, Q.jsxs)("div", {
-		className: i,
+		className: e === "HORIZONTAL" ? "complex-card-layout complex-card-layout--horizontal" : "complex-card-layout complex-card-layout--vertical",
 		children: [/* @__PURE__ */ (0, Q.jsx)("div", {
-			className: a,
+			className: "complex-card-layout-panel complex-card-layout-panel--primary",
 			children: n
 		}), /* @__PURE__ */ (0, Q.jsx)("div", {
-			className: a,
+			className: "complex-card-layout-panel complex-card-layout-panel--secondary",
 			children: r
 		})]
 	});
@@ -1067,7 +1070,7 @@ function Le({ orientation: e, data: t, position: n }) {
 			orientation: e,
 			secondaryContent: t.secondaryContent,
 			children: /* @__PURE__ */ (0, Q.jsxs)(Z.Body, {
-				className: t.secondaryContent?.kind === "IMAGE" && e === "HORIZONTAL" && !i ? "w-50 p-3" : "p-3",
+				className: t.secondaryContent?.kind === "IMAGE" && e === "HORIZONTAL" && !i ? "complex-card-body complex-card-body--horizontal-image" : "complex-card-body",
 				children: [
 					n && /* @__PURE__ */ (0, Q.jsx)("div", {
 						className: "card-badge",
@@ -1084,10 +1087,10 @@ function Le({ orientation: e, data: t, position: n }) {
 					}),
 					t.description && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: t.description }),
 					t.ctaLabel && t.ctaLink && /* @__PURE__ */ (0, Q.jsx)(Z.Section, {
-						className: "d-flex justify-content-end",
+						className: "complex-card-cta-section",
 						children: /* @__PURE__ */ (0, Q.jsx)(c, {
 							variant: "accent",
-							className: "rounded-pill px-6",
+							className: "complex-card-cta-button rounded-pill",
 							href: t.ctaLink,
 							target: "_blank",
 							rel: "noopener noreferrer",
@@ -1115,13 +1118,11 @@ function Re({ initData: { cards: e, displayName: t, disableNumbering: n, backgro
 		xl: 11
 	}, o = { sm: 12 };
 	return e.length > 1 && (o = e.some((e) => e.orientation === "HORIZONTAL") ? a : i), /* @__PURE__ */ (0, Q.jsx)("div", {
+		className: "card-carousel-xblock",
 		style: { backgroundColor: r },
 		className: "card-carousel-xblock py-6",
 		children: /* @__PURE__ */ (0, Q.jsx)("div", {
-			style: {
-				maxWidth: "1200px",
-				margin: "0 auto"
-			},
+			className: "card-carousel-container",
 			children: /* @__PURE__ */ (0, Q.jsx)(Y, {
 				ariaLabel: t,
 				title: t ? /* @__PURE__ */ (0, Q.jsx)("h3", { children: t }) : "",
@@ -1139,7 +1140,7 @@ function Re({ initData: { cards: e, displayName: t, disableNumbering: n, backgro
 }
 //#endregion
 //#region src/card/common/student-ui/main.css?inline
-var ze = ".complex-card{--pgn-color-headings-base:var(--ccblk-typography-headings-color);--ccblk-spacing-badge-spacer-x:var(--pgn-spacing-card-spacer-x);--ccblk-spacing-badge-spacer-y:var(--pgn-spacing-card-spacer-y);--ccblk-typography-headings-color:var(--pgn-color-headings-base)}.complex-card .text-accent{color:var(--pgn-color-accent-a)}.complex-card .btn-accent{background-color:var(--pgn-color-accent-a);color:var(--pgn-color-light-100);background-image:unset}.complex-card .card-badge{margin:var(--pgn-spacing-card-spacer-x);margin-bottom:0}.complex-card .card-badge .badge{padding:var(--ccblk-spacing-badge-spacer-y) var(--ccblk-spacing-badge-spacer-x);font-family:var(--pgn-typography-headings-font-family);font-size:var(--pgn-typography-font-size-h5-base);font-weight:var(--pgn-typography-headings-font-weight)}.complex-card.complex-card--image-background{background-image:var(--ccblk-card-background-image);color:var(--pgn-color-light-100);--ccblk-typography-headings-color:var(--pgn-color-light-100);background-position:50%;background-repeat:no-repeat;background-size:cover;position:relative;overflow:hidden}.complex-card.complex-card--image-background:before{content:\"\";z-index:0;pointer-events:none;background:#00000073;position:absolute;inset:0}.complex-card.complex-card--image-background>*{z-index:1;position:relative}.complex-card.complex-card--image-background .pgn__card-section,.complex-card.complex-card--image-background .pgn__card-header-subtitle-md{color:var(--pgn-color-light-100)}.complex-card .pgn__card .pgn__card-wrapper-image-cap.horizontal{max-width:50%!important}.complex-card .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap{max-width:100%!important}.complex-card .pgn__card .pgn__card-header .pgn__card-header-content{margin-top:var(--pgn-spacing-card-spacer-x)}.complex-card .pgn__card .pgn__card-header .pgn__card-header-title-md{font-family:var(--pgn-typography-headings-font-family);color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-h4-base)}.complex-card .pgn__card .pgn__card-header .pgn__card-header-subtitle-md{color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-base);font-weight:700;font-family:var(--pgn-typography-headings-font-family)}.horizontal .hover-list{column-gap:calc(var(--pgn-spacing-spacer-base) * 2)!important}.hover-list-description,.hover-content{padding:calc(var(--pgn-spacing-spacer-base))}.hover-list-content-wrapper{min-height:calc(( var(--pgn-spacing-spacer-base) + var(--pgn-typography-font-size-base) * var(--pgn-typography-line-height-base) ) * 2);position:relative}.hover-list-description{opacity:1;visibility:visible;z-index:0}.hover-content{background-color:var(--pgn-color-primary-500);width:100%;color:var(--pgn-color-light-100);border-radius:var(--pgn-size-border-radius-base);opacity:0;visibility:hidden;z-index:10;align-items:center;display:flex;position:absolute;top:0;left:0}.hover-list-item:has(.hover-content){cursor:pointer}:is(.hover-list-item:has(.hover-content):hover,.hover-list-item:has(.hover-content).is-active){list-style:none;margin-left:calc(var(--pgn-spacing-spacer-base) * -2.5)!important}.hover-list-item:has(.hover-content):hover .hover-list-description{opacity:0;visibility:hidden}.hover-list-item:has(.hover-content):hover .hover-content{opacity:1;visibility:visible}.hover-content-icon-wrapper{color:var(--pgn-color-light-100);margin-right:var(--pgn-spacing-spacer-base)}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", Be = (e, t, n) => {
+var ze = ".complex-card{--pgn-color-headings-base:var(--ccblk-typography-headings-color);--ccblk-spacing-badge-spacer-x:var(--pgn-spacing-card-spacer-x);--ccblk-spacing-badge-spacer-y:var(--pgn-spacing-card-spacer-y);--ccblk-typography-headings-color:var(--pgn-color-headings-base);--ccblk-card-padding:var(--pgn-spacing-spacer-4-5,32px);--ccblk-grid-gap:var(--pgn-spacing-spacer-4-5,32px);--ccblk-card-radius-lg:var(--pgn-size-border-radius-lg,24px);height:100%}.complex-card .text-accent{color:var(--pgn-color-accent-a)}.complex-card .btn-accent{background-color:var(--pgn-color-accent-a);color:var(--pgn-color-light-100);background-image:unset}.complex-card .card-badge{margin:0 0 var(--pgn-spacing-spacer-3,16px)}.complex-card .card-badge .badge{padding:var(--ccblk-spacing-badge-spacer-y) var(--ccblk-spacing-badge-spacer-x);font-family:var(--pgn-typography-headings-font-family);font-size:var(--pgn-typography-font-size-h5-base);font-weight:var(--pgn-typography-headings-font-weight)}.complex-card.complex-card--image-background{background-image:var(--ccblk-card-background-image);color:var(--pgn-color-light-100);--ccblk-typography-headings-color:var(--pgn-color-light-100);background-position:50%;background-repeat:no-repeat;background-size:cover;position:relative;overflow:hidden}.complex-card.complex-card--image-background:before{content:\"\";z-index:0;pointer-events:none;background:#00000073;position:absolute;inset:0}.complex-card.complex-card--image-background>*{z-index:1;position:relative}.complex-card.complex-card--image-background .pgn__card-section,.complex-card.complex-card--image-background .pgn__card-header-subtitle-md{color:var(--pgn-color-light-100)}.complex-card .pgn__card{height:100%}.complex-card .pgn__card.horizontal{column-gap:var(--ccblk-grid-gap)}.complex-card .pgn__card .pgn__card-wrapper-image-cap.horizontal,.complex-card .pgn__card .complex-card-body--horizontal-image{flex:0 0 calc(50% - var(--ccblk-grid-gap) / 2);max-width:calc(50% - var(--ccblk-grid-gap) / 2)}.complex-card .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap{object-fit:cover;width:100%;max-width:100%;height:100%}.complex-card .pgn__card .pgn__card-header .pgn__card-header-content{margin-top:var(--pgn-spacing-card-spacer-x)}.complex-card .pgn__card .pgn__card-header .pgn__card-header-title-md{font-family:var(--pgn-typography-headings-font-family);color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-h4-base)}.complex-card .pgn__card .pgn__card-header .pgn__card-header-subtitle-md{color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-base);font-weight:700;font-family:var(--pgn-typography-headings-font-family)}.complex-card .complex-card-body{padding:var(--ccblk-card-padding)}.complex-card .complex-card-layout{width:100%;height:100%}.complex-card .complex-card-layout--horizontal{column-gap:var(--ccblk-grid-gap);grid-template-columns:minmax(0,1fr) minmax(0,1fr);display:grid}.complex-card .complex-card-layout--vertical{flex-direction:column;justify-content:space-between;display:flex}.complex-card .complex-card-layout-panel{min-width:0}.complex-card .complex-card-layout-panel--primary,.complex-card .complex-card-layout-panel--secondary{flex:auto}.complex-card .complex-card-cta-section{justify-content:flex-end;display:flex}.complex-card .complex-card-cta-button{padding-inline:var(--ccblk-card-button-padding-inline,32px)}.content-highlight{height:100%;padding:var(--pgn-spacing-spacer-4-5,32px);background-color:var(--pgn-color-primary-500)}.content-highlight--horizontal{border-top-right-radius:var(--pgn-size-border-radius-lg,24px);border-bottom-right-radius:var(--pgn-size-border-radius-lg,24px)}.content-highlight--vertical{border-bottom-right-radius:var(--pgn-size-border-radius-lg,24px);border-bottom-left-radius:var(--pgn-size-border-radius-lg,24px)}.content-highlight-subtitle,.content-highlight-title,.content-highlight-description{margin-top:0}.content-highlight-title{margin-bottom:var(--pgn-spacing-spacer-3,16px);color:var(--pgn-color-light-100)}.content-highlight-description{color:var(--pgn-color-light-100);margin-bottom:0}.rich-list{padding:var(--pgn-spacing-spacer-4-5,32px)}.rich-list-content{margin-left:var(--pgn-spacing-spacer-4,24px)}.rich-list-title{margin-top:0}.rich-list-description{margin-bottom:0}.rich-list-divider{margin-block:var(--pgn-spacing-spacer-3,16px)}.horizontal .hover-list{column-gap:var(--pgn-spacing-spacer-4-5,32px)}.hover-list-description,.hover-content{padding:calc(var(--pgn-spacing-spacer-base))}.hover-list-content-wrapper{min-height:calc(( var(--pgn-spacing-spacer-base) + var(--pgn-typography-font-size-base) * var(--pgn-typography-line-height-base) ) * 2);position:relative}.hover-list-description{opacity:1;visibility:visible;z-index:0}.hover-content{background-color:var(--pgn-color-primary-500);width:100%;color:var(--pgn-color-light-100);border-radius:var(--pgn-size-border-radius-base);opacity:0;visibility:hidden;z-index:10;align-items:center;display:flex;position:absolute;top:0;left:0}.hover-list-item:has(.hover-content){cursor:pointer}:is(.hover-list-item:has(.hover-content):hover,.hover-list-item:has(.hover-content).is-active){margin-left:calc(var(--pgn-spacing-spacer-base) * -2.5);list-style:none}.hover-list-item:has(.hover-content):hover .hover-list-description{opacity:0;visibility:hidden}.hover-list-item:has(.hover-content):hover .hover-content{opacity:1;visibility:visible}.hover-content-icon-wrapper{color:var(--pgn-color-light-100);margin-right:var(--pgn-spacing-spacer-base)}.hover-content-text{margin-left:var(--pgn-spacing-spacer-2,8px)}.card-carousel-xblock *,.card-carousel-xblock :before,.card-carousel-xblock :after{box-sizing:border-box}.card-carousel-container{max-width:var(--pgn-exemplar-xblock-container-max-width,1280px);padding:var(--pgn-exemplar-xblock-container-padding,32px);margin:0 auto}.card-carousel-container .pgn__card-carousel-title{margin-bottom:var(--pgn-exemplar-xblock-section-gap,32px)}.card-grid-xblock{--card-grid-gap:var(--pgn-spacing-spacer-4-5,32px)}.card-grid-xblock *,.card-grid-xblock :before,.card-grid-xblock :after{box-sizing:border-box}.card-grid-container{max-width:1280px;padding:var(--pgn-spacing-spacer-4-5,32px);margin:0 auto}.card-grid-description-row,.card-grid-footer-row,.card-grid-cards-row{margin-inline:calc(var(--card-grid-gap) / -2)}.card-grid-description-row>[class*=col],.card-grid-footer-row>[class*=col],.card-grid-card-column{padding-inline:calc(var(--card-grid-gap) / 2)}.card-grid-description-row{margin-bottom:var(--pgn-spacing-spacer-4-5,32px)}.card-grid-cards-row{row-gap:var(--card-grid-gap)}.card-grid-card-column{display:flex}.card-grid-footer-row{margin-top:var(--pgn-spacing-spacer-4-5,32px)}.card-grid-description,.card-grid-footer-description{line-height:var(--pgn-typography-line-height-base,1.5)}.card-grid-description>:last-child,.card-grid-footer-description>:last-child{margin-bottom:0}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", Be = (e, t, n) => {
 	o({
 		runtime: t,
 		element: e,

@@ -169,41 +169,59 @@ describe('ContentLayout', () => {
     expect(screen.getByText('child component')).toBeInTheDocument();
   });
 
-  it('uses ".d-flex.w-100" outer class for CONTENT_HIGHLIGHT + horizontal', () => {
+  it('uses the horizontal design layout for CONTENT_HIGHLIGHT', () => {
     const { container } = render(
       <ContentLayout orientation="HORIZONTAL" secondaryContent={chContent}>
         <span />
       </ContentLayout>,
     );
-    expect(container.querySelector('.d-flex.w-100')).toBeInTheDocument();
+    expect(
+      container.querySelector(
+        '.complex-card-layout.complex-card-layout--horizontal',
+      ),
+    ).toBeInTheDocument();
   });
 
-  it('uses "d-flex flex-column" outer class for CONTENT_HIGHLIGHT + vertical', () => {
+  it('uses the vertical design layout for CONTENT_HIGHLIGHT', () => {
     const { container } = render(
       <ContentLayout orientation="VERTICAL" secondaryContent={chContent}>
         <span />
       </ContentLayout>,
     );
-    expect(container.querySelector('.d-flex.flex-column')).toBeInTheDocument();
-    expect(container.querySelector('.flex-grow-1')).toBeInTheDocument();
+    expect(
+      container.querySelector(
+        '.complex-card-layout.complex-card-layout--vertical',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector('.complex-card-layout-panel'),
+    ).toBeInTheDocument();
   });
 
-  it('uses ".d-flex.w-100" outer class for RICH_LIST + horizontal', () => {
+  it('uses the horizontal design layout for RICH_LIST', () => {
     const { container } = render(
       <ContentLayout orientation="HORIZONTAL" secondaryContent={rlContent}>
         <span />
       </ContentLayout>,
     );
-    expect(container.querySelector('.d-flex.w-100')).toBeInTheDocument();
+    expect(
+      container.querySelector(
+        '.complex-card-layout.complex-card-layout--horizontal',
+      ),
+    ).toBeInTheDocument();
   });
 
-  it('uses "d-flex flex-column" outer class for RICH_LIST + vertical', () => {
+  it('uses the vertical design layout for RICH_LIST', () => {
     const { container } = render(
       <ContentLayout orientation="VERTICAL" secondaryContent={rlContent}>
         <span />
       </ContentLayout>,
     );
-    expect(container.querySelector('.d-flex.flex-column')).toBeInTheDocument();
+    expect(
+      container.querySelector(
+        '.complex-card-layout.complex-card-layout--vertical',
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders children directly without a layout wrapper for HOVER_LIST (fallback)', () => {

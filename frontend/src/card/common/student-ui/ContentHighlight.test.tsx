@@ -21,29 +21,21 @@ describe('ContentHighlight', () => {
     expect(screen.getByText('Some description text')).toBeInTheDocument();
   });
 
-  it('sets right-side border radius for horizontal orientation', () => {
+  it('uses the horizontal radius class for horizontal orientation', () => {
     const { container } = render(
       <ContentHighlight {...defaultProps} orientation="HORIZONTAL" />,
     );
     const div = container.firstChild as HTMLElement;
-    // Both right corners should be set; left corners should not
-    const style = div.style.cssText;
-    expect(style).toContain('border-top-right-radius');
-    expect(style).toContain('border-bottom-right-radius');
-    expect(style).not.toContain('border-top-left-radius');
-    expect(style).not.toContain('border-bottom-left-radius');
+    expect(div).toHaveClass('content-highlight--horizontal');
+    expect(div).not.toHaveClass('content-highlight--vertical');
   });
 
-  it('sets bottom border radius for vertical orientation', () => {
+  it('uses the vertical radius class for vertical orientation', () => {
     const { container } = render(
       <ContentHighlight {...defaultProps} orientation="VERTICAL" />,
     );
     const div = container.firstChild as HTMLElement;
-    // Both bottom corners should be set; top corners should not
-    const style = div.style.cssText;
-    expect(style).toContain('border-bottom-right-radius');
-    expect(style).toContain('border-bottom-left-radius');
-    expect(style).not.toContain('border-top-right-radius');
-    expect(style).not.toContain('border-top-left-radius');
+    expect(div).toHaveClass('content-highlight--vertical');
+    expect(div).not.toHaveClass('content-highlight--horizontal');
   });
 });

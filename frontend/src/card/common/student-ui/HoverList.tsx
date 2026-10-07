@@ -39,7 +39,7 @@ export function HoverList({ items }: { items: HoverListItem[] }) {
                     bg="bg-light-100"
                   />
                 )}
-                <div className="ml-2">{item.hoverContent}</div>
+                <div className="hover-content-text">{item.hoverContent}</div>
               </div>
             )}
           </div>

@@ -69,17 +69,19 @@ export const ContentLayout = ({
       return children;
   }
 
-  const outerClass =
+  const layoutClass =
     orientation === 'HORIZONTAL'
-      ? 'd-flex w-100'
-      : 'd-flex flex-column h-100 justify-content-between';
-  const innerClass =
-    orientation === 'HORIZONTAL' ? 'flex-grow-1 w-50' : 'flex-grow-1';
+      ? 'complex-card-layout complex-card-layout--horizontal'
+      : 'complex-card-layout complex-card-layout--vertical';
 
   return (
-    <div className={outerClass}>
-      <div className={innerClass}>{children}</div>
-      <div className={innerClass}>{secondaryContentElement}</div>
+    <div className={layoutClass}>
+      <div className="complex-card-layout-panel complex-card-layout-panel--primary">
+        {children}
+      </div>
+      <div className="complex-card-layout-panel complex-card-layout-panel--secondary">
+        {secondaryContentElement}
+      </div>
     </div>
   );
 };
@@ -118,8 +120,8 @@ export default function ComplexCard({
             data.secondaryContent?.kind === 'IMAGE' &&
             orientation === 'HORIZONTAL' &&
             !useImageBackground
-              ? 'w-50 p-3'
-              : 'p-3'
+              ? 'complex-card-body complex-card-body--horizontal-image'
+              : 'complex-card-body'
           }
         >
           {position && (
@@ -136,10 +138,10 @@ export default function ComplexCard({
           <Card.Header title={data.title} subtitle={data.subtitle} />
           {data.description && <Card.Section>{data.description}</Card.Section>}
           {data.ctaLabel && data.ctaLink && (
-            <Card.Section className="d-flex justify-content-end">
+            <Card.Section className="complex-card-cta-section">
               <Button
                 variant="accent"
-                className="rounded-pill px-6"
+                className="complex-card-cta-button rounded-pill"
                 href={data.ctaLink}
                 target="_blank"
                 rel="noopener noreferrer"
