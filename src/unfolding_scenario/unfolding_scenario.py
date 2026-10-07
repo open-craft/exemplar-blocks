@@ -32,7 +32,7 @@ DEFAULT_SCENARIO_DATA = ScenarioData(
         {
             "heading": "Scenario 1",
             "description": "The first scenario in the sequence.",
-            "instructionTitle": "Make a decision",
+            "instructionTitle": "What you need to do",
             "instructionDescription": "Choose one of the options below.",
             "prompt": "What would you do next?",
             "options": [
@@ -43,7 +43,37 @@ DEFAULT_SCENARIO_DATA = ScenarioData(
                     "icon": "placeholder",
                 },
             ],
-        }
+        },
+        {
+            "heading": "Scenario 2",
+            "description": "The second scenario in the sequence.",
+            "instructionTitle": "What you need to do",
+            "instructionDescription": "Choose one of the options below.",
+            "prompt": "What would you do next?",
+            "options": [
+                {"value": "Do this", "feedback": "Not quite.", "icon": "placeholder"},
+                {
+                    "value": "Do that",
+                    "feedback": "That's right!",
+                    "icon": "placeholder",
+                },
+            ],
+        },
+        {
+            "heading": "Scenario 3",
+            "description": "The third scenario in the sequence.",
+            "instructionTitle": "What you need to do",
+            "instructionDescription": "Choose one of the options below.",
+            "prompt": "What would you do next?",
+            "options": [
+                {"value": "Do this", "feedback": "Not quite.", "icon": "placeholder"},
+                {
+                    "value": "Do that",
+                    "feedback": "That's right!",
+                    "icon": "placeholder",
+                },
+            ],
+        },
     ],
     outcome={
         "heading": "Outcome",

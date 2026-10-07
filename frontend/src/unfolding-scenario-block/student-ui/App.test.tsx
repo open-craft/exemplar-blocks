@@ -18,8 +18,10 @@ describe('App.tsx', () => {
         outcome: null,
       },
     };
-    const screen = render(<App data={data} />);
+    const screen = render(<App data={data} themeUrls={[]} cssContent="" />);
     screen.getByText(/introduction to this unfolding scenario/);
     screen.getByText(/Launch/);
+
+    // TODO more tests when the components are more stable
   });
 });
