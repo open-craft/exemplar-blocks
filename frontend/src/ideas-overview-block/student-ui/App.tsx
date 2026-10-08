@@ -1,4 +1,4 @@
-import { Col, Row, Container, Icon } from '@openedx/paragon';
+import { Col, Row, Icon } from '@openedx/paragon';
 import { type Data } from '../apiTypes';
 import { CheckCircle } from '@openedx/paragon/icons';
 
@@ -8,49 +8,60 @@ type AppProps = {
 
 export const App = ({ data }: AppProps) => {
   return (
-    <Container
-      className="p-0"
+    <div
+      className="ideas-overview-xblock"
       style={{ backgroundColor: data.backgroundColor }}
     >
-      <Container size="lg">
+      <div className="ideas-overview-container">
         {data.content.header && (
-          <Row className="p-3 border-bottom">
+          <Row className="ideas-overview-header-row">
             <Col xs={12}>
-              <div dangerouslySetInnerHTML={{ __html: data.content.header }} />
+              <div
+                className="ideas-overview-rich-text"
+                dangerouslySetInnerHTML={{ __html: data.content.header }}
+              />
             </Col>
           </Row>
         )}
         {data.content.ideas.map((idea, index) => (
-          <Row className={`p-3 ${index > 0 ? 'border-top' : ''}`}>
-            <Col xs={12} sm={6}>
-              <div className="d-inline-flex align-items-center">
+          <Row
+            className="ideas-overview-idea-row"
+            key={`${idea.title}-${index}`}
+          >
+            <Col xs={12} sm={6} className="ideas-overview-title-column">
+              <div className="ideas-overview-title-wrapper">
                 <Icon
                   src={CheckCircle}
                   size="lg"
-                  className="text-info-500 mr-2"
+                  className="ideas-overview-icon"
                 />
-                <span className="font-weight-bold text-primary-500">
-                  {idea.title}
-                </span>
+                <span className="ideas-overview-title">{idea.title}</span>
               </div>
             </Col>
             <Col xs={12} sm={6}>
-              <ul>
-                {idea.points.map((point) => (
-                  <li dangerouslySetInnerHTML={{ __html: point }} />
+              <ul className="ideas-overview-points">
+                {idea.points.map((point, pointIndex) => (
+                  <li
+                    className="ideas-overview-point"
+                    key={`${idea.title}-point-${pointIndex}`}
+                    dangerouslySetInnerHTML={{ __html: point }}
+                  />
                 ))}
               </ul>
             </Col>
           </Row>
         ))}
         {data.content.footer && (
-          <Row className="p-3 border-top">
+          <Row className="ideas-overview-footer-row">
             <Col xs={12}>
-              <div dangerouslySetInnerHTML={{ __html: data.content.footer }} />
+              <div
+                className="ideas-overview-rich-text"
+                dangerouslySetInnerHTML={{ __html: data.content.footer }}
+              />
             </Col>
           </Row>
         )}
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 };
