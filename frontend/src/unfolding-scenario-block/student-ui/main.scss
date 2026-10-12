@@ -1,75 +1,168 @@
 .xblock-unfolding-scenario-wrapper {
-  --palette-darkest: var(--pgn-unfolding-scenario-palette-darkest, #285672);
-  --palette-main: var(--pgn-unfolding-scenario-palette-main, #2f808e);
-  --palette-medium: var(--pgn-unfolding-scenario-palette-medium, #8cc9d1);
-  --palette-light: var(--pgn-unfolding-scenario-palette-light, #cdeaea);
-  --palette-lightest: var(--pgn-unfolding-scenario-palette-lightest, #e0f2f2);
-  --palette-offwhite: var(--pgn-unfolding-scenario-palette-offwhite, #e9f6f5);
-  --palette-main-navy: var(--pgn-unfolding-scenario-palette-main-navy, #223e5d);
-
-  --color-btn-bg-blue: var(--pgn-unfolding-scenario-color-btn-bg-blue, #3376c3);
-  --color-btn-hover-bg-blue: var(
-    --pgn-unfolding-scenario-color-btn-hover-bg-blue,
-    #1f4775
+  --color-action-default: var(
+    --pgn-unfolding-scenario-color-action-default,
+    #3874bc
   );
-  --color-btn-active-bg-blue: var(
-    --pgn-unfolding-scenario-color-btn-active-bg-blue,
-    #142f4e
+  --color-background-interactive: var(
+    --pgn-unfolding-scenario-color-background-interactive,
+    #8cc9d1
   );
-  --color-btn-text-blue: var(
-    --pgn-unfolding-scenario-color-btn-text-blue,
+  --color-text-interactive: var(
+    --pgn-unfolding-scenario-color-text-interactive,
+    #2f808e
+  );
+  --color-bg-emphasis: var(--pgn-unfolding-scenario-color-bg-emphasis, #223e5d);
+  --color-bg-main: var(--pgn-unfolding-scenario-color-bg-main, #1b324a);
+  --color-border-interact-default: var(
+    --pgn-unfolding-scenario-color-border-interact-default,
+    #b2d8de
+  );
+  --color-border-interact-emphasis: var(
+    --pgn-unfolding-scenario-color-border-interact-emphasis,
+    #327d8a
+  );
+  --color-border-sec-action-focus: var(
+    --pgn-unfolding-scenario-color-border-sec-action-focus,
+    #0e1d2f
+  );
+  --color-icon-action-sec-default: var(
+    --pgn-unfolding-scenario-color-icon-action-sec-default,
+    #3874bc
+  );
+  --color-icon-interact-default: var(
+    --pgn-unfolding-scenario-color-icon-interact-default,
+    #327d8a
+  );
+  --color-interact-default: var(
+    --pgn-unfolding-scenario-color-interact-default,
+    #ecf5f7
+  );
+  --color-interact-emphasis: var(
+    --pgn-unfolding-scenario-color-interact-emphasis,
+    #d9ebef
+  );
+  --color-interact-raised-emphasis: var(
+    --pgn-unfolding-scenario-color-interact-raised-emphasis,
+    #327d8a
+  );
+  --color-txt-interact-accent: var(
+    --pgn-unfolding-scenario-color-txt-interact-accent,
+    #2a578d
+  );
+  --color-txt-interact-content-inverse: var(
+    --pgn-unfolding-scenario-color-txt-interact-content-inverse,
     #ffffff
   );
-  --btn-min-width: var(--pgn-unfolding-scenario-btn-min-width, 200px);
-
-  --color-option-focus-border: var(
-    --pgn-unfolding-scenario-color-option-focus-border,
-    #f0664a
+  --color-txt-interact-content: var(
+    --pgn-unfolding-scenario-color-txt-interact-content,
+    #223e5d
+  );
+  --color-txt-interact-headings: var(
+    --pgn-unfolding-scenario-color-txt-interact-headings,
+    #327d8a
+  );
+  --color-txt-action-prim-default: var(
+    --pgn-unfolding-scenario-color-txt-action-prim-default,
+    #ffffff
+  );
+  --color-txt-content: var(--pgn-unfolding-scenario-color-txt-content, #ffffff);
+  --color-txt-sec-content: var(
+    --pgn-unfolding-scenario-color-txt-sec-content,
+    #223e5d
+  );
+  --color-icon-action-default: var(
+    --pgn-unfolding-scenario-color-icon-action-default,
+    #ffffff
+  );
+  --color-border-default: var(
+    --pgn-unfolding-scenario-color-border-default,
+    #4e657d
+  );
+  --color-interact-raised: var(
+    --pgn-unfolding-scenario-color-interact-raised,
+    #ffffff
+  );
+  --color-icon-inverse: var(
+    --pgn-unfolding-scenario-color-icon-inverse,
+    #ffffff
+  );
+  --color-icon-default: var(
+    --pgn-unfolding-scenario-color-icon-default,
+    #8cc4ce
+  );
+  --color-bg-emphasis: var(--pgn-unfolding-scenario-color-bg-emphasis, #223e5d);
+  --color-icon-action-sec-neutral: var(
+    --pgn-unfolding-scenario-color-icon-action-sec-neutral,
+    #1c3a5e
   );
 
-  .bg-darkest {
-    background-color: var(--palette-darkest);
-  }
-  .bg-main {
-    background-color: var(--palette-main);
-  }
-  .bg-medium {
-    background-color: var(--palette-medium);
-  }
-  .bg-light {
-    background-color: var(--palette-light);
-  }
-  .bg-lightest {
-    background-color: var(--palette-lightest);
-  }
-  .bg-offwhite {
-    background-color: var(--palette-offwhite);
-  }
-  .bg-main-navy {
-    background-color: var(--palette-main-navy);
-  }
-  .text-darkest {
-    color: var(--palette-darkest);
-  }
-  .text-main {
-    color: var(--palette-main);
-  }
-  .text-medium {
-    color: var(--palette-medium);
-  }
-  .text-light {
-    color: var(--palette-light);
-  }
-  .text-lightest {
-    color: var(--palette-lightest);
-  }
-  .text-offwhite {
-    color: var(--palette-offwhite);
-  }
-  .text-main-navy {
-    color: var(--palette-main-navy);
+  --btn-min-width: var(--pgn-unfolding-scenario-btn-min-width, 200px);
+
+  .text-interact-headings {
+    color: var(--color-txt-interact-headings) !important;
   }
 
+  .text-interact-accent {
+    color: var(--color-txt-interact-accent) !important;
+  }
+
+  .text-interact-content {
+    color: var(--color-txt-interact-content) !important;
+  }
+
+  .text-interact-content-inverse {
+    color: var(--color-txt-interact-content-inverse) !important;
+  }
+
+  .text-content {
+    color: var(--color-txt-content) !important;
+  }
+
+  .text-sec-content {
+    color: var(--color-txt-sec-content) !important;
+  }
+
+  .text-icon-inverse {
+    color: var(--color-icon-inverse) !important;
+  }
+
+  .text-icon-action-default {
+    color: var(--color-icon-action-default) !important;
+  }
+
+  .text-icon-action-sec-default {
+    color: var(--color-icon-action-sec-default) !important;
+  }
+
+  .text-icon-action-sec-neutral {
+    color: var(--color-icon-action-sec-neutral) !important;
+  }
+
+  .bg-interact-raised-emphasis {
+    background-color: var(--color-interact-raised-emphasis) !important;
+  }
+
+  .bg-interact-raised {
+    background-color: var(--color-interact-raised) !important;
+  }
+
+  .bg-emphasis {
+    background-color: var(--color-bg-emphasis) !important;
+  }
+
+  .bg-icon-default {
+    background-color: var(--color-icon-default) !important;
+  }
+
+  .bg-interact-default {
+    background-color: var(--color-interact-default) !important;
+  }
+
+  .bg-main {
+    background-color: var(--color-bg-main) !important;
+  }
+
+  // counterpart to bootstrap's .rounded-lg
   .rounded-lg-bottom {
     border-bottom-right-radius: var(--pgn-size-border-radius-lg) !important;
     border-bottom-left-radius: var(--pgn-size-border-radius-lg) !important;
@@ -78,61 +171,59 @@
   .scenario-intro {
     // the bordered box with the outward arrow and scenario type name
     .scenario-name {
-      font-size: calc(
-        var(--pgn-typography-font-size-base) * 1.125
-      ); // 18px if base size is 16px
-      font-family: var(--pgn-typography-headings-font-family);
-      font-weight: var(--pgn-typography-font-weight-bold);
-      color: var(--palette-main);
-      background-color: var(--palette-lightest);
-      border-color: var(--palette-medium) !important;
+      color: var(--color-text-interactive);
+      background-color: var(--color-interact-emphasis);
+      border-color: var(--color-border-interact-default) !important;
       border-radius: var(--pgn-spacing-spacer-base);
       border-bottom-left-radius: 0;
 
       .border-right {
-        border-color: var(--palette-medium) !important;
+        border-color: var(--color-border-interact-default) !important;
       }
 
       .pgn__icon {
+        color: var(--color-interact-raised-emphasis);
         zoom: 2;
       }
     }
   }
 
-  .btn-unfolding-scenario-blue {
-    --pgn-btn-bg: var(--color-btn-bg-blue);
-    --pgn-btn-color: var(--color-btn-text-blue);
+  .btn-unfolding-scenario-action {
+    --pgn-btn-bg: var(--color-action-default);
+    --pgn-btn-color: var(--color-txt-action-prim-default);
 
-    --pgn-btn-hover-color: var(--color-btn-text-blue);
-    --pgn-btn-hover-bg: var(--color-btn-hover-bg-blue);
+    // TODO update these hover/focus/active styles once we get designs
+    --pgn-btn-hover-bg: var(--color-action-default);
+    --pgn-btn-hover-color: var(--color-txt-action-prim-default);
 
-    --pgn-btn-focus-color: var(--color-btn-text-blue);
-    --pgn-btn-focus-bg: var(--color-btn-bg-blue);
-    --pgn-btn-focus-outline-color: var(--color-btn-bg-blue);
+    --pgn-btn-focus-bg: var(--color-action-default);
+    --pgn-btn-focus-color: var(--color-txt-action-prim-default);
+    --pgn-btn-focus-outline-color: var(--color-border-sec-action-focus);
 
-    --pgn-btn-active-color: var(--color-btn-text-blue);
-    --pgn-btn-active-bg: var(--color-btn-active-bg-blue);
+    --pgn-btn-active-bg: var(--color-action-default);
+    --pgn-btn-active-color: var(--color-txt-action-prim-default);
   }
 
-  .btn-outline-unfolding-scenario-blue {
+  .btn-outline-unfolding-scenario-action {
     --pgn-size-btn-border-width: 2px;
 
-    --pgn-btn-bg: var(--color-btn-text-blue);
-    --pgn-btn-color: var(--color-btn-bg-blue);
-    --pgn-btn-border-color: var(--color-btn-bg-blue);
+    --pgn-btn-bg: var(--color-txt-action-prim-default);
+    --pgn-btn-color: var(--color-action-default);
+    --pgn-btn-border-color: var(--color-action-default);
 
-    --pgn-btn-hover-bg: var(--color-btn-text-blue);
-    --pgn-btn-hover-color: var(--color-btn-hover-bg-blue);
-    --pgn-btn-hover-border-color: var(--color-btn-hover-bg-blue);
+    // TODO update these hover/focus/active styles once we get designs
+    --pgn-btn-hover-bg: var(--color-txt-action-prim-default);
+    --pgn-btn-hover-color: var(--color-action-default);
+    --pgn-btn-hover-border-color: var(--color-action-default);
 
-    --pgn-btn-focus-bg: var(--color-btn-text-blue);
-    --pgn-btn-focus-color: var(--color-btn-bg-blue);
-    --pgn-btn-focus-border-color: var(--color-btn-bg-blue);
-    --pgn-btn-focus-outline-color: var(--color-btn-bg-blue);
+    --pgn-btn-focus-bg: var(--color-txt-action-prim-default);
+    --pgn-btn-focus-color: var(--color-action-default);
+    --pgn-btn-focus-border-color: var(--color-action-default);
+    --pgn-btn-focus-outline-color: var(--color-action-default);
 
-    --pgn-btn-active-bg: var(--color-btn-text-blue);
-    --pgn-btn-active-color: var(--color-btn-active-bg-blue);
-    --pgn-btn-active-border-color: var(--color-btn-active-bg-blue);
+    --pgn-btn-active-bg: var(--color-txt-action-prim-default);
+    --pgn-btn-active-color: var(--color-action-default);
+    --pgn-btn-active-border-color: var(--color-action-default);
   }
 
   .btn {
@@ -148,6 +239,16 @@
     font-weight: var(--pgn-typography-font-weight-bold);
   }
 
+  // between semi-bold and bold; only used occasionally
+  .font-weight-lessbold {
+    font-weight: calc(var(--pgn-typography-font-weight-bold) - 100);
+  }
+
+  // use the headings font family, without necessarily being a heading
+  .typography-headings {
+    font-family: var(--pgn-typography-headings-font-family);
+  }
+
   .font-size-lg {
     font-size: calc(
       var(--pgn-typography-font-size-base) * 1.25
@@ -158,6 +259,18 @@
     font-size: calc(
       var(--pgn-typography-font-size-base) * 1.125
     ); // 18px if base size is 16px
+  }
+
+  .font-size-sm-md {
+    font-size: calc(
+      var(--pgn-typography-font-size-base) * 0.875
+    ); // 14px if base size is 16px
+  }
+
+  .font-size-sm {
+    font-size: calc(
+      var(--pgn-typography-font-size-base) * 0.75
+    ); // 12px if base size is 16px
   }
 
   // utility margins/paddings to complement existing bootstrap utility margins/paddings
@@ -214,14 +327,14 @@
   .step-indicator-separator {
     height: 1px;
     width: 17px;
-    background-color: var(--palette-darkest);
+    background-color: var(--color-border-default);
   }
 
   .arrow-bubble {
     display: inline-block;
-    background-color: var(--palette-lightest);
-    color: var(--palette-main);
-    border: 1px solid var(--palette-medium);
+    background-color: var(--color-interact-emphasis);
+    color: var(--color-icon-interact-default);
+    border: 1px solid var(--color-border-interact-default);
     border-radius: var(--pgn-spacing-spacer-base);
     border-bottom-left-radius: 0;
   }
@@ -234,7 +347,7 @@
     );
 
     &.pre-selected {
-      outline: 2px solid var(--palette-main);
+      outline: 2px solid var(--color-border-interact-emphasis);
     }
 
     .hover-arrow {

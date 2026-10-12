@@ -1,7 +1,7 @@
 import { type ScenarioData } from '../../apiTypes';
 import { useState } from 'react';
 import { OutcomeComponent } from './Outcome';
-import { ActivityHeader } from './ActivityHeader';
+import { ResponsiveActivityHeader } from './ResponsiveActivityHeader';
 import { ScenarioView } from './ScenarioView';
 import { LeaveConfirmModal } from './LeaveConfirmModal';
 import { RestartConfirmModal } from './RestartConfirmModal';
@@ -33,8 +33,8 @@ export const Activity = ({ data, onExit }: ActivityProps) => {
   };
 
   return (
-    <div className="unfolding-scenario-activity-wrapper bg-offwhite d-flex flex-column">
-      <ActivityHeader
+    <div className="unfolding-scenario-activity-wrapper min-vh-100 bg-interact-default d-flex flex-column">
+      <ResponsiveActivityHeader
         onClose={() => setModalType('leave')}
         title={data.name}
         onReset={() => setModalType('restart')}
