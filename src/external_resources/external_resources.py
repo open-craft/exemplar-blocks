@@ -174,7 +174,7 @@ class ExternalResourcesXBlock(XBlock):
         return {"result": "success"}
 
     @XBlock.json_handler
-    def toggle_read(self, data: dict, suffix=""):
+    def set_read(self, data: dict, suffix=""):
         """
         JSON handler that marks a resource as read or unread for the learner.
 

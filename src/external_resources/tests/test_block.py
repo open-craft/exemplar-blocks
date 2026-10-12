@@ -67,9 +67,9 @@ def get_studio_content(block: ExternalResourcesXBlock) -> str:
     return as_dict["content"]
 
 
-def toggle_read(block: ExternalResourcesXBlock, data) -> Response:
-    """Call the toggle_read handler with the given JSON data."""
-    return block.handle("toggle_read", make_request("POST", data))
+def set_read(block: ExternalResourcesXBlock, data) -> Response:
+    """Call the set_read handler with the given JSON data."""
+    return block.handle("set_read", make_request("POST", data))
 
 
 def test_block_html():
@@ -187,41 +187,41 @@ def test_block_update_data_reject_invalid():
     assert block.resources_data == DEFAULT_RESOURCES_DATA.model_dump()
 
 
-def test_toggle_read_marks_and_unmarks():
+def test_set_read_marks_and_unmarks():
     """A resource can be marked as read and then unmarked."""
     block = make_block()
 
-    response = toggle_read(block, {"resourceId": "example-article", "read": True})
+    response = set_read(block, {"resourceId": "example-article", "read": True})
 
     assert response.status == "200 OK"
     assert json.loads(response.body) == {"readResources": ["example-article"]}
     assert block.read_resources == ["example-article"]
 
-    response = toggle_read(block, {"resourceId": "example-article", "read": False})
+    response = set_read(block, {"resourceId": "example-article", "read": False})
 
     assert response.status == "200 OK"
     assert json.loads(response.body) == {"readResources": []}
     assert block.read_resources == []
 
 
-def test_toggle_read_is_idempotent():
+def test_set_read_is_idempotent():
     """Repeating a request (eg. a double click) gives the same result."""
     block = make_block()
 
     for _ in range(2):
-        toggle_read(block, {"resourceId": "example-article", "read": True})
+        set_read(block, {"resourceId": "example-article", "read": True})
     assert block.read_resources == ["example-article"]
 
     for _ in range(2):
-        toggle_read(block, {"resourceId": "example-article", "read": False})
+        set_read(block, {"resourceId": "example-article", "read": False})
     assert block.read_resources == []
 
 
-def test_toggle_read_removes_ids_of_removed_resources():
+def test_set_read_removes_ids_of_removed_resources():
     """Saving the learner's state drops IDs of resources that no longer exist."""
     block = make_block(read_resources=["example-article", "removed-resource"])
 
-    response = toggle_read(block, {"resourceId": "example-video", "read": True})
+    response = set_read(block, {"resourceId": "example-video", "read": True})
 
     assert json.loads(response.body) == {
         "readResources": ["example-article", "example-video"]
@@ -229,17 +229,17 @@ def test_toggle_read_removes_ids_of_removed_resources():
     assert block.read_resources == ["example-article", "example-video"]
 
 
-def test_toggle_read_unknown_resource():
+def test_set_read_unknown_resource():
     """Resources that aren't in the block are rejected."""
     block = make_block()
 
-    response = toggle_read(block, {"resourceId": "unknown", "read": True})
+    response = set_read(block, {"resourceId": "unknown", "read": True})
 
     assert response.status == "400 Bad Request"
     assert block.read_resources == []
 
 
-def test_toggle_read_invalid_payload():
+def test_set_read_invalid_payload():
     """The resource ID must be a string and the read flag a boolean."""
     block = make_block()
 
@@ -249,7 +249,7 @@ def test_toggle_read_invalid_payload():
         {"read": True},
         {"resourceId": "example-article"},
     ):
-        response = toggle_read(block, data)
+        response = set_read(block, data)
         assert response.status == "400 Bad Request"
 
     assert block.read_resources == []
