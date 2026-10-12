@@ -15,21 +15,23 @@ export const Intro = ({
   onLaunch,
   activityOpen,
 }: IntroProps) => (
-  <div className="rounded-lg overflow-hidden scenario-intro bg-offwhite">
+  <div className="rounded-lg overflow-hidden scenario-intro bg-interact-default">
     <Row className="p-0">
       <Col xs="12" md="8" className="p-5 d-flex flex-column">
         <div className="scenario-name border border-primary d-flex align-items-center p-3 mb-5">
           <div className="border-right">
             <Icon src={ArrowOutward} className="mr-2" />
           </div>
-          <span className="ml-3">{name}</span>
+          <span className="ml-3 small-heading">{name}</span>
         </div>
-        <h4 className="text-secondary-700">{introduction.heading}</h4>
-        <p className="flex-grow-1">{introduction.description}</p>
+        <h4 className="text-interact-accent">{introduction.heading}</h4>
+        <p className="flex-grow-1 text-sec-content">
+          {introduction.description}
+        </p>
 
         <div className="d-flex justify-content-end">
           <Button
-            variant="unfolding-scenario-blue"
+            variant="unfolding-scenario-action"
             className="rounded-pill"
             onClick={onLaunch}
             disabled={activityOpen}
