@@ -2,23 +2,41 @@ import { useState } from 'react';
 import { Row, Col, Icon, IconButton, Button } from '@openedx/paragon';
 import { ArrowOutward, KeyboardReturn } from '@openedx/paragon/icons';
 import { OptionComponent } from './OptionComponent';
-import { type Scenario } from '../../apiTypes';
+import { type InteractionType, type Scenario } from '../../apiTypes';
 
 interface ScenarioViewProps {
   scenario: Scenario;
+  interactionType: InteractionType;
   onContinue: () => void;
+  onSelectOption: (i: number) => void;
 }
 
-export const ScenarioView = ({ scenario, onContinue }: ScenarioViewProps) => {
+export const ScenarioView = ({
+  interactionType,
+  scenario,
+  onContinue,
+  onSelectOption,
+}: ScenarioViewProps) => {
   const [activeOptionIndex, setActiveOptionIndex] = useState<number | null>(
     null,
   );
-  const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
+  // a set of option indexes that the user has selected in this session
+  const [selectedOptions, setSelectedOptions] = useState<Set<number>>(
+    new Set(),
+  );
 
   const selectOption = (i: number) => {
-    setSelectedOptions([...selectedOptions, i]);
+    setSelectedOptions(new Set([...selectedOptions, i]));
     setActiveOptionIndex(i);
+    onSelectOption(i);
   };
+
+  const isContinueEnabled =
+    // In explore mode, only enable if user has clicked through all options
+    (interactionType == 'Explore' &&
+      selectedOptions.size == scenario.options.length) ||
+    // In select one mode, enable if there is an active option currently
+    (interactionType == 'SelectOne' && activeOptionIndex !== null);
 
   // TODO: implement mobile and tablet views of this
   // TODO: implement slide transitions:
@@ -55,7 +73,7 @@ export const ScenarioView = ({ scenario, onContinue }: ScenarioViewProps) => {
               <OptionComponent
                 active={false}
                 onClick={() => selectOption(i)}
-                preSelected={selectedOptions.includes(i)}
+                preSelected={selectedOptions.has(i)}
               >
                 {option.value}
               </OptionComponent>
@@ -66,6 +84,7 @@ export const ScenarioView = ({ scenario, onContinue }: ScenarioViewProps) => {
               variant="unfolding-scenario-action"
               className="rounded-pill"
               onClick={onContinue}
+              disabled={!isContinueEnabled}
             >
               Continue
             </Button>
@@ -93,7 +112,7 @@ export const ScenarioView = ({ scenario, onContinue }: ScenarioViewProps) => {
               <OptionComponent
                 active={activeOptionIndex === i}
                 onClick={() => selectOption(i)}
-                preSelected={selectedOptions.includes(i)}
+                preSelected={selectedOptions.has(i)}
               >
                 {option.value}
               </OptionComponent>
@@ -103,6 +122,7 @@ export const ScenarioView = ({ scenario, onContinue }: ScenarioViewProps) => {
             <Button
               variant="unfolding-scenario-action"
               className="rounded-pill"
+              disabled={!isContinueEnabled}
               onClick={onContinue}
             >
               Continue

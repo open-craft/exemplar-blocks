@@ -32,7 +32,9 @@ VALID_DATA = {
     "outcome": {
         "heading": "Outcome",
         "description": "You have completed all the scenarios.",
+        "displaySelectedOptions": False,
     },
+    "interactionType": "Explore",
 }
 
 
@@ -42,14 +44,6 @@ def test_data_validation():
 
     # test the round trip from dictionary -> model -> dictionary
     assert validated_data.model_dump() == VALID_DATA
-
-
-def test_data_validation_outcome_is_optional():
-    """The outcome slide is optional."""
-    validated_data = ScenarioData(**{**VALID_DATA, "outcome": None})
-
-    assert validated_data.outcome is None
-    assert validated_data.model_dump()["outcome"] is None
 
 
 def test_data_validation_fail():

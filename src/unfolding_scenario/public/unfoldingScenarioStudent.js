@@ -141,22 +141,22 @@ Object.freeze({
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Container/index.js
 var le = /* @__PURE__ */ function(e) {
 	return e.xs = "container-mw-xs", e.sm = "container-mw-sm", e.md = "container-mw-md", e.lg = "container-mw-lg", e.xl = "container-mw-xl", e;
-}(le || {}), ue = /* @__PURE__ */ (0, b.forwardRef)(({ size: e, children: t, as: n = "div", bsPrefix: r = "container", fluid: i = !0, ...a }, o) => /* @__PURE__ */ b.createElement(D, {
+}(le || {}), P = /* @__PURE__ */ (0, b.forwardRef)(({ size: e, children: t, as: n = "div", bsPrefix: r = "container", fluid: i = !0, ...a }, o) => /* @__PURE__ */ b.createElement(D, {
 	...a,
 	as: n,
 	bsPrefix: r,
 	fluid: i,
 	ref: o,
 	className: (0, T.default)(a.className, e && le[e])
-}, t)), P = "right-scroll-bar-position", F = "width-before-scroll-bar", de = "with-scroll-bars-hidden", fe = "--removed-body-scroll-bar-size";
+}, t)), F = "right-scroll-bar-position", I = "width-before-scroll-bar", ue = "with-scroll-bars-hidden", de = "--removed-body-scroll-bar-size";
 //#endregion
 //#region node_modules/.pnpm/use-callback-ref@1.3.3_@types+react@18.3.28_react@18.3.1/node_modules/use-callback-ref/dist/es2015/assignRef.js
-function pe(e, t) {
+function fe(e, t) {
 	return typeof e == "function" ? e(t) : e && (e.current = t), e;
 }
 //#endregion
 //#region node_modules/.pnpm/use-callback-ref@1.3.3_@types+react@18.3.28_react@18.3.1/node_modules/use-callback-ref/dist/es2015/useRef.js
-function me(e, t) {
+function pe(e, t) {
 	var n = (0, b.useState)(function() {
 		return {
 			value: e,
@@ -176,33 +176,33 @@ function me(e, t) {
 }
 //#endregion
 //#region node_modules/.pnpm/use-callback-ref@1.3.3_@types+react@18.3.28_react@18.3.1/node_modules/use-callback-ref/dist/es2015/useMergeRef.js
-var he = typeof window < "u" ? b.useLayoutEffect : b.useEffect, ge = /* @__PURE__ */ new WeakMap();
-function _e(e, t) {
-	var n = me(t || null, function(t) {
+var me = typeof window < "u" ? b.useLayoutEffect : b.useEffect, he = /* @__PURE__ */ new WeakMap();
+function ge(e, t) {
+	var n = pe(t || null, function(t) {
 		return e.forEach(function(e) {
-			return pe(e, t);
+			return fe(e, t);
 		});
 	});
-	return he(function() {
-		var t = ge.get(n);
+	return me(function() {
+		var t = he.get(n);
 		if (t) {
 			var r = new Set(t), i = new Set(e), a = n.current;
 			r.forEach(function(e) {
-				i.has(e) || pe(e, null);
+				i.has(e) || fe(e, null);
 			}), i.forEach(function(e) {
-				r.has(e) || pe(e, a);
+				r.has(e) || fe(e, a);
 			});
 		}
-		ge.set(n, e);
+		he.set(n, e);
 	}, [e]), n;
 }
 //#endregion
 //#region node_modules/.pnpm/use-sidecar@1.1.3_@types+react@18.3.28_react@18.3.1/node_modules/use-sidecar/dist/es2015/medium.js
-function ve(e) {
+function _e(e) {
 	return e;
 }
-function ye(e, t) {
-	t === void 0 && (t = ve);
+function ve(e, t) {
+	t === void 0 && (t = _e);
 	var n = [], r = !1;
 	return {
 		read: function() {
@@ -255,12 +255,12 @@ function ye(e, t) {
 		}
 	};
 }
-function be(e, t) {
-	return t === void 0 && (t = ve), ye(e, t);
+function ye(e, t) {
+	return t === void 0 && (t = _e), ve(e, t);
 }
-function xe(e) {
+function be(e) {
 	e === void 0 && (e = {});
-	var t = ye(null);
+	var t = ve(null);
 	return t.options = a({
 		async: !0,
 		ssr: !1
@@ -268,24 +268,24 @@ function xe(e) {
 }
 //#endregion
 //#region node_modules/.pnpm/use-sidecar@1.1.3_@types+react@18.3.28_react@18.3.1/node_modules/use-sidecar/dist/es2015/exports.js
-var Se = function(e) {
+var xe = function(e) {
 	var t = e.sideCar, n = y(e, ["sideCar"]);
 	if (!t) throw Error("Sidecar: please provide `sideCar` property to import the right car");
 	var r = t.read();
 	if (!r) throw Error("Sidecar medium not found");
 	return b.createElement(r, a({}, n));
 };
-Se.isSideCarExport = !0;
-function Ce(e, t) {
-	return e.useMedium(t), Se;
+xe.isSideCarExport = !0;
+function Se(e, t) {
+	return e.useMedium(t), xe;
 }
 //#endregion
 //#region node_modules/.pnpm/react-remove-scroll@2.7.2_@types+react@18.3.28_react@18.3.1/node_modules/react-remove-scroll/dist/es2015/medium.js
-var we = xe(), Te = function() {}, Ee = b.forwardRef(function(e, t) {
+var Ce = be(), we = function() {}, Te = b.forwardRef(function(e, t) {
 	var n = b.useRef(null), r = b.useState({
-		onScrollCapture: Te,
-		onWheelCapture: Te,
-		onTouchMoveCapture: Te
+		onScrollCapture: we,
+		onWheelCapture: we,
+		onTouchMoveCapture: we
 	}), i = r[0], o = r[1], s = e.forwardProps, c = e.children, l = e.className, u = e.removeScrollBar, d = e.enabled, f = e.shards, p = e.sideCar, m = e.noRelative, h = e.noIsolation, g = e.inert, _ = e.allowPinchZoom, v = e.as, x = v === void 0 ? "div" : v, S = e.gapMode, C = y(e, [
 		"forwardProps",
 		"children",
@@ -300,9 +300,9 @@ var we = xe(), Te = function() {}, Ee = b.forwardRef(function(e, t) {
 		"allowPinchZoom",
 		"as",
 		"gapMode"
-	]), w = p, T = _e([n, t]), E = a(a({}, C), i);
+	]), w = p, T = ge([n, t]), E = a(a({}, C), i);
 	return b.createElement(b.Fragment, null, d && b.createElement(w, {
-		sideCar: we,
+		sideCar: Ce,
 		removeScrollBar: u,
 		shards: f,
 		noRelative: m,
@@ -317,17 +317,17 @@ var we = xe(), Te = function() {}, Ee = b.forwardRef(function(e, t) {
 		ref: T
 	}), c));
 });
-Ee.defaultProps = {
+Te.defaultProps = {
 	enabled: !0,
 	removeScrollBar: !0,
 	inert: !1
-}, Ee.classNames = {
-	fullWidth: F,
-	zeroRight: P
+}, Te.classNames = {
+	fullWidth: I,
+	zeroRight: F
 };
 //#endregion
 //#region node_modules/.pnpm/focus-lock@1.3.6/node_modules/focus-lock/dist/es2015/constants.js
-var De = "data-focus-lock", Oe = "data-focus-lock-disabled", ke = "data-no-focus-lock", Ae = "data-autofocus-inside", je = "data-no-autofocus", I = {
+var Ee = "data-focus-lock", De = "data-focus-lock-disabled", Oe = "data-no-focus-lock", ke = "data-autofocus-inside", Ae = "data-no-autofocus", L = {
 	width: "1px",
 	height: "0px",
 	padding: 0,
@@ -335,35 +335,35 @@ var De = "data-focus-lock", Oe = "data-focus-lock-disabled", ke = "data-no-focus
 	position: "fixed",
 	top: "1px",
 	left: "1px"
-}, Me = function(e) {
+}, je = function(e) {
 	var t = e.children, n = t === void 0 ? null : t;
 	return /* @__PURE__ */ b.createElement(b.Fragment, null, /* @__PURE__ */ b.createElement("div", {
 		key: "guard-first",
 		"data-focus-guard": !0,
 		"data-focus-auto-guard": !0,
-		style: I
+		style: L
 	}), n, n && /* @__PURE__ */ b.createElement("div", {
 		key: "guard-last",
 		"data-focus-guard": !0,
 		"data-focus-auto-guard": !0,
-		style: I
+		style: L
 	}));
 };
-Me.propTypes = {};
+je.propTypes = {};
 //#endregion
 //#region node_modules/.pnpm/react-focus-lock@2.13.7_@types+react@18.3.28_react@18.3.1/node_modules/react-focus-lock/dist/es2015/medium.js
-var Ne = be({}, function(e) {
+var Me = ye({}, function(e) {
 	return {
 		target: e.target,
 		currentTarget: e.currentTarget
 	};
-}), Pe = be(), Fe = be(), Ie = xe({
+}), Ne = ye(), Pe = ye(), Fe = be({
 	async: !0,
 	ssr: typeof document < "u"
-}), Le = /* @__PURE__ */ (0, b.createContext)(void 0), Re = [], ze = /* @__PURE__ */ (0, b.forwardRef)(function(e, t) {
+}), Ie = /* @__PURE__ */ (0, b.createContext)(void 0), Le = [], Re = /* @__PURE__ */ (0, b.forwardRef)(function(e, t) {
 	var n, r = (0, b.useState)(), i = r[0], a = r[1], o = (0, b.useRef)(), c = (0, b.useRef)(!1), l = (0, b.useRef)(null), u = (0, b.useState)({})[1], d = e.children, f = e.disabled, p = f === void 0 ? !1 : f, m = e.noFocusGuards, h = m === void 0 ? !1 : m, g = e.persistentFocus, _ = g === void 0 ? !1 : g, v = e.crossFrame, y = v === void 0 ? !0 : v, x = e.autoFocus, S = x === void 0 ? !0 : x;
 	e.allowTextSelection;
-	var C = e.group, w = e.className, T = e.whiteList, E = e.hasPositiveIndices, ee = e.shards, D = ee === void 0 ? Re : ee, O = e.as, te = O === void 0 ? "div" : O, ne = e.lockProps, k = ne === void 0 ? {} : ne, re = e.sideCar, ie = e.returnFocus, A = ie === void 0 ? !1 : ie, j = e.focusOptions, M = e.onActivation, N = e.onDeactivation, ae = (0, b.useState)({})[0], oe = (0, b.useCallback)(function(e) {
+	var C = e.group, w = e.className, T = e.whiteList, E = e.hasPositiveIndices, ee = e.shards, D = ee === void 0 ? Le : ee, O = e.as, te = O === void 0 ? "div" : O, ne = e.lockProps, k = ne === void 0 ? {} : ne, re = e.sideCar, ie = e.returnFocus, A = ie === void 0 ? !1 : ie, j = e.focusOptions, M = e.onActivation, N = e.onDeactivation, ae = (0, b.useState)({})[0], oe = (0, b.useCallback)(function(e) {
 		var t = e.captureFocusRestore;
 		if (!l.current) {
 			var n = document?.activeElement;
@@ -384,10 +384,10 @@ var Ne = be({}, function(e) {
 			}
 		}
 	}, [A]), le = (0, b.useCallback)(function(e) {
-		c.current && Ne.useMedium(e);
-	}, []), ue = Pe.useMedium, P = (0, b.useCallback)(function(e) {
+		c.current && Me.useMedium(e);
+	}, []), P = Ne.useMedium, F = (0, b.useCallback)(function(e) {
 		o.current !== e && (o.current = e, a(e));
-	}, []), F = s((n = {}, n[Oe] = p && "disabled", n[De] = C, n), k), de = h !== !0, fe = de && h !== "tail", pe = _e([t, P]), me = (0, b.useMemo)(function() {
+	}, []), I = s((n = {}, n[De] = p && "disabled", n[Ee] = C, n), k), ue = h !== !0, de = ue && h !== "tail", fe = ge([t, F]), pe = (0, b.useMemo)(function() {
 		return {
 			observed: o,
 			shards: D,
@@ -402,19 +402,19 @@ var Ne = be({}, function(e) {
 		D,
 		o
 	]);
-	return /* @__PURE__ */ b.createElement(b.Fragment, null, de && [/* @__PURE__ */ b.createElement("div", {
+	return /* @__PURE__ */ b.createElement(b.Fragment, null, ue && [/* @__PURE__ */ b.createElement("div", {
 		key: "guard-first",
 		"data-focus-guard": !0,
 		tabIndex: p ? -1 : 0,
-		style: I
+		style: L
 	}), E ? /* @__PURE__ */ b.createElement("div", {
 		key: "guard-nearest",
 		"data-focus-guard": !0,
 		tabIndex: p ? -1 : 1,
-		style: I
+		style: L
 	}) : null], !p && /* @__PURE__ */ b.createElement(re, {
 		id: ae,
-		sideCar: Ie,
+		sideCar: Fe,
 		observed: i,
 		disabled: p,
 		persistentFocus: _,
@@ -427,25 +427,25 @@ var Ne = be({}, function(e) {
 		returnFocus: ce,
 		focusOptions: j,
 		noFocusGuards: h
-	}), /* @__PURE__ */ b.createElement(te, s({ ref: pe }, F, {
+	}), /* @__PURE__ */ b.createElement(te, s({ ref: fe }, I, {
 		className: w,
-		onBlur: ue,
+		onBlur: P,
 		onFocus: le
-	}), /* @__PURE__ */ b.createElement(Le.Provider, { value: me }, d)), fe && /* @__PURE__ */ b.createElement("div", {
+	}), /* @__PURE__ */ b.createElement(Ie.Provider, { value: pe }, d)), de && /* @__PURE__ */ b.createElement("div", {
 		"data-focus-guard": !0,
 		tabIndex: p ? -1 : 0,
-		style: I
+		style: L
 	}));
 });
-ze.propTypes = {};
+Re.propTypes = {};
 //#endregion
 //#region node_modules/.pnpm/react-focus-lock@2.13.7_@types+react@18.3.28_react@18.3.1/node_modules/react-focus-lock/dist/es2015/util.js
-function Be(e) {
+function ze(e) {
 	setTimeout(e, 1);
 }
-var Ve = function(e) {
+var Be = function(e) {
 	return e && "current" in e ? e.current : e;
-}, He = ze, Ue = xe(), We = "data-focus-on-hidden", Ge = { preventScroll: !0 }, Ke = b.forwardRef(function(e, t) {
+}, Ve = Re, He = be(), Ue = "data-focus-on-hidden", We = { preventScroll: !0 }, Ge = b.forwardRef(function(e, t) {
 	var n = b.useState(!1), r = n[0], i = n[1], o = b.useState(null), s = o[0], c = o[1], l = e.children, u = e.autoFocus, d = e.shards, f = e.crossFrame, p = e.enabled, m = p === void 0 ? !0 : p, h = e.scrollLock, g = h === void 0 ? !0 : h, _ = e.focusLock, v = _ === void 0 ? !0 : _, x = e.returnFocus, S = x === void 0 ? !0 : x, C = e.inert, w = e.allowPinchZoom, T = e.sideCar, E = e.className, ee = e.shouldIgnore, D = e.preventScrollOnFocus, O = e.style, te = e.as, ne = e.gapMode, k = y(e, [
 		"children",
 		"autoFocus",
@@ -478,7 +478,7 @@ var Ve = function(e) {
 	}, []), j = b.useCallback(function() {
 		c(null);
 	}, []);
-	return b.createElement(b.Fragment, null, b.createElement(He, {
+	return b.createElement(b.Fragment, null, b.createElement(Ve, {
 		ref: t,
 		sideCar: T,
 		disabled: !(m && v),
@@ -491,10 +491,10 @@ var Ve = function(e) {
 		className: E,
 		whiteList: ee,
 		lockProps: ie,
-		focusOptions: D ? Ge : void 0,
-		as: Ee
+		focusOptions: D ? We : void 0,
+		as: Te
 	}, l), m && b.createElement(re, a({}, k, {
-		sideCar: Ue,
+		sideCar: He,
 		setLockProps: i,
 		shards: d,
 		activeNode: s
@@ -502,36 +502,36 @@ var Ve = function(e) {
 });
 //#endregion
 //#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/typeof.js
-function L(e) {
+function R(e) {
 	"@babel/helpers - typeof";
-	return L = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(e) {
+	return R = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(e) {
 		return typeof e;
 	} : function(e) {
 		return e && typeof Symbol == "function" && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
-	}, L(e);
+	}, R(e);
 }
 //#endregion
 //#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/toPrimitive.js
-function qe(e, t) {
-	if (L(e) != "object" || !e) return e;
+function Ke(e, t) {
+	if (R(e) != "object" || !e) return e;
 	var n = e[Symbol.toPrimitive];
 	if (n !== void 0) {
 		var r = n.call(e, t || "default");
-		if (L(r) != "object") return r;
+		if (R(r) != "object") return r;
 		throw TypeError("@@toPrimitive must return a primitive value.");
 	}
 	return (t === "string" ? String : Number)(e);
 }
 //#endregion
 //#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
-function Je(e) {
-	var t = qe(e, "string");
-	return L(t) == "symbol" ? t : t + "";
+function qe(e) {
+	var t = Ke(e, "string");
+	return R(t) == "symbol" ? t : t + "";
 }
 //#endregion
 //#region node_modules/.pnpm/@babel+runtime@7.29.2/node_modules/@babel/runtime/helpers/esm/defineProperty.js
-function Ye(e, t, n) {
-	return (t = Je(t)) in e ? Object.defineProperty(e, t, {
+function Je(e, t, n) {
+	return (t = qe(t)) in e ? Object.defineProperty(e, t, {
 		value: n,
 		enumerable: !0,
 		configurable: !0,
@@ -540,7 +540,7 @@ function Ye(e, t, n) {
 }
 //#endregion
 //#region node_modules/.pnpm/react-clientside-effect@1.2.8_react@18.3.1/node_modules/react-clientside-effect/lib/index.es.js
-function Xe(e, t) {
+function Ye(e, t) {
 	function n(e) {
 		return e.displayName || e.name || "Component";
 	}
@@ -571,77 +571,77 @@ function Xe(e, t) {
 				return /* @__PURE__ */ b.createElement(r, this.props);
 			}, t;
 		}(b.PureComponent);
-		return Ye(s, "displayName", "SideEffect(" + n(r) + ")"), s;
+		return Je(s, "displayName", "SideEffect(" + n(r) + ")"), s;
 	};
 }
 //#endregion
 //#region node_modules/.pnpm/focus-lock@1.3.6/node_modules/focus-lock/dist/es2015/utils/array.js
-var R = function(e) {
+var z = function(e) {
 	for (var t = Array(e.length), n = 0; n < e.length; ++n) t[n] = e[n];
 	return t;
-}, z = function(e) {
+}, B = function(e) {
 	return Array.isArray(e) ? e : [e];
-}, Ze = function(e) {
+}, Xe = function(e) {
 	return Array.isArray(e) ? e[0] : e;
-}, Qe = function(e) {
+}, Ze = function(e) {
 	if (e.nodeType !== Node.ELEMENT_NODE) return !1;
 	var t = window.getComputedStyle(e, null);
 	return !t || !t.getPropertyValue ? !1 : t.getPropertyValue("display") === "none" || t.getPropertyValue("visibility") === "hidden";
-}, $e = function(e) {
+}, Qe = function(e) {
 	return e.parentNode && e.parentNode.nodeType === Node.DOCUMENT_FRAGMENT_NODE ? e.parentNode.host : e.parentNode;
-}, et = function(e) {
+}, $e = function(e) {
 	return e === document || e && e.nodeType === Node.DOCUMENT_NODE;
-}, tt = function(e) {
+}, et = function(e) {
 	return e.hasAttribute("inert");
+}, tt = function(e, t) {
+	return !e || $e(e) || !Ze(e) && !et(e) && t(Qe(e));
 }, nt = function(e, t) {
-	return !e || et(e) || !Qe(e) && !tt(e) && t($e(e));
+	var n = e.get(t);
+	if (n !== void 0) return n;
+	var r = tt(t, nt.bind(void 0, e));
+	return e.set(t, r), r;
 }, rt = function(e, t) {
-	var n = e.get(t);
-	if (n !== void 0) return n;
-	var r = nt(t, rt.bind(void 0, e));
-	return e.set(t, r), r;
+	return e && !$e(e) ? ut(e) ? t(Qe(e)) : !1 : !0;
 }, it = function(e, t) {
-	return e && !et(e) ? dt(e) ? t($e(e)) : !1 : !0;
-}, at = function(e, t) {
 	var n = e.get(t);
 	if (n !== void 0) return n;
-	var r = it(t, at.bind(void 0, e));
+	var r = rt(t, it.bind(void 0, e));
 	return e.set(t, r), r;
-}, ot = function(e) {
+}, at = function(e) {
 	return e.dataset;
-}, st = function(e) {
+}, ot = function(e) {
 	return e.tagName === "BUTTON";
-}, ct = function(e) {
+}, st = function(e) {
 	return e.tagName === "INPUT";
+}, ct = function(e) {
+	return st(e) && e.type === "radio";
 }, lt = function(e) {
-	return ct(e) && e.type === "radio";
+	return !((st(e) || ot(e)) && (e.type === "hidden" || e.disabled));
 }, ut = function(e) {
-	return !((ct(e) || st(e)) && (e.type === "hidden" || e.disabled));
-}, dt = function(e) {
-	var t = e.getAttribute(je);
+	var t = e.getAttribute(Ae);
 	return ![
 		!0,
 		"true",
 		""
 	].includes(t);
+}, dt = function(e) {
+	return !!(e && at(e)?.focusGuard);
 }, ft = function(e) {
-	return !!(e && ot(e)?.focusGuard);
+	return !dt(e);
 }, pt = function(e) {
-	return !ft(e);
-}, mt = function(e) {
 	return !!e;
-}, ht = function(e, t) {
+}, mt = function(e, t) {
 	var n = Math.max(0, e.tabIndex), r = Math.max(0, t.tabIndex), i = n - r, a = e.index - t.index;
 	if (i) {
 		if (!n) return 1;
 		if (!r) return -1;
 	}
 	return i || a;
-}, gt = function(e) {
+}, ht = function(e) {
 	return e.tabIndex < 0 && !e.hasAttribute("tabindex") ? 0 : e.tabIndex;
-}, _t = function(e, t, n) {
-	return R(e).map(function(e, t) {
-		var r = gt(e);
+}, gt = function(e, t, n) {
+	return z(e).map(function(e, t) {
+		var r = ht(e);
 		return {
 			node: e,
 			index: t,
@@ -649,8 +649,8 @@ var R = function(e) {
 		};
 	}).filter(function(e) {
 		return !t || e.tabIndex >= 0;
-	}).sort(ht);
-}, vt = [
+	}).sort(mt);
+}, _t = [
 	"button:enabled",
 	"select:enabled",
 	"textarea:enabled",
@@ -666,45 +666,45 @@ var R = function(e) {
 	"[tabindex]",
 	"[contenteditable]",
 	"[autofocus]"
-].join(","), yt = `${vt}, [data-focus-guard]`, bt = function(e, t) {
-	return R((e.shadowRoot || e).children).reduce(function(e, n) {
-		return e.concat(n.matches(t ? yt : vt) ? [n] : [], bt(n));
+].join(","), vt = `${_t}, [data-focus-guard]`, yt = function(e, t) {
+	return z((e.shadowRoot || e).children).reduce(function(e, n) {
+		return e.concat(n.matches(t ? vt : _t) ? [n] : [], yt(n));
 	}, []);
-}, xt = function(e, t) {
-	return e instanceof HTMLIFrameElement && e.contentDocument?.body ? B([e.contentDocument.body], t) : [e];
-}, B = function(e, t) {
+}, bt = function(e, t) {
+	return e instanceof HTMLIFrameElement && e.contentDocument?.body ? V([e.contentDocument.body], t) : [e];
+}, V = function(e, t) {
 	return e.reduce(function(e, n) {
-		var r, i = bt(n, t), a = (r = []).concat.apply(r, i.map(function(e) {
-			return xt(e, t);
+		var r, i = yt(n, t), a = (r = []).concat.apply(r, i.map(function(e) {
+			return bt(e, t);
 		}));
-		return e.concat(a, n.parentNode ? R(n.parentNode.querySelectorAll(vt)).filter(function(e) {
+		return e.concat(a, n.parentNode ? z(n.parentNode.querySelectorAll(_t)).filter(function(e) {
 			return e === n;
 		}) : []);
 	}, []);
-}, St = function(e) {
-	return R(e.querySelectorAll(`[${Ae}]`)).map(function(e) {
-		return B([e]);
+}, xt = function(e) {
+	return z(e.querySelectorAll(`[${ke}]`)).map(function(e) {
+		return V([e]);
 	}).reduce(function(e, t) {
 		return e.concat(t);
 	}, []);
-}, Ct = function(e, t) {
-	return R(e).filter(function(e) {
-		return rt(t, e);
+}, St = function(e, t) {
+	return z(e).filter(function(e) {
+		return nt(t, e);
 	}).filter(function(e) {
-		return ut(e);
+		return lt(e);
 	});
-}, wt = function(e, t) {
-	return t === void 0 && (t = /* @__PURE__ */ new Map()), R(e).filter(function(e) {
-		return at(t, e);
+}, Ct = function(e, t) {
+	return t === void 0 && (t = /* @__PURE__ */ new Map()), z(e).filter(function(e) {
+		return it(t, e);
 	});
-}, Tt = function(e, t, n) {
-	return _t(Ct(B(e, n), t), !0, n);
-}, V = function(e, t) {
-	return _t(Ct(B(e), t), !1);
+}, wt = function(e, t, n) {
+	return gt(St(V(e, n), t), !0, n);
+}, Tt = function(e, t) {
+	return gt(St(V(e), t), !1);
 }, Et = function(e, t) {
-	return Ct(St(e), t);
+	return St(xt(e), t);
 }, H = function(e, t) {
-	return e.shadowRoot ? H(e.shadowRoot, t) : Object.getPrototypeOf(e).contains !== void 0 && Object.getPrototypeOf(e).contains.call(e, t) ? !0 : R(e.children).some(function(e) {
+	return e.shadowRoot ? H(e.shadowRoot, t) : Object.getPrototypeOf(e).contains !== void 0 && Object.getPrototypeOf(e).contains.call(e, t) ? !0 : z(e.children).some(function(e) {
 		if (e instanceof HTMLIFrameElement) {
 			var n = e.contentDocument?.body;
 			return n ? H(n, t) : !1;
@@ -722,9 +722,9 @@ var R = function(e) {
 }, Ot = function(e) {
 	return e.parentNode ? Ot(e.parentNode) : e;
 }, kt = function(e) {
-	return z(e).filter(Boolean).reduce(function(e, t) {
-		var n = t.getAttribute(De);
-		return e.push.apply(e, n ? Dt(R(Ot(t).querySelectorAll(`[${De}="${n}"]:not([${Oe}="disabled"])`))) : [t]), e;
+	return B(e).filter(Boolean).reduce(function(e, t) {
+		var n = t.getAttribute(Ee);
+		return e.push.apply(e, n ? Dt(z(Ot(t).querySelectorAll(`[${Ee}="${n}"]:not([${De}="disabled"])`))) : [t]), e;
 	}, []);
 }, At = function(e) {
 	try {
@@ -742,27 +742,27 @@ var R = function(e) {
 }, jt = function(e, t) {
 	return e === t;
 }, Mt = function(e, t) {
-	return !!R(e.querySelectorAll("iframe")).some(function(e) {
+	return !!z(e.querySelectorAll("iframe")).some(function(e) {
 		return jt(e, t);
 	});
 }, Nt = function(e, t) {
-	return t === void 0 && (t = U(Ze(e).ownerDocument)), !t || t.dataset && t.dataset.focusGuard ? !1 : kt(e).some(function(e) {
+	return t === void 0 && (t = U(Xe(e).ownerDocument)), !t || t.dataset && t.dataset.focusGuard ? !1 : kt(e).some(function(e) {
 		return H(e, t) || Mt(e, t);
 	});
 }, Pt = function(e) {
 	e === void 0 && (e = document);
 	var t = U(e);
-	return t ? R(e.querySelectorAll(`[${ke}]`)).some(function(e) {
+	return t ? z(e.querySelectorAll(`[${Oe}]`)).some(function(e) {
 		return H(e, t);
 	}) : !1;
 }, Ft = function(e, t) {
-	return t.filter(lt).filter(function(t) {
+	return t.filter(ct).filter(function(t) {
 		return t.name === e.name;
 	}).filter(function(e) {
 		return e.checked;
 	})[0] || e;
 }, It = function(e, t) {
-	return lt(e) && e.name ? Ft(e, t) : e;
+	return ct(e) && e.name ? Ft(e, t) : e;
 }, Lt = function(e) {
 	var t = /* @__PURE__ */ new Set();
 	return e.forEach(function(n) {
@@ -775,7 +775,7 @@ var R = function(e) {
 }, zt = function(e, t) {
 	return e.indexOf(It(t, e));
 }, Bt = "NEW_FOCUS", Vt = function(e, t, n, r, i) {
-	var a = e.length, o = e[0], s = e[a - 1], c = ft(r);
+	var a = e.length, o = e[0], s = e[a - 1], c = dt(r);
 	if (!(r && e.indexOf(r) >= 0)) {
 		var l = r === void 0 ? -1 : n.indexOf(r), u = i ? n.indexOf(i) : l, d = i ? e.indexOf(i) : -1;
 		if (l === -1) return d === -1 ? Bt : d;
@@ -794,14 +794,14 @@ var R = function(e) {
 	}
 }, Ht = function(e) {
 	return function(t) {
-		var n = ot(t)?.autofocus;
+		var n = at(t)?.autofocus;
 		return t.autofocus || n !== void 0 && n !== "false" || e.indexOf(t) >= 0;
 	};
 }, Ut = function(e, t, n) {
-	var r = wt(e.map(function(e) {
+	var r = Ct(e.map(function(e) {
 		return e.node;
 	}).filter(Ht(n)));
-	return r && r.length ? Rt(r) : Rt(wt(t));
+	return r && r.length ? Rt(r) : Rt(Ct(t));
 }, Wt = function(e, t) {
 	return t === void 0 && (t = []), t.push(e), e.parentNode && Wt(e.parentNode.host || e.parentNode, t), t;
 }, Gt = function(e, t) {
@@ -811,7 +811,7 @@ var R = function(e) {
 	}
 	return !1;
 }, Kt = function(e, t, n) {
-	var r = z(e), i = z(t), a = r[0], o = !1;
+	var r = B(e), i = B(t), a = r[0], o = !1;
 	return i.filter(Boolean).forEach(function(e) {
 		o = Gt(o || e, e) || o, n.filter(Boolean).forEach(function(e) {
 			var t = Gt(a, e);
@@ -828,14 +828,14 @@ var R = function(e) {
 		return n.set(e.node, e);
 	}), e.map(function(e) {
 		return n.get(e);
-	}).filter(mt);
+	}).filter(pt);
 }, Yt = function(e, t) {
-	var n = U(z(e).length > 0 ? document : Ze(e).ownerDocument), r = kt(e).filter(pt), i = Kt(n || e, e, r), a = /* @__PURE__ */ new Map(), o = V(r, a), s = o.filter(function(e) {
+	var n = U(B(e).length > 0 ? document : Xe(e).ownerDocument), r = kt(e).filter(ft), i = Kt(n || e, e, r), a = /* @__PURE__ */ new Map(), o = Tt(r, a), s = o.filter(function(e) {
 		var t = e.node;
-		return pt(t);
+		return ft(t);
 	});
 	if (s[0]) {
-		var c = V([i], a).map(function(e) {
+		var c = Tt([i], a).map(function(e) {
 			return e.node;
 		}), l = Jt(c, s), u = l.map(function(e) {
 			return e.node;
@@ -853,14 +853,14 @@ var R = function(e) {
 		return f === void 0 ? f : l[f];
 	}
 }, Xt = function(e) {
-	var t = kt(e).filter(pt), n = _t(B([Kt(e, e, t)], !0), !0, !0), r = B(t, !1);
+	var t = kt(e).filter(ft), n = gt(V([Kt(e, e, t)], !0), !0, !0), r = V(t, !1);
 	return n.map(function(e) {
 		var t = e.node;
 		return {
 			node: t,
 			index: e.index,
 			lockItem: r.indexOf(t) >= 0,
-			guard: ft(t)
+			guard: dt(t)
 		};
 	});
 }, Zt = function(e, t) {
@@ -907,7 +907,7 @@ var tn = function(e) {
 	if (e) for (var t = e.stack, n = e.ownerDocument, r = /* @__PURE__ */ new Map(), i = 0, a = t; i < a.length; i++) {
 		var o = a[i], s = o.parent?.call(o);
 		if (s && n.contains(s)) {
-			for (var c = o.left?.call(o), l = o.current(), u = s.contains(l) ? l : void 0, d = o.right?.call(o), f = Tt([s], r), p = u ?? c?.nextElementSibling ?? d ?? c; p;) {
+			for (var c = o.left?.call(o), l = o.current(), u = s.contains(l) ? l : void 0, d = o.right?.call(o), f = wt([s], r), p = u ?? c?.nextElementSibling ?? d ?? c; p;) {
 				for (var m = 0, h = f; m < h.length; m++) {
 					var g = h[m];
 					if (p?.contains(g.node)) return g.node;
@@ -924,11 +924,11 @@ var tn = function(e) {
 	};
 }, an = function(e, t, n) {
 	if (!e || !t) return console.error("no element or scope given"), {};
-	var r = z(t);
+	var r = B(t);
 	if (r.every(function(t) {
 		return !H(t, e);
 	})) return console.error("Active element is not contained in the scope"), {};
-	var i = n ? Tt(r, /* @__PURE__ */ new Map()) : V(r, /* @__PURE__ */ new Map()), a = i.findIndex(function(t) {
+	var i = n ? wt(r, /* @__PURE__ */ new Map()) : Tt(r, /* @__PURE__ */ new Map()), a = i.findIndex(function(t) {
 		return t.node === e;
 	});
 	if (a !== -1) return {
@@ -938,7 +938,7 @@ var tn = function(e) {
 		last: i[i.length - 1]
 	};
 }, on = function(e, t) {
-	var n = t ? Tt(z(e), /* @__PURE__ */ new Map()) : V(z(e), /* @__PURE__ */ new Map());
+	var n = t ? wt(B(e), /* @__PURE__ */ new Map()) : Tt(B(e), /* @__PURE__ */ new Map());
 	return {
 		first: n[0],
 		last: n[n.length - 1]
@@ -1012,7 +1012,7 @@ var Cn = function(e) {
 		return wn(e, t, t);
 	});
 }, En = function(e) {
-	return V(e, /* @__PURE__ */ new Map());
+	return Tt(e, /* @__PURE__ */ new Map());
 }, Dn = function(e) {
 	return !En([e.parentNode]).some(function(t) {
 		return t.node === e;
@@ -1027,7 +1027,7 @@ var Cn = function(e) {
 		}
 		var d = document && document.activeElement;
 		if (l) {
-			var f = [l].concat(a.map(Ve).filter(Boolean));
+			var f = [l].concat(a.map(Be).filter(Boolean));
 			if ((!d || yn(d)) && (r || function() {
 				if (!Cn(o) || !c || !K || _n) return !1;
 				var e = En(f), t = e.findIndex(function(e) {
@@ -1051,7 +1051,7 @@ var Cn = function(e) {
 }, kn = function(e) {
 	On() && e && (e.stopPropagation(), e.preventDefault());
 }, An = function() {
-	return Be(On);
+	return ze(On);
 }, jn = function(e) {
 	var t = e.target, n = e.currentTarget;
 	n.contains(t) || bn(n, t);
@@ -1068,7 +1068,7 @@ Nn.propTypes = {};
 var Pn = function() {
 	_n = !0;
 }, Fn = function() {
-	_n = !1, J = "just", Be(function() {
+	_n = !1, J = "just", ze(function() {
 		J = "meanwhile";
 	});
 }, In = function() {
@@ -1096,11 +1096,11 @@ function Bn(e) {
 	var n = G, r = n && t && t.id === n.id;
 	G = t, n && !r && (n.onDeactivation(), e.filter(function(e) {
 		return e.id === n.id;
-	}).length || n.returnFocus(!t)), t ? (K = null, (!r || n.observed !== t.observed) && t.onActivation(zn), On(!0), Be(On)) : (Ln(), K = null);
+	}).length || n.returnFocus(!t)), t ? (K = null, (!r || n.observed !== t.observed) && t.onActivation(zn), On(!0), ze(On)) : (Ln(), K = null);
 }
-Ne.assignSyncMedium(jn), Pe.assignMedium(An), Fe.assignMedium(function(e) {
+Me.assignSyncMedium(jn), Ne.assignMedium(An), Pe.assignMedium(function(e) {
 	return e(zn);
-}), Ce(Ie, Xe(Rn, Bn)(Mn));
+}), Se(Fe, Ye(Rn, Bn)(Mn));
 //#endregion
 //#region node_modules/.pnpm/get-nonce@1.0.1/node_modules/get-nonce/dist/es2015/index.js
 var Vn, Hn = function() {
@@ -1173,7 +1173,7 @@ var Kn = function() {
 }, $n = Jn(), Y = "data-scroll-locked", er = function(e, t, n, r) {
 	var i = e.left, a = e.top, o = e.right, s = e.gap;
 	return n === void 0 && (n = "margin"), `
-  .${de} {
+  .${ue} {
    overflow: hidden ${r};
    padding-right: ${s}px ${r};
   }
@@ -1194,24 +1194,24 @@ var Kn = function() {
 	].filter(Boolean).join("")}
   }
   
-  .${P} {
+  .${F} {
     right: ${s}px ${r};
   }
   
-  .${F} {
+  .${I} {
     margin-right: ${s}px ${r};
   }
   
-  .${P} .${P} {
+  .${F} .${F} {
     right: 0 ${r};
   }
   
-  .${F} .${F} {
+  .${I} .${I} {
     margin-right: 0 ${r};
   }
   
   body[${Y}] {
-    ${fe}: ${s}px;
+    ${de}: ${s}px;
   }
 `;
 }, tr = function() {
@@ -1393,7 +1393,7 @@ function wr(e) {
 	for (var t = null; e !== null;) e instanceof ShadowRoot && (t = e.host, e = e.host), e = e.parentNode;
 	return t;
 }
-Ce(we, Cr);
+Se(Ce, Cr);
 //#endregion
 //#region node_modules/.pnpm/aria-hidden@1.2.6/node_modules/aria-hidden/dist/es2015/index.js
 var Tr = function(e) {
@@ -1438,7 +1438,7 @@ var Tr = function(e) {
 	return i ? (r.push.apply(r, Array.from(i.querySelectorAll("[aria-live], script"))), jr(r, i, n, "aria-hidden")) : function() {
 		return null;
 	};
-}, Nr = Jn(), Pr = "\n [" + We + "] {\n   pointer-events: none !important;\n }\n", Fr = function() {
+}, Nr = Jn(), Pr = "\n [" + Ue + "] {\n   pointer-events: none !important;\n }\n", Fr = function() {
 	return b.createElement(Nr, { styles: Pr });
 }, Ir = function(e) {
 	return "current" in e ? e.current : e;
@@ -1469,7 +1469,7 @@ function Lr(t) {
 			s && s();
 		};
 	}, [!!l]), (0, b.useEffect)(function() {
-		if (!(c || !l)) return Mr(e([l], (a || []).map(Ir)), l.ownerDocument.body, We);
+		if (!(c || !l)) return Mr(e([l], (a || []).map(Ir)), l.ownerDocument.body, Ue);
 	}, [l, c]), (0, b.useEffect)(function() {
 		return n({
 			onMouseDown: function(e) {
@@ -1485,10 +1485,10 @@ function Lr(t) {
 }
 //#endregion
 //#region node_modules/.pnpm/react-focus-on@3.10.2_@types+react@18.3.28_react@18.3.1/node_modules/react-focus-on/dist/es2015/sidecar.js
-var Rr = Ce(Ue, Lr), zr = function(e) {
+var Rr = Se(He, Lr), zr = function(e) {
 	return b.createElement(Rr, a({}, e));
 }, Br = b.forwardRef(function(e, t) {
-	return b.createElement(Ke, a({}, e, {
+	return b.createElement(Ge, a({}, e, {
 		ref: t,
 		sideCar: zr
 	}));
@@ -1580,23 +1580,54 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			})
 		})]
 	})
-}), Gr = ({ outcome: e, onRestart: t, onExit: n, imageURL: r }) => /* @__PURE__ */ (0, $.jsxs)("div", {
+}), Gr = ({ scenarios: e, selectedOptions: t }) => /* @__PURE__ */ (0, $.jsx)(P, {
+	fluid: !0,
+	children: e.map((e, n) => {
+		let r = e.options[t.get(n)];
+		return /* @__PURE__ */ (0, $.jsxs)(j, {
+			className: "outcome-option-row",
+			children: [/* @__PURE__ */ (0, $.jsxs)(f, {
+				className: "bg-interact-raised rounded-lg p-3",
+				children: [/* @__PURE__ */ (0, $.jsxs)("p", {
+					className: "font-weight-bold text-interact-headings",
+					children: ["Step ", n + 1]
+				}), /* @__PURE__ */ (0, $.jsx)("p", {
+					className: "text-interact-content",
+					children: r.value
+				})]
+			}), /* @__PURE__ */ (0, $.jsx)(f, {
+				className: "",
+				children: /* @__PURE__ */ (0, $.jsx)("p", {
+					className: "text-interact-content",
+					children: r.feedback
+				})
+			})]
+		});
+	})
+}), Kr = ({ outcome: e, scenarios: t, selectedOptions: n, onRestart: r, onExit: i, imageURL: a }) => /* @__PURE__ */ (0, $.jsxs)("div", {
 	className: "d-flex flex-grow-1",
 	children: [/* @__PURE__ */ (0, $.jsxs)("div", {
 		className: "p-4-5",
 		style: { flex: "0 0 60%" },
-		children: [/* @__PURE__ */ (0, $.jsx)("p", {
-			className: "font-size-lg font-weight-bold text-interact-accent",
-			children: e.heading
-		}), /* @__PURE__ */ (0, $.jsx)("p", {
-			className: "pb-3 text-interact-content",
-			children: e.description
-		})]
+		children: [
+			/* @__PURE__ */ (0, $.jsx)("p", {
+				className: "font-size-lg font-weight-bold text-interact-accent",
+				children: e.heading
+			}),
+			/* @__PURE__ */ (0, $.jsx)("p", {
+				className: "pb-3 text-interact-content",
+				children: e.description
+			}),
+			e.displaySelectedOptions && /* @__PURE__ */ (0, $.jsx)(Gr, {
+				scenarios: t,
+				selectedOptions: n
+			})
+		]
 	}), /* @__PURE__ */ (0, $.jsx)("div", {
 		className: "d-flex flex-column",
 		style: {
 			flex: "0 0 40%",
-			backgroundImage: `linear-gradient(to bottom, transparent 60%, #FFF), url("${r}")`,
+			backgroundImage: `linear-gradient(to bottom, transparent 60%, #FFF), url("${a}")`,
 			backgroundSize: "cover"
 		},
 		children: /* @__PURE__ */ (0, $.jsxs)("div", {
@@ -1604,17 +1635,17 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			children: [/* @__PURE__ */ (0, $.jsxs)(d, {
 				variant: "outline-unfolding-scenario-action",
 				className: "rounded-pill",
-				onClick: t,
+				onClick: r,
 				children: ["Restart ", /* @__PURE__ */ (0, $.jsx)(m, { src: w })]
 			}), /* @__PURE__ */ (0, $.jsxs)(d, {
 				variant: "unfolding-scenario-action",
 				className: "rounded-pill ml-3",
-				onClick: n,
+				onClick: i,
 				children: ["Exit ", /* @__PURE__ */ (0, $.jsx)(m, { src: p })]
 			})]
 		})
 	})]
-}), Kr = ({ index: e, total: t, onReset: n, className: r }) => /* @__PURE__ */ (0, $.jsxs)("div", {
+}), qr = ({ index: e, total: t, onReset: n, className: r }) => /* @__PURE__ */ (0, $.jsxs)("div", {
 	className: `align-items-center justify-content-center bg-main ${r}`,
 	children: [
 		/* @__PURE__ */ (0, $.jsx)(g, {
@@ -1633,14 +1664,14 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			children: "Completed!"
 		})
 	]
-}), qr = ({ onClose: e }) => /* @__PURE__ */ (0, $.jsx)(g, {
+}), Jr = ({ onClose: e }) => /* @__PURE__ */ (0, $.jsx)(g, {
 	className: "text-icon-action-sec-neutral",
 	src: p,
 	onClick: e,
 	alt: "Close activity"
-}), Jr = ({ onClose: e, title: t, onReset: n, activeScenarioIndex: r, totalScenarios: i }) => /* @__PURE__ */ (0, $.jsx)("div", {
+}), Yr = ({ onClose: e, title: t, onReset: n, activeScenarioIndex: r, totalScenarios: i }) => /* @__PURE__ */ (0, $.jsx)("div", {
 	className: "sticky-top d-flex w-100 bg-interact-default",
-	children: /* @__PURE__ */ (0, $.jsx)(ue, {
+	children: /* @__PURE__ */ (0, $.jsx)(P, {
 		fluid: !0,
 		children: /* @__PURE__ */ (0, $.jsxs)(j, {
 			className: "px-3",
@@ -1651,7 +1682,7 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 				}),
 				/* @__PURE__ */ (0, $.jsx)(f, {
 					className: "d-flex justify-content-center",
-					children: /* @__PURE__ */ (0, $.jsx)(Kr, {
+					children: /* @__PURE__ */ (0, $.jsx)(qr, {
 						onReset: n,
 						index: r,
 						total: i,
@@ -1660,18 +1691,18 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 				}),
 				/* @__PURE__ */ (0, $.jsx)(f, {
 					className: "d-flex justify-content-end align-items-center mx-3",
-					children: /* @__PURE__ */ (0, $.jsx)(qr, { onClose: e })
+					children: /* @__PURE__ */ (0, $.jsx)(Jr, { onClose: e })
 				})
 			]
 		})
 	})
-}), Yr = ({ onClose: e, title: t, activeScenarioIndex: n, totalScenarios: r }) => /* @__PURE__ */ (0, $.jsx)("div", {
+}), Xr = ({ onClose: e, title: t, activeScenarioIndex: n, totalScenarios: r }) => /* @__PURE__ */ (0, $.jsx)("div", {
 	className: "sticky-top d-flex mx-2 mt-4 pb-2 bg-interact-default",
-	children: /* @__PURE__ */ (0, $.jsxs)(ue, {
+	children: /* @__PURE__ */ (0, $.jsxs)(P, {
 		fluid: !0,
 		className: "d-flex align-items-center",
 		children: [
-			/* @__PURE__ */ (0, $.jsx)(Xr, {
+			/* @__PURE__ */ (0, $.jsx)(Zr, {
 				current: Math.min(n + 1, r),
 				total: r
 			}),
@@ -1685,10 +1716,10 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 					children: "Completed!"
 				})]
 			}),
-			/* @__PURE__ */ (0, $.jsx)(qr, { onClose: e })
+			/* @__PURE__ */ (0, $.jsx)(Jr, { onClose: e })
 		]
 	})
-}), Xr = ({ current: e, total: t }) => {
+}), Zr = ({ current: e, total: t }) => {
 	let n = 52 * Math.PI, r = n * (1 - e / t);
 	return /* @__PURE__ */ (0, $.jsxs)("svg", {
 		xmlns: "http://www.w3.org/2000/svg",
@@ -1733,9 +1764,9 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			})
 		]
 	});
-}, Zr = ({ onClose: e, title: t, onReset: n, activeScenarioIndex: r, totalScenarios: i }) => /* @__PURE__ */ (0, $.jsx)("div", {
+}, Qr = ({ onClose: e, title: t, onReset: n, activeScenarioIndex: r, totalScenarios: i }) => /* @__PURE__ */ (0, $.jsx)("div", {
 	className: "sticky-top d-flex w-100 pb-2 bg-interact-default",
-	children: /* @__PURE__ */ (0, $.jsxs)(ue, {
+	children: /* @__PURE__ */ (0, $.jsxs)(P, {
 		className: "mx-3",
 		fluid: !0,
 		children: [/* @__PURE__ */ (0, $.jsxs)(j, { children: [/* @__PURE__ */ (0, $.jsx)(f, {
@@ -1743,10 +1774,10 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			children: t
 		}), /* @__PURE__ */ (0, $.jsx)(f, {
 			className: "d-flex justify-content-end align-items-center",
-			children: /* @__PURE__ */ (0, $.jsx)(qr, { onClose: e })
+			children: /* @__PURE__ */ (0, $.jsx)(Jr, { onClose: e })
 		})] }), /* @__PURE__ */ (0, $.jsx)(j, { children: /* @__PURE__ */ (0, $.jsx)(f, {
 			className: "d-flex justify-content-center",
-			children: /* @__PURE__ */ (0, $.jsx)(Kr, {
+			children: /* @__PURE__ */ (0, $.jsx)(qr, {
 				onReset: n,
 				index: r,
 				total: i,
@@ -1754,27 +1785,27 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			})
 		}) })]
 	})
-}), Qr = ({ onClose: e, title: t, onReset: n, activeScenarioIndex: r, totalScenarios: i }) => {
+}), $r = ({ onClose: e, title: t, onReset: n, activeScenarioIndex: r, totalScenarios: i }) => {
 	let a = Ur().width || window.innerWidth;
-	return a < ce.extraSmall.maxWidth ? /* @__PURE__ */ (0, $.jsx)(Yr, {
+	return a < ce.extraSmall.maxWidth ? /* @__PURE__ */ (0, $.jsx)(Xr, {
 		onClose: e,
 		title: t,
 		activeScenarioIndex: r,
 		totalScenarios: i
-	}) : a < ce.large.maxWidth ? /* @__PURE__ */ (0, $.jsx)(Zr, {
+	}) : a < ce.large.maxWidth ? /* @__PURE__ */ (0, $.jsx)(Qr, {
 		onClose: e,
 		title: t,
 		onReset: n,
 		activeScenarioIndex: r,
 		totalScenarios: i
-	}) : /* @__PURE__ */ (0, $.jsx)(Jr, {
+	}) : /* @__PURE__ */ (0, $.jsx)(Yr, {
 		onClose: e,
 		title: t,
 		onReset: n,
 		activeScenarioIndex: r,
 		totalScenarios: i
 	});
-}, $r = ({ onClick: e, children: t, active: n, preSelected: r }) => /* @__PURE__ */ (0, $.jsxs)("button", {
+}, ei = ({ onClick: e, children: t, active: n, preSelected: r }) => /* @__PURE__ */ (0, $.jsxs)("button", {
 	className: `scenario-option-btn rounded-sm d-flex justify-content-start border-0 overflow-hidden align-items-center p-0 mb-3 ${n ? "text-interact-content-inverse bg-interact-raised-emphasis active" : "bg-interact-raised text-interact-content"} ${r ? "pre-selected" : ""}`,
 	onClick: e,
 	children: [/* @__PURE__ */ (0, $.jsx)("div", {
@@ -1788,20 +1819,20 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			className: "text-icon-inverse mx-3"
 		})
 	})]
-}), ei = ({ scenario: e, onContinue: t }) => {
-	let [n, r] = (0, b.useState)(null), [i, a] = (0, b.useState)([]), o = (e) => {
-		a([...i, e]), r(e);
-	};
-	return n === null ? /* @__PURE__ */ (0, $.jsxs)(j, {
+}), ti = ({ interactionType: e, scenario: t, onContinue: n, onSelectOption: r }) => {
+	let [i, a] = (0, b.useState)(null), [o, s] = (0, b.useState)(/* @__PURE__ */ new Set()), c = (e) => {
+		s(new Set([...o, e])), a(e), r(e);
+	}, l = e == "Explore" && o.size == t.options.length || e == "SelectOne" && i !== null;
+	return i === null ? /* @__PURE__ */ (0, $.jsxs)(j, {
 		className: "pt-3 mx-3",
 		children: [/* @__PURE__ */ (0, $.jsxs)(f, { children: [
 			/* @__PURE__ */ (0, $.jsx)("p", {
 				className: "font-size-lg font-weight-bold text-interact-accent",
-				children: e.heading
+				children: t.heading
 			}),
 			/* @__PURE__ */ (0, $.jsx)("p", {
 				className: "text-interact-content pb-3",
-				children: e.description
+				children: t.description
 			}),
 			/* @__PURE__ */ (0, $.jsxs)("div", {
 				className: "d-flex align-items-center mt-3 mb-2",
@@ -1810,24 +1841,24 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 					children: /* @__PURE__ */ (0, $.jsx)(m, { src: S })
 				}), /* @__PURE__ */ (0, $.jsx)("span", {
 					className: "text-interact-headings font-size-medium font-weight-bold pl-2",
-					children: e.instructionTitle
+					children: t.instructionTitle
 				})]
 			}),
 			/* @__PURE__ */ (0, $.jsx)("p", {
 				className: "text-interact-content",
-				children: e.instructionDescription
+				children: t.instructionDescription
 			})
 		] }), /* @__PURE__ */ (0, $.jsxs)(f, { children: [
 			/* @__PURE__ */ (0, $.jsx)("p", {
 				className: "text-interact-headings font-size-md font-weight-bold",
-				children: e.prompt
+				children: t.prompt
 			}),
 			/* @__PURE__ */ (0, $.jsx)("div", {
 				className: "d-flex flex-column flex-grow-1",
-				children: e.options.map((e, t) => /* @__PURE__ */ (0, $.jsx)($r, {
+				children: t.options.map((e, t) => /* @__PURE__ */ (0, $.jsx)(ei, {
 					active: !1,
-					onClick: () => o(t),
-					preSelected: i.includes(t),
+					onClick: () => c(t),
+					preSelected: o.has(t),
 					children: e.value
 				}))
 			}),
@@ -1836,7 +1867,8 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 				children: /* @__PURE__ */ (0, $.jsx)(d, {
 					variant: "unfolding-scenario-action",
 					className: "rounded-pill",
-					onClick: t,
+					onClick: n,
+					disabled: !l,
 					children: "Continue"
 				})
 			})
@@ -1851,7 +1883,7 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 					className: "text-icon-action-sec-neutral",
 					src: C,
 					alt: "Return",
-					onClick: () => r(null)
+					onClick: () => a(null)
 				})
 			}),
 			/* @__PURE__ */ (0, $.jsxs)(f, {
@@ -1859,14 +1891,14 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 				children: [
 					/* @__PURE__ */ (0, $.jsx)("p", {
 						className: "text-interact-headings font-size-md font-weight-bold",
-						children: e.prompt
+						children: t.prompt
 					}),
 					/* @__PURE__ */ (0, $.jsx)("div", {
 						className: "d-flex flex-column flex-grow-1",
-						children: e.options.map((e, t) => /* @__PURE__ */ (0, $.jsx)($r, {
-							active: n === t,
-							onClick: () => o(t),
-							preSelected: i.includes(t),
+						children: t.options.map((e, t) => /* @__PURE__ */ (0, $.jsx)(ei, {
+							active: i === t,
+							onClick: () => c(t),
+							preSelected: o.has(t),
 							children: e.value
 						}))
 					}),
@@ -1875,7 +1907,8 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 						children: /* @__PURE__ */ (0, $.jsx)(d, {
 							variant: "unfolding-scenario-action",
 							className: "rounded-pill",
-							onClick: t,
+							disabled: !l,
+							onClick: n,
 							children: "Continue"
 						})
 					})
@@ -1883,11 +1916,11 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			}),
 			/* @__PURE__ */ (0, $.jsx)(f, {
 				className: "d-flex align-items-center",
-				children: e.options[n].feedback
+				children: t.options[i].feedback
 			})
 		]
 	});
-}, ti = ({ onCancel: e, title: t, children: n }) => /* @__PURE__ */ (0, $.jsx)(Br, {
+}, ni = ({ onCancel: e, title: t, children: n }) => /* @__PURE__ */ (0, $.jsx)(Br, {
 	allowPinchZoom: !0,
 	scrollLock: !0,
 	enabled: !0,
@@ -1900,7 +1933,7 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 		className: "pgn__modal pgn__modal-md pgn__modal-default p-3",
 		children: n
 	})] })
-}), ni = ({ onCancel: e, onConfirm: t }) => /* @__PURE__ */ (0, $.jsx)(ti, {
+}), ri = ({ onCancel: e, onConfirm: t }) => /* @__PURE__ */ (0, $.jsx)(ni, {
 	onCancel: e,
 	title: "Leave interactive?",
 	children: /* @__PURE__ */ (0, $.jsxs)("div", {
@@ -1930,7 +1963,7 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			})
 		]
 	})
-}), ri = ({ onCancel: e, onConfirm: t }) => /* @__PURE__ */ (0, $.jsx)(ti, {
+}), ii = ({ onCancel: e, onConfirm: t }) => /* @__PURE__ */ (0, $.jsx)(ni, {
 	onCancel: e,
 	title: "Restart interactive?",
 	children: /* @__PURE__ */ (0, $.jsxs)("div", {
@@ -1960,34 +1993,38 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			})
 		]
 	})
-}), ii = ({ data: e, onExit: t }) => {
-	let [n, r] = (0, b.useState)(0), [i, a] = (0, b.useState)(null);
+}), ai = ({ data: e, onExit: t }) => {
+	let [n, r] = (0, b.useState)(0), [i, a] = (0, b.useState)(null), [o, s] = (0, b.useState)(/* @__PURE__ */ new Map());
 	return /* @__PURE__ */ (0, $.jsxs)("div", {
 		className: "unfolding-scenario-activity-wrapper min-vh-100 bg-interact-default d-flex flex-column",
 		children: [
-			/* @__PURE__ */ (0, $.jsx)(Qr, {
+			/* @__PURE__ */ (0, $.jsx)($r, {
 				onClose: () => a("leave"),
 				title: e.name,
 				onReset: () => a("restart"),
 				activeScenarioIndex: n,
 				totalScenarios: e.scenarios.length
 			}),
-			n < e.scenarios.length ? /* @__PURE__ */ (0, $.jsx)(ei, {
+			n < e.scenarios.length ? /* @__PURE__ */ (0, $.jsx)(ti, {
 				scenario: e.scenarios[n],
+				interactionType: e.interactionType,
 				onContinue: () => {
 					n + 1 >= e.scenarios.length && e.outcome === null ? t() : r(n + 1);
-				}
-			}, n) : e.outcome && /* @__PURE__ */ (0, $.jsx)(Gr, {
+				},
+				onSelectOption: (e) => s(new Map(o).set(n, e))
+			}, n) : e.outcome && /* @__PURE__ */ (0, $.jsx)(Kr, {
 				outcome: e.outcome,
+				scenarios: e.scenarios,
+				selectedOptions: o,
 				onRestart: () => a("restart"),
 				onExit: t,
 				imageURL: e.introduction.imageURL
 			}),
-			i == "leave" && /* @__PURE__ */ (0, $.jsx)(ni, {
+			i == "leave" && /* @__PURE__ */ (0, $.jsx)(ri, {
 				onConfirm: t,
 				onCancel: () => a(null)
 			}),
-			i == "restart" && /* @__PURE__ */ (0, $.jsx)(ri, {
+			i == "restart" && /* @__PURE__ */ (0, $.jsx)(ii, {
 				onConfirm: () => {
 					r(0), a(null);
 				},
@@ -1995,39 +2032,44 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			})
 		]
 	});
-}, ai = /* @__PURE__ */ t(v(), 1), oi = ({ children: e, className: t, cssContent: n, themeUrls: r, onClose: i }) => {
-	let [a, o] = (0, b.useState)(null);
-	if (a === null) {
+}, oi = /* @__PURE__ */ t(v(), 1), si = ({ children: e, className: t, cssContent: n, themeUrls: r, title: i, onClose: a }) => {
+	let [o, s] = (0, b.useState)(null);
+	if (o === null) {
 		let e = document.createElement("div");
-		e.className = t, o(e);
+		e.className = t, s(e);
 	}
 	return (0, b.useEffect)(() => {
-		if (a) {
+		if (o) {
 			let e = window.open();
 			if (e == null) {
-				alert("Activity failed to open in a popup window or new tab. Please enable popups and try again."), i();
+				alert("Activity failed to open in a popup window or new tab. Please enable popups and try again."), a();
 				return;
 			}
 			e.addEventListener("beforeunload", () => {
-				i();
-			}), e.document.body.appendChild(a), r.forEach((t) => {
+				a();
+			});
+			let t = e.document.createElement("meta");
+			t.name = "viewport", t.content = "width=device-width,initial-scale=1", e.document.head.appendChild(t);
+			let s = e.document.createElement("title");
+			s.textContent = i, e.document.head.appendChild(s), e.document.body.appendChild(o), r.forEach((t) => {
 				let n = e.document.createElement("link");
 				n.rel = "stylesheet", n.href = t, e.document.head.appendChild(n.cloneNode());
 			});
-			let t = e.document.createElement("style");
-			return t.textContent = n, e.document.head.appendChild(t), () => e.close();
+			let c = e.document.createElement("style");
+			return c.textContent = n, e.document.head.appendChild(c), () => e.close();
 		}
-	}, [a]), a && (0, ai.createPortal)(e, a);
-}, si = ({ data: e, themeUrls: t, cssContent: n }) => {
+	}, [o]), o && (0, oi.createPortal)(e, o);
+}, ci = ({ data: e, themeUrls: t, cssContent: n }) => {
 	let [r, i] = (0, b.useState)(!1), a = "xblock-unfolding-scenario-wrapper";
 	return /* @__PURE__ */ (0, $.jsxs)("div", {
 		className: a,
-		children: [r && /* @__PURE__ */ (0, $.jsx)(oi, {
+		children: [r && /* @__PURE__ */ (0, $.jsx)(si, {
+			title: e.scenarioData.name,
 			className: `${a} min-vh-100`,
 			themeUrls: t,
 			cssContent: n,
 			onClose: () => i(!1),
-			children: /* @__PURE__ */ (0, $.jsx)(ii, {
+			children: /* @__PURE__ */ (0, $.jsx)(ai, {
 				data: e.scenarioData,
 				onExit: () => i(!1)
 			})
@@ -2038,19 +2080,19 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			activityOpen: r
 		})]
 	});
-}, ci = ".xblock-unfolding-scenario-wrapper{--color-action-default:var(--pgn-unfolding-scenario-color-action-default,#3874bc);--color-background-interactive:var(--pgn-unfolding-scenario-color-background-interactive,#8cc9d1);--color-text-interactive:var(--pgn-unfolding-scenario-color-text-interactive,#2f808e);--color-bg-emphasis:var(--pgn-unfolding-scenario-color-bg-emphasis,#223e5d);--color-bg-main:var(--pgn-unfolding-scenario-color-bg-main,#1b324a);--color-border-interact-default:var(--pgn-unfolding-scenario-color-border-interact-default,#b2d8de);--color-border-interact-emphasis:var(--pgn-unfolding-scenario-color-border-interact-emphasis,#327d8a);--color-border-sec-action-focus:var(--pgn-unfolding-scenario-color-border-sec-action-focus,#0e1d2f);--color-icon-action-sec-default:var(--pgn-unfolding-scenario-color-icon-action-sec-default,#3874bc);--color-icon-interact-default:var(--pgn-unfolding-scenario-color-icon-interact-default,#327d8a);--color-interact-default:var(--pgn-unfolding-scenario-color-interact-default,#ecf5f7);--color-interact-emphasis:var(--pgn-unfolding-scenario-color-interact-emphasis,#d9ebef);--color-interact-raised-emphasis:var(--pgn-unfolding-scenario-color-interact-raised-emphasis,#327d8a);--color-txt-interact-accent:var(--pgn-unfolding-scenario-color-txt-interact-accent,#2a578d);--color-txt-interact-content-inverse:var(--pgn-unfolding-scenario-color-txt-interact-content-inverse,#fff);--color-txt-interact-content:var(--pgn-unfolding-scenario-color-txt-interact-content,#223e5d);--color-txt-interact-headings:var(--pgn-unfolding-scenario-color-txt-interact-headings,#327d8a);--color-txt-action-prim-default:var(--pgn-unfolding-scenario-color-txt-action-prim-default,#fff);--color-txt-content:var(--pgn-unfolding-scenario-color-txt-content,#fff);--color-txt-sec-content:var(--pgn-unfolding-scenario-color-txt-sec-content,#223e5d);--color-icon-action-default:var(--pgn-unfolding-scenario-color-icon-action-default,#fff);--color-border-default:var(--pgn-unfolding-scenario-color-border-default,#4e657d);--color-interact-raised:var(--pgn-unfolding-scenario-color-interact-raised,#fff);--color-icon-inverse:var(--pgn-unfolding-scenario-color-icon-inverse,#fff);--color-icon-default:var(--pgn-unfolding-scenario-color-icon-default,#8cc4ce);--color-icon-action-sec-neutral:var(--pgn-unfolding-scenario-color-icon-action-sec-neutral,#1c3a5e);--btn-min-width:var(--pgn-unfolding-scenario-btn-min-width,200px)}.xblock-unfolding-scenario-wrapper .text-interact-headings{color:var(--color-txt-interact-headings)!important}.xblock-unfolding-scenario-wrapper .text-interact-accent{color:var(--color-txt-interact-accent)!important}.xblock-unfolding-scenario-wrapper .text-interact-content{color:var(--color-txt-interact-content)!important}.xblock-unfolding-scenario-wrapper .text-interact-content-inverse{color:var(--color-txt-interact-content-inverse)!important}.xblock-unfolding-scenario-wrapper .text-content{color:var(--color-txt-content)!important}.xblock-unfolding-scenario-wrapper .text-sec-content{color:var(--color-txt-sec-content)!important}.xblock-unfolding-scenario-wrapper .text-icon-inverse{color:var(--color-icon-inverse)!important}.xblock-unfolding-scenario-wrapper .text-icon-action-default{color:var(--color-icon-action-default)!important}.xblock-unfolding-scenario-wrapper .text-icon-action-sec-default{color:var(--color-icon-action-sec-default)!important}.xblock-unfolding-scenario-wrapper .text-icon-action-sec-neutral{color:var(--color-icon-action-sec-neutral)!important}.xblock-unfolding-scenario-wrapper .bg-interact-raised-emphasis{background-color:var(--color-interact-raised-emphasis)!important}.xblock-unfolding-scenario-wrapper .bg-interact-raised{background-color:var(--color-interact-raised)!important}.xblock-unfolding-scenario-wrapper .bg-emphasis{background-color:var(--color-bg-emphasis)!important}.xblock-unfolding-scenario-wrapper .bg-icon-default{background-color:var(--color-icon-default)!important}.xblock-unfolding-scenario-wrapper .bg-interact-default{background-color:var(--color-interact-default)!important}.xblock-unfolding-scenario-wrapper .bg-main{background-color:var(--color-bg-main)!important}.xblock-unfolding-scenario-wrapper .rounded-lg-bottom{border-bottom-right-radius:var(--pgn-size-border-radius-lg)!important;border-bottom-left-radius:var(--pgn-size-border-radius-lg)!important}.xblock-unfolding-scenario-wrapper .scenario-intro .scenario-name{color:var(--color-text-interactive);background-color:var(--color-interact-emphasis);border-radius:var(--pgn-spacing-spacer-base);border-bottom-left-radius:0;border-color:var(--color-border-interact-default)!important}.xblock-unfolding-scenario-wrapper .scenario-intro .scenario-name .border-right{border-color:var(--color-border-interact-default)!important}.xblock-unfolding-scenario-wrapper .scenario-intro .scenario-name .pgn__icon{color:var(--color-interact-raised-emphasis);zoom:2}.xblock-unfolding-scenario-wrapper .btn-unfolding-scenario-action{--pgn-btn-bg:var(--color-action-default);--pgn-btn-color:var(--color-txt-action-prim-default);--pgn-btn-hover-bg:var(--color-action-default);--pgn-btn-hover-color:var(--color-txt-action-prim-default);--pgn-btn-focus-bg:var(--color-action-default);--pgn-btn-focus-color:var(--color-txt-action-prim-default);--pgn-btn-focus-outline-color:var(--color-border-sec-action-focus);--pgn-btn-active-bg:var(--color-action-default);--pgn-btn-active-color:var(--color-txt-action-prim-default)}.xblock-unfolding-scenario-wrapper .btn-outline-unfolding-scenario-action{--pgn-size-btn-border-width:2px;--pgn-btn-bg:var(--color-txt-action-prim-default);--pgn-btn-color:var(--color-action-default);--pgn-btn-border-color:var(--color-action-default);--pgn-btn-hover-bg:var(--color-txt-action-prim-default);--pgn-btn-hover-color:var(--color-action-default);--pgn-btn-hover-border-color:var(--color-action-default);--pgn-btn-focus-bg:var(--color-txt-action-prim-default);--pgn-btn-focus-color:var(--color-action-default);--pgn-btn-focus-border-color:var(--color-action-default);--pgn-btn-focus-outline-color:var(--color-action-default);--pgn-btn-active-bg:var(--color-txt-action-prim-default);--pgn-btn-active-color:var(--color-action-default);--pgn-btn-active-border-color:var(--color-action-default)}.xblock-unfolding-scenario-wrapper .btn{min-width:var(--btn-min-width);padding:var(--pgn-spacing-spacer-2-5) var(--pgn-spacing-spacer-4-5)}.xblock-unfolding-scenario-wrapper .small-heading{font-size:calc(var(--pgn-typography-font-size-base) * 1.125);font-family:var(--pgn-typography-headings-font-family);font-weight:var(--pgn-typography-font-weight-bold)}.xblock-unfolding-scenario-wrapper .font-weight-lessbold{font-weight:calc(var(--pgn-typography-font-weight-bold) - 100)}.xblock-unfolding-scenario-wrapper .typography-headings{font-family:var(--pgn-typography-headings-font-family)}.xblock-unfolding-scenario-wrapper .font-size-lg{font-size:calc(var(--pgn-typography-font-size-base) * 1.25)}.xblock-unfolding-scenario-wrapper .font-size-md{font-size:calc(var(--pgn-typography-font-size-base) * 1.125)}.xblock-unfolding-scenario-wrapper .font-size-sm-md{font-size:calc(var(--pgn-typography-font-size-base) * .875)}.xblock-unfolding-scenario-wrapper .font-size-sm{font-size:calc(var(--pgn-typography-font-size-base) * .75)}.xblock-unfolding-scenario-wrapper .m-4-5{margin:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .ml-4-5,.xblock-unfolding-scenario-wrapper .mx-4-5{margin-left:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .mr-4-5,.xblock-unfolding-scenario-wrapper .mx-4-5{margin-right:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .mt-4-5,.xblock-unfolding-scenario-wrapper .my-4-5{margin-top:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .mb-4-5,.xblock-unfolding-scenario-wrapper .my-4-5{margin-bottom:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .p-4-5{padding:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .pl-4-5,.xblock-unfolding-scenario-wrapper .px-4-5{padding-left:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .pr-4-5,.xblock-unfolding-scenario-wrapper .px-4-5{padding-right:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .pt-4-5,.xblock-unfolding-scenario-wrapper .py-4-5{padding-top:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .pb-4-5,.xblock-unfolding-scenario-wrapper .py-4-5{padding-bottom:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .unfolding-scenario-activity-wrapper{height:100%}.xblock-unfolding-scenario-wrapper .step-indicator{height:var(--pgn-spacing-spacer-4-5);width:var(--pgn-spacing-spacer-4-5);font-size:calc(var(--pgn-typography-font-size-base) * 1.125)}.xblock-unfolding-scenario-wrapper .step-indicator-separator{background-color:var(--color-border-default);width:17px;height:1px}.xblock-unfolding-scenario-wrapper .arrow-bubble{background-color:var(--color-interact-emphasis);color:var(--color-icon-interact-default);border:1px solid var(--color-border-interact-default);border-radius:var(--pgn-spacing-spacer-base);border-bottom-left-radius:0;display:inline-block}.xblock-unfolding-scenario-wrapper .scenario-option-btn{height:calc(var(--pgn-typography-line-height-base) * var(--pgn-typography-font-size-base) * 3 + var(--pgn-spacing-spacer-base) * 2)}.xblock-unfolding-scenario-wrapper .scenario-option-btn.pre-selected{outline:2px solid var(--color-border-interact-emphasis)}.xblock-unfolding-scenario-wrapper .scenario-option-btn .hover-arrow{min-width:10px}.xblock-unfolding-scenario-wrapper .scenario-option-btn .hover-arrow .pgn__icon{display:none}.xblock-unfolding-scenario-wrapper .scenario-option-btn:hover .hover-arrow .pgn__icon,.xblock-unfolding-scenario-wrapper .scenario-option-btn.active .hover-arrow .pgn__icon{display:block}.xblock-unfolding-scenario-wrapper .scenario-option-btn:focus-visible{outline:2px solid var(--color-option-focus-border)}", li = async (e, t, n) => {
-	let r = await ui(n.config.mfe_config_api);
+}, li = ".xblock-unfolding-scenario-wrapper{--color-action-default:var(--pgn-unfolding-scenario-color-action-default,#3874bc);--color-background-interactive:var(--pgn-unfolding-scenario-color-background-interactive,#8cc9d1);--color-text-interactive:var(--pgn-unfolding-scenario-color-text-interactive,#2f808e);--color-bg-emphasis:var(--pgn-unfolding-scenario-color-bg-emphasis,#223e5d);--color-bg-main:var(--pgn-unfolding-scenario-color-bg-main,#1b324a);--color-border-interact-default:var(--pgn-unfolding-scenario-color-border-interact-default,#b2d8de);--color-border-interact-emphasis:var(--pgn-unfolding-scenario-color-border-interact-emphasis,#327d8a);--color-border-sec-action-focus:var(--pgn-unfolding-scenario-color-border-sec-action-focus,#0e1d2f);--color-icon-action-sec-default:var(--pgn-unfolding-scenario-color-icon-action-sec-default,#3874bc);--color-icon-interact-default:var(--pgn-unfolding-scenario-color-icon-interact-default,#327d8a);--color-interact-default:var(--pgn-unfolding-scenario-color-interact-default,#ecf5f7);--color-interact-emphasis:var(--pgn-unfolding-scenario-color-interact-emphasis,#d9ebef);--color-interact-raised-emphasis:var(--pgn-unfolding-scenario-color-interact-raised-emphasis,#327d8a);--color-txt-interact-accent:var(--pgn-unfolding-scenario-color-txt-interact-accent,#2a578d);--color-txt-interact-content-inverse:var(--pgn-unfolding-scenario-color-txt-interact-content-inverse,#fff);--color-txt-interact-content:var(--pgn-unfolding-scenario-color-txt-interact-content,#223e5d);--color-txt-interact-headings:var(--pgn-unfolding-scenario-color-txt-interact-headings,#327d8a);--color-txt-action-prim-default:var(--pgn-unfolding-scenario-color-txt-action-prim-default,#fff);--color-txt-content:var(--pgn-unfolding-scenario-color-txt-content,#fff);--color-txt-sec-content:var(--pgn-unfolding-scenario-color-txt-sec-content,#223e5d);--color-icon-action-default:var(--pgn-unfolding-scenario-color-icon-action-default,#fff);--color-border-default:var(--pgn-unfolding-scenario-color-border-default,#4e657d);--color-interact-raised:var(--pgn-unfolding-scenario-color-interact-raised,#fff);--color-icon-inverse:var(--pgn-unfolding-scenario-color-icon-inverse,#fff);--color-icon-default:var(--pgn-unfolding-scenario-color-icon-default,#8cc4ce);--color-icon-action-sec-neutral:var(--pgn-unfolding-scenario-color-icon-action-sec-neutral,#1c3a5e);--btn-min-width:var(--pgn-unfolding-scenario-btn-min-width,200px)}.xblock-unfolding-scenario-wrapper .text-interact-headings{color:var(--color-txt-interact-headings)!important}.xblock-unfolding-scenario-wrapper .text-interact-accent{color:var(--color-txt-interact-accent)!important}.xblock-unfolding-scenario-wrapper .text-interact-content{color:var(--color-txt-interact-content)!important}.xblock-unfolding-scenario-wrapper .text-interact-content-inverse{color:var(--color-txt-interact-content-inverse)!important}.xblock-unfolding-scenario-wrapper .text-content{color:var(--color-txt-content)!important}.xblock-unfolding-scenario-wrapper .text-sec-content{color:var(--color-txt-sec-content)!important}.xblock-unfolding-scenario-wrapper .text-icon-inverse{color:var(--color-icon-inverse)!important}.xblock-unfolding-scenario-wrapper .text-icon-action-default{color:var(--color-icon-action-default)!important}.xblock-unfolding-scenario-wrapper .text-icon-action-sec-default{color:var(--color-icon-action-sec-default)!important}.xblock-unfolding-scenario-wrapper .text-icon-action-sec-neutral{color:var(--color-icon-action-sec-neutral)!important}.xblock-unfolding-scenario-wrapper .bg-interact-raised-emphasis{background-color:var(--color-interact-raised-emphasis)!important}.xblock-unfolding-scenario-wrapper .bg-interact-raised{background-color:var(--color-interact-raised)!important}.xblock-unfolding-scenario-wrapper .bg-emphasis{background-color:var(--color-bg-emphasis)!important}.xblock-unfolding-scenario-wrapper .bg-icon-default{background-color:var(--color-icon-default)!important}.xblock-unfolding-scenario-wrapper .bg-interact-default{background-color:var(--color-interact-default)!important}.xblock-unfolding-scenario-wrapper .bg-main{background-color:var(--color-bg-main)!important}.xblock-unfolding-scenario-wrapper .rounded-lg-bottom{border-bottom-right-radius:var(--pgn-size-border-radius-lg)!important;border-bottom-left-radius:var(--pgn-size-border-radius-lg)!important}.xblock-unfolding-scenario-wrapper .scenario-intro .scenario-name{color:var(--color-text-interactive);background-color:var(--color-interact-emphasis);border-radius:var(--pgn-spacing-spacer-base);border-bottom-left-radius:0;border-color:var(--color-border-interact-default)!important}.xblock-unfolding-scenario-wrapper .scenario-intro .scenario-name .border-right{border-color:var(--color-border-interact-default)!important}.xblock-unfolding-scenario-wrapper .scenario-intro .scenario-name .pgn__icon{color:var(--color-interact-raised-emphasis);zoom:2}.xblock-unfolding-scenario-wrapper .btn-unfolding-scenario-action{--pgn-btn-bg:var(--color-action-default);--pgn-btn-color:var(--color-txt-action-prim-default);--pgn-btn-hover-bg:var(--color-action-default);--pgn-btn-hover-color:var(--color-txt-action-prim-default);--pgn-btn-focus-bg:var(--color-action-default);--pgn-btn-focus-color:var(--color-txt-action-prim-default);--pgn-btn-focus-outline-color:var(--color-border-sec-action-focus);--pgn-btn-active-bg:var(--color-action-default);--pgn-btn-active-color:var(--color-txt-action-prim-default)}.xblock-unfolding-scenario-wrapper .btn-outline-unfolding-scenario-action{--pgn-size-btn-border-width:2px;--pgn-btn-bg:var(--color-txt-action-prim-default);--pgn-btn-color:var(--color-action-default);--pgn-btn-border-color:var(--color-action-default);--pgn-btn-hover-bg:var(--color-txt-action-prim-default);--pgn-btn-hover-color:var(--color-action-default);--pgn-btn-hover-border-color:var(--color-action-default);--pgn-btn-focus-bg:var(--color-txt-action-prim-default);--pgn-btn-focus-color:var(--color-action-default);--pgn-btn-focus-border-color:var(--color-action-default);--pgn-btn-focus-outline-color:var(--color-action-default);--pgn-btn-active-bg:var(--color-txt-action-prim-default);--pgn-btn-active-color:var(--color-action-default);--pgn-btn-active-border-color:var(--color-action-default)}.xblock-unfolding-scenario-wrapper .btn{min-width:var(--btn-min-width);padding:var(--pgn-spacing-spacer-2-5) var(--pgn-spacing-spacer-4-5)}.xblock-unfolding-scenario-wrapper .small-heading{font-size:calc(var(--pgn-typography-font-size-base) * 1.125);font-family:var(--pgn-typography-headings-font-family);font-weight:var(--pgn-typography-font-weight-bold)}.xblock-unfolding-scenario-wrapper .font-weight-lessbold{font-weight:calc(var(--pgn-typography-font-weight-bold) - 100)}.xblock-unfolding-scenario-wrapper .typography-headings{font-family:var(--pgn-typography-headings-font-family)}.xblock-unfolding-scenario-wrapper .font-size-lg{font-size:calc(var(--pgn-typography-font-size-base) * 1.25)}.xblock-unfolding-scenario-wrapper .font-size-md{font-size:calc(var(--pgn-typography-font-size-base) * 1.125)}.xblock-unfolding-scenario-wrapper .font-size-sm-md{font-size:calc(var(--pgn-typography-font-size-base) * .875)}.xblock-unfolding-scenario-wrapper .font-size-sm{font-size:calc(var(--pgn-typography-font-size-base) * .75)}.xblock-unfolding-scenario-wrapper .m-4-5{margin:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .ml-4-5,.xblock-unfolding-scenario-wrapper .mx-4-5{margin-left:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .mr-4-5,.xblock-unfolding-scenario-wrapper .mx-4-5{margin-right:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .mt-4-5,.xblock-unfolding-scenario-wrapper .my-4-5{margin-top:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .mb-4-5,.xblock-unfolding-scenario-wrapper .my-4-5{margin-bottom:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .p-4-5{padding:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .pl-4-5,.xblock-unfolding-scenario-wrapper .px-4-5{padding-left:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .pr-4-5,.xblock-unfolding-scenario-wrapper .px-4-5{padding-right:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .pt-4-5,.xblock-unfolding-scenario-wrapper .py-4-5{padding-top:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .pb-4-5,.xblock-unfolding-scenario-wrapper .py-4-5{padding-bottom:var(--pgn-spacing-spacer-4-5)!important}.xblock-unfolding-scenario-wrapper .unfolding-scenario-activity-wrapper{height:100%}.xblock-unfolding-scenario-wrapper .step-indicator{height:var(--pgn-spacing-spacer-4-5);width:var(--pgn-spacing-spacer-4-5);font-size:calc(var(--pgn-typography-font-size-base) * 1.125)}.xblock-unfolding-scenario-wrapper .step-indicator-separator{background-color:var(--color-border-default);width:17px;height:1px}.xblock-unfolding-scenario-wrapper .arrow-bubble{background-color:var(--color-interact-emphasis);color:var(--color-icon-interact-default);border:1px solid var(--color-border-interact-default);border-radius:var(--pgn-spacing-spacer-base);border-bottom-left-radius:0;display:inline-block}.xblock-unfolding-scenario-wrapper .scenario-option-btn{height:calc(var(--pgn-typography-line-height-base) * var(--pgn-typography-font-size-base) * 3 + var(--pgn-spacing-spacer-base) * 2)}.xblock-unfolding-scenario-wrapper .scenario-option-btn.pre-selected{outline:2px solid var(--color-border-interact-emphasis)}.xblock-unfolding-scenario-wrapper .scenario-option-btn .hover-arrow{min-width:10px}.xblock-unfolding-scenario-wrapper .scenario-option-btn .hover-arrow .pgn__icon{display:none}.xblock-unfolding-scenario-wrapper .scenario-option-btn:hover .hover-arrow .pgn__icon,.xblock-unfolding-scenario-wrapper .scenario-option-btn.active .hover-arrow .pgn__icon{display:block}.xblock-unfolding-scenario-wrapper .scenario-option-btn:focus-visible{outline:2px solid var(--color-option-focus-border)}.xblock-unfolding-scenario-wrapper .outcome-option-row+.outcome-option-row{margin-top:var(--pgn-spacing-spacer-4);padding-top:var(--pgn-spacing-spacer-4);border-top:1px solid var(--color-border-interact-default)}", ui = async (e, t, n) => {
+	let r = await di(n.config.mfe_config_api);
 	u({
 		runtime: e,
 		element: t,
 		config: n.config,
-		styles: ci
-	})(/* @__PURE__ */ (0, $.jsx)(si, {
+		styles: li
+	})(/* @__PURE__ */ (0, $.jsx)(ci, {
 		data: n.data,
 		themeUrls: r,
-		cssContent: ci
+		cssContent: li
 	}));
-}, ui = async (e) => {
+}, di = async (e) => {
 	let t = {};
 	try {
 		t = (await (await fetch(e)).json()).PARAGON_THEME_URLS;
@@ -2066,4 +2108,4 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 	].filter(Boolean);
 };
 //#endregion
-export { li as renderBlock };
+export { ui as renderBlock };

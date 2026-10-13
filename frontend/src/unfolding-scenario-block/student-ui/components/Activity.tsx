@@ -14,6 +14,10 @@ interface ActivityProps {
 export const Activity = ({ data, onExit }: ActivityProps) => {
   const [activeScenarioIndex, setActiveScenarioIndex] = useState<number>(0);
   const [modalType, setModalType] = useState<null | 'restart' | 'leave'>(null);
+  // a mapping of scenarioIndex -> selectedOptionIndex
+  const [selectedOptions, setSelectedOptions] = useState<Map<number, number>>(
+    new Map(),
+  );
 
   const onReset = () => {
     setActiveScenarioIndex(0);
@@ -45,12 +49,20 @@ export const Activity = ({ data, onExit }: ActivityProps) => {
         <ScenarioView
           key={activeScenarioIndex} // ensure state for this component is local to the specific scenario
           scenario={data.scenarios[activeScenarioIndex]}
+          interactionType={data.interactionType}
           onContinue={onContinue}
+          onSelectOption={(i) =>
+            setSelectedOptions(
+              new Map(selectedOptions).set(activeScenarioIndex, i),
+            )
+          }
         />
       ) : (
         data.outcome && (
           <OutcomeComponent
             outcome={data.outcome}
+            scenarios={data.scenarios}
+            selectedOptions={selectedOptions}
             onRestart={() => setModalType('restart')}
             onExit={onExit}
             imageURL={data.introduction.imageURL}

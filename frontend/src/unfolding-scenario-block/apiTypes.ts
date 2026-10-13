@@ -5,6 +5,8 @@
 /* Do not modify it by hand - just update the pydantic models and then re-run the script
 */
 
+export type InteractionType = "SelectOne" | "Explore";
+
 /**
  * Full payload sent by the studio editor when saving the block.
  */
@@ -19,7 +21,8 @@ export interface ScenarioData {
   name: string;
   introduction: Introduction;
   scenarios: Scenario[];
-  outcome: Outcome | null;
+  outcome: Outcome;
+  interactionType: InteractionType;
 }
 /**
  * Introduction content that's presented by default by the XBlock.
@@ -54,4 +57,5 @@ export interface Option {
 export interface Outcome {
   heading: string;
   description: string;
+  displaySelectedOptions: boolean;
 }

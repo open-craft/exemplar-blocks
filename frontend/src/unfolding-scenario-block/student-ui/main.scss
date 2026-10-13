@@ -371,4 +371,10 @@
       outline: 2px solid var(--color-option-focus-border);
     }
   }
+
+  .outcome-option-row + .outcome-option-row {
+    margin-top: var(--pgn-spacing-spacer-4);
+    padding-top: var(--pgn-spacing-spacer-4);
+    border-top: 1px solid var(--color-border-interact-default);
+  }
 }
