@@ -1823,59 +1823,33 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 	let [i, a] = (0, b.useState)(null), [o, s] = (0, b.useState)(/* @__PURE__ */ new Set()), c = (e) => {
 		s(new Set([...o, e])), a(e), r(e);
 	}, l = e == "Explore" && o.size == t.options.length || e == "SelectOne" && i !== null;
-	return i === null ? /* @__PURE__ */ (0, $.jsxs)(j, {
-		className: "pt-3 mx-3",
-		children: [/* @__PURE__ */ (0, $.jsxs)(f, { children: [
-			/* @__PURE__ */ (0, $.jsx)("p", {
-				className: "font-size-lg font-weight-bold text-interact-accent",
-				children: t.heading
-			}),
-			/* @__PURE__ */ (0, $.jsx)("p", {
-				className: "text-interact-content pb-3",
-				children: t.description
-			}),
-			/* @__PURE__ */ (0, $.jsxs)("div", {
-				className: "d-flex align-items-center mt-3 mb-2",
-				children: [/* @__PURE__ */ (0, $.jsx)("div", {
-					className: "arrow-bubble p-2 text-icon-interact-default",
-					children: /* @__PURE__ */ (0, $.jsx)(m, { src: S })
-				}), /* @__PURE__ */ (0, $.jsx)("span", {
-					className: "text-interact-headings font-size-medium font-weight-bold pl-2",
-					children: t.instructionTitle
-				})]
-			}),
-			/* @__PURE__ */ (0, $.jsx)("p", {
-				className: "text-interact-content",
-				children: t.instructionDescription
-			})
-		] }), /* @__PURE__ */ (0, $.jsxs)(f, { children: [
-			/* @__PURE__ */ (0, $.jsx)("p", {
-				className: "text-interact-headings font-size-md font-weight-bold",
-				children: t.prompt
-			}),
-			/* @__PURE__ */ (0, $.jsx)("div", {
-				className: "d-flex flex-column flex-grow-1",
-				children: t.options.map((e, t) => /* @__PURE__ */ (0, $.jsx)(ei, {
-					active: !1,
-					onClick: () => c(t),
-					preSelected: o.has(t),
-					children: e.value
-				}))
-			}),
-			/* @__PURE__ */ (0, $.jsx)("div", {
-				className: "d-flex justify-content-end",
-				children: /* @__PURE__ */ (0, $.jsx)(d, {
-					variant: "unfolding-scenario-action",
-					className: "rounded-pill",
-					onClick: n,
-					disabled: !l,
-					children: "Continue"
-				})
-			})
-		] })]
-	}) : /* @__PURE__ */ (0, $.jsxs)(j, {
+	return /* @__PURE__ */ (0, $.jsxs)(j, {
 		className: "pt-3 mx-3",
 		children: [
+			/* @__PURE__ */ (0, $.jsxs)(f, { children: [
+				/* @__PURE__ */ (0, $.jsx)("p", {
+					className: "font-size-lg font-weight-bold text-interact-accent",
+					children: t.heading
+				}),
+				/* @__PURE__ */ (0, $.jsx)("p", {
+					className: "text-interact-content pb-3",
+					children: t.description
+				}),
+				/* @__PURE__ */ (0, $.jsxs)("div", {
+					className: "d-flex align-items-center mt-3 mb-2",
+					children: [/* @__PURE__ */ (0, $.jsx)("div", {
+						className: "arrow-bubble p-2 text-icon-interact-default",
+						children: /* @__PURE__ */ (0, $.jsx)(m, { src: S })
+					}), /* @__PURE__ */ (0, $.jsx)("span", {
+						className: "text-interact-headings font-size-medium font-weight-bold pl-2",
+						children: t.instructionTitle
+					})]
+				}),
+				/* @__PURE__ */ (0, $.jsx)("p", {
+					className: "text-interact-content",
+					children: t.instructionDescription
+				})
+			] }),
 			/* @__PURE__ */ (0, $.jsx)(f, {
 				xs: "1",
 				className: "d-flex align-items-center",
@@ -1916,7 +1890,7 @@ var Wr = ({ name: e, introduction: t, onLaunch: n, activityOpen: r }) => /* @__P
 			}),
 			/* @__PURE__ */ (0, $.jsx)(f, {
 				className: "d-flex align-items-center",
-				children: t.options[i].feedback
+				children: i === null ? null : t.options[i].feedback
 			})
 		]
 	});
