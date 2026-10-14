@@ -1,8 +1,8 @@
 import { type ScenarioData } from '../../apiTypes';
-import { useState } from 'react';
+import { startTransition, useState } from 'react';
 import { OutcomeComponent } from './Outcome';
-import { ResponsiveActivityHeader } from './ResponsiveActivityHeader';
-import { ScenarioView } from './ScenarioView';
+import { ResponsiveActivityHeader } from './header/ResponsiveActivityHeader';
+import { ResponsiveScenarioView } from './scenario/ResponsiveScenarioView';
 import { LeaveConfirmModal } from './LeaveConfirmModal';
 import { RestartConfirmModal } from './RestartConfirmModal';
 
@@ -24,18 +24,6 @@ export const Activity = ({ data, onExit }: ActivityProps) => {
     setModalType(null);
   };
 
-  const onContinue = () => {
-    if (
-      activeScenarioIndex + 1 >= data.scenarios.length &&
-      data.outcome === null
-    ) {
-      // if there is no outcome page, then simply exit without prompting
-      onExit();
-    } else {
-      setActiveScenarioIndex(activeScenarioIndex + 1);
-    }
-  };
-
   return (
     <div className="unfolding-scenario-activity-wrapper min-vh-100 bg-interact-default d-flex flex-column">
       <ResponsiveActivityHeader
@@ -46,12 +34,16 @@ export const Activity = ({ data, onExit }: ActivityProps) => {
         totalScenarios={data.scenarios.length}
       />
       {activeScenarioIndex < data.scenarios.length ? (
-        <ScenarioView
+        <ResponsiveScenarioView
           key={activeScenarioIndex} // ensure state for this component is local to the specific scenario
           scenario={data.scenarios[activeScenarioIndex]}
           interactionType={data.interactionType}
-          onContinue={onContinue}
-          onSelectOption={(i) =>
+          onContinue={() => {
+            startTransition(() => {
+              setActiveScenarioIndex(activeScenarioIndex + 1);
+            });
+          }}
+          onSelectOption={(i: number) =>
             setSelectedOptions(
               new Map(selectedOptions).set(activeScenarioIndex, i),
             )

@@ -273,6 +273,7 @@
     ); // 12px if base size is 16px
   }
 
+  // TODO: do we want these in some shared base styles for reuse?
   // utility margins/paddings to complement existing bootstrap utility margins/paddings
   .m-4-5 {
     margin: var(--pgn-spacing-spacer-4-5) !important;
@@ -411,5 +412,34 @@
 
   .active.options-pane-3 {
     left: 50%;
+  }
+
+  // Transitions for a *tablet* scenario view, when the user clicks an option or clicks the return button.
+  .tablet-options-pane {
+    transition: left 0.5s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tablet-options-pane {
+      transition: unset;
+    }
+  }
+
+  .tablet-options-pane-1 {
+    left: 0%;
+  }
+
+  .tablet-options-pane-2 {
+    left: 100%;
+
+    border-left: var(--pgn-spacing-spacer-3) solid var(--color-interact-default);
+  }
+
+  .active.tablet-options-pane-1 {
+    left: -100%;
+  }
+
+  .active.tablet-options-pane-2 {
+    left: 0%;
   }
 }

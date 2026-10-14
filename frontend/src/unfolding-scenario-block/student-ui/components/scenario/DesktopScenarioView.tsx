@@ -1,48 +1,28 @@
-import { useState } from 'react';
 import { Icon, IconButton, Button } from '@openedx/paragon';
 import { ArrowOutward, KeyboardReturn } from '@openedx/paragon/icons';
 import { OptionComponent } from './OptionComponent';
-import { type InteractionType, type Scenario } from '../../apiTypes';
+import { type Scenario } from '@/unfolding-scenario-block/apiTypes';
 
-interface ScenarioViewProps {
+interface DesktopScenarioViewProps {
   scenario: Scenario;
-  interactionType: InteractionType;
+  activeOptionIndex: number | null;
+  preSelectedOptions: Set<number>;
+  isContinueEnabled: boolean;
   onContinue: () => void;
-  onSelectOption: (i: number) => void;
+  onSelectOption: (i: number | null) => void;
 }
 
-// TODO: implement mobile and tablet views of this. Note that the mobile view has quite different behaviour around the continue button, and probably animations will be different too.
-export const ScenarioView = ({
-  interactionType,
+export const DesktopScenarioView = ({
   scenario,
+  activeOptionIndex,
+  preSelectedOptions,
+  isContinueEnabled,
   onContinue,
   onSelectOption,
-}: ScenarioViewProps) => {
-  const [activeOptionIndex, setActiveOptionIndex] = useState<number | null>(
-    null,
-  );
-  // a set of option indexes that the user has selected in this session
-  const [selectedOptions, setSelectedOptions] = useState<Set<number>>(
-    new Set(),
-  );
-
-  const selectOption = (i: number) => {
-    setSelectedOptions(new Set([...selectedOptions, i]));
-    setActiveOptionIndex(i);
-    onSelectOption(i);
-  };
-
-  const isContinueEnabled =
-    // In explore mode, only enable if user has clicked through all options
-    (interactionType == 'Explore' &&
-      selectedOptions.size == scenario.options.length) ||
-    // In select one mode, enable if there is an active option currently
-    (interactionType == 'SelectOne' && activeOptionIndex !== null);
-
-  // TODO: implement slide transition for clicking continue
+}: DesktopScenarioViewProps) => {
   return (
-    <div className="pt-3 mx-3">
-      <div className="position-relative w-100">
+    <div className="pt-3 mx-3 h-100">
+      <div className="position-relative w-100 h-100 overflow-hidden">
         <div
           className={`w-50 position-absolute ${activeOptionIndex !== null ? 'active' : ''} options-pane options-pane-1`}
         >
@@ -71,7 +51,7 @@ export const ScenarioView = ({
                 className="text-icon-action-sec-neutral"
                 src={KeyboardReturn}
                 alt="Return"
-                onClick={() => setActiveOptionIndex(null)}
+                onClick={() => onSelectOption(null)}
               />
             </div>
           )}
@@ -83,8 +63,8 @@ export const ScenarioView = ({
               {scenario.options.map((option, i) => (
                 <OptionComponent
                   active={activeOptionIndex === i}
-                  onClick={() => selectOption(i)}
-                  preSelected={selectedOptions.has(i)}
+                  onClick={() => onSelectOption(i)}
+                  preSelected={preSelectedOptions.has(i)}
                 >
                   {option.value}
                 </OptionComponent>
