@@ -377,4 +377,39 @@
     padding-top: var(--pgn-spacing-spacer-4);
     border-top: 1px solid var(--color-border-interact-default);
   }
+
+  // Transitions for a scenario view, when the user clicks an option or clicks the return button.
+  .options-pane {
+    transition: left 0.5s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .options-pane {
+      transition: unset;
+    }
+  }
+
+  .options-pane-1 {
+    left: 0%;
+  }
+
+  .options-pane-2 {
+    left: 50%;
+  }
+
+  .options-pane-3 {
+    left: 100%;
+  }
+
+  .active.options-pane-1 {
+    left: -50%;
+  }
+
+  .active.options-pane-2 {
+    left: 0%;
+  }
+
+  .active.options-pane-3 {
+    left: 50%;
+  }
 }
