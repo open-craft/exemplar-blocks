@@ -39,6 +39,7 @@ export const Activity = ({ data, onExit }: ActivityProps) => {
           scenario={data.scenarios[activeScenarioIndex]}
           interactionType={data.interactionType}
           onContinue={() => {
+            // TODO implement animation between scenarios. This startTransition is an experimental placeholder.
             startTransition(() => {
               setActiveScenarioIndex(activeScenarioIndex + 1);
             });

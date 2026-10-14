@@ -12,6 +12,7 @@ interface MobileScenarioViewProps {
   onSelectOption: (i: number | null) => void;
 }
 
+// TODO: implement this (currently it's just a copy of the desktop scenario view)
 export const MobileScenarioView = ({
   scenario,
   activeOptionIndex,
