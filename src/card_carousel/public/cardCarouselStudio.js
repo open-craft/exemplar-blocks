@@ -8297,36 +8297,42 @@ function ug(e = [], t) {
 function dg() {
 	let { values: e, setFieldValue: t, handleChange: n } = Ah();
 	return /* @__PURE__ */ (0, R.jsxs)("div", {
-		className: "p-4",
+		className: "card-carousel-create-form",
 		children: [
-			/* @__PURE__ */ (0, R.jsx)("h3", { children: "Create Card Carousel" }),
-			/* @__PURE__ */ (0, R.jsxs)(L.Group, { children: [
-				/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Display Name" }),
-				/* @__PURE__ */ (0, R.jsx)(L.Text, {
-					muted: !0,
-					children: "Name of the XBlock component in Studio."
-				}),
-				/* @__PURE__ */ (0, R.jsx)(L.Control, {
-					type: "text",
-					name: "displayName",
-					value: e.displayName,
-					onChange: n
-				})
-			] }),
+			/* @__PURE__ */ (0, R.jsx)("h3", {
+				className: "card-carousel-studio-title",
+				children: "Create Card Carousel"
+			}),
 			/* @__PURE__ */ (0, R.jsxs)(L.Group, {
-				className: "my-3",
+				className: "card-carousel-studio-field",
+				children: [
+					/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Display Name" }),
+					/* @__PURE__ */ (0, R.jsx)(L.Text, {
+						muted: !0,
+						children: "Name of the XBlock component in Studio."
+					}),
+					/* @__PURE__ */ (0, R.jsx)(L.Control, {
+						type: "text",
+						name: "displayName",
+						value: e.displayName,
+						onChange: n
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, R.jsxs)(L.Group, {
+				className: "card-carousel-studio-field",
 				children: [/* @__PURE__ */ (0, R.jsx)(L.Checkbox, {
 					name: "disableNumbering",
 					checked: !e.disableNumbering,
 					onChange: (e) => t("disableNumbering", !e.currentTarget.checked),
 					children: "Add card numbers"
 				}), /* @__PURE__ */ (0, R.jsx)(L.Text, {
-					className: "small",
+					className: "card-carousel-studio-help-text",
 					children: "Displays progress. For e.g., (2/4)"
 				})]
 			}),
 			/* @__PURE__ */ (0, R.jsxs)(L.Group, {
-				className: "my-3",
+				className: "card-carousel-studio-field card-carousel-studio-field--last",
 				children: [/* @__PURE__ */ (0, R.jsx)(L.Label, { children: "Background Color" }), /* @__PURE__ */ (0, R.jsx)(ql, {
 					color: e.backgroundColor,
 					setColor: (e) => t("backgroundColor", e)
@@ -14197,7 +14203,7 @@ function Kk({ runtime: e, saveUrl: t, initData: n }) {
 			});
 		},
 		children: /* @__PURE__ */ (0, R.jsx)(eg, { children: /* @__PURE__ */ (0, R.jsxs)("div", {
-			className: "studio-ui d-flex flex-column justify-content-between",
+			className: "studio-ui card-carousel-studio",
 			children: [r ? /* @__PURE__ */ (0, R.jsx)(Wk, { enableCardOrientation: !0 }) : /* @__PURE__ */ (0, R.jsx)(dg, {}), /* @__PURE__ */ (0, R.jsx)(Gk, {
 				runtime: e,
 				showingEditor: r,
@@ -14210,7 +14216,7 @@ function Kk({ runtime: e, saveUrl: t, initData: n }) {
 }
 //#endregion
 //#region src/card/card-carousel/studio-ui/StudioUI.css?inline
-var qk = ".icon-selector.dropdown-toggle:after{display:none}.icon-list-popup{background-color:var(--pgn-color-body-bg);width:292px;min-height:242px;max-height:300px;overflow:scroll}button:not(:disabled).icon-symbol{background-color:var(--pgn-color-body-bg);width:auto;color:var(--pgn-color-gray-600);border:0}button:not(:disabled).icon-symbol:hover{background-color:var(--pgn-color-light);color:var(--pgn-color-primary)}button:not(:disabled).icon-symbol:focus{background-color:var(--pgn-color-light);color:var(--pgn-color-primary);border:0}.card-carousel-editor-modal-footer{background-color:var(--pgn-color-card-bg-base)}.xblock-root .input-group .pgn__form-control-decorator-group{margin-right:0}.xblock-root .input-group .pgn__form-control-decorator-group .form-control{border-top-right-radius:0;border-bottom-right-radius:0}.wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", Jk = (e, t, n) => {
+var qk = ".icon-selector.dropdown-toggle:after{display:none}.icon-list-popup{background-color:var(--pgn-color-body-bg);width:292px;min-height:242px;max-height:300px;overflow:scroll}button:not(:disabled).icon-symbol{background-color:var(--pgn-color-body-bg);width:auto;color:var(--pgn-color-gray-600);border:0}button:not(:disabled).icon-symbol:hover{background-color:var(--pgn-color-light);color:var(--pgn-color-primary)}button:not(:disabled).icon-symbol:focus{background-color:var(--pgn-color-light);color:var(--pgn-color-primary);border:0}.card-carousel-editor-modal-footer{background-color:var(--pgn-color-card-bg-base)}.xblock-root .input-group .pgn__form-control-decorator-group{margin-right:0}.xblock-root .input-group .pgn__form-control-decorator-group .form-control{border-top-right-radius:0;border-bottom-right-radius:0}.wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.card-carousel-studio{flex-direction:column;justify-content:space-between;display:flex}.card-carousel-create-form{padding:var(--pgn-spacing-spacer-3,16px)}.card-carousel-studio-title{margin:0 0 var(--pgn-spacing-spacer-4,24px)}.card-carousel-studio-field{margin-bottom:var(--pgn-spacing-spacer-4,24px)}.card-carousel-studio-field--last{margin-bottom:0}.card-carousel-studio-help-text{font-size:var(--pgn-typography-font-size-sm,.875rem)}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", Jk = (e, t, n) => {
 	let r = s(e), i = t.handlerUrl(e, "studio_save"), a = r.parentElement?.parentElement;
 	a && (a.style.minHeight = "635px", a.style.maxHeight = "calc(100vh - 51px)", a.style.overflowY = "scroll"), C({
 		runtime: t,

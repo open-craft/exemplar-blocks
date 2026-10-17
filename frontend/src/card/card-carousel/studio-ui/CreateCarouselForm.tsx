@@ -7,9 +7,9 @@ export default function CreateCarouselForm() {
   const { values, setFieldValue, handleChange } = useFormikContext<InitData>();
 
   return (
-    <div className="p-4">
-      <h3>Create Card Carousel</h3>
-      <Form.Group>
+    <div className="card-carousel-create-form">
+      <h3 className="card-carousel-studio-title">Create Card Carousel</h3>
+      <Form.Group className="card-carousel-studio-field">
         <Form.Label>Display Name</Form.Label>
         <Form.Text muted>Name of the XBlock component in Studio.</Form.Text>
         <Form.Control
@@ -20,7 +20,7 @@ export default function CreateCarouselForm() {
         />
       </Form.Group>
 
-      <Form.Group className="my-3">
+      <Form.Group className="card-carousel-studio-field">
         <Form.Checkbox
           name="disableNumbering"
           checked={!values.disableNumbering}
@@ -30,12 +30,12 @@ export default function CreateCarouselForm() {
         >
           Add card numbers
         </Form.Checkbox>
-        <Form.Text className="small">
+        <Form.Text className="card-carousel-studio-help-text">
           Displays progress. For e.g., (2/4)
         </Form.Text>
       </Form.Group>
 
-      <Form.Group className="my-3">
+      <Form.Group className="card-carousel-studio-field card-carousel-studio-field--last">
         <Form.Label>Background Color</Form.Label>
         <ColorPicker
           color={values.backgroundColor}

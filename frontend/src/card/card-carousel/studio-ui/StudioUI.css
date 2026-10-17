@@ -3,6 +3,32 @@
 @import '@/card/common/studio-ui/secondary-content/ImageForm.css';
 @import '@/studio.scss';
 
+.card-carousel-studio {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-carousel-create-form {
+  padding: var(--pgn-spacing-spacer-3, 16px);
+}
+
+.card-carousel-studio-title {
+  margin: 0 0 var(--pgn-spacing-spacer-4, 24px);
+}
+
+.card-carousel-studio-field {
+  margin-bottom: var(--pgn-spacing-spacer-4, 24px);
+}
+
+.card-carousel-studio-field--last {
+  margin-bottom: 0;
+}
+
+.card-carousel-studio-help-text {
+  font-size: var(--pgn-typography-font-size-sm, 0.875rem);
+}
+
 /*
 The Material Icons styles are supposed to be loaded directly using the injects <link> element.
 While the font loads as expected, the CSS doesn't reach the UI due to the shadow dom boundary.

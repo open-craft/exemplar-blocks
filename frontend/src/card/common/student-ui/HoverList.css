@@ -1,5 +1,5 @@
 .horizontal .hover-list {
-  column-gap: calc(var(--pgn-spacing-spacer-base) * 2) !important;
+  column-gap: var(--pgn-spacing-spacer-4-5, 32px);
 }
 
 .hover-list-description,
@@ -47,7 +47,7 @@
 .hover-list-item:has(.hover-content):hover,
 .hover-list-item:has(.hover-content).is-active {
   list-style: none;
-  margin-left: calc(var(--pgn-spacing-spacer-base) * -2.5) !important;
+  margin-left: calc(var(--pgn-spacing-spacer-base) * -2.5);
 }
 
 .hover-list-item:has(.hover-content):hover .hover-list-description {
@@ -63,4 +63,8 @@
 .hover-content-icon-wrapper {
   color: var(--pgn-color-light-100);
   margin-right: var(--pgn-spacing-spacer-base);
+}
+
+.hover-content-text {
+  margin-left: var(--pgn-spacing-spacer-2, 8px);
 }

@@ -5,3 +5,65 @@
 .edit-xblock-modal > .modal-actions {
   display: none !important;
 }
+
+.ideas-overview-block-editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ideas-overview-editor-body {
+  padding: var(--pgn-spacing-spacer-3, 16px);
+}
+
+.ideas-overview-editor-stack,
+.ideas-overview-editor-points-stack {
+  gap: var(--pgn-spacing-spacer-4, 24px);
+}
+
+.ideas-overview-editor-field {
+  margin-bottom: var(--pgn-spacing-spacer-3, 16px);
+}
+
+.ideas-overview-editor-field--last {
+  margin-bottom: 0;
+}
+
+.ideas-overview-editor-section-title {
+  margin: 0 0 var(--pgn-spacing-spacer-3, 16px);
+  font-weight: 700;
+}
+
+.ideas-overview-editor-card {
+  margin-bottom: var(--pgn-spacing-spacer-3, 16px);
+}
+
+.ideas-overview-editor-card:last-of-type {
+  margin-bottom: 0;
+}
+
+.ideas-overview-editor-card-section {
+  padding: var(--pgn-spacing-spacer-4, 24px);
+}
+
+.ideas-overview-editor-empty {
+  color: var(--pgn-color-gray-500);
+}
+
+.ideas-overview-editor-add-idea,
+.ideas-overview-editor-add-point {
+  margin-top: var(--pgn-spacing-spacer-3, 16px);
+}
+
+.ideas-overview-editor-point-row {
+  align-items: center;
+}
+
+.ideas-overview-editor-point-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ideas-overview-editor-actions {
+  padding: var(--pgn-spacing-spacer-3, 16px);
+}
