@@ -74,6 +74,36 @@ describe('StudentUI', () => {
     expect(screen.getAllByText(/Card \d/)).toHaveLength(3);
   });
 
+  it('sets the configured background color on the outer container', () => {
+    const { container } = render(
+      <StudentUI
+        runtime={mockRuntime}
+        initData={{
+          cards: mockCards,
+          displayName: 'Test',
+          backgroundColor: '#12FF23',
+        }}
+      />,
+    );
+    const wrapper = container.querySelector('.card-carousel-xblock');
+    expect(wrapper).toHaveStyle('background-color: rgb(18, 255, 35);');
+  });
+
+  it('uses the design-system carousel container', () => {
+    const { container } = render(
+      <StudentUI
+        runtime={mockRuntime}
+        initData={{
+          cards: mockCards,
+          displayName: 'Test',
+        }}
+      />,
+    );
+    expect(
+      container.querySelector('.card-carousel-container'),
+    ).toBeInTheDocument();
+  });
+
   it('renders each card with its own orientation', () => {
     const { container } = render(
       <StudentUI

@@ -12,33 +12,21 @@ var h = /* @__PURE__ */ e(s()), g = /* @__PURE__ */ e(t()), _ = [
 });
 y.displayName = "Badge", y.defaultProps = v;
 //#endregion
-//#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Container.js
-var b = [
-	"bsPrefix",
-	"fluid",
-	"as",
-	"className"
-], x = { fluid: !1 }, S = /* @__PURE__ */ g.forwardRef(function(e, t) {
-	var n = e.bsPrefix, a = e.fluid, o = e.as, s = o === void 0 ? "div" : o, c = e.className, u = i(e, b), d = r(n, "container"), f = typeof a == "string" ? "-" + a : "-fluid";
-	return /* @__PURE__ */ g.createElement(s, l({ ref: t }, u, { className: (0, h.default)(c, a ? "" + d + f : d) }));
-});
-S.displayName = "Container", S.defaultProps = x;
-//#endregion
 //#region node_modules/.pnpm/react-bootstrap@1.6.5_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-bootstrap/esm/Row.js
-var C = [
+var b = [
 	"bsPrefix",
 	"className",
 	"noGutters",
 	"as"
-], w = [
+], x = [
 	"xl",
 	"lg",
 	"md",
 	"sm",
 	"xs"
-], T = { noGutters: !1 }, E = /* @__PURE__ */ g.forwardRef(function(e, t) {
-	var n = e.bsPrefix, a = e.className, o = e.noGutters, s = e.as, c = s === void 0 ? "div" : s, u = i(e, C), d = r(n, "row"), f = d + "-cols", p = [];
-	return w.forEach(function(e) {
+], S = { noGutters: !1 }, C = /* @__PURE__ */ g.forwardRef(function(e, t) {
+	var n = e.bsPrefix, a = e.className, o = e.noGutters, s = e.as, c = s === void 0 ? "div" : s, u = i(e, b), d = r(n, "row"), f = d + "-cols", p = [];
+	return x.forEach(function(e) {
 		var t = u[e];
 		delete u[e];
 		var n = typeof t == "object" && t ? t.cols : t, r = e === "xs" ? "" : "-" + e;
@@ -49,30 +37,21 @@ var C = [
 		o && "no-gutters"
 	].concat(p)) }));
 });
-E.displayName = "Row", E.defaultProps = T;
+C.displayName = "Row", C.defaultProps = S;
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Badge/index.js
-var ee = /* @__PURE__ */ g.forwardRef(({ as: e = "span", variant: t = "primary", pill: n = !1, bsPrefix: r = "badge", ...i }, a) => /* @__PURE__ */ g.createElement(y, {
+var w = /* @__PURE__ */ g.forwardRef(({ as: e = "span", variant: t = "primary", pill: n = !1, bsPrefix: r = "badge", ...i }, a) => /* @__PURE__ */ g.createElement(y, {
 	as: e,
 	variant: t,
 	pill: n,
 	bsPrefix: r,
 	...i,
 	ref: a
-})), D = /* @__PURE__ */ function(e) {
-	return e.xs = "container-mw-xs", e.sm = "container-mw-sm", e.md = "container-mw-md", e.lg = "container-mw-lg", e.xl = "container-mw-xl", e;
-}(D || {}), O = /* @__PURE__ */ (0, g.forwardRef)(({ size: e, children: t, as: n = "div", bsPrefix: r = "container", fluid: i = !0, ...a }, o) => /* @__PURE__ */ g.createElement(S, {
-	...a,
-	as: n,
-	bsPrefix: r,
-	fluid: i,
-	ref: o,
-	className: (0, h.default)(a.className, e && D[e])
-}, t)), k = /* @__PURE__ */ e(p()), A = /* @__PURE__ */ g.forwardRef(({ className: e, children: t, ...n }, r) => /* @__PURE__ */ g.createElement("div", {
+})), T = /* @__PURE__ */ e(p()), E = /* @__PURE__ */ g.forwardRef(({ className: e, children: t, ...n }, r) => /* @__PURE__ */ g.createElement("div", {
 	className: (0, h.default)("pgn__card-body", e),
 	ref: r,
 	...n
-}, t)), j = "card", M = [
+}, t)), D = "card", O = [
 	"primary",
 	"secondary",
 	"success",
@@ -81,33 +60,33 @@ var ee = /* @__PURE__ */ g.forwardRef(({ as: e = "span", variant: t = "primary",
 	"info",
 	"dark",
 	"light"
-], te = ["white", "muted"], N = /* @__PURE__ */ g.forwardRef(({ prefix: e, className: t, bgColor: n, textColor: r, borderColor: i, hasBody: a = !1, children: o, as: s = "div", ...c }, l) => {
-	let u = (0, h.default)(t, e ? `${e}-${j}` : j, n && `bg-${n}`, r && `text-${r}`, i && `border-${i}`);
+], k = ["white", "muted"], A = /* @__PURE__ */ g.forwardRef(({ prefix: e, className: t, bgColor: n, textColor: r, borderColor: i, hasBody: a = !1, children: o, as: s = "div", ...c }, l) => {
+	let u = (0, h.default)(t, e ? `${e}-${D}` : D, n && `bg-${n}`, r && `text-${r}`, i && `border-${i}`);
 	return /* @__PURE__ */ g.createElement(s, {
 		ref: l,
 		...c,
 		className: u
-	}, a ? /* @__PURE__ */ g.createElement(A, null, o) : o);
+	}, a ? /* @__PURE__ */ g.createElement(E, null, o) : o);
 });
-N.propTypes = {
-	prefix: k.default.string,
-	bgColor: k.default.oneOf(M),
-	textColor: k.default.oneOf([...M, ...te]),
-	borderColor: k.default.oneOf(M),
-	hasBody: k.default.bool,
-	as: k.default.elementType,
-	className: k.default.string,
-	children: k.default.node
+A.propTypes = {
+	prefix: T.default.string,
+	bgColor: T.default.oneOf(O),
+	textColor: T.default.oneOf([...O, ...k]),
+	borderColor: T.default.oneOf(O),
+	hasBody: T.default.bool,
+	as: T.default.elementType,
+	className: T.default.string,
+	children: T.default.node
 };
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardContext.js
-var P = /* @__PURE__ */ (0, g.createContext)({
+var j = /* @__PURE__ */ (0, g.createContext)({
 	orientation: "vertical",
 	isLoading: !1,
 	variant: "light"
 });
-function ne({ orientation: e = "vertical", children: t, isLoading: n = !1, variant: r = "light" }) {
-	return /* @__PURE__ */ g.createElement(P.Provider, { value: {
+function M({ orientation: e = "vertical", children: t, isLoading: n = !1, variant: r = "light" }) {
+	return /* @__PURE__ */ g.createElement(j.Provider, { value: {
 		orientation: e,
 		isLoading: n,
 		variant: r
@@ -115,13 +94,13 @@ function ne({ orientation: e = "vertical", children: t, isLoading: n = !1, varia
 }
 //#endregion
 //#region node_modules/.pnpm/react-loading-skeleton@3.5.0_react@18.3.1/node_modules/react-loading-skeleton/dist/index.js
-var re = g.createContext({}), F = !0;
-function I({ baseColor: e, highlightColor: t, width: n, height: r, borderRadius: i, circle: a, direction: o, duration: s, enableAnimation: c = F, customHighlightBackground: l }) {
+var N = g.createContext({}), P = !0;
+function F({ baseColor: e, highlightColor: t, width: n, height: r, borderRadius: i, circle: a, direction: o, duration: s, enableAnimation: c = P, customHighlightBackground: l }) {
 	let u = {};
 	return o === "rtl" && (u["--animation-direction"] = "reverse"), typeof s == "number" && (u["--animation-duration"] = `${s}s`), c || (u["--pseudo-element-display"] = "none"), (typeof n == "string" || typeof n == "number") && (u.width = n), (typeof r == "string" || typeof r == "number") && (u.height = r), (typeof i == "string" || typeof i == "number") && (u.borderRadius = i), a && (u.borderRadius = "50%"), e !== void 0 && (u["--base-color"] = e), t !== void 0 && (u["--highlight-color"] = t), typeof l == "string" && (u["--custom-highlight-background"] = l), u;
 }
-function L({ count: e = 1, wrapper: t, className: n, containerClassName: r, containerTestId: i, circle: a = !1, style: o, ...s }) {
-	let c = g.useContext(re), l = { ...s };
+function I({ count: e = 1, wrapper: t, className: n, containerClassName: r, containerTestId: i, circle: a = !1, style: o, ...s }) {
+	let c = g.useContext(N), l = { ...s };
 	for (let [e, t] of Object.entries(s)) t === void 0 && delete l[e];
 	let u = {
 		...c,
@@ -129,7 +108,7 @@ function L({ count: e = 1, wrapper: t, className: n, containerClassName: r, cont
 		circle: a
 	}, d = {
 		...o,
-		...I(u)
+		...F(u)
 	}, f = "react-loading-skeleton";
 	n && (f += ` ${n}`);
 	let p = u.inline ?? !1, m = [], h = Math.ceil(e);
@@ -153,13 +132,13 @@ function L({ count: e = 1, wrapper: t, className: n, containerClassName: r, cont
 		className: r,
 		"data-testid": i,
 		"aria-live": "polite",
-		"aria-busy": u.enableAnimation ?? F
+		"aria-busy": u.enableAnimation ?? P
 	}, t ? m.map((e, n) => g.createElement(t, { key: n }, e)) : m);
 }
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardHeader.js
-var R = 20, z = /* @__PURE__ */ g.forwardRef(({ actions: e, className: t, size: n, subtitle: r, title: i, skeletonHeight: a, skeletonWidth: o }, s) => {
-	let { isLoading: c } = (0, g.useContext)(P), l = (0, g.useCallback)((e) => {
+var L = 20, R = /* @__PURE__ */ g.forwardRef(({ actions: e, className: t, size: n, subtitle: r, title: i, skeletonHeight: a, skeletonWidth: o }, s) => {
+	let { isLoading: c } = (0, g.useContext)(j), l = (0, g.useCallback)((e) => {
 		if (/* @__PURE__ */ g.isValidElement(e)) {
 			let { children: t } = e.props, r = {
 				size: n,
@@ -169,7 +148,7 @@ var R = 20, z = /* @__PURE__ */ g.forwardRef(({ actions: e, className: t, size: 
 		}
 		return e;
 	}, [n]);
-	return c ? /* @__PURE__ */ g.createElement("div", { className: (0, h.default)("pgn__card-header", t) }, /* @__PURE__ */ g.createElement(L, {
+	return c ? /* @__PURE__ */ g.createElement("div", { className: (0, h.default)("pgn__card-header", t) }, /* @__PURE__ */ g.createElement(I, {
 		containerClassName: "pgn__card-header-loader",
 		height: a,
 		width: o
@@ -178,32 +157,32 @@ var R = 20, z = /* @__PURE__ */ g.forwardRef(({ actions: e, className: t, size: 
 		ref: s
 	}, /* @__PURE__ */ g.createElement("div", { className: "pgn__card-header-content" }, i && /* @__PURE__ */ g.createElement("div", { className: `pgn__card-header-title-${n}` }, i), r && /* @__PURE__ */ g.createElement("div", { className: `pgn__card-header-subtitle-${n}` }, r)), e && /* @__PURE__ */ g.createElement("div", { className: "pgn__card-header-actions" }, n === "md" ? e : l(e)));
 });
-z.propTypes = {
-	actions: k.default.node,
-	className: k.default.string,
-	title: k.default.node,
-	size: k.default.oneOf(["sm", "md"]),
-	subtitle: k.default.node,
-	skeletonHeight: k.default.number,
-	skeletonWidth: k.default.number
-}, z.defaultProps = {
+R.propTypes = {
+	actions: T.default.node,
+	className: T.default.string,
+	title: T.default.node,
+	size: T.default.oneOf(["sm", "md"]),
+	subtitle: T.default.node,
+	skeletonHeight: T.default.number,
+	skeletonWidth: T.default.number
+}, R.defaultProps = {
 	actions: null,
 	className: null,
 	size: "md",
 	title: null,
 	subtitle: null,
-	skeletonHeight: R,
+	skeletonHeight: L,
 	skeletonWidth: null
 };
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardDivider.js
-var B = /* @__PURE__ */ (0, g.forwardRef)(({ className: e, ...t }, n) => /* @__PURE__ */ g.createElement("div", {
+var z = /* @__PURE__ */ (0, g.forwardRef)(({ className: e, ...t }, n) => /* @__PURE__ */ g.createElement("div", {
 	className: (0, h.default)("pgn__card-divider", e),
 	ref: n,
 	...t
-})), V = 100, H = /* @__PURE__ */ g.forwardRef(({ className: e, children: t, title: n, actions: r, muted: i, skeletonHeight: a, skeletonWidth: o }, s) => {
-	let { isLoading: c } = (0, g.useContext)(P);
-	return c ? /* @__PURE__ */ g.createElement("div", { className: (0, h.default)("pgn__card-section", e, { "is-muted": i }) }, /* @__PURE__ */ g.createElement(L, {
+})), B = 100, V = /* @__PURE__ */ g.forwardRef(({ className: e, children: t, title: n, actions: r, muted: i, skeletonHeight: a, skeletonWidth: o }, s) => {
+	let { isLoading: c } = (0, g.useContext)(j);
+	return c ? /* @__PURE__ */ g.createElement("div", { className: (0, h.default)("pgn__card-section", e, { "is-muted": i }) }, /* @__PURE__ */ g.createElement(I, {
 		containerClassName: "pgn__card-section-loader",
 		height: a,
 		width: o
@@ -212,28 +191,28 @@ var B = /* @__PURE__ */ (0, g.forwardRef)(({ className: e, ...t }, n) => /* @__P
 		ref: s
 	}, n && /* @__PURE__ */ g.createElement("div", { className: "pgn__card-section-title" }, n), t, r && /* @__PURE__ */ g.createElement("div", { className: "pgn__card-section-actions" }, r));
 });
-H.propTypes = {
-	className: k.default.string,
-	children: k.default.node,
-	title: k.default.node,
-	actions: k.default.node,
-	muted: k.default.bool,
-	skeletonHeight: k.default.number,
-	skeletonWidth: k.default.number
-}, H.defaultProps = {
+V.propTypes = {
+	className: T.default.string,
+	children: T.default.node,
+	title: T.default.node,
+	actions: T.default.node,
+	muted: T.default.bool,
+	skeletonHeight: T.default.number,
+	skeletonWidth: T.default.number
+}, V.defaultProps = {
 	children: null,
 	className: void 0,
 	title: void 0,
 	actions: void 0,
 	muted: !1,
-	skeletonHeight: V,
+	skeletonHeight: B,
 	skeletonWidth: void 0
 };
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardFooter.js
-var U = 18, W = /* @__PURE__ */ g.forwardRef(({ children: e, className: t, isStacked: n, textElement: r, skeletonHeight: i, skeletonWidth: a, orientation: o }, s) => {
-	let { orientation: c, isLoading: l } = (0, g.useContext)(P), u = o || c, d = `pgn__card-footer ${u}${n ? "-stacked" : ""}`, f = `pgn__card-footer-text ${u}${n ? "-stacked" : ""}`;
-	return l ? /* @__PURE__ */ g.createElement("div", { className: (0, h.default)(t, d) }, /* @__PURE__ */ g.createElement(L, {
+var H = 18, U = /* @__PURE__ */ g.forwardRef(({ children: e, className: t, isStacked: n, textElement: r, skeletonHeight: i, skeletonWidth: a, orientation: o }, s) => {
+	let { orientation: c, isLoading: l } = (0, g.useContext)(j), u = o || c, d = `pgn__card-footer ${u}${n ? "-stacked" : ""}`, f = `pgn__card-footer-text ${u}${n ? "-stacked" : ""}`;
+	return l ? /* @__PURE__ */ g.createElement("div", { className: (0, h.default)(t, d) }, /* @__PURE__ */ g.createElement(I, {
 		containerClassName: "pgn__card-footer-loader",
 		height: i,
 		width: a
@@ -242,31 +221,31 @@ var U = 18, W = /* @__PURE__ */ g.forwardRef(({ children: e, className: t, isSta
 		ref: s
 	}, r && /* @__PURE__ */ g.createElement("div", { className: f }, r), e);
 });
-W.propTypes = {
-	children: k.default.node,
-	className: k.default.string,
-	textElement: k.default.node,
-	isStacked: k.default.bool,
-	orientation: k.default.oneOf(["horizontal", "vertical"]),
-	skeletonHeight: k.default.number,
-	skeletonWidth: k.default.number
-}, W.defaultProps = {
+U.propTypes = {
+	children: T.default.node,
+	className: T.default.string,
+	textElement: T.default.node,
+	isStacked: T.default.bool,
+	orientation: T.default.oneOf(["horizontal", "vertical"]),
+	skeletonHeight: T.default.number,
+	skeletonWidth: T.default.number
+}, U.defaultProps = {
 	children: null,
 	className: void 0,
 	textElement: void 0,
 	isStacked: !1,
 	orientation: void 0,
-	skeletonHeight: U,
+	skeletonHeight: H,
 	skeletonWidth: void 0
 };
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardFallbackDefaultImage.js
-var G = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXwAAACMCAYAAAB/AhJnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAH6SURBVHgB7dRBEYBADACxwuDf5j0QUXywiYhc7zk7APzd3gNAgvABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIp4BaNpp2Q/3/wfPkGyXOQAAAABJRU5ErkJggg==", K = 140, q = 41, J = /* @__PURE__ */ g.forwardRef(({ src: e, fallbackSrc: t, srcAlt: n, logoSrc: r, fallbackLogoSrc: i, logoAlt: a, skeletonHeight: o, skeletonWidth: s, logoSkeleton: c, logoSkeletonHeight: l, logoSkeletonWidth: u, className: d, imageLoadingType: f, skeletonDuringImageLoad: p }, m) => {
-	let { orientation: _, isLoading: v } = (0, g.useContext)(P), [y, b] = (0, g.useState)(!1), [x, S] = (0, g.useState)(!1), C = `pgn__card-wrapper-image-cap ${_}`, w = () => /* @__PURE__ */ g.createElement(L, {
+var W = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXwAAACMCAYAAAB/AhJnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAH6SURBVHgB7dRBEYBADACxwuDf5j0QUXywiYhc7zk7APzd3gNAgvABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIoQPECF8gAjhA0QIHyBC+AARwgeIED5AhPABIp4BaNpp2Q/3/wfPkGyXOQAAAABJRU5ErkJggg==", G = 140, K = 41, q = /* @__PURE__ */ g.forwardRef(({ src: e, fallbackSrc: t, srcAlt: n, logoSrc: r, fallbackLogoSrc: i, logoAlt: a, skeletonHeight: o, skeletonWidth: s, logoSkeleton: c, logoSkeletonHeight: l, logoSkeletonWidth: u, className: d, imageLoadingType: f, skeletonDuringImageLoad: p }, m) => {
+	let { orientation: _, isLoading: v } = (0, g.useContext)(j), [y, b] = (0, g.useState)(!1), [x, S] = (0, g.useState)(!1), C = `pgn__card-wrapper-image-cap ${_}`, w = () => /* @__PURE__ */ g.createElement(I, {
 		containerClassName: "pgn__card-image-cap-loader",
 		height: _ === "horizontal" ? "100%" : o,
 		width: s
-	}), T = () => /* @__PURE__ */ g.createElement(L, {
+	}), T = () => /* @__PURE__ */ g.createElement(I, {
 		containerClassName: "pgn__card-logo-cap",
 		height: l,
 		width: u
@@ -278,7 +257,7 @@ var G = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXwAAACMCAYAAAB/AhJnAAAAC
 	let E = (e, t, n) => {
 		let { currentTarget: r } = e;
 		if (!t || r.src.endsWith(t)) {
-			n === "imageCap" ? r.src = G : S(!1);
+			n === "imageCap" ? r.src = W : S(!1);
 			return;
 		}
 		r.src = t;
@@ -302,32 +281,32 @@ var G = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXwAAACMCAYAAAB/AhJnAAAAC
 		loading: f
 	})));
 });
-J.propTypes = {
-	className: k.default.string,
-	src: k.default.string,
-	fallbackSrc: k.default.string,
-	srcAlt: k.default.string,
-	logoSrc: k.default.string,
-	fallbackLogoSrc: k.default.string,
-	logoAlt: k.default.string,
-	skeletonHeight: k.default.number,
-	skeletonWidth: k.default.number,
-	logoSkeleton: k.default.bool,
-	logoSkeletonHeight: k.default.number,
-	logoSkeletonWidth: k.default.number,
-	imageLoadingType: k.default.oneOf(["eager", "lazy"]),
-	skeletonDuringImageLoad: k.default.bool
-}, J.defaultProps = {
+q.propTypes = {
+	className: T.default.string,
+	src: T.default.string,
+	fallbackSrc: T.default.string,
+	srcAlt: T.default.string,
+	logoSrc: T.default.string,
+	fallbackLogoSrc: T.default.string,
+	logoAlt: T.default.string,
+	skeletonHeight: T.default.number,
+	skeletonWidth: T.default.number,
+	logoSkeleton: T.default.bool,
+	logoSkeletonHeight: T.default.number,
+	logoSkeletonWidth: T.default.number,
+	imageLoadingType: T.default.oneOf(["eager", "lazy"]),
+	skeletonDuringImageLoad: T.default.bool
+}, q.defaultProps = {
 	src: void 0,
-	fallbackSrc: G,
+	fallbackSrc: W,
 	logoSrc: void 0,
 	fallbackLogoSrc: void 0,
 	className: void 0,
 	srcAlt: void 0,
 	logoAlt: void 0,
-	skeletonHeight: K,
+	skeletonHeight: G,
 	logoSkeleton: !1,
-	logoSkeletonHeight: q,
+	logoSkeletonHeight: K,
 	skeletonWidth: void 0,
 	logoSkeletonWidth: void 0,
 	imageLoadingType: "eager",
@@ -335,13 +314,13 @@ J.propTypes = {
 };
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/CardStatus.js
-var Y = /* @__PURE__ */ g.forwardRef(({ className: e, children: t, variant: n, icon: r, title: i, actions: a, ...o }, s) => {
-	let { isLoading: c } = (0, g.useContext)(P);
+var J = /* @__PURE__ */ g.forwardRef(({ className: e, children: t, variant: n, icon: r, title: i, actions: a, ...o }, s) => {
+	let { isLoading: c } = (0, g.useContext)(j);
 	return c ? /* @__PURE__ */ g.createElement("div", {
 		className: (0, h.default)("pgn__card-status", e),
 		"data-testid": "card-status-skeleton",
 		ref: s
-	}, /* @__PURE__ */ g.createElement(L, null)) : /* @__PURE__ */ g.createElement("div", {
+	}, /* @__PURE__ */ g.createElement(I, null)) : /* @__PURE__ */ g.createElement("div", {
 		className: (0, h.default)("pgn__card-status", `pgn__card-status__${n}`, e),
 		ref: s,
 		...o
@@ -350,19 +329,19 @@ var Y = /* @__PURE__ */ g.forwardRef(({ className: e, children: t, variant: n, i
 		src: r
 	}), /* @__PURE__ */ g.createElement("div", { className: "pgn__card-status__message-content" }, i && /* @__PURE__ */ g.createElement("div", { className: "pgn__card-status__heading" }, i), t)), !!a && /* @__PURE__ */ g.createElement("div", { className: "pgn__card-status__actions" }, a));
 });
-Y.propTypes = {
-	children: k.default.node.isRequired,
-	className: k.default.string,
-	icon: k.default.func,
-	variant: k.default.oneOf([
+J.propTypes = {
+	children: T.default.node.isRequired,
+	className: T.default.string,
+	icon: T.default.func,
+	variant: T.default.oneOf([
 		"primary",
 		"success",
 		"danger",
 		"warning"
 	]),
-	title: k.default.oneOfType([k.default.element, k.default.string]),
-	actions: k.default.node
-}, Y.defaultProps = {
+	title: T.default.oneOfType([T.default.element, T.default.string]),
+	actions: T.default.node
+}, J.defaultProps = {
 	className: void 0,
 	icon: void 0,
 	variant: "warning",
@@ -371,17 +350,17 @@ Y.propTypes = {
 };
 //#endregion
 //#region node_modules/.pnpm/@openedx+paragon@23.19.1_@types+node@24.12.0_@types+react@18.3.28_jquery@3.7.1_popper.j_fc610710f75fd4edb6a9d3a95ceafa25/node_modules/@openedx/paragon/dist/Card/index.js
-var ie = [
+var Y = [
 	"light",
 	"dark",
 	"muted"
 ], X = /* @__PURE__ */ g.forwardRef(({ orientation: e, isLoading: t, className: n, isClickable: r, muted: i, variant: a, ...o }, s) => {
 	let c = i ? "muted" : a;
-	return /* @__PURE__ */ g.createElement(ne, {
+	return /* @__PURE__ */ g.createElement(M, {
 		orientation: e,
 		isLoading: t,
 		variant: c
-	}, /* @__PURE__ */ g.createElement(N, {
+	}, /* @__PURE__ */ g.createElement(A, {
 		...o,
 		className: (0, h.default)(n, "pgn__card", {
 			horizontal: e === "horizontal",
@@ -393,14 +372,14 @@ var ie = [
 	}));
 });
 X.propTypes = {
-	className: k.default.string,
-	orientation: k.default.oneOf(["vertical", "horizontal"]),
-	isClickable: k.default.bool,
-	isLoading: k.default.bool,
-	variant: k.default.oneOf(ie),
-	muted: k.default.bool
+	className: T.default.string,
+	orientation: T.default.oneOf(["vertical", "horizontal"]),
+	isClickable: T.default.bool,
+	isLoading: T.default.bool,
+	variant: T.default.oneOf(Y),
+	muted: T.default.bool
 }, X.defaultProps = {
-	...N.defaultProps,
+	...A.defaultProps,
 	className: void 0,
 	orientation: "vertical",
 	isClickable: !1,
@@ -411,31 +390,24 @@ var Z = n(X, "Card", { muted: {
 	deprType: o.REMOVED,
 	message: "Use \"variant\" prop instead, i.e. variant=\"muted\""
 } });
-Z.Status = Y, Z.Header = z, Z.Divider = B, Z.Section = H, Z.Footer = W, Z.ImageCap = J, Z.Context = P, Z.Body = A;
+Z.Status = J, Z.Header = R, Z.Divider = z, Z.Section = V, Z.Footer = U, Z.ImageCap = q, Z.Context = j, Z.Body = E;
 //#endregion
 //#region src/card/common/student-ui/ContentHighlight.tsx
 var Q = m();
-function ae({ title: e, subtitle: t, description: n, orientation: r }) {
+function ee({ title: e, subtitle: t, description: n, orientation: r }) {
 	return /* @__PURE__ */ (0, Q.jsxs)("div", {
-		className: "p-5 bg-primary-500 h-100",
-		style: r === "HORIZONTAL" ? {
-			borderTopRightRadius: "var(--pgn-size-border-radius-lg)",
-			borderBottomRightRadius: "var(--pgn-size-border-radius-lg)"
-		} : {
-			borderBottomRightRadius: "var(--pgn-size-border-radius-lg)",
-			borderBottomLeftRadius: "var(--pgn-size-border-radius-lg)"
-		},
+		className: `content-highlight ${r === "HORIZONTAL" ? "content-highlight--horizontal" : "content-highlight--vertical"}`,
 		children: [
 			/* @__PURE__ */ (0, Q.jsx)("h4", {
-				className: "text-accent",
+				className: "content-highlight-subtitle text-accent",
 				children: t
 			}),
 			/* @__PURE__ */ (0, Q.jsx)("h3", {
-				className: "text-light-100 mb-3",
+				className: "content-highlight-title",
 				children: e
 			}),
 			/* @__PURE__ */ (0, Q.jsx)("p", {
-				className: "text-light-100",
+				className: "content-highlight-description",
 				children: n
 			})
 		]
@@ -459,21 +431,31 @@ function $({ name: e, bg: t, fg: n, size: r }) {
 }
 //#endregion
 //#region src/card/common/student-ui/RichList.tsx
-function oe({ items: e }) {
+function te({ items: e }) {
 	return /* @__PURE__ */ (0, Q.jsx)("div", {
-		className: "p-4 pt-5",
-		children: e.map((t, n) => /* @__PURE__ */ (0, Q.jsxs)("div", { children: [/* @__PURE__ */ (0, Q.jsxs)(f, {
-			direction: "horizontal",
-			children: [/* @__PURE__ */ (0, Q.jsx)($, { name: t.icon }), /* @__PURE__ */ (0, Q.jsxs)("div", {
-				className: "ml-4",
-				children: [/* @__PURE__ */ (0, Q.jsx)("h4", { children: t.title }), /* @__PURE__ */ (0, Q.jsx)("p", { children: t.description })]
-			})]
-		}), n < e.length - 1 && /* @__PURE__ */ (0, Q.jsx)("hr", {})] }, n))
+		className: "rich-list",
+		children: e.map((t, n) => /* @__PURE__ */ (0, Q.jsxs)("div", {
+			className: "rich-list-item",
+			children: [/* @__PURE__ */ (0, Q.jsxs)(f, {
+				direction: "horizontal",
+				className: "rich-list-row",
+				children: [/* @__PURE__ */ (0, Q.jsx)($, { name: t.icon }), /* @__PURE__ */ (0, Q.jsxs)("div", {
+					className: "rich-list-content",
+					children: [/* @__PURE__ */ (0, Q.jsx)("h4", {
+						className: "rich-list-title",
+						children: t.title
+					}), /* @__PURE__ */ (0, Q.jsx)("p", {
+						className: "rich-list-description",
+						children: t.description
+					})]
+				})]
+			}), n < e.length - 1 && /* @__PURE__ */ (0, Q.jsx)("hr", { className: "rich-list-divider" })]
+		}, n))
 	});
 }
 //#endregion
 //#region src/card/common/student-ui/HoverList.tsx
-function se({ items: e }) {
+function ne({ items: e }) {
 	let [t, n] = (0, g.useState)(null);
 	return /* @__PURE__ */ (0, Q.jsx)("ol", {
 		className: "hover-list",
@@ -503,7 +485,7 @@ function se({ items: e }) {
 						fg: "text-primary-500",
 						bg: "bg-light-100"
 					}), /* @__PURE__ */ (0, Q.jsx)("div", {
-						className: "ml-2",
+						className: "hover-content-text",
 						children: e.hoverContent
 					})]
 				})]
@@ -513,7 +495,7 @@ function se({ items: e }) {
 }
 //#endregion
 //#region src/card/common/student-ui/ComplexCard.tsx
-var ce = ({ orientation: e, secondaryContent: t, children: n }) => {
+var re = ({ orientation: e, secondaryContent: t, children: n }) => {
 	let r = null;
 	switch (t?.kind) {
 		case "IMAGE": {
@@ -524,43 +506,42 @@ var ce = ({ orientation: e, secondaryContent: t, children: n }) => {
 			}), n] });
 		}
 		case "CONTENT_HIGHLIGHT":
-			r = /* @__PURE__ */ (0, Q.jsx)(ae, {
+			r = /* @__PURE__ */ (0, Q.jsx)(ee, {
 				...t,
 				orientation: e
 			});
 			break;
 		case "RICH_LIST":
-			r = /* @__PURE__ */ (0, Q.jsx)(oe, { ...t });
+			r = /* @__PURE__ */ (0, Q.jsx)(te, { ...t });
 			break;
 		default: return n;
 	}
-	let i = e === "HORIZONTAL" ? "d-flex w-100" : "d-flex flex-column h-100 justify-content-between", a = e === "HORIZONTAL" ? "flex-grow-1 w-50" : "flex-grow-1";
 	return /* @__PURE__ */ (0, Q.jsxs)("div", {
-		className: i,
+		className: e === "HORIZONTAL" ? "complex-card-layout complex-card-layout--horizontal" : "complex-card-layout complex-card-layout--vertical",
 		children: [/* @__PURE__ */ (0, Q.jsx)("div", {
-			className: a,
+			className: "complex-card-layout-panel complex-card-layout-panel--primary",
 			children: n
 		}), /* @__PURE__ */ (0, Q.jsx)("div", {
-			className: a,
+			className: "complex-card-layout-panel complex-card-layout-panel--secondary",
 			children: r
 		})]
 	});
 };
-function le({ orientation: e, data: t, position: n }) {
+function ie({ orientation: e, data: t, position: n }) {
 	let r = t.secondaryContent?.kind === "IMAGE" ? t.secondaryContent : null, i = r?.useAsBackground ?? !1, a = i ? { "--ccblk-card-background-image": `url("${r?.location}")` } : void 0;
 	return /* @__PURE__ */ (0, Q.jsx)(Z, {
 		orientation: e.toLowerCase(),
 		className: "complex-card" + (i ? " complex-card--image-background" : ""),
 		style: a,
-		children: /* @__PURE__ */ (0, Q.jsx)(ce, {
+		children: /* @__PURE__ */ (0, Q.jsx)(re, {
 			orientation: e,
 			secondaryContent: t.secondaryContent,
 			children: /* @__PURE__ */ (0, Q.jsxs)(Z.Body, {
-				className: t.secondaryContent?.kind === "IMAGE" && e === "HORIZONTAL" && !i ? "w-50 p-3" : "p-3",
+				className: t.secondaryContent?.kind === "IMAGE" && e === "HORIZONTAL" && !i ? "complex-card-body complex-card-body--horizontal-image" : "complex-card-body",
 				children: [
 					n && /* @__PURE__ */ (0, Q.jsx)("div", {
 						className: "card-badge",
-						children: /* @__PURE__ */ (0, Q.jsx)(ee, {
+						children: /* @__PURE__ */ (0, Q.jsx)(w, {
 							variant: "primary",
 							"aria-label": n,
 							className: "rounded-pill",
@@ -573,17 +554,17 @@ function le({ orientation: e, data: t, position: n }) {
 					}),
 					t.description && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: t.description }),
 					t.ctaLabel && t.ctaLink && /* @__PURE__ */ (0, Q.jsx)(Z.Section, {
-						className: "d-flex justify-content-end",
+						className: "complex-card-cta-section",
 						children: /* @__PURE__ */ (0, Q.jsx)(c, {
 							variant: "accent",
-							className: "rounded-pill px-6",
+							className: "complex-card-cta-button rounded-pill",
 							href: t.ctaLink,
 							target: "_blank",
 							rel: "noopener noreferrer",
 							children: /* @__PURE__ */ (0, Q.jsx)("strong", { children: t.ctaLabel })
 						})
 					}),
-					t.secondaryContent?.kind === "HOVER_LIST" && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: /* @__PURE__ */ (0, Q.jsx)(se, { ...t.secondaryContent }) })
+					t.secondaryContent?.kind === "HOVER_LIST" && /* @__PURE__ */ (0, Q.jsx)(Z.Section, { children: /* @__PURE__ */ (0, Q.jsx)(ne, { ...t.secondaryContent }) })
 				]
 			})
 		})
@@ -591,7 +572,7 @@ function le({ orientation: e, data: t, position: n }) {
 }
 //#endregion
 //#region src/card/card-grid/student-ui/StudentUI.tsx
-function ue({ initData: { cards: e, description: t, orientation: n, backgroundColor: r, footerDescription: i } }) {
+function ae({ initData: { cards: e, description: t, orientation: n, backgroundColor: r, footerDescription: i } }) {
 	let a = {
 		sm: 12,
 		md: 6,
@@ -612,45 +593,60 @@ function ue({ initData: { cards: e, description: t, orientation: n, backgroundCo
 		span: a.lg,
 		offset: a.lg / 2
 	} }), /* @__PURE__ */ (0, Q.jsx)("div", {
+		className: "card-grid-xblock",
 		style: { backgroundColor: r },
-		className: "card-grid-xblock py-4",
-		children: /* @__PURE__ */ (0, Q.jsxs)(O, { children: [
-			/* @__PURE__ */ (0, Q.jsx)(E, { children: /* @__PURE__ */ (0, Q.jsx)("div", {
-				dangerouslySetInnerHTML: { __html: t },
-				className: "col"
-			}) }),
-			/* @__PURE__ */ (0, Q.jsx)(E, { children: e.map((e, t) => /* @__PURE__ */ (0, Q.jsx)(d, {
-				...a,
-				className: "d-flex my-3",
-				...t === 0 && o,
-				children: /* @__PURE__ */ (0, Q.jsx)(le, {
-					orientation: n,
-					data: e,
-					position: ""
-				}, t)
-			})) }),
-			/* @__PURE__ */ (0, Q.jsx)(E, {
-				className: "my-4",
-				children: /* @__PURE__ */ (0, Q.jsx)("div", {
-					dangerouslySetInnerHTML: { __html: i },
-					className: "col"
+		children: /* @__PURE__ */ (0, Q.jsxs)("div", {
+			className: "card-grid-container",
+			children: [
+				/* @__PURE__ */ (0, Q.jsx)(C, {
+					className: "card-grid-description-row",
+					children: /* @__PURE__ */ (0, Q.jsx)(d, {
+						xs: 12,
+						children: /* @__PURE__ */ (0, Q.jsx)("div", {
+							className: "card-grid-description",
+							dangerouslySetInnerHTML: { __html: t }
+						})
+					})
+				}),
+				/* @__PURE__ */ (0, Q.jsx)(C, {
+					className: "card-grid-cards-row",
+					children: e.map((e, t) => /* @__PURE__ */ (0, g.createElement)(d, {
+						...a,
+						className: "card-grid-card-column",
+						...t === 0 && o,
+						key: e.id ?? t
+					}, /* @__PURE__ */ (0, Q.jsx)(ie, {
+						orientation: n,
+						data: e,
+						position: ""
+					})))
+				}),
+				/* @__PURE__ */ (0, Q.jsx)(C, {
+					className: "card-grid-footer-row",
+					children: /* @__PURE__ */ (0, Q.jsx)(d, {
+						xs: 12,
+						children: /* @__PURE__ */ (0, Q.jsx)("div", {
+							className: "card-grid-footer-description",
+							dangerouslySetInnerHTML: { __html: i }
+						})
+					})
 				})
-			})
-		] })
+			]
+		})
 	});
 }
 //#endregion
 //#region src/card/common/student-ui/main.css?inline
-var de = ".complex-card{--pgn-color-headings-base:var(--ccblk-typography-headings-color);--ccblk-spacing-badge-spacer-x:var(--pgn-spacing-card-spacer-x);--ccblk-spacing-badge-spacer-y:var(--pgn-spacing-card-spacer-y);--ccblk-typography-headings-color:var(--pgn-color-headings-base)}.complex-card .text-accent{color:var(--pgn-color-accent-a)}.complex-card .btn-accent{background-color:var(--pgn-color-accent-a);color:var(--pgn-color-light-100);background-image:unset}.complex-card .card-badge{margin:var(--pgn-spacing-card-spacer-x);margin-bottom:0}.complex-card .card-badge .badge{padding:var(--ccblk-spacing-badge-spacer-y) var(--ccblk-spacing-badge-spacer-x);font-family:var(--pgn-typography-headings-font-family);font-size:var(--pgn-typography-font-size-h5-base);font-weight:var(--pgn-typography-headings-font-weight)}.complex-card.complex-card--image-background{background-image:var(--ccblk-card-background-image);color:var(--pgn-color-light-100);--ccblk-typography-headings-color:var(--pgn-color-light-100);background-position:50%;background-repeat:no-repeat;background-size:cover;position:relative;overflow:hidden}.complex-card.complex-card--image-background:before{content:\"\";z-index:0;pointer-events:none;background:#00000073;position:absolute;inset:0}.complex-card.complex-card--image-background>*{z-index:1;position:relative}.complex-card.complex-card--image-background .pgn__card-section,.complex-card.complex-card--image-background .pgn__card-header-subtitle-md{color:var(--pgn-color-light-100)}.complex-card .pgn__card .pgn__card-wrapper-image-cap.horizontal{max-width:50%!important}.complex-card .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap{max-width:100%!important}.complex-card .pgn__card .pgn__card-header .pgn__card-header-content{margin-top:var(--pgn-spacing-card-spacer-x)}.complex-card .pgn__card .pgn__card-header .pgn__card-header-title-md{font-family:var(--pgn-typography-headings-font-family);color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-h4-base)}.complex-card .pgn__card .pgn__card-header .pgn__card-header-subtitle-md{color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-base);font-weight:700;font-family:var(--pgn-typography-headings-font-family)}.horizontal .hover-list{column-gap:calc(var(--pgn-spacing-spacer-base) * 2)!important}.hover-list-description,.hover-content{padding:calc(var(--pgn-spacing-spacer-base))}.hover-list-content-wrapper{min-height:calc(( var(--pgn-spacing-spacer-base) + var(--pgn-typography-font-size-base) * var(--pgn-typography-line-height-base) ) * 2);position:relative}.hover-list-description{opacity:1;visibility:visible;z-index:0}.hover-content{background-color:var(--pgn-color-primary-500);width:100%;color:var(--pgn-color-light-100);border-radius:var(--pgn-size-border-radius-base);opacity:0;visibility:hidden;z-index:10;align-items:center;display:flex;position:absolute;top:0;left:0}.hover-list-item:has(.hover-content){cursor:pointer}:is(.hover-list-item:has(.hover-content):hover,.hover-list-item:has(.hover-content).is-active){list-style:none;margin-left:calc(var(--pgn-spacing-spacer-base) * -2.5)!important}.hover-list-item:has(.hover-content):hover .hover-list-description{opacity:0;visibility:hidden}.hover-list-item:has(.hover-content):hover .hover-content{opacity:1;visibility:visible}.hover-content-icon-wrapper{color:var(--pgn-color-light-100);margin-right:var(--pgn-spacing-spacer-base)}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", fe = (e, t, n) => {
+var oe = ".complex-card{--pgn-color-headings-base:var(--ccblk-typography-headings-color);--ccblk-spacing-badge-spacer-x:var(--pgn-spacing-card-spacer-x);--ccblk-spacing-badge-spacer-y:var(--pgn-spacing-card-spacer-y);--ccblk-typography-headings-color:var(--pgn-color-headings-base);--ccblk-card-padding:var(--pgn-spacing-spacer-4-5,32px);--ccblk-grid-gap:var(--pgn-spacing-spacer-4-5,32px);--ccblk-card-radius-lg:var(--pgn-size-border-radius-lg,24px);height:100%}.complex-card .text-accent{color:var(--pgn-color-accent-a)}.complex-card .btn-accent{background-color:var(--pgn-color-accent-a);color:var(--pgn-color-light-100);background-image:unset}.complex-card .card-badge{margin:0 0 var(--pgn-spacing-spacer-3,16px)}.complex-card .card-badge .badge{padding:var(--ccblk-spacing-badge-spacer-y) var(--ccblk-spacing-badge-spacer-x);font-family:var(--pgn-typography-headings-font-family);font-size:var(--pgn-typography-font-size-h5-base);font-weight:var(--pgn-typography-headings-font-weight)}.complex-card.complex-card--image-background{background-image:var(--ccblk-card-background-image);color:var(--pgn-color-light-100);--ccblk-typography-headings-color:var(--pgn-color-light-100);background-position:50%;background-repeat:no-repeat;background-size:cover;position:relative;overflow:hidden}.complex-card.complex-card--image-background:before{content:\"\";z-index:0;pointer-events:none;background:#00000073;position:absolute;inset:0}.complex-card.complex-card--image-background>*{z-index:1;position:relative}.complex-card.complex-card--image-background .pgn__card-section,.complex-card.complex-card--image-background .pgn__card-header-subtitle-md{color:var(--pgn-color-light-100)}.complex-card .pgn__card{height:100%}.complex-card .pgn__card.horizontal{column-gap:var(--ccblk-grid-gap)}.complex-card .pgn__card .pgn__card-wrapper-image-cap.horizontal,.complex-card .pgn__card .complex-card-body--horizontal-image{flex:0 0 calc(50% - var(--ccblk-grid-gap) / 2);max-width:calc(50% - var(--ccblk-grid-gap) / 2)}.complex-card .pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap{object-fit:cover;width:100%;max-width:100%;height:100%}.complex-card .pgn__card .pgn__card-header .pgn__card-header-content{margin-top:var(--pgn-spacing-card-spacer-x)}.complex-card .pgn__card .pgn__card-header .pgn__card-header-title-md{font-family:var(--pgn-typography-headings-font-family);color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-h4-base)}.complex-card .pgn__card .pgn__card-header .pgn__card-header-subtitle-md{color:var(--ccblk-typography-headings-color);font-size:var(--pgn-typography-font-size-base);font-weight:700;font-family:var(--pgn-typography-headings-font-family)}.complex-card .complex-card-body{padding:var(--ccblk-card-padding)}.complex-card .complex-card-layout{width:100%;height:100%}.complex-card .complex-card-layout--horizontal{column-gap:var(--ccblk-grid-gap);grid-template-columns:minmax(0,1fr) minmax(0,1fr);display:grid}.complex-card .complex-card-layout--vertical{flex-direction:column;justify-content:space-between;display:flex}.complex-card .complex-card-layout-panel{min-width:0}.complex-card .complex-card-layout-panel--primary,.complex-card .complex-card-layout-panel--secondary{flex:auto}.complex-card .complex-card-cta-section{justify-content:flex-end;display:flex}.complex-card .complex-card-cta-button{padding-inline:var(--ccblk-card-button-padding-inline,32px)}.content-highlight{height:100%;padding:var(--pgn-spacing-spacer-4-5,32px);background-color:var(--pgn-color-primary-500)}.content-highlight--horizontal{border-top-right-radius:var(--pgn-size-border-radius-lg,24px);border-bottom-right-radius:var(--pgn-size-border-radius-lg,24px)}.content-highlight--vertical{border-bottom-right-radius:var(--pgn-size-border-radius-lg,24px);border-bottom-left-radius:var(--pgn-size-border-radius-lg,24px)}.content-highlight-subtitle,.content-highlight-title,.content-highlight-description{margin-top:0}.content-highlight-title{margin-bottom:var(--pgn-spacing-spacer-3,16px);color:var(--pgn-color-light-100)}.content-highlight-description{color:var(--pgn-color-light-100);margin-bottom:0}.rich-list{padding:var(--pgn-spacing-spacer-4-5,32px)}.rich-list-content{margin-left:var(--pgn-spacing-spacer-4,24px)}.rich-list-title{margin-top:0}.rich-list-description{margin-bottom:0}.rich-list-divider{margin-block:var(--pgn-spacing-spacer-3,16px)}.horizontal .hover-list{column-gap:var(--pgn-spacing-spacer-4-5,32px)}.hover-list-description,.hover-content{padding:calc(var(--pgn-spacing-spacer-base))}.hover-list-content-wrapper{min-height:calc(( var(--pgn-spacing-spacer-base) + var(--pgn-typography-font-size-base) * var(--pgn-typography-line-height-base) ) * 2);position:relative}.hover-list-description{opacity:1;visibility:visible;z-index:0}.hover-content{background-color:var(--pgn-color-primary-500);width:100%;color:var(--pgn-color-light-100);border-radius:var(--pgn-size-border-radius-base);opacity:0;visibility:hidden;z-index:10;align-items:center;display:flex;position:absolute;top:0;left:0}.hover-list-item:has(.hover-content){cursor:pointer}:is(.hover-list-item:has(.hover-content):hover,.hover-list-item:has(.hover-content).is-active){margin-left:calc(var(--pgn-spacing-spacer-base) * -2.5);list-style:none}.hover-list-item:has(.hover-content):hover .hover-list-description{opacity:0;visibility:hidden}.hover-list-item:has(.hover-content):hover .hover-content{opacity:1;visibility:visible}.hover-content-icon-wrapper{color:var(--pgn-color-light-100);margin-right:var(--pgn-spacing-spacer-base)}.hover-content-text{margin-left:var(--pgn-spacing-spacer-2,8px)}.card-carousel-xblock *,.card-carousel-xblock :before,.card-carousel-xblock :after{box-sizing:border-box}.card-carousel-container{max-width:1280px;padding:var(--pgn-spacing-spacer-4-5,32px);margin:0 auto}.card-carousel-container .pgn__card-carousel-title{margin-bottom:var(--pgn-spacing-spacer-4-5,32px)}.card-grid-xblock{--card-grid-gap:var(--pgn-spacing-spacer-4-5,32px)}.card-grid-xblock *,.card-grid-xblock :before,.card-grid-xblock :after{box-sizing:border-box}.card-grid-container{max-width:1280px;padding:var(--pgn-spacing-spacer-4-5,32px);margin:0 auto}.card-grid-description-row,.card-grid-footer-row,.card-grid-cards-row{margin-inline:calc(var(--card-grid-gap) / -2)}.card-grid-description-row>[class*=col],.card-grid-footer-row>[class*=col],.card-grid-card-column{padding-inline:calc(var(--card-grid-gap) / 2)}.card-grid-description-row{margin-bottom:var(--pgn-spacing-spacer-4-5,32px)}.card-grid-cards-row{row-gap:var(--card-grid-gap)}.card-grid-card-column{display:flex}.card-grid-footer-row{margin-top:var(--pgn-spacing-spacer-4-5,32px)}.card-grid-description,.card-grid-footer-description{line-height:var(--pgn-typography-line-height-base,1.5)}.card-grid-description>:last-child,.card-grid-footer-description>:last-child{margin-bottom:0}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", se = (e, t, n) => {
 	a({
 		runtime: t,
 		element: e,
 		config: n.config,
-		styles: de
-	})(/* @__PURE__ */ (0, Q.jsx)(ue, {
+		styles: oe
+	})(/* @__PURE__ */ (0, Q.jsx)(ae, {
 		runtime: t,
 		initData: n.data
 	}));
 };
 //#endregion
-export { fe as renderBlock };
+export { se as renderBlock };

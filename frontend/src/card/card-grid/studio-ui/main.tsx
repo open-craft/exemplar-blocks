@@ -8,7 +8,7 @@ import type { XBlockConfig } from '@/types.ts';
 import StudioUI from './StudioUI';
 import type { InitData } from '@/card/card-grid/types.ts';
 import { newCard } from '@/card/common/utils.ts';
-import styles from '@/card/card-carousel/studio-ui/StudioUI.css?inline';
+import styles from '@/card/card-grid/studio-ui/StudioUI.css?inline';
 
 export const renderBlock = (
   element: Element,

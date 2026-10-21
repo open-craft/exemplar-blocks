@@ -1,14 +1,20 @@
 // The component was originally created inside the Card Carousel XBlock
-// and hence uses the --ccblk prefix for defining it's custom variables.
+// and hence uses the --ccblk prefix for defining its custom variables.
 .complex-card {
   --pgn-color-headings-base: var(--ccblk-typography-headings-color);
   --ccblk-spacing-badge-spacer-x: var(--pgn-spacing-card-spacer-x);
   --ccblk-spacing-badge-spacer-y: var(--pgn-spacing-card-spacer-y);
   --ccblk-typography-headings-color: var(--pgn-color-headings-base);
+  --ccblk-card-padding: var(--pgn-spacing-spacer-4-5, 32px);
+  --ccblk-grid-gap: var(--pgn-spacing-spacer-4-5, 32px);
+  --ccblk-card-radius-lg: var(--pgn-size-border-radius-lg, 24px);
+
+  height: 100%;
 
   .text-accent {
     color: var(--pgn-color-accent-a);
   }
+
   .btn-accent {
     background-color: var(--pgn-color-accent-a);
     color: var(--pgn-color-light-100);
@@ -16,8 +22,7 @@
   }
 
   .card-badge {
-    margin: var(--pgn-spacing-card-spacer-x);
-    margin-bottom: 0;
+    margin: 0 0 var(--pgn-spacing-spacer-3, 16px);
 
     .badge {
       padding: var(--ccblk-spacing-badge-spacer-y)
@@ -39,8 +44,8 @@
     color: var(--pgn-color-light-100);
     --ccblk-typography-headings-color: var(--pgn-color-light-100);
 
-    // The styles below makes a overlay on the image to put the image in the background.
-    // This is done via psuedo style so that the text is given more attention. Hence all other elements
+    // The styles below make an overlay on the image to put the image in the background.
+    // This is done via pseudo style so that the text is given more attention. Hence all other elements
     // here are given a higher z-index.
     &::before {
       content: '';
@@ -63,23 +68,37 @@
   }
 
   .pgn__card {
-    /* Make the image cap take up half the card */
-    .pgn__card-wrapper-image-cap.horizontal {
-      max-width: 50% !important;
-      .pgn__card-image-cap {
-        max-width: 100% !important;
-      }
+    height: 100%;
+
+    &.horizontal {
+      column-gap: var(--ccblk-grid-gap);
+    }
+
+    /* Make the image cap take up half the card with clear layout ownership. */
+    .pgn__card-wrapper-image-cap.horizontal,
+    .complex-card-body--horizontal-image {
+      flex: 0 0 calc(50% - (var(--ccblk-grid-gap) / 2));
+      max-width: calc(50% - (var(--ccblk-grid-gap) / 2));
+    }
+
+    .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .pgn__card-header {
       .pgn__card-header-content {
         margin-top: var(--pgn-spacing-card-spacer-x);
       }
+
       .pgn__card-header-title-md {
         font-family: var(--pgn-typography-headings-font-family);
         color: var(--ccblk-typography-headings-color);
         font-size: var(--pgn-typography-font-size-h4-base);
       }
+
       .pgn__card-header-subtitle-md {
         color: var(--ccblk-typography-headings-color);
         font-size: var(--pgn-typography-font-size-base);
@@ -88,4 +107,95 @@
       }
     }
   }
+
+  .complex-card-body {
+    padding: var(--ccblk-card-padding);
+  }
+
+  .complex-card-layout {
+    width: 100%;
+    height: 100%;
+  }
+
+  .complex-card-layout--horizontal {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: var(--ccblk-grid-gap);
+  }
+
+  .complex-card-layout--vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .complex-card-layout-panel {
+    min-width: 0;
+  }
+
+  .complex-card-layout-panel--primary,
+  .complex-card-layout-panel--secondary {
+    flex: 1 1 auto;
+  }
+
+  .complex-card-cta-section {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .complex-card-cta-button {
+    padding-inline: var(--ccblk-card-button-padding-inline, 32px);
+  }
+}
+
+.content-highlight {
+  height: 100%;
+  padding: var(--pgn-spacing-spacer-4-5, 32px);
+  background-color: var(--pgn-color-primary-500);
+}
+
+.content-highlight--horizontal {
+  border-top-right-radius: var(--pgn-size-border-radius-lg, 24px);
+  border-bottom-right-radius: var(--pgn-size-border-radius-lg, 24px);
+}
+
+.content-highlight--vertical {
+  border-bottom-right-radius: var(--pgn-size-border-radius-lg, 24px);
+  border-bottom-left-radius: var(--pgn-size-border-radius-lg, 24px);
+}
+
+.content-highlight-subtitle,
+.content-highlight-title,
+.content-highlight-description {
+  margin-top: 0;
+}
+
+.content-highlight-title {
+  margin-bottom: var(--pgn-spacing-spacer-3, 16px);
+  color: var(--pgn-color-light-100);
+}
+
+.content-highlight-description {
+  margin-bottom: 0;
+  color: var(--pgn-color-light-100);
+}
+
+.rich-list {
+  padding: var(--pgn-spacing-spacer-4-5, 32px);
+}
+
+.rich-list-content {
+  margin-left: var(--pgn-spacing-spacer-4, 24px);
+}
+
+.rich-list-title {
+  margin-top: 0;
+}
+
+.rich-list-description {
+  margin-bottom: 0;
+}
+
+.rich-list-divider {
+  margin-block: var(--pgn-spacing-spacer-3, 16px);
 }

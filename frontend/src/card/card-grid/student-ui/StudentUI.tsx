@@ -1,4 +1,4 @@
-import { Col, Container, Row } from '@openedx/paragon';
+import { Col, Row } from '@openedx/paragon';
 import type { XBlockRuntime } from '@opencraft/xblock-react-utils';
 import ComplexCard from '@/card/common/student-ui/ComplexCard';
 import type { InitData } from '@/card/card-grid/types';
@@ -37,36 +37,41 @@ function StudentUI({
   }
 
   return (
-    <div
-      style={{ backgroundColor: backgroundColor }}
-      className="card-grid-xblock py-4"
-    >
-      <Container>
-        <Row>
-          <div
-            dangerouslySetInnerHTML={{ __html: description }}
-            className="col"
-          ></div>
+    <div className="card-grid-xblock" style={{ backgroundColor }}>
+      <div className="card-grid-container">
+        <Row className="card-grid-description-row">
+          <Col xs={12}>
+            <div
+              className="card-grid-description"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+          </Col>
         </Row>
-        <Row>
+        <Row className="card-grid-cards-row">
           {cards.map((c, i) => (
-            <Col {...sizes} className="d-flex my-3" {...(i === 0 && offset)}>
+            <Col
+              {...sizes}
+              className="card-grid-card-column"
+              {...(i === 0 && offset)}
+              key={c.id ?? i}
+            >
               <ComplexCard
                 orientation={orientation}
                 data={c}
                 position="" // disable the numbering that appears in carousel
-                key={i}
               />
             </Col>
           ))}
         </Row>
-        <Row className="my-4">
-          <div
-            dangerouslySetInnerHTML={{ __html: footerDescription }}
-            className="col"
-          ></div>
+        <Row className="card-grid-footer-row">
+          <Col xs={12}>
+            <div
+              className="card-grid-footer-description"
+              dangerouslySetInnerHTML={{ __html: footerDescription }}
+            />
+          </Col>
         </Row>
-      </Container>
+      </div>
     </div>
   );
 }

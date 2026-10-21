@@ -7,7 +7,6 @@ import {
   Card,
   Col,
   ColorPicker,
-  Container,
   Form,
   IconButton,
   Row,
@@ -54,10 +53,10 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
   };
 
   return (
-    <div className="ideas-overview-block-editor editor-with-buttons d-flex flex-column justify-content-between">
-      <Container className="wrapper-comp-settings is-active">
-        <Stack gap={3}>
-          <Form.Group>
+    <div className="ideas-overview-block-editor editor-with-buttons">
+      <div className="wrapper-comp-settings is-active ideas-overview-editor-body">
+        <Stack className="ideas-overview-editor-stack">
+          <Form.Group className="ideas-overview-editor-field">
             <Form.Label>Display Name (shown in Studio only)</Form.Label>
             <Form.Control
               value={data.displayName}
@@ -68,8 +67,10 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
             />
           </Form.Group>
 
-          <Form.Label>
-            <span>Rich text content to display above the ideas.</span>
+          <Form.Group className="ideas-overview-editor-field">
+            <Form.Label>
+              Rich text content to display above the ideas.
+            </Form.Label>
             <SimpleRichTextEditor
               ariaLabel="Rich text editor for the content above the ideas."
               value={data.content.header}
@@ -80,21 +81,26 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
                 })
               }
             />
-          </Form.Label>
+          </Form.Group>
 
-          <h4>Ideas</h4>
-          {data.content.ideas.map((idea, i) => (
-            <IdeaEditor
-              onDelete={() => deleteIdea(i)}
-              onUpdate={(idea) => updateIdea(idea, i)}
-              idea={idea}
-            />
-          ))}
+          <div>
+            <h4 className="ideas-overview-editor-section-title">Ideas</h4>
+            {data.content.ideas.map((idea, i) => (
+              <IdeaEditor
+                key={`idea-${i}`}
+                onDelete={() => deleteIdea(i)}
+                onUpdate={(idea) => updateIdea(idea, i)}
+                idea={idea}
+              />
+            ))}
 
-          {data.content.ideas.length == 0 && <div>No ideas added yet.</div>}
+            {data.content.ideas.length === 0 && (
+              <div className="ideas-overview-editor-empty">
+                No ideas added yet.
+              </div>
+            )}
 
-          <Row>
-            <Col>
+            <div className="ideas-overview-editor-add-idea">
               <Button
                 variant="success"
                 iconBefore={Add}
@@ -110,11 +116,13 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
               >
                 Add idea
               </Button>
-            </Col>
-          </Row>
+            </div>
+          </div>
 
-          <Form.Label>
-            <span>Rich text content to display below the ideas.</span>
+          <Form.Group className="ideas-overview-editor-field">
+            <Form.Label>
+              Rich text content to display below the ideas.
+            </Form.Label>
             <SimpleRichTextEditor
               ariaLabel="Rich text editor for the content below the ideas."
               value={data.content.footer}
@@ -125,21 +133,24 @@ export const App = ({ initialData, onSave, onCancel }: AppProps) => {
                 })
               }
             />
-          </Form.Label>
+          </Form.Group>
 
-          <Form.Label>
-            Background Color
+          <Form.Group className="ideas-overview-editor-field ideas-overview-editor-field--last">
+            <Form.Label>Background Color</Form.Label>
             <ColorPicker
               color={data.backgroundColor}
               setColor={(color: string) =>
                 setData({ ...data, backgroundColor: color })
               }
             />
-          </Form.Label>
+          </Form.Group>
         </Stack>
-      </Container>
+      </div>
 
-      <Sticky position="bottom" className="xblock-actions p-2 border-top">
+      <Sticky
+        position="bottom"
+        className="xblock-actions ideas-overview-editor-actions"
+      >
         <ActionRow>
           <Button variant="primary" onClick={() => onSave(data)}>
             Save
@@ -165,8 +176,9 @@ const IdeaEditor = ({
   idea,
 }: IdeaEditorProps): ReactElement => {
   return (
-    <Card>
+    <Card className="ideas-overview-editor-card">
       <Card.Section
+        className="ideas-overview-editor-card-section"
         actions={
           <ActionRow>
             <Button
@@ -179,7 +191,7 @@ const IdeaEditor = ({
           </ActionRow>
         }
       >
-        <Form.Group>
+        <Form.Group className="ideas-overview-editor-field">
           <Form.Label>Title</Form.Label>
           <Form.Control
             value={idea.title}
@@ -189,10 +201,10 @@ const IdeaEditor = ({
           />
         </Form.Group>
 
-        <h4>Points</h4>
-        <Stack gap={3}>
+        <h4 className="ideas-overview-editor-section-title">Points</h4>
+        <Stack className="ideas-overview-editor-points-stack">
           {idea.points.map((point, i) => (
-            <Row>
+            <Row className="ideas-overview-editor-point-row" key={`point-${i}`}>
               <Col xs={11}>
                 <Form.Control
                   value={point}
@@ -208,7 +220,7 @@ const IdeaEditor = ({
                   }
                 />
               </Col>
-              <Col xs={1}>
+              <Col xs={1} className="ideas-overview-editor-point-action">
                 <IconButton
                   src={DeleteOutline}
                   alt="Delete point"
@@ -227,19 +239,17 @@ const IdeaEditor = ({
             </Row>
           ))}
 
-          <Row>
-            <Col>
-              <Button
-                iconBefore={Add}
-                variant="success"
-                onClick={() =>
-                  onUpdate({ ...idea, points: [...idea.points, ''] })
-                }
-              >
-                Add point
-              </Button>
-            </Col>
-          </Row>
+          <div className="ideas-overview-editor-add-point">
+            <Button
+              iconBefore={Add}
+              variant="success"
+              onClick={() =>
+                onUpdate({ ...idea, points: [...idea.points, ''] })
+              }
+            >
+              Add point
+            </Button>
+          </div>
         </Stack>
       </Card.Section>
     </Card>

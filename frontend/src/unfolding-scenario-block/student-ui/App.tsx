@@ -19,7 +19,7 @@ export const App = ({ data, themeUrls, cssContent }: AppProps) => {
     <div className={rootClass}>
       {activityOpen && (
         <RenderInWindow
-          className={rootClass}
+          className={`${rootClass} min-vh-100`}
           themeUrls={themeUrls}
           cssContent={cssContent}
           onClose={() => setActivityOpen(false)}

@@ -1,1 +1,78 @@
-// custom css for the student view goes here
+@import '../../base';
+
+.ideas-overview-xblock *,
+.ideas-overview-xblock *::before,
+.ideas-overview-xblock *::after {
+  box-sizing: border-box;
+}
+
+.ideas-overview-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--pgn-spacing-spacer-4-5, 32px);
+}
+
+.ideas-overview-header-row,
+.ideas-overview-idea-row,
+.ideas-overview-footer-row {
+  padding-block: var(--pgn-spacing-spacer-4-5, 32px);
+}
+
+.ideas-overview-header-row {
+  padding-top: 0;
+  border-bottom: 1px solid var(--pgn-color-gray-200);
+}
+
+.ideas-overview-idea-row + .ideas-overview-idea-row,
+.ideas-overview-footer-row {
+  border-top: 1px solid var(--pgn-color-gray-200);
+}
+
+.ideas-overview-footer-row {
+  padding-bottom: 0;
+}
+
+.ideas-overview-title-column {
+  display: flex;
+  align-items: flex-start;
+}
+
+.ideas-overview-title-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pgn-spacing-spacer-2, 8px);
+}
+
+.ideas-overview-icon {
+  color: var(--pgn-color-info-500);
+  flex: 0 0 auto;
+}
+
+.ideas-overview-title {
+  color: var(--pgn-color-primary-500);
+  font-weight: 700;
+  line-height: var(--pgn-typography-line-height-base, 1.5);
+}
+
+.ideas-overview-points {
+  margin: 0;
+  padding-left: var(--pgn-spacing-spacer-4-5, 32px);
+}
+
+.ideas-overview-point + .ideas-overview-point {
+  margin-top: var(--pgn-spacing-spacer-2, 8px);
+}
+
+.ideas-overview-rich-text {
+  line-height: var(--pgn-typography-line-height-base, 1.5);
+}
+
+.ideas-overview-rich-text > :last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 575.98px) {
+  .ideas-overview-title-column {
+    margin-bottom: var(--pgn-spacing-spacer-3, 16px);
+  }
+}

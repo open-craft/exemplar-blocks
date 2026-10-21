@@ -1,6 +1,76 @@
 @import '@/card/common/student-ui/ComplexCard.scss';
 @import '@/card/common/student-ui/HoverList.css';
 
+.card-carousel-xblock *,
+.card-carousel-xblock *::before,
+.card-carousel-xblock *::after {
+  box-sizing: border-box;
+}
+
+.card-carousel-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--pgn-spacing-spacer-4-5, 32px);
+}
+
+.card-carousel-container .pgn__card-carousel-title {
+  margin-bottom: var(--pgn-spacing-spacer-4-5, 32px);
+}
+
+.card-grid-xblock {
+  --card-grid-gap: var(--pgn-spacing-spacer-4-5, 32px);
+}
+
+.card-grid-xblock *,
+.card-grid-xblock *::before,
+.card-grid-xblock *::after {
+  box-sizing: border-box;
+}
+
+.card-grid-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--pgn-spacing-spacer-4-5, 32px);
+}
+
+.card-grid-description-row,
+.card-grid-footer-row,
+.card-grid-cards-row {
+  margin-inline: calc(var(--card-grid-gap) / -2);
+}
+
+.card-grid-description-row > [class*='col'],
+.card-grid-footer-row > [class*='col'],
+.card-grid-card-column {
+  padding-inline: calc(var(--card-grid-gap) / 2);
+}
+
+.card-grid-description-row {
+  margin-bottom: var(--pgn-spacing-spacer-4-5, 32px);
+}
+
+.card-grid-cards-row {
+  row-gap: var(--card-grid-gap);
+}
+
+.card-grid-card-column {
+  display: flex;
+}
+
+.card-grid-footer-row {
+  margin-top: var(--pgn-spacing-spacer-4-5, 32px);
+}
+
+.card-grid-description,
+.card-grid-footer-description {
+  line-height: var(--pgn-typography-line-height-base, 1.5);
+}
+
+.card-grid-description > :last-child,
+.card-grid-footer-description > :last-child {
+  margin-bottom: 0;
+}
+
 /*
 The Material Icons styles are supposed to be loaded directly using the injects <link> element.
 While the font loads as expected, the CSS doesn't reach the UI due to the shadow dom boundary.

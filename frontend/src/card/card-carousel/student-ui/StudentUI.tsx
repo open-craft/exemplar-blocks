@@ -25,11 +25,8 @@ function StudentUI({
   }
 
   return (
-    <div
-      style={{ backgroundColor: backgroundColor }}
-      className="card-carousel-xblock py-6"
-    >
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <div className="card-carousel-xblock" style={{ backgroundColor }}>
+      <div className="card-carousel-container">
         <CardCarousel
           ariaLabel={displayName}
           title={displayName ? <h3>{displayName}</h3> : ''}

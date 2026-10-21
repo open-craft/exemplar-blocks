@@ -42,7 +42,7 @@ function StudioUI({ runtime, saveUrl, initData }: StudioUIProps) {
       }}
     >
       <Form>
-        <div className="studio-ui d-flex flex-column justify-content-between">
+        <div className="studio-ui card-carousel-studio">
           {showCardEditor ? (
             <CarouselEditor enableCardOrientation />
           ) : (

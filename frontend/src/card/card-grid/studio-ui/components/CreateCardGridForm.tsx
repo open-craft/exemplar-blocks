@@ -11,8 +11,8 @@ export default function CreateCardGridForm() {
   const { values, setFieldValue, handleChange } = useFormikContext<InitData>();
 
   return (
-    <div className="p-4">
-      <Form.Group>
+    <div className="card-grid-create-form">
+      <Form.Group className="card-grid-studio-field">
         <Form.Label>Display Name</Form.Label>
         <Form.Text muted>
           Name displayed on the block in Studio. Not shown to the learners.
@@ -24,7 +24,7 @@ export default function CreateCardGridForm() {
           onChange={handleChange}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className="card-grid-studio-field">
         <Form.Label>Description</Form.Label>
         <Form.Text muted>
           An optional description that can be shown above the cards.
@@ -38,15 +38,15 @@ export default function CreateCardGridForm() {
           height="200px"
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className="card-grid-studio-field">
         <Form.Label>Card Layout</Form.Label>
         <Form.Text>
           Choose whether cards in this grid use a vertical or horizontal layout.
           You'll add and edit the cards in the next step.
         </Form.Text>
-        <Stack direction="horizontal" gap={4}>
+        <Stack direction="horizontal" className="card-grid-layout-options">
           <Button
-            className="flex flex-column mt-4 p-4"
+            className="card-grid-layout-option"
             variant={
               values.orientation === 'VERTICAL'
                 ? 'outline-success'
@@ -54,16 +54,18 @@ export default function CreateCardGridForm() {
             }
             onClick={() => setFieldValue('orientation', 'VERTICAL')}
           >
-            <p>
+            <p className="card-grid-layout-option-icon">
               <span className="material-icons-outlined">splitscreen</span>
             </p>
-            <p className="mt-0">
+            <p className="card-grid-layout-option-title">
               <strong>Vertical Cards</strong>
             </p>
-            <p className="small">Content sits above and below</p>
+            <p className="card-grid-layout-option-description">
+              Content sits above and below
+            </p>
           </Button>
           <Button
-            className="flex flex-column mt-4 p-4"
+            className="card-grid-layout-option"
             variant={
               values.orientation === 'HORIZONTAL'
                 ? 'outline-success'
@@ -71,17 +73,19 @@ export default function CreateCardGridForm() {
             }
             onClick={() => setFieldValue('orientation', 'HORIZONTAL')}
           >
-            <p>
+            <p className="card-grid-layout-option-icon">
               <span className="material-icons-outlined">vertical_split</span>
             </p>
-            <p className="mt-0">
+            <p className="card-grid-layout-option-title">
               <strong>Horizontal Cards</strong>
             </p>
-            <p className="small">Content sits side-by-side</p>
+            <p className="card-grid-layout-option-description">
+              Content sits side-by-side
+            </p>
           </Button>
         </Stack>
       </Form.Group>
-      <Form.Group>
+      <Form.Group className="card-grid-studio-field">
         <Form.Label>Footer Description</Form.Label>
         <Form.Text muted>Text that's shown below the cards.</Form.Text>
         <SimpleRichTextEditor
@@ -93,7 +97,7 @@ export default function CreateCardGridForm() {
           height="200px"
         />
       </Form.Group>
-      <Form.Group className="my-3">
+      <Form.Group className="card-grid-studio-field card-grid-studio-field--last">
         <Form.Label>Background Color</Form.Label>
         <ColorPicker
           color={values.backgroundColor}

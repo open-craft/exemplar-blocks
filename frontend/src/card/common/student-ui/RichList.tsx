@@ -4,17 +4,17 @@ import MaterialIcon from './MaterialIcon';
 
 export function RichList({ items }: { items: RichListItem[] }) {
   return (
-    <div className="p-4 pt-5">
+    <div className="rich-list">
       {items.map((item, i) => (
-        <div key={i}>
-          <Stack direction="horizontal">
+        <div className="rich-list-item" key={i}>
+          <Stack direction="horizontal" className="rich-list-row">
             <MaterialIcon name={item.icon} />
-            <div className="ml-4">
-              <h4>{item.title}</h4>
-              <p>{item.description}</p>
+            <div className="rich-list-content">
+              <h4 className="rich-list-title">{item.title}</h4>
+              <p className="rich-list-description">{item.description}</p>
             </div>
           </Stack>
-          {i < items.length - 1 && <hr />}
+          {i < items.length - 1 && <hr className="rich-list-divider" />}
         </div>
       ))}
     </div>

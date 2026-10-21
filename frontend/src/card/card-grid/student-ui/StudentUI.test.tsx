@@ -82,7 +82,7 @@ describe('StudentUI', () => {
     expect(screen.getByText('A helpful footer')).toBeInTheDocument();
   });
 
-  it('applies the background color to the outer container', () => {
+  it('sets the configured background color on the outer container', () => {
     const { container } = render(
       <StudentUI
         runtime={mockRuntime}

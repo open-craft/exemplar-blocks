@@ -19,10 +19,10 @@ export const OutcomeComponent = ({
 }: OutcomeProps) => (
   <div className="d-flex flex-grow-1">
     <div className="p-4-5" style={{ flex: '0 0 60%' }}>
-      <p className="font-size-lg font-weight-bold text-secondary-700">
+      <p className="font-size-lg font-weight-bold text-interact-accent">
         {outcome.heading}
       </p>
-      <p className="pb-3">{outcome.description}</p>
+      <p className="pb-3 text-interact-content">{outcome.description}</p>
     </div>
     <div
       className="d-flex flex-column"
@@ -34,14 +34,14 @@ export const OutcomeComponent = ({
     >
       <div className="fixed-bottom align-content-end text-right p-4-5">
         <Button
-          variant="outline-unfolding-scenario-blue"
+          variant="outline-unfolding-scenario-action"
           className="rounded-pill"
           onClick={onRestart}
         >
           Restart <Icon src={Replay} />
         </Button>
         <Button
-          variant="unfolding-scenario-blue"
+          variant="unfolding-scenario-action"
           className="rounded-pill ml-3"
           onClick={onExit}
         >

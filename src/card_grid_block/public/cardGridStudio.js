@@ -51165,94 +51165,112 @@ var Ky = ({ value: e, onEditorChange: t, ariaLabel: n, height: r }) => /* @__PUR
 function qy() {
 	let { values: e, setFieldValue: t, handleChange: n } = zv();
 	return /* @__PURE__ */ (0, J.jsxs)("div", {
-		className: "p-4",
+		className: "card-grid-create-form",
 		children: [
-			/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [
-				/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Display Name" }),
-				/* @__PURE__ */ (0, J.jsx)(W.Text, {
-					muted: !0,
-					children: "Name displayed on the block in Studio. Not shown to the learners."
-				}),
-				/* @__PURE__ */ (0, J.jsx)(W.Control, {
-					type: "text",
-					name: "displayName",
-					value: e.displayName,
-					onChange: n
-				})
-			] }),
-			/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [
-				/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Description" }),
-				/* @__PURE__ */ (0, J.jsx)(W.Text, {
-					muted: !0,
-					children: "An optional description that can be shown above the cards."
-				}),
-				/* @__PURE__ */ (0, J.jsx)(Ky, {
-					ariaLabel: "Rich text editor for the description content.",
-					value: e.description,
-					onEditorChange: (e) => t("description", e),
-					height: "200px"
-				})
-			] }),
-			/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [
-				/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Card Layout" }),
-				/* @__PURE__ */ (0, J.jsx)(W.Text, { children: "Choose whether cards in this grid use a vertical or horizontal layout. You'll add and edit the cards in the next step." }),
-				/* @__PURE__ */ (0, J.jsxs)(S, {
-					direction: "horizontal",
-					gap: 4,
-					children: [/* @__PURE__ */ (0, J.jsxs)(_, {
-						className: "flex flex-column mt-4 p-4",
-						variant: e.orientation === "VERTICAL" ? "outline-success" : "outline-secondary",
-						onClick: () => t("orientation", "VERTICAL"),
-						children: [
-							/* @__PURE__ */ (0, J.jsx)("p", { children: /* @__PURE__ */ (0, J.jsx)("span", {
-								className: "material-icons-outlined",
-								children: "splitscreen"
-							}) }),
-							/* @__PURE__ */ (0, J.jsx)("p", {
-								className: "mt-0",
-								children: /* @__PURE__ */ (0, J.jsx)("strong", { children: "Vertical Cards" })
-							}),
-							/* @__PURE__ */ (0, J.jsx)("p", {
-								className: "small",
-								children: "Content sits above and below"
-							})
-						]
-					}), /* @__PURE__ */ (0, J.jsxs)(_, {
-						className: "flex flex-column mt-4 p-4",
-						variant: e.orientation === "HORIZONTAL" ? "outline-success" : "outline-secondary",
-						onClick: () => t("orientation", "HORIZONTAL"),
-						children: [
-							/* @__PURE__ */ (0, J.jsx)("p", { children: /* @__PURE__ */ (0, J.jsx)("span", {
-								className: "material-icons-outlined",
-								children: "vertical_split"
-							}) }),
-							/* @__PURE__ */ (0, J.jsx)("p", {
-								className: "mt-0",
-								children: /* @__PURE__ */ (0, J.jsx)("strong", { children: "Horizontal Cards" })
-							}),
-							/* @__PURE__ */ (0, J.jsx)("p", {
-								className: "small",
-								children: "Content sits side-by-side"
-							})
-						]
-					})]
-				})
-			] }),
-			/* @__PURE__ */ (0, J.jsxs)(W.Group, { children: [
-				/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Footer Description" }),
-				/* @__PURE__ */ (0, J.jsx)(W.Text, {
-					muted: !0,
-					children: "Text that's shown below the cards."
-				}),
-				/* @__PURE__ */ (0, J.jsx)(Ky, {
-					ariaLabel: "Rich text editor for the footer description content.",
-					value: e.footerDescription,
-					onEditorChange: (e) => t("footerDescription", e),
-					height: "200px"
-				})
-			] }),
 			/* @__PURE__ */ (0, J.jsxs)(W.Group, {
-				className: "my-3",
+				className: "card-grid-studio-field",
+				children: [
+					/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Display Name" }),
+					/* @__PURE__ */ (0, J.jsx)(W.Text, {
+						muted: !0,
+						children: "Name displayed on the block in Studio. Not shown to the learners."
+					}),
+					/* @__PURE__ */ (0, J.jsx)(W.Control, {
+						type: "text",
+						name: "displayName",
+						value: e.displayName,
+						onChange: n
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, J.jsxs)(W.Group, {
+				className: "card-grid-studio-field",
+				children: [
+					/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Description" }),
+					/* @__PURE__ */ (0, J.jsx)(W.Text, {
+						muted: !0,
+						children: "An optional description that can be shown above the cards."
+					}),
+					/* @__PURE__ */ (0, J.jsx)(Ky, {
+						ariaLabel: "Rich text editor for the description content.",
+						value: e.description,
+						onEditorChange: (e) => t("description", e),
+						height: "200px"
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, J.jsxs)(W.Group, {
+				className: "card-grid-studio-field",
+				children: [
+					/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Card Layout" }),
+					/* @__PURE__ */ (0, J.jsx)(W.Text, { children: "Choose whether cards in this grid use a vertical or horizontal layout. You'll add and edit the cards in the next step." }),
+					/* @__PURE__ */ (0, J.jsxs)(S, {
+						direction: "horizontal",
+						className: "card-grid-layout-options",
+						children: [/* @__PURE__ */ (0, J.jsxs)(_, {
+							className: "card-grid-layout-option",
+							variant: e.orientation === "VERTICAL" ? "outline-success" : "outline-secondary",
+							onClick: () => t("orientation", "VERTICAL"),
+							children: [
+								/* @__PURE__ */ (0, J.jsx)("p", {
+									className: "card-grid-layout-option-icon",
+									children: /* @__PURE__ */ (0, J.jsx)("span", {
+										className: "material-icons-outlined",
+										children: "splitscreen"
+									})
+								}),
+								/* @__PURE__ */ (0, J.jsx)("p", {
+									className: "card-grid-layout-option-title",
+									children: /* @__PURE__ */ (0, J.jsx)("strong", { children: "Vertical Cards" })
+								}),
+								/* @__PURE__ */ (0, J.jsx)("p", {
+									className: "card-grid-layout-option-description",
+									children: "Content sits above and below"
+								})
+							]
+						}), /* @__PURE__ */ (0, J.jsxs)(_, {
+							className: "card-grid-layout-option",
+							variant: e.orientation === "HORIZONTAL" ? "outline-success" : "outline-secondary",
+							onClick: () => t("orientation", "HORIZONTAL"),
+							children: [
+								/* @__PURE__ */ (0, J.jsx)("p", {
+									className: "card-grid-layout-option-icon",
+									children: /* @__PURE__ */ (0, J.jsx)("span", {
+										className: "material-icons-outlined",
+										children: "vertical_split"
+									})
+								}),
+								/* @__PURE__ */ (0, J.jsx)("p", {
+									className: "card-grid-layout-option-title",
+									children: /* @__PURE__ */ (0, J.jsx)("strong", { children: "Horizontal Cards" })
+								}),
+								/* @__PURE__ */ (0, J.jsx)("p", {
+									className: "card-grid-layout-option-description",
+									children: "Content sits side-by-side"
+								})
+							]
+						})]
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, J.jsxs)(W.Group, {
+				className: "card-grid-studio-field",
+				children: [
+					/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Footer Description" }),
+					/* @__PURE__ */ (0, J.jsx)(W.Text, {
+						muted: !0,
+						children: "Text that's shown below the cards."
+					}),
+					/* @__PURE__ */ (0, J.jsx)(Ky, {
+						ariaLabel: "Rich text editor for the footer description content.",
+						value: e.footerDescription,
+						onEditorChange: (e) => t("footerDescription", e),
+						height: "200px"
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, J.jsxs)(W.Group, {
+				className: "card-grid-studio-field card-grid-studio-field--last",
 				children: [/* @__PURE__ */ (0, J.jsx)(W.Label, { children: "Background Color" }), /* @__PURE__ */ (0, J.jsx)(np, {
 					color: e.backgroundColor,
 					setColor: (e) => t("backgroundColor", e)
@@ -57133,7 +57151,7 @@ function zN({ runtime: e, saveUrl: t, initData: n }) {
 			});
 		},
 		children: /* @__PURE__ */ (0, J.jsx)(ly, { children: /* @__PURE__ */ (0, J.jsxs)("div", {
-			className: "studio-ui d-flex flex-column justify-content-between",
+			className: "studio-ui card-grid-studio",
 			children: [r ? /* @__PURE__ */ (0, J.jsx)(LN, {}) : /* @__PURE__ */ (0, J.jsx)(qy, {}), /* @__PURE__ */ (0, J.jsx)(RN, {
 				runtime: e,
 				showingEditor: r,
@@ -57145,8 +57163,8 @@ function zN({ runtime: e, saveUrl: t, initData: n }) {
 	});
 }
 //#endregion
-//#region src/card/card-carousel/studio-ui/StudioUI.css?inline
-var BN = ".icon-selector.dropdown-toggle:after{display:none}.icon-list-popup{background-color:var(--pgn-color-body-bg);width:292px;min-height:242px;max-height:300px;overflow:scroll}button:not(:disabled).icon-symbol{background-color:var(--pgn-color-body-bg);width:auto;color:var(--pgn-color-gray-600);border:0}button:not(:disabled).icon-symbol:hover{background-color:var(--pgn-color-light);color:var(--pgn-color-primary)}button:not(:disabled).icon-symbol:focus{background-color:var(--pgn-color-light);color:var(--pgn-color-primary);border:0}.card-carousel-editor-modal-footer{background-color:var(--pgn-color-card-bg-base)}.xblock-root .input-group .pgn__form-control-decorator-group{margin-right:0}.xblock-root .input-group .pgn__form-control-decorator-group .form-control{border-top-right-radius:0;border-bottom-right-radius:0}.wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", VN = (e, t, n) => {
+//#region src/card/card-grid/studio-ui/StudioUI.css?inline
+var BN = ".icon-selector.dropdown-toggle:after{display:none}.icon-list-popup{background-color:var(--pgn-color-body-bg);width:292px;min-height:242px;max-height:300px;overflow:scroll}button:not(:disabled).icon-symbol{background-color:var(--pgn-color-body-bg);width:auto;color:var(--pgn-color-gray-600);border:0}button:not(:disabled).icon-symbol:hover{background-color:var(--pgn-color-light);color:var(--pgn-color-primary)}button:not(:disabled).icon-symbol:focus{background-color:var(--pgn-color-light);color:var(--pgn-color-primary);border:0}.card-carousel-editor-modal-footer{background-color:var(--pgn-color-card-bg-base)}.xblock-root .input-group .pgn__form-control-decorator-group{margin-right:0}.xblock-root .input-group .pgn__form-control-decorator-group .form-control{border-top-right-radius:0;border-bottom-right-radius:0}.wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.card-grid-studio{flex-direction:column;justify-content:space-between;display:flex}.card-grid-create-form{padding:var(--pgn-spacing-spacer-3,16px)}.card-grid-studio-field{margin-bottom:var(--pgn-spacing-spacer-4,24px)}.card-grid-studio-field--last{margin-bottom:0}.card-grid-layout-options{gap:var(--pgn-spacing-spacer-3,16px);margin-top:var(--pgn-spacing-spacer-3,16px)}.card-grid-layout-option{padding:var(--pgn-spacing-spacer-4,24px);flex-direction:column;flex:1 1 0;display:flex}.card-grid-layout-option-icon,.card-grid-layout-option-title,.card-grid-layout-option-description{margin-top:0}.card-grid-layout-option-icon,.card-grid-layout-option-title{margin-bottom:var(--pgn-spacing-spacer-2,8px)}.card-grid-layout-option-description{font-size:var(--pgn-typography-font-size-sm,.875rem);margin-bottom:0}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", VN = (e, t, n) => {
 	let r = s(e), i = t.handlerUrl(e, "studio_save");
 	(!n.data.cards || !n.data.cards.length) && (n.data.cards = [FN()]);
 	let a = r.parentElement?.parentElement;

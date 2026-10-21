@@ -30,22 +30,24 @@ export const ScenarioView = ({ scenario, onContinue }: ScenarioViewProps) => {
     return (
       <Row className="pt-3 mx-3">
         <Col>
-          <p className="font-size-lg font-weight-bold text-secondary-700">
+          <p className="font-size-lg font-weight-bold text-interact-accent">
             {scenario.heading}
           </p>
-          <p className="pb-3">{scenario.description}</p>
+          <p className="text-interact-content pb-3">{scenario.description}</p>
           <div className="d-flex align-items-center mt-3 mb-2">
-            <div className="arrow-bubble p-2">
+            <div className="arrow-bubble p-2 text-icon-interact-default">
               <Icon src={ArrowOutward} />
             </div>
-            <span className="text-main font-size-medium font-weight-bold pl-2">
+            <span className="text-interact-headings font-size-medium font-weight-bold pl-2">
               {scenario.instructionTitle}
             </span>
           </div>
-          <p>{scenario.instructionDescription}</p>
+          <p className="text-interact-content">
+            {scenario.instructionDescription}
+          </p>
         </Col>
         <Col>
-          <p className="text-main font-size-md font-weight-bold">
+          <p className="text-interact-headings font-size-md font-weight-bold">
             {scenario.prompt}
           </p>
           <div className="d-flex flex-column flex-grow-1">
@@ -61,7 +63,7 @@ export const ScenarioView = ({ scenario, onContinue }: ScenarioViewProps) => {
           </div>
           <div className="d-flex justify-content-end">
             <Button
-              variant="unfolding-scenario-blue"
+              variant="unfolding-scenario-action"
               className="rounded-pill"
               onClick={onContinue}
             >
@@ -76,13 +78,14 @@ export const ScenarioView = ({ scenario, onContinue }: ScenarioViewProps) => {
       <Row className="pt-3 mx-3">
         <Col xs="1" className="d-flex align-items-center">
           <IconButton
+            className="text-icon-action-sec-neutral"
             src={KeyboardReturn}
             alt="Return"
             onClick={() => setActiveOptionIndex(null)}
           />
         </Col>
         <Col xs="5">
-          <p className="text-main font-size-md font-weight-bold">
+          <p className="text-interact-headings font-size-md font-weight-bold">
             {scenario.prompt}
           </p>
           <div className="d-flex flex-column flex-grow-1">
@@ -98,7 +101,7 @@ export const ScenarioView = ({ scenario, onContinue }: ScenarioViewProps) => {
           </div>
           <div className="d-flex justify-content-end">
             <Button
-              variant="unfolding-scenario-blue"
+              variant="unfolding-scenario-action"
               className="rounded-pill"
               onClick={onContinue}
             >
