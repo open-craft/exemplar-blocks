@@ -1,0 +1,138 @@
+# Port of .gitlab-ci.yml. Both run side by side while GitLab push-mirrors to GitHub.
+name: CI
+
+on:
+  # All branches, so every mirrored GitLab push runs here too.
+  # TODO: After the GitHub cutover, narrow this to main and open-release/**.
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # The tools are installed by the setup actions; mise only runs the tasks.
+  MISE_AUTO_INSTALL: "false"
+  MISE_EXPERIMENTAL: "true"
+  MISE_TRUSTED_CONFIG_PATHS: ${{ github.workspace }}
+
+jobs:
+  python-quality:
+    name: python quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          python-version: "3.11"
+          enable-cache: true
+      - uses: jdx/mise-action@v5
+        with:
+          install: false
+      - run: mise run install:frontend
+      - run: mise run install:backend
+      - run: mise run quality:backend
+      - run: mise run sync-types
+      # If the types were out of sync, there will be a git diff here.
+      - run: git diff --exit-code
+
+  python-test:
+    name: python test
+    needs: python-quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          python-version: "3.11"
+          enable-cache: true
+      - uses: jdx/mise-action@v5
+        with:
+          install: false
+      - run: mise run install:backend
+      - run: mise run test:backend
+
+  frontend-quality:
+    name: frontend quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
+      - uses: jdx/mise-action@v5
+        with:
+          install: false
+      - run: mise run install:frontend
+      - run: mise run quality:frontend
+
+  frontend-build:
+    name: frontend build
+    needs: frontend-quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
+      - uses: jdx/mise-action@v5
+        with:
+          install: false
+      - run: mise run install:frontend
+      - run: mise run build:all
+      # Check build artefacts are up to date.
+      # The frontend build artefacts are committed to the repo.
+      # If there are changes in the repo after the build commands above, then the build artefacts aren't up to date.
+      - run: git diff --exit-code
+
+  frontend-test:
+    name: frontend test
+    needs: frontend-quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
+      - uses: jdx/mise-action@v5
+        with:
+          install: false
+      - run: mise run install:frontend
+      - run: mise run test:frontend
