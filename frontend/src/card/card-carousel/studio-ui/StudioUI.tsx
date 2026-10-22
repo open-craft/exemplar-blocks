@@ -1,25 +1,25 @@
-import { useMemo, useState } from "react";
-import { Form, Formik } from "formik";
-import { TabContainer, TabContent, TabPane } from "@openedx/paragon";
-import { type InitData } from "@/card/card-carousel/types";
-import { newCard } from "@/card/common/utils";
+import { useMemo, useState } from 'react';
+import { Form, Formik } from 'formik';
+import { TabContainer, TabContent, TabPane } from '@openedx/paragon';
+import { type InitData } from '@/card/card-carousel/types';
+import { newCard } from '@/card/common/utils';
 import {
   saveStudioBlock,
   type XBlockRuntime,
-} from "@opencraft/xblock-react-utils";
-import SettingsForm from "@/card/card-carousel/studio-ui/SettingsForm";
-import StudioHeader, { type StudioTab } from "@/shared/components/StudioHeader";
-import CarouselEditor from "@/card/common/studio-ui/CardListEditor";
-import ModalFooter from "@/card/common/studio-ui/ModalFooter";
-import JsonImporter from "@/shared/components/JsonImporter";
+} from '@opencraft/xblock-react-utils';
+import SettingsForm from '@/card/card-carousel/studio-ui/SettingsForm';
+import StudioHeader, { type StudioTab } from '@/shared/components/StudioHeader';
+import CarouselEditor from '@/card/common/studio-ui/CardListEditor';
+import ModalFooter from '@/card/common/studio-ui/ModalFooter';
+import JsonImporter from '@/shared/components/JsonImporter';
 
 const TABS: StudioTab[] = [
-  { key: "content", label: "Content" },
-  { key: "settings", label: "Settings" },
-  { key: "json", label: "JSON" },
+  { key: 'content', label: 'Content' },
+  { key: 'settings', label: 'Settings' },
+  { key: 'json', label: 'JSON' },
 ];
 
-type StudioTabKey = (typeof TABS)[number]["key"];
+type StudioTabKey = (typeof TABS)[number]['key'];
 
 interface StudioUIProps {
   saveUrl: string;
@@ -36,7 +36,7 @@ function StudioUI({ runtime, saveUrl, initData }: StudioUIProps) {
         ? initData
         : {
             ...initData,
-            cards: [newCard([], { orientation: "HORIZONTAL" as const })],
+            cards: [newCard([], { orientation: 'HORIZONTAL' as const })],
           },
     [initData],
   );
@@ -49,7 +49,7 @@ function StudioUI({ runtime, saveUrl, initData }: StudioUIProps) {
           saveUrl,
           data: values,
           runtime,
-          errorMessage: "Failed to save the card carousel.",
+          errorMessage: 'Failed to save the card carousel.',
         });
       }}
     >
@@ -69,7 +69,7 @@ function StudioUI({ runtime, saveUrl, initData }: StudioUIProps) {
                 tabs={TABS}
                 title={values.displayName}
                 onTitleChange={(displayName) =>
-                  setFieldValue("displayName", displayName)
+                  setFieldValue('displayName', displayName)
                 }
               />
               <TabContent className="card-carousel-studio-tab-content">

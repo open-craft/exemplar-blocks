@@ -1,8 +1,8 @@
-import { useState } from "react";
-import Dropzone from "@openedx/paragon/dist/Dropzone";
-import Form from "@openedx/paragon/dist/Form";
-import { Alert } from "@openedx/paragon";
-import type { XBlockRuntime } from "@opencraft/xblock-react-utils";
+import { useState } from 'react';
+import Dropzone from '@openedx/paragon/dist/Dropzone';
+import Form from '@openedx/paragon/dist/Form';
+import { Alert } from '@openedx/paragon';
+import type { XBlockRuntime } from '@opencraft/xblock-react-utils';
 
 interface JsonIOTabContentProps {
   runtime: XBlockRuntime;
@@ -64,7 +64,7 @@ export default function JsonImporter({
           JSON.parse(evt.target?.result as string);
           resolve(null);
         } catch {
-          resolve("Invalid JSON.");
+          resolve('Invalid JSON.');
         }
       };
       reader.readAsText(file);
@@ -77,16 +77,16 @@ export default function JsonImporter({
    * modal instead of relying on the runtime's error presentation.
    */
   const saveJson = ({ fileData, handleError }: ProcessUploadParam) => {
-    runtime.notify("save", { state: "start" });
+    runtime.notify('save', { state: 'start' });
     setUploadError(null);
-    const blob = fileData.get("file");
+    const blob = fileData.get('file');
     blob.text().then((jsonData: string) => {
       $.post(saveUrl, jsonData)
         .done(() => {
-          runtime.notify("save", { state: "end" });
+          runtime.notify('save', { state: 'end' });
         })
         .fail((e) => {
-          handleError(new Error("Upload rejected."));
+          handleError(new Error('Upload rejected.'));
           setUploadError(e.responseJSON?.error ?? e.responseText);
         });
     });
@@ -99,7 +99,7 @@ export default function JsonImporter({
         <Dropzone
           onProcessUpload={saveJson}
           accept={{
-            "application/json": [".json"],
+            'application/json': ['.json'],
           }}
           validator={validateJson}
         />
@@ -107,7 +107,7 @@ export default function JsonImporter({
       {uploadError && (
         <Alert variant="danger" className="mt-3">
           <Alert.Heading>JSON validation failed!</Alert.Heading>
-          {typeof uploadError === "string" ? (
+          {typeof uploadError === 'string' ? (
             <p className="mb-0">{uploadError}</p>
           ) : (
             <ValidationError error={uploadError} />
@@ -119,7 +119,7 @@ export default function JsonImporter({
         <p>
           <a
             className="m-2 btn btn-secondary"
-            href={saveUrl.replace("studio_save", "json_data?type=data")}
+            href={saveUrl.replace('studio_save', 'json_data?type=data')}
           >
             Download component data
           </a>
@@ -132,7 +132,7 @@ export default function JsonImporter({
         <p>
           <a
             className="m-2 btn btn-secondary"
-            href={saveUrl.replace("studio_save", "json_data?type=schema")}
+            href={saveUrl.replace('studio_save', 'json_data?type=schema')}
           >
             Download Schema
           </a>

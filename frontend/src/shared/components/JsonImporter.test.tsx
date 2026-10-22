@@ -76,5 +76,4 @@ describe('JsonImporter', () => {
     expect(await findByText('Invalid JSON.')).toBeInTheDocument();
     expect(mockPost).not.toHaveBeenCalled();
   });
-
 });

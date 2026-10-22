@@ -41,11 +41,11 @@ describe('Studio UI', () => {
     );
     expect(screen.getByRole('tab', { name: 'Settings' })).toHaveAttribute(
       'aria-selected',
-      'false'
+      'false',
     );
     expect(screen.getByRole('tab', { name: 'JSON' })).toHaveAttribute(
       'aria-selected',
-      'false'
+      'false',
     );
     expect(
       screen.getByRole('button', { name: /Add Card/i }),

@@ -11,11 +11,7 @@ const makeInitData = (overrides: Partial<InitData> = {}): InitData => ({
   ...overrides,
 });
 
-const SettingsFormWithContext = ({
-  initData,
-}: {
-  initData: InitData;
-}) => (
+const SettingsFormWithContext = ({ initData }: { initData: InitData }) => (
   <Formik initialValues={initData} onSubmit={() => {}}>
     <SettingsForm />
   </Formik>
