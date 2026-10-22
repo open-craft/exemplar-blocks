@@ -83,17 +83,13 @@ class ResourcesData(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
 
-    # Optional title shown above the resources. Empty means no title.
-    heading: str = "Essential Reading"
     resources: list[Resource]
 
     def searchable_text(self) -> str:
         """
         Learner visible text for the search index.
         """
-        return " ".join(
-            [self.heading, *[resource.searchable_text() for resource in self.resources]]
-        )
+        return " ".join(resource.searchable_text() for resource in self.resources)
 
 
 class Data(BaseModel):

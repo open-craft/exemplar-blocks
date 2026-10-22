@@ -19,7 +19,6 @@ logger = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
 
 DEFAULT_RESOURCES_DATA = ResourcesData(
-    heading="Essential Reading",
     resources=[
         Resource(
             id="example-article",
@@ -51,15 +50,15 @@ class ExternalResourcesXBlock(XBlock):
 
     display_name = String(
         display_name="Display Name",
-        default="External Resources",
+        default="Essential Reading",
         scope=Scope.settings,
-        help="Name of the component in the studio",
+        help="Name of the component, also shown to learners as the block title",
     )
     resources_data = Dict(
         display_name="Data",
         default=DEFAULT_RESOURCES_DATA.model_dump(),
         scope=Scope.content,
-        help="All the content of the block: the heading and the resources",
+        help="All the content of the block: the resources",
     )
     read_resources = List(
         display_name="Read resources",
@@ -89,8 +88,7 @@ class ExternalResourcesXBlock(XBlock):
 
     def _render_preview(self, *, is_studio: bool) -> Fragment:
         """
-        Student view for the External Resources XBlock. In studio, it is the
-        same view plus the studio CSS.
+        Student view for the External Resources XBlock.
         """
         html = resource_loader.load_unicode("static/html/external_resources.html")
         frag = Fragment(html)

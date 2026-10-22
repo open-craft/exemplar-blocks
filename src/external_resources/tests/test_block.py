@@ -12,7 +12,6 @@ from external_resources.external_resources import DEFAULT_RESOURCES_DATA
 from external_resources.types import ResourcesData
 
 VALID_DATA = {
-    "heading": "Week 1 reading",
     "resources": [
         {
             "id": "resource-1",
@@ -90,9 +89,8 @@ def test_block_default_data():
     """A new block has the example resources, and they are valid."""
     block = make_block()
 
-    assert block.display_name == "External Resources"
+    assert block.display_name == "Essential Reading"
     assert block.resources_data == DEFAULT_RESOURCES_DATA.model_dump()
-    assert block.resources_data["heading"] == "Essential Reading"
     assert [r["id"] for r in block.resources_data["resources"]] == [
         "example-article",
         "example-video",
@@ -141,7 +139,6 @@ def test_block_update_data():
     assert b"success" in response.body
 
     assert block.display_name == "test"
-    assert block.resources_data["heading"] == "Week 1 reading"
     assert block.resources_data["resources"][1]["publisher"] == "Khan Academy"
 
 
@@ -153,12 +150,12 @@ def test_block_update_data_without_resources():
         "studio_save",
         make_request(
             "POST",
-            {"displayName": "test", "resourcesData": {"heading": "", "resources": []}},
+            {"displayName": "test", "resourcesData": {"resources": []}},
         ),
     )
 
     assert response.status == "200 OK"
-    assert block.resources_data == {"heading": "", "resources": []}
+    assert block.resources_data == {"resources": []}
 
 
 def test_block_update_data_reject_invalid():
@@ -183,7 +180,7 @@ def test_block_update_data_reject_invalid():
     assert response.status == "400 Bad Request"
 
     # assert the changes haven't been persisted
-    assert block.display_name == "External Resources"
+    assert block.display_name == "Essential Reading"
     assert block.resources_data == DEFAULT_RESOURCES_DATA.model_dump()
 
 
@@ -263,14 +260,13 @@ def test_workbench_scenarios():
 
 def test_index_dictionary():
     """Learner-visible text from the block content is indexed as plain text."""
-    block = make_block(resources_data=VALID_DATA)
+    block = make_block(display_name="Week 1 reading", resources_data=VALID_DATA)
 
     result = block.index_dictionary()
 
     assert result["content_type"] == "External Resources"
-    assert result["content"]["display_name"] == "External Resources"
+    assert result["content"]["display_name"] == "Week 1 reading"
     content = result["content"]["external_resources_content"]
-    assert "Week 1 reading" in content
     assert "How arteries respond to changes in blood pressure" in content
     assert "Khan Academy" in content
     assert "https://" not in content

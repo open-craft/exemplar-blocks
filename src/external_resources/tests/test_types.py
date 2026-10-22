@@ -13,7 +13,6 @@ VALID_RESOURCE = {
 }
 
 VALID_DATA = {
-    "heading": "Essential Reading",
     "resources": [VALID_RESOURCE],
 }
 
@@ -119,26 +118,17 @@ def test_resource_empty_texts_are_accepted():
     assert resource.publisher == ""
 
 
-def test_resources_data_defaults():
-    """The heading defaults to "Essential Reading" and the list may be empty."""
+def test_resources_data_empty():
+    """A block may have no resources."""
     data = ResourcesData.model_validate({"resources": []})
 
-    assert data.heading == "Essential Reading"
     assert data.resources == []
 
 
-def test_resources_data_empty_heading():
-    """An empty heading is accepted (the title is not shown)."""
-    data = ResourcesData.model_validate({**VALID_DATA, "heading": ""})
-
-    assert data.heading == ""
-
-
 def test_searchable_text():
-    """The heading, titles, publishers and alt texts are indexed."""
+    """The titles, publishers and alt texts are indexed."""
     data = ResourcesData.model_validate(
         {
-            "heading": "Week 1 reading",
             "resources": [
                 {**VALID_RESOURCE, "thumbnailAltText": "Red blood cells"},
                 {
@@ -154,7 +144,6 @@ def test_searchable_text():
     text = data.searchable_text()
 
     for expected in (
-        "Week 1 reading",
         "How arteries respond to changes in blood pressure",
         "American Heart Association",
         "Red blood cells",
