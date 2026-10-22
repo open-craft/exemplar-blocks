@@ -74,14 +74,14 @@ def loc_to_dot_sep(loc: tuple[Union[str, int], ...]) -> str:
     >>> loc_to_dot_sep(('cards', 0, 'title',))
     'cards[0].title'
     """
-    path = ''
+    path = ""
     for i, x in enumerate(loc):
         if isinstance(x, str):
             if i > 0:
-                path += '.'
+                path += "."
             path += x
         elif isinstance(x, int):
-            path += f'[{x}]'
+            path += f"[{x}]"
         else:
-            raise TypeError('Unexpected type')
+            raise TypeError("Unexpected type")
     return path
