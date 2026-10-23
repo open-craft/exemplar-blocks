@@ -91,11 +91,12 @@ def test_searchable_text():
 
 
 def test_searchable_text_excludes_non_readable_fields():
-    """The URL, ID and file type (predefined or custom) are not indexed."""
+    """The URL, ID, file type (predefined or custom) and icon are not indexed."""
     resource = make_resource(
         url="https://example.com/secret-path",
         fileType="CUSTOM",
         customFileType="Podcast",
+        thumbnailIcon="menu_book",
     )
 
     text = resource.searchable_text()
@@ -104,3 +105,4 @@ def test_searchable_text_excludes_non_readable_fields():
     assert "resource-1" not in text
     assert "CUSTOM" not in text
     assert "Podcast" not in text
+    assert "menu_book" not in text

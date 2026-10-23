@@ -42,6 +42,9 @@ class Resource(BaseModel):
     thumbnailUrl: str = ""
     # Empty means the thumbnail is decorative.
     thumbnailAltText: str = ""
+    # Material icon name shown when there is no thumbnail, as in the card
+    # blocks. Empty means the file type icon is used.
+    thumbnailIcon: str = ""
 
     @field_validator("url")
     @classmethod
@@ -71,7 +74,7 @@ class Resource(BaseModel):
         """
         Learner-visible text for search indexing.
 
-        The URL, ID, file type and expected time are deliberately excluded.
+        The URL, ID, file type, icon and expected time are deliberately excluded.
         """
         return " ".join([self.title, self.publisher, self.thumbnailAltText])
 
