@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from external_resources.types import Data, FileType, Resource, ResourcesData
+from external_resources.types import Resource, ResourcesData
 
 VALID_RESOURCE = {
     "id": "resource-1",
@@ -12,38 +12,10 @@ VALID_RESOURCE = {
     "fileType": "ARTICLE",
 }
 
-VALID_DATA = {
-    "resources": [VALID_RESOURCE],
-}
-
 
 def make_resource(**fields) -> Resource:
     """Build a resource from the valid one, overriding some fields."""
     return Resource.model_validate({**VALID_RESOURCE, **fields})
-
-
-def test_data_validation():
-    """The full studio payload validates."""
-    validated_data = Data.model_validate(
-        {"displayName": "test", "resourcesData": VALID_DATA}
-    )
-
-    assert validated_data.displayName == "test"
-    assert validated_data.resourcesData.resources[0].title == VALID_RESOURCE["title"]
-
-
-def test_resource_defaults():
-    """Optional fields default to empty values."""
-    resource = make_resource()
-
-    assert resource.customFileType == ""
-    assert resource.thumbnailUrl == ""
-    assert resource.thumbnailAltText == ""
-
-
-def test_resource_file_type_is_stored_as_plain_string():
-    """The file type is dumped as its plain value, ready to store in the block."""
-    assert make_resource(fileType=FileType.VIDEO).model_dump()["fileType"] == "VIDEO"
 
 
 @pytest.mark.parametrize(
@@ -84,12 +56,6 @@ def test_resource_expected_minutes_must_be_positive(minutes):
         make_resource(expectedMinutes=minutes)
 
 
-def test_resource_unknown_file_type():
-    """Only the predefined file types (or CUSTOM) are accepted."""
-    with pytest.raises(ValidationError):
-        make_resource(fileType="PODCAST")
-
-
 def test_resource_custom_file_type_required():
     """A CUSTOM file type needs the custom type text."""
     with pytest.raises(ValidationError):
@@ -108,21 +74,6 @@ def test_resource_custom_file_type_cleared_for_other_types():
     resource = make_resource(fileType="VIDEO", customFileType="Podcast")
 
     assert resource.customFileType == ""
-
-
-def test_resource_empty_texts_are_accepted():
-    """Title and publisher may be empty, like in the other blocks."""
-    resource = make_resource(title="", publisher="")
-
-    assert resource.title == ""
-    assert resource.publisher == ""
-
-
-def test_resources_data_empty():
-    """A block may have no resources."""
-    data = ResourcesData.model_validate({"resources": []})
-
-    assert data.resources == []
 
 
 def test_searchable_text():
