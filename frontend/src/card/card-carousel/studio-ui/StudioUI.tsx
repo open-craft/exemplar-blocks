@@ -1,6 +1,11 @@
 import { useMemo, useState } from 'react';
 import { Form, Formik, useFormikContext } from 'formik';
-import { TabContainer, TabContent, TabPane } from '@openedx/paragon';
+import {
+  ModalDialog,
+  TabContainer,
+  TabContent,
+  TabPane,
+} from '@openedx/paragon';
 import { type InitData } from '@/card/card-carousel/types';
 import { newCard } from '@/card/common/utils';
 import {
@@ -46,17 +51,19 @@ function StudioForm({ saveUrl, runtime }: StudioFormProps) {
             title={values.displayName}
             onTitleChange={(value) => setFieldValue('displayName', value)}
           />
-          <TabContent className="card-carousel-studio-tab-content">
-            <TabPane eventKey="content">
-              <CarouselEditor enableCardOrientation />
-            </TabPane>
-            <TabPane eventKey="settings">
-              <SettingsForm />
-            </TabPane>
-            <TabPane eventKey="json">
-              <JsonImporter saveUrl={saveUrl} runtime={runtime} />
-            </TabPane>
-          </TabContent>
+          <ModalDialog.Body>
+            <TabContent className="card-carousel-studio-tab-content">
+              <TabPane eventKey="content">
+                <CarouselEditor enableCardOrientation />
+              </TabPane>
+              <TabPane eventKey="settings">
+                <SettingsForm />
+              </TabPane>
+              <TabPane eventKey="json">
+                <JsonImporter saveUrl={saveUrl} runtime={runtime} />
+              </TabPane>
+            </TabContent>
+          </ModalDialog.Body>
           <ModalFooter runtime={runtime} showingEditor onContinue={() => {}} />
         </div>
       </TabContainer>

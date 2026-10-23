@@ -12707,46 +12707,57 @@ var Hy = [
 ];
 //#endregion
 //#region src/shared/components/StudioHeader.tsx
-function Uy({ title: e, onTitleChange: t, activeTab: n, tabs: r = Hy, className: i = "" }) {
-	let [a, o] = (0, I.useState)(!1);
-	return /* @__PURE__ */ (0, F.jsxs)(Mu, {
-		className: `studio-header border-bottom ${i}`.trim(),
-		children: [/* @__PURE__ */ (0, F.jsx)("div", {
-			className: "studio-header-title",
-			children: a ? /* @__PURE__ */ (0, F.jsx)(H.Control, {
-				type: "text",
-				name: "studio-title",
-				"aria-label": "Display name",
-				value: e,
-				onChange: (e) => t(e.target.value),
-				onBlur: () => o(!1),
-				onKeyDown: (e) => {
-					(e.key === "Enter" || e.key === "Escape") && (o(!1), e.preventDefault());
-				}
-			}) : /* @__PURE__ */ (0, F.jsxs)(F.Fragment, { children: [/* @__PURE__ */ (0, F.jsxs)("h3", {
-				className: "h3 mb-0",
-				children: ["Editing: ", e]
-			}), /* @__PURE__ */ (0, F.jsx)(le, {
-				alt: "Edit display name",
-				className: "studio-header-title-edit",
-				size: "sm",
-				src: Gr,
-				onClick: () => o(!0)
-			})] })
-		}), /* @__PURE__ */ (0, F.jsx)(gu, {
-			role: "tablist",
-			variant: "button-group",
-			activeKey: n,
-			className: "studio-header-tabs-nav pgn__tabs",
-			"aria-label": "Editor Sections",
-			children: r.map(({ key: e, label: t }) => /* @__PURE__ */ (0, F.jsx)(gu.Link, {
-				as: "button",
-				type: "button",
-				eventKey: e,
-				tabIndex: n === e ? 0 : -1,
-				children: t
-			}, e))
-		})]
+function Uy({ title: e, onTitleChange: t, activeTab: n, tabs: r = Hy }) {
+	let [i, a] = (0, I.useState)(!1);
+	return /* @__PURE__ */ (0, F.jsx)($l.Header, {
+		className: "shadow-sm studio-header",
+		children: /* @__PURE__ */ (0, F.jsxs)("div", {
+			className: "d-flex flex-row justify-content-between",
+			children: [
+				/* @__PURE__ */ (0, F.jsx)(Oe, { children: i ? /* @__PURE__ */ (0, F.jsx)(H.Control, {
+					type: "text",
+					name: "studio-title",
+					"aria-label": "Display name",
+					value: e,
+					onChange: (e) => t(e.target.value),
+					onBlur: () => a(!1),
+					onKeyDown: (e) => {
+						(e.key === "Enter" || e.key === "Escape") && (a(!1), e.preventDefault());
+					}
+				}) : /* @__PURE__ */ (0, F.jsx)("h3", {
+					className: "h3 col pl-0",
+					children: /* @__PURE__ */ (0, F.jsxs)("div", {
+						className: "d-flex flex-row align-items-center mt-1",
+						children: [
+							"Editing: ",
+							e,
+							/* @__PURE__ */ (0, F.jsx)(le, {
+								alt: "Edit display name",
+								className: "studio-header-title-edit",
+								size: "sm",
+								src: Gr,
+								onClick: () => a(!0)
+							})
+						]
+					})
+				}) }),
+				/* @__PURE__ */ (0, F.jsx)(Oe.Spacer, {}),
+				/* @__PURE__ */ (0, F.jsx)(gu, {
+					role: "tablist",
+					variant: "button-group",
+					activeKey: n,
+					className: "studio-header-tabs-nav pgn__tabs",
+					"aria-label": "Editor Sections",
+					children: r.map(({ key: e, label: t }) => /* @__PURE__ */ (0, F.jsx)(gu.Link, {
+						as: "button",
+						type: "button",
+						eventKey: e,
+						tabIndex: n === e ? 0 : -1,
+						children: t
+					}, e))
+				})
+			]
+		})
 	});
 }
 //#endregion
@@ -18566,9 +18577,8 @@ function TN({ enableCardOrientation: e = !1 }) {
 //#endregion
 //#region src/card/common/studio-ui/ModalFooter.tsx
 function EN({ runtime: e, showingEditor: t, onContinue: n }) {
-	return /* @__PURE__ */ (0, F.jsx)(Mu, {
-		position: "bottom",
-		className: "p-4 border-top card-carousel-editor-modal-footer justify-content-end",
+	return /* @__PURE__ */ (0, F.jsx)($l.Footer, {
+		className: "border-top",
 		children: /* @__PURE__ */ (0, F.jsxs)(ve, {
 			direction: "horizontal",
 			gap: 4,
@@ -18683,7 +18693,7 @@ function kN({ saveUrl: e, runtime: t }) {
 					title: a.displayName,
 					onTitleChange: (e) => o("displayName", e)
 				}),
-				/* @__PURE__ */ (0, F.jsxs)(Xn, {
+				/* @__PURE__ */ (0, F.jsx)($l.Body, { children: /* @__PURE__ */ (0, F.jsxs)(Xn, {
 					className: "card-carousel-studio-tab-content",
 					children: [
 						/* @__PURE__ */ (0, F.jsx)(er, {
@@ -18702,7 +18712,7 @@ function kN({ saveUrl: e, runtime: t }) {
 							})
 						})
 					]
-				}),
+				}) }),
 				/* @__PURE__ */ (0, F.jsx)(EN, {
 					runtime: t,
 					showingEditor: !0,
@@ -18734,7 +18744,7 @@ function AN({ runtime: e, saveUrl: t, initData: n }) {
 }
 //#endregion
 //#region src/card/card-carousel/studio-ui/StudioUI.css?inline
-var jN = ".icon-selector.dropdown-toggle:after{display:none}.icon-list-popup{background-color:var(--pgn-color-body-bg);width:292px;min-height:242px;max-height:300px;overflow:scroll}button:not(:disabled).icon-symbol{background-color:var(--pgn-color-body-bg);width:auto;color:var(--pgn-color-gray-600);border:0}button:not(:disabled).icon-symbol:hover{background-color:var(--pgn-color-light);color:var(--pgn-color-primary)}button:not(:disabled).icon-symbol:focus{background-color:var(--pgn-color-light);color:var(--pgn-color-primary);border:0}.card-carousel-editor-modal-footer{background-color:var(--pgn-color-card-bg-base)}.xblock-root .input-group .pgn__form-control-decorator-group{margin-right:0}.xblock-root .input-group .pgn__form-control-decorator-group .form-control{border-top-right-radius:0;border-bottom-right-radius:0}.studio-header{background-color:var(--pgn-color-white);padding:0 0 var(--pgn-spacing-spacer-2,8px) var(--pgn-spacing-spacer-2,8px);z-index:1;justify-content:space-between}.studio-header-title{align-items:center;gap:var(--pgn-spacing-spacer-2,8px);display:flex}.studio-header-tabs-nav{flex-wrap:nowrap;padding-right:64px}.studio-header-tabs-nav .nav-link{appearance:none;font-family:inherit;font-size:inherit;line-height:inherit;cursor:pointer;background-color:#0000}.wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.card-carousel-studio{flex-direction:column;justify-content:space-between;min-height:635px;display:flex}.card-carousel-create-form{padding:var(--pgn-spacing-spacer-3,16px)}.card-carousel-studio-tab-content{flex:auto;min-height:0}.card-carousel-studio-field{margin-bottom:var(--pgn-spacing-spacer-4,24px)}.card-carousel-studio-field--last{margin-bottom:0}.card-carousel-studio-help-text{font-size:var(--pgn-typography-font-size-sm,.875rem)}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", MN = (e, t, n) => {
+var jN = ".icon-selector.dropdown-toggle:after{display:none}.icon-list-popup{background-color:var(--pgn-color-body-bg);width:292px;min-height:242px;max-height:300px;overflow:scroll}button:not(:disabled).icon-symbol{background-color:var(--pgn-color-body-bg);width:auto;color:var(--pgn-color-gray-600);border:0}button:not(:disabled).icon-symbol:hover{background-color:var(--pgn-color-light);color:var(--pgn-color-primary)}button:not(:disabled).icon-symbol:focus{background-color:var(--pgn-color-light);color:var(--pgn-color-primary);border:0}.card-carousel-editor-modal-footer{background-color:var(--pgn-color-card-bg-base)}.xblock-root .input-group .pgn__form-control-decorator-group{margin-right:0}.xblock-root .input-group .pgn__form-control-decorator-group .form-control{border-top-right-radius:0;border-bottom-right-radius:0}.pgn__modal-header.studio-header{padding:calc(var(--pgn-spacing-modal-inner-padding-base)/2) var(--pgn-spacing-modal-header-padding-base-x);z-index:1}.studio-header-title{align-items:center;gap:var(--pgn-spacing-spacer-2,8px);display:flex}.studio-header-tabs-nav{flex-wrap:nowrap;padding-right:64px}.studio-header-tabs-nav .nav-link{appearance:none;font-family:inherit;font-size:inherit;line-height:inherit;cursor:pointer;background-color:#0000}.wrapper.xblock-iframe-content .xblock-v1-studio_view{display:flex}.xblock-root,.xblock-root .react-studio-block,.xblock-root .react-studio-block .container-fluid{height:100%}.react-studio-block{flex-grow:1}.react-studio-block *,.react-studio-block :before,.react-studio-block :after{box-sizing:border-box}.react-studio-block{margin-bottom:0!important}.xblock-actions{border-top:1px solid var(--pgn-color-gray-200);background:var(--pgn-color-white);z-index:1;justify-content:flex-end;gap:.5em;padding:.75em 1em;display:flex;position:sticky;bottom:0;box-shadow:0 -2px 6px #0000000d}.react-colorful{-webkit-user-select:none;user-select:none;cursor:default;flex-direction:column;width:200px;height:200px;display:flex;position:relative}.react-colorful__saturation{background-image:linear-gradient(#0000,#000),linear-gradient(90deg,#fff,#fff0);border-color:#0000 #0000 #000;border-bottom-style:solid;border-bottom-width:12px;border-radius:8px 8px 0 0;flex-grow:1;position:relative}.react-colorful__pointer-fill,.react-colorful__alpha-gradient{content:\"\";pointer-events:none;border-radius:inherit;position:absolute;inset:0}.react-colorful__alpha-gradient,.react-colorful__saturation{box-shadow:inset 0 0 0 1px #0000000d}.react-colorful__hue,.react-colorful__alpha{height:24px;position:relative}.react-colorful__hue{background:linear-gradient(90deg,red 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}.react-colorful__last-control{border-radius:0 0 8px 8px}.react-colorful__interactive{border-radius:inherit;touch-action:none;outline:none;position:absolute;inset:0}.react-colorful__pointer{z-index:1;box-sizing:border-box;background-color:#fff;border:2px solid #fff;border-radius:50%;width:28px;height:28px;position:absolute;transform:translate(-50%,-50%);box-shadow:0 2px 4px #0003}.react-colorful__interactive:focus .react-colorful__pointer{transform:translate(-50%,-50%)scale(1.1)}.react-colorful__alpha,.react-colorful__alpha-pointer{background-color:#fff;background-image:url(\"data:image/svg+xml,<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill-opacity=\\\".05\\\"><rect x=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/><rect y=\\\"8\\\" width=\\\"8\\\" height=\\\"8\\\"/></svg>\")}.react-colorful__saturation-pointer{z-index:3}.react-colorful__hue-pointer{z-index:2}.card-carousel-studio{flex-direction:column;justify-content:space-between;min-height:635px;display:flex}.card-carousel-create-form{padding:var(--pgn-spacing-spacer-3,16px)}.card-carousel-studio-tab-content{flex:auto;min-height:0}.card-carousel-studio-field{margin-bottom:var(--pgn-spacing-spacer-4,24px)}.card-carousel-studio-field--last{margin-bottom:0}.card-carousel-studio-help-text{font-size:var(--pgn-typography-font-size-sm,.875rem)}.material-icons-outlined{text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;-moz-osx-font-smoothing:grayscale;font-feature-settings:\"liga\";direction:ltr;font-family:Material Icons Outlined;font-size:24px;font-style:normal;font-weight:400;line-height:1;display:inline-block}", MN = (e, t, n) => {
 	let r = d(e), i = t.handlerUrl(e, "studio_save"), a = r.parentElement?.parentElement;
 	a && (a.style.minHeight = "635px", a.style.maxHeight = "calc(100vh - 51px)", a.style.overflowY = "scroll"), s({
 		runtime: t,
