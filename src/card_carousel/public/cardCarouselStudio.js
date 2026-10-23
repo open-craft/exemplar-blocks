@@ -12690,7 +12690,7 @@ function Vy() {
 	});
 }
 //#endregion
-//#region src/shared/components/StudioHeader.tsx
+//#region src/shared/components/constants.ts
 var Hy = [
 	{
 		key: "content",
@@ -12705,6 +12705,8 @@ var Hy = [
 		label: "JSON"
 	}
 ];
+//#endregion
+//#region src/shared/components/StudioHeader.tsx
 function Uy({ title: e, onTitleChange: t, activeTab: n, tabs: r = Hy, className: i = "" }) {
 	let [a, o] = (0, I.useState)(!1);
 	return /* @__PURE__ */ (0, F.jsxs)(Mu, {
