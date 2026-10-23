@@ -8,36 +8,34 @@ from pydantic import ValidationError
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
 from xblock.exceptions import JsonHandlerError
-from xblock.fields import Dict, List, Scope, String
+from xblock.fields import List, Scope, String
 from xblock.utils.resources import ResourceLoader
 
-from external_resources.types import Data, FileType, Resource, ResourcesData
+from external_resources.types import Data, FileType, Resource
 from exemplar_common.utils import strip_html_for_search
 from exemplar_common.xblock_config import get_xblock_config, XBlockView
 
 logger = logging.getLogger(__name__)
 resource_loader = ResourceLoader(__name__)
 
-DEFAULT_RESOURCES_DATA = ResourcesData(
-    resources=[
-        Resource(
-            id="example-article",
-            url="https://openedx.org/",
-            title="Open edX Article",
-            publisher="Open edX",
-            expectedMinutes=5,
-            fileType=FileType.ARTICLE,
-        ),
-        Resource(
-            id="example-video",
-            url="https://www.youtube.com/watch?v=QHj6o6gCGsU",
-            title="Open edX platform: Verawood Release",
-            publisher="Open edX",
-            expectedMinutes=10,
-            fileType=FileType.VIDEO,
-        ),
-    ],
-)
+DEFAULT_RESOURCES = [
+    Resource(
+        id="example-article",
+        url="https://openedx.org/",
+        title="Open edX Article",
+        publisher="Open edX",
+        expectedMinutes=5,
+        fileType=FileType.ARTICLE,
+    ),
+    Resource(
+        id="example-video",
+        url="https://www.youtube.com/watch?v=QHj6o6gCGsU",
+        title="Open edX platform: Verawood Release",
+        publisher="Open edX",
+        expectedMinutes=10,
+        fileType=FileType.VIDEO,
+    ),
+]
 
 
 class ExternalResourcesXBlock(XBlock):
@@ -54,11 +52,11 @@ class ExternalResourcesXBlock(XBlock):
         scope=Scope.settings,
         help="Name of the component, also shown to learners as the block title",
     )
-    resources_data = Dict(
-        display_name="Data",
-        default=DEFAULT_RESOURCES_DATA.model_dump(),
+    resources = List(
+        display_name="Resources",
+        default=[resource.model_dump() for resource in DEFAULT_RESOURCES],
         scope=Scope.content,
-        help="All the content of the block: the resources",
+        help="The external resources shown to learners, in order",
     )
     read_resources = List(
         display_name="Read resources",
@@ -71,9 +69,7 @@ class ExternalResourcesXBlock(XBlock):
         """
         IDs of the resources currently in the block.
         """
-        return {
-            resource.get("id") for resource in self.resources_data.get("resources", [])
-        }
+        return {resource.get("id") for resource in self.resources}
 
     def _current_read_resources(self) -> list[str]:
         """
@@ -108,7 +104,7 @@ class ExternalResourcesXBlock(XBlock):
                 ),
                 "data": {
                     "displayName": self.display_name,
-                    "resourcesData": self.resources_data,
+                    "resources": self.resources,
                     "readResources": self._current_read_resources(),
                 },
                 "config": get_xblock_config(self.context_key, view=view),
@@ -144,7 +140,7 @@ class ExternalResourcesXBlock(XBlock):
                 ),
                 "data": {
                     "displayName": self.display_name,
-                    "resourcesData": self.resources_data,
+                    "resources": self.resources,
                 },
                 "config": get_xblock_config(self.context_key, XBlockView.STUDIO),
             },
@@ -166,7 +162,7 @@ class ExternalResourcesXBlock(XBlock):
             raise JsonHandlerError(400, message)
 
         self.display_name = block_data.displayName
-        self.resources_data = block_data.resourcesData.model_dump()
+        self.resources = [resource.model_dump() for resource in block_data.resources]
 
         logger.info("Successfully saved External Resources data.")
         return {"result": "success"}
@@ -209,9 +205,10 @@ class ExternalResourcesXBlock(XBlock):
         xblock_body = super().index_dictionary()
         searchable_text = ""
         try:
-            searchable_text = ResourcesData.model_validate(
-                self.resources_data
-            ).searchable_text()
+            searchable_text = " ".join(
+                Resource.model_validate(resource).searchable_text()
+                for resource in self.resources
+            )
         except (ValidationError, TypeError):
             logger.warning(
                 "Skipping malformed content while indexing block %s",

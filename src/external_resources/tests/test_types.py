@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from external_resources.types import Resource, ResourcesData
+from external_resources.types import Resource
 
 VALID_RESOURCE = {
     "id": "resource-1",
@@ -77,29 +77,15 @@ def test_resource_custom_file_type_cleared_for_other_types():
 
 
 def test_searchable_text():
-    """The titles, publishers and alt texts are indexed."""
-    data = ResourcesData.model_validate(
-        {
-            "resources": [
-                {**VALID_RESOURCE, "thumbnailAltText": "Red blood cells"},
-                {
-                    **VALID_RESOURCE,
-                    "id": "resource-2",
-                    "title": "Blood flow and the circulatory system",
-                    "publisher": "Khan Academy",
-                },
-            ],
-        }
-    )
+    """The title, publisher and alt text are indexed."""
+    resource = make_resource(thumbnailAltText="Red blood cells")
 
-    text = data.searchable_text()
+    text = resource.searchable_text()
 
     for expected in (
         "How arteries respond to changes in blood pressure",
         "American Heart Association",
         "Red blood cells",
-        "Blood flow and the circulatory system",
-        "Khan Academy",
     ):
         assert expected in text
 

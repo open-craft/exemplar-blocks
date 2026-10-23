@@ -76,22 +76,6 @@ class Resource(BaseModel):
         return " ".join([self.title, self.publisher, self.thumbnailAltText])
 
 
-class ResourcesData(BaseModel):
-    """
-    All the learner-facing content of the External Resources block.
-    """
-
-    model_config = ConfigDict(extra="forbid")
-
-    resources: list[Resource]
-
-    def searchable_text(self) -> str:
-        """
-        Learner visible text for the search index.
-        """
-        return " ".join(resource.searchable_text() for resource in self.resources)
-
-
 class Data(BaseModel):
     """
     Full payload sent by the studio editor when saving the block.
@@ -100,4 +84,4 @@ class Data(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     displayName: str
-    resourcesData: ResourcesData
+    resources: list[Resource]

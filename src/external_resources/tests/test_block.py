@@ -8,29 +8,27 @@ from xblock.fields import ScopeIds
 from xblock.test.toy_runtime import ToyRuntime
 
 from external_resources import ExternalResourcesXBlock
-from external_resources.external_resources import DEFAULT_RESOURCES_DATA
-from external_resources.types import ResourcesData
+from external_resources.external_resources import DEFAULT_RESOURCES
+from external_resources.types import Resource
 
-VALID_DATA = {
-    "resources": [
-        {
-            "id": "resource-1",
-            "url": "https://www.heart.org/article",
-            "title": "How arteries respond to changes in blood pressure",
-            "publisher": "American Heart Association",
-            "expectedMinutes": 7,
-            "fileType": "ARTICLE",
-        },
-        {
-            "id": "resource-2",
-            "url": "https://www.khanacademy.org/video",
-            "title": "Blood flow and the circulatory system",
-            "publisher": "Khan Academy",
-            "expectedMinutes": 9,
-            "fileType": "VIDEO",
-        },
-    ],
-}
+VALID_RESOURCES = [
+    {
+        "id": "resource-1",
+        "url": "https://www.heart.org/article",
+        "title": "How arteries respond to changes in blood pressure",
+        "publisher": "American Heart Association",
+        "expectedMinutes": 7,
+        "fileType": "ARTICLE",
+    },
+    {
+        "id": "resource-2",
+        "url": "https://www.khanacademy.org/video",
+        "title": "Blood flow and the circulatory system",
+        "publisher": "Khan Academy",
+        "expectedMinutes": 9,
+        "fileType": "VIDEO",
+    },
+]
 
 
 def make_request(method: Literal["GET", "POST", "PUT", "DELETE"], data) -> Request:
@@ -90,12 +88,10 @@ def test_block_default_data():
     block = make_block()
 
     assert block.display_name == "Essential Reading"
-    assert block.resources_data == DEFAULT_RESOURCES_DATA.model_dump()
-    assert [r["id"] for r in block.resources_data["resources"]] == [
-        "example-article",
-        "example-video",
-    ]
-    ResourcesData.model_validate(block.resources_data)
+    assert block.resources == [r.model_dump() for r in DEFAULT_RESOURCES]
+    assert [r["id"] for r in block.resources] == ["example-article", "example-video"]
+    for resource in block.resources:
+        Resource.model_validate(resource)
     assert block.read_resources == []
 
 
@@ -115,7 +111,7 @@ def test_author_view_is_used_in_studio():
 def test_views_send_read_resources_without_removed_ids():
     """The learner's read resources are sent, without IDs of removed resources."""
     block = make_block(
-        resources_data=VALID_DATA,
+        resources=VALID_RESOURCES,
         read_resources=["resource-2", "removed-resource"],
     )
 
@@ -132,14 +128,14 @@ def test_block_update_data():
 
     response = block.handle(
         "studio_save",
-        make_request("POST", {"displayName": "test", "resourcesData": VALID_DATA}),
+        make_request("POST", {"displayName": "test", "resources": VALID_RESOURCES}),
     )
 
     assert response.status == "200 OK"
     assert b"success" in response.body
 
     assert block.display_name == "test"
-    assert block.resources_data["resources"][1]["publisher"] == "Khan Academy"
+    assert block.resources[1]["publisher"] == "Khan Academy"
 
 
 def test_block_update_data_without_resources():
@@ -150,12 +146,12 @@ def test_block_update_data_without_resources():
         "studio_save",
         make_request(
             "POST",
-            {"displayName": "test", "resourcesData": {"resources": []}},
+            {"displayName": "test", "resources": []},
         ),
     )
 
     assert response.status == "200 OK"
-    assert block.resources_data == {"resources": []}
+    assert block.resources == []
 
 
 def test_block_update_data_reject_invalid():
@@ -168,11 +164,7 @@ def test_block_update_data_reject_invalid():
             "POST",
             {
                 "displayName": "test",
-                "resourcesData": {
-                    "resources": [
-                        {**VALID_DATA["resources"][0], "url": "javascript:alert(1)"}
-                    ],
-                },
+                "resources": [{**VALID_RESOURCES[0], "url": "javascript:alert(1)"}],
             },
         ),
     )
@@ -181,7 +173,7 @@ def test_block_update_data_reject_invalid():
 
     # assert the changes haven't been persisted
     assert block.display_name == "Essential Reading"
-    assert block.resources_data == DEFAULT_RESOURCES_DATA.model_dump()
+    assert block.resources == [r.model_dump() for r in DEFAULT_RESOURCES]
 
 
 def test_set_read_marks_and_unmarks():
@@ -260,7 +252,7 @@ def test_workbench_scenarios():
 
 def test_index_dictionary():
     """Learner-visible text from the block content is indexed as plain text."""
-    block = make_block(display_name="Week 1 reading", resources_data=VALID_DATA)
+    block = make_block(display_name="Week 1 reading", resources=VALID_RESOURCES)
 
     result = block.index_dictionary()
 
@@ -274,7 +266,7 @@ def test_index_dictionary():
 
 def test_index_dictionary_malformed_content():
     """Malformed data is ignored rather than breaking indexing."""
-    block = make_block(resources_data={"invalid": "data"})
+    block = make_block(resources=[{"invalid": "data"}])
 
     result = block.index_dictionary()
 
