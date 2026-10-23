@@ -2,13 +2,8 @@ import { useState } from 'react';
 import { render, screen } from '@opencraft/xblock-react-utils/testing';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import StudioHeader, { type StudioTab } from './StudioHeader';
-
-const TABS: StudioTab[] = [
-  { key: 'content', label: 'Content' },
-  { key: 'settings', label: 'Settings' },
-  { key: 'json', label: 'JSON' },
-];
+import StudioHeader from './StudioHeader';
+import { EDITOR_TABS, type StudioTab } from './constants';
 
 interface HarnessProps {
   initialTitle?: string;
@@ -20,7 +15,7 @@ interface HarnessProps {
 function Harness({
   initialTitle = 'My Component',
   activeTab = 'content',
-  tabs = TABS,
+  tabs = EDITOR_TABS,
   onTitleChange,
 }: HarnessProps) {
   const [title, setTitle] = useState(initialTitle);
@@ -45,7 +40,7 @@ describe('StudioHeader', () => {
     expect(
       screen.getByRole('heading', { name: 'Editing: My Component' }),
     ).toBeInTheDocument();
-    TABS.forEach(({ label }) => {
+    EDITOR_TABS.forEach(({ label }) => {
       expect(screen.getByRole('tab', { name: label })).toBeInTheDocument();
     });
   });
@@ -76,12 +71,12 @@ describe('StudioHeader', () => {
     );
   });
 
-  it('uses the provided aria label for the tab list', () => {
+  it('labels the tab list for assistive technology', () => {
     render(<Harness />);
 
     expect(screen.getByRole('tablist')).toHaveAttribute(
       'aria-label',
-      'Editor sections',
+      'Editor Sections',
     );
   });
 

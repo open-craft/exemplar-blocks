@@ -3,33 +3,26 @@ import { Nav, Sticky } from '@openedx/paragon';
 import Form from '@openedx/paragon/dist/Form';
 import IconButton from '@openedx/paragon/dist/IconButton';
 import { EditOutline } from '@openedx/paragon/icons';
-
-export interface StudioTab {
-  key: string;
-  label: string;
-}
+import { EDITOR_TABS, type StudioTab } from './constants';
 
 export interface StudioHeaderProps {
-  /** Key of the currently active tab. */
-  activeTab: string;
-  /** Tabs to render in the navigation, in display order. */
-  tabs: StudioTab[];
   /** Current component name, rendered as the editable heading. */
   title: string;
   /** Called with the updated name whenever the user edits the title. */
   onTitleChange: (title: string) => void;
-  /** Accessible label for the tab list. */
-  ariaLabel?: string;
+  /** Key of the currently active tab. */
+  activeTab: string;
+  /** Tabs to render in the navigation, in display order. */
+  tabs?: StudioTab[];
   /** Extra class names applied to the sticky header. */
   className?: string;
 }
 
 export default function StudioHeader({
-  activeTab,
-  tabs,
   title,
   onTitleChange,
-  ariaLabel = 'Editor sections',
+  activeTab,
+  tabs = EDITOR_TABS,
   className = '',
 }: StudioHeaderProps) {
   const [isEditingName, setIsEditingName] = useState(false);
@@ -73,7 +66,7 @@ export default function StudioHeader({
         variant="button-group"
         activeKey={activeTab}
         className="studio-header-tabs-nav pgn__tabs"
-        aria-label={ariaLabel}
+        aria-label="Editor Sections"
       >
         {tabs.map(({ key, label }) => (
           <Nav.Link
